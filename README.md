@@ -1,2 +1,2 @@
-# SoftwareTechnologyMQ.github.io
-Teaching resources for units in Software Technology steam at Macquarie University
+# comp1010.github.io
+COMP1010 Content

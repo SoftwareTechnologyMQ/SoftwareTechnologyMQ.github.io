@@ -1,0 +1,80 @@
+nav:
+  - title: COMP1000
+    url: /comp1000
+    subnav:
+      - title: Transition to Processing
+        url: /transition_to_processing
+      - title: Primitive Operations
+        url: /primitive_operations
+      - title: Algorithms
+        url: /algorithms
+      - title: Variables
+        url: /variables
+      - title: Debugging in Processing
+        url: /debugging_processing
+      - title: Conditions
+        url: /conditions
+      - title: Loops
+        url: /loops
+      - title: Functions
+        url: /functions
+      - title: Scope
+        url: /scope
+      - title: Compound Data
+        url: /composite_data
+      - title: Reference Semantics
+        url: /reference_semantics
+      - title: Refactoring
+        url: /refactoring
+      - title: Program Design
+        url:  /design
+  - title: COMP1010
+    url: /comp1010
+    subnav:
+      - title: Transition to Java
+        url: /transition_to_java
+      - title: Debugging in Java
+        url: /debugging
+      - title: Unit Testing
+        url: /unit_testing
+      - title: Classes - Writing your own Types
+        url: /classes_types
+      - title: Classes - Copying objects
+        url: /classes_copies
+      - title: Classes - Functions inside objects
+        url: /classes_methods
+      - title: Classes - Composition
+        url: /classes_composition
+      - title: Classes - Array of objects
+        url: /classes_array_of_objects
+      - title: Classes - Class holding array(s)
+        url: /classes_class_holding_array
+      - title: Recursion - What goes on during a function call
+        url: /recursion_function_call
+      - title: Recursion
+        url: /recursion
+      - title: Recursion with String data
+        url: /recursion-strings
+      - title: Tail-optimized recursion
+        url: /recursion-tail
+      - title: Recursion with arrays
+        url: /recursion-arrays
+      - title: Lists
+        url: /lists
+      - title: Iteration
+        url: /iteration
+      - title: List of Lists
+        url: /listOfLists
+      - title: Stacks and Queues
+        url: stacks_queues
+      - title: Custom-built ArrayList
+        url: /custom-built-arraylist
+      - title: Recursive data structures - 1
+        url: /recursive_data_structures_1
+      - title: Recursive data structures - 2
+        url: /recursive_data_structures_2
+      - title: Searching
+        url: /searching
+  - title: Edit (for staff)
+    url: https://github.com/comp1010mq/comp1010mq.github.io
+    
