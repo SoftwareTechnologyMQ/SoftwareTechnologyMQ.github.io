@@ -28,9 +28,13 @@ nav:
         url: /refactoring
       - title: Program Design
         url:  /design
+      - title: PRACTICE QUESTIONS
+        url:  https://github.com/gaurav1780/COMP1000PracticeQuestions  
   - title: COMP1010
     url: /comp1010
     subnav:
+      - title: COMP1000 REVISION
+        url: https://github.com/comp1010mq/comp1000_to_comp1010_transition_workshops
       - title: Transition to Java
         url: /transition_to_java
       - title: Debugging in Java
@@ -75,6 +79,8 @@ nav:
         url: /recursive_data_structures_2
       - title: Searching
         url: /searching
+      - title: PRACTICAL CLASS MATERIAL
+        url: https://github.com/gaurav1780/comp1010practicalClassMaterial
   - title: Edit (for staff)
     url: https://github.com/SoftwareTechnologyMQ/softwaretechnologyMQ.github.io
     
