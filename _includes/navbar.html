@@ -52,7 +52,7 @@
 </style>
 
 <div class="sidebar">
-  <ul>
+  <ol>
   {%- for page1 in page_paths -%}
       {% if page1.subnav %}
         <li class="dropdown" data-name = "{{ page1.title }}"> {{ page1.title }} ▼
@@ -66,7 +66,7 @@
         <li><a href="{{ page1.url }}">{{ page1.title }}</a></li>
       {%- endif -%}
   {%- endfor -%}
-  </ul>
+  </ol>
 </div>
 
 
