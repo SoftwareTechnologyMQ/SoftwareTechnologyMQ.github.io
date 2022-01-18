@@ -32,16 +32,14 @@
     z-index: 1;
   }
 
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
   .dropdown-content a {
     display: block;
     color: black;
     background: white;
     text-align: left;
   }
+
+  .show {display:block;}
 
   .wrapper {
     margin-left: 25%;
@@ -53,12 +51,12 @@
   <ul>
   {%- for page1 in page_paths -%}
       {% if page1.subnav %}
-        <li class="dropdown"> {{ page1.title }} ▼
-            <ul class="dropdown-content">
-                {%- for page2 in page1.subnav -%}
-                  <a href="{{ page2.url }}">{{ page2.title }}</a>
-                {%- endfor -%}
-            </ul>
+        <li class="dropdown" data-name = "{{ page1.title }}"> {{ page1.title }} ▼
+          <ul id="{{ page1.title }}" class="dropdown-content">
+              {%- for page2 in page1.subnav -%}
+                <a href="{{ page2.url }}">{{ page2.title }}</a>
+              {%- endfor -%}
+          </ul>
         </li>
       {% else %}
         <li><a href="{{ page1.url }}">{{ page1.title }}</a></li>
@@ -66,3 +64,13 @@
   {%- endfor -%}
   </ul>
 </div>
+
+
+<script>
+  document.addEventListener('click', function (e) {
+    var target = e.target;
+    if (target.tagName && target.tagName.toLowerCase() == "li") {
+      document.getElementById(target.dataset.name).classList.toggle("show");
+    }
+  });
+</script>
