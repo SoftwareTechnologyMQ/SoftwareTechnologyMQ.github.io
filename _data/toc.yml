@@ -84,9 +84,9 @@ nav:
   - title: COMP6010
     url: /comp6010
     subnav:
-      - title: Week 1
+      - title: COMP6010 Week 1
         url: /comp6010week1
-      - title: Week 2
+      - title: COMP6010 Week 2
         url: /comp6010week2
   - title: Edit (for staff)
     url: https://github.com/SoftwareTechnologyMQ/softwaretechnologyMQ.github.io

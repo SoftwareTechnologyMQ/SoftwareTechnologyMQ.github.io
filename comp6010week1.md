@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Week 1
+title: COMP6010 Week 1
 within: programming
 ---
 
