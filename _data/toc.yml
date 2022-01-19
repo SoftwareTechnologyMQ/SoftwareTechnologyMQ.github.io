@@ -81,6 +81,13 @@ nav:
         url: /searching
       - title: PRACTICAL CLASS MATERIAL
         url: https://github.com/gaurav1780/comp1010practicalClassMaterial
+  - title: COMP6010
+    url: /comp6010
+    subnav:
+      - title: Week 1
+      - url: /comp6010week1
+      - title: Week 2
+      - url: /comp6010week2
   - title: Edit (for staff)
     url: https://github.com/SoftwareTechnologyMQ/softwaretechnologyMQ.github.io
     
