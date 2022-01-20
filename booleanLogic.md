@@ -48,3 +48,5 @@ Because of the complexity in data relationships leading to various outputs.
 As a simple example, if I want to display all positive even numbers in red colour, all negative even numbers in green colour, and all (and only one) other even number in blue colour, I need to use Boolean logic.
 
 # Boolean operators
+
+`a` && `b` is `true` when both `a` and `b` are `true`
