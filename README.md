@@ -1,2 +1,1 @@
-# comp1010.github.io
-COMP1010 Content
+[softwaretechnologyMQ.github.io](softwaretechnologyMQ.github.io)
