@@ -1,1 +1,1 @@
-[softwaretechnologyMQ.github.io](softwaretechnologyMQ.github.io)
+[softwaretechnologyMQ.github.io](http://softwaretechnologyMQ.github.io/)
