@@ -39,6 +39,8 @@ For example, "if it's raining OR if it's over 50 degrees celsius, take an umbrel
 
 "You are NOT stupid" explicitly means that the person is not unintelligent. But does it mean that the person is intelligent?!? Not really. Just like "The number is NOT positive" could mean the number being negative, or zero (which is neither positive nor negative).
 
+"You are NOT NOT clever" means you are definitely clever!
+
 # Why learn Boolean logic
 
 Because of the complexity in data relationships leading to various outputs.
