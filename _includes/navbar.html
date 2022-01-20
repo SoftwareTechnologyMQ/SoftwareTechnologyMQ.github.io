@@ -80,6 +80,7 @@
 
     //Clean up saved data if anything went wrong (which it hopefully shouldnt)
     openDropdowns = CleanArray(dropdownOpen.split(","));
+    localStorage.setItem('dropdownOpen', ArrayToString(openDropdowns));
 
     //Open back up each dropdown that was open prior
     if (openDropdowns.length > 0) {
@@ -119,14 +120,16 @@
     return str;
   }
 
-  //Removes duplicate, null and undefined items in an array
+  //Removes duplicate, null, undefined and nonexistent (not in DOM) items in an array
   function CleanArray(array) {
     let newArr = [];
     array.forEach(element => {
-      if (element && element !== undefined && !newArr.includes(element)) {
+      if (element && !newArr.includes(element) && document.getElementById(element)) {
+        console.log(document.getElementById(element));
         newArr.push(element);
       }
     });
+
     return newArr;
   }
 </script>
