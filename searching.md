@@ -16,6 +16,7 @@ within: programming
   * Recognise the reasons binary search works
   * Be able to trace a binary search on a sorted array
   * Be able to write a binary search algorithm
+  * Be able to compare binary vs. sequential search performances.
 
 </details>
 
