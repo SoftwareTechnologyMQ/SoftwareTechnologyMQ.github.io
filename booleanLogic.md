@@ -49,4 +49,51 @@ As a simple example, if I want to display all positive even numbers in red colou
 
 # Boolean operators
 
-`a` && `b` is `true` when both `a` and `b` are `true`
+## AND operator
+`a AND b` is `true` when **both** `a` and `b` are `true`
+
+| a | b | a AND b |
+|---|---|------|
+|false|false|false|
+|false|true|false|
+|true|false|false|
+|true|true|true|
+
+In Boolean algebra, `false` is represented by 0 and `true` is represented by 1. This is very handy because `AND` can be seen as **multiplication**.
+
+| a | b | a AND b ( $*$ ) |
+|---|---|------|
+|0|0|0|
+|0|1|0|
+|1|0|1|
+|1|1|1|
+
+## OR operator
+`a OR b` is `true` when **either** `a` **or** `b` is `true`
+
+| a | b | a OR b |
+|---|---|------|
+|false|false|false|
+|false|true|true|
+|true|false|true|
+|true|true|true|
+
+The `OR` operator can be seen as **addition**.
+
+| a | b | a OR b ( $+$ ) |
+|---|---|------|
+|0|0|0|
+|0|1|1|
+|1|0|1|
+|1|1|1|
+
+Why is `1+1 = 1`? Well, because we have binary states (0 or 1) so any overflow means you are limited to 1.
+
+## NOT operator
+`NOT a` is `true` when `a` is `false`.
+`NOT a` is `false` when `a` is `true`.
+
+| a | NOT a |
+|---|---|
+|false|true|
+|true|false|
