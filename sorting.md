@@ -7,7 +7,7 @@ within: programming
 <details class="prereq" markdown="1"><summary>Assumed Knowledge</summary>
 
   * <a href="functions">Functions</a>
-  * <a href="composite-data">Composite Data (Arrays)</a>
+  * <a href="composite_data">Composite Data (Arrays)</a>
   * <a href="classes_array_of_objects">Classes</a>
   * <a href="lists">ArrayLists</a>
 </details>
