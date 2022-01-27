@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Stacks and Queues
+title: Sorting
 within: programming
 ---
 
@@ -8,18 +8,16 @@ within: programming
 
   * <a href="functions">Functions</a>
   * <a href="composite-data">Composite Data (Arrays)</a>
-  * <a href="classes_types">Classes as Data Type</a>
-  * <a href="classes_methods">Classes (Methods)</a>
+  * <a href="classes_array_of_objects">Classes</a>
   * <a href="lists">ArrayLists</a>
 </details>
 
 <details class="outcomes" markdown="1"><summary>Learning Outcomes</summary>
 
-  * Understand the scenarios in which stacks and queues are useful
-  * Able to implement stacks and queues
+  * Understand why data needs to be sorted
+  * Understand how data can be sorted
 </details>
 
 ## Author:
 
 ## Content to be added soon
-

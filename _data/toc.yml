@@ -69,6 +69,8 @@ nav:
         url: /iteration
       - title: List of Lists
         url: /listOfLists
+      - title: Sorting Algorithms
+        url: sorting
       - title: Stacks and Queues
         url: stacks_queues
       - title: Custom-built ArrayList
@@ -79,6 +81,8 @@ nav:
         url: /recursive_data_structures_2
       - title: Searching
         url: /searching
+      - title: Assembly Programming
+        url: /assembly_programming
       - title: PRACTICAL CLASS MATERIAL
         url: https://github.com/gaurav1780/comp1010practicalClassMaterial
   - title: COMP6010
