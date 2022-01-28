@@ -33,14 +33,28 @@ Learning Processing: Introduction- Macquarie University Students [have access vi
 Once you have done this, copy-and-paste the following code into the processing IDE and hit the run button.
 
 ```java
-line(0,0,width, height);
+line(0, 0, width, height);
 line(0, height, width, 0);
 ```
 
-What is the end result?
+Do you see any output window and if so, what is the end result? If not, what is the error message, and what do you think needs to be done to fix it?
 
 <details markdown="1"><summary>Solution</summary>
 You should see an X drawn across a small window.  That window is a processing "sketch" that is being drawn in a small window according to your instructions.  In this course we will learn how to give processing very complex instructions to make very complex sketches.  These sketches are really just computer programs like any other but they are started by the processing IDE and you can inspect what is going on inside them with the debugger.
+</details>
+</div>
+
+Now, copy-and-paste the following code into the processing IDE and hit the run button.
+
+```java
+line(0, height/2, width/2, 0)
+line(width/2, height, width, height/2);
+```
+
+Do you see any output window and if so, what is the end result? If not, what is the error message, and what do you think needs to be done to fix it?
+
+<details markdown="1"><summary>Solution</summary>
+Error message "Syntax error - Missing ";". To fix it, a semi-colon must be placed at the end of the first instruction.
 </details>
 </div>
 
