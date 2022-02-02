@@ -1,6 +1,6 @@
 ---
-layout: meta
-title: Google is not (necessarily) Your Friend
+layout: programming
+title: How to use Google
 ---
 
 <div style="float:right">

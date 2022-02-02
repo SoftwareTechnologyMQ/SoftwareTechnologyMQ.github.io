@@ -1,5 +1,5 @@
 ---
-layout: meta
+layout: programming
 title: Study skills particular to programming
 ---
 

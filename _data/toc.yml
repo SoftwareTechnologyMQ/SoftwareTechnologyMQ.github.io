@@ -2,10 +2,6 @@ nav:
   - title: COMP1000
     url: /comp1000
     subnav:
-      - title: Study Skills
-        url: /study_skills
-      - title: How to Use Google
-        url: /google
       - title: Transition to Processing
         url: /transition_to_processing
       - title: Primitive Operations
@@ -98,6 +94,14 @@ nav:
         url: /comp6010week2
       - title: Boolean Logic
         url: /booleanLogic
+  - title: Common
+    url: /common
+    subnav:
+      - title: Study Skills
+        url: /study_skills
+      - title: How to Use Google
+        url: /google
+
   - title: Edit (for staff)
     url: https://github.com/SoftwareTechnologyMQ/softwaretechnologyMQ.github.io
     
