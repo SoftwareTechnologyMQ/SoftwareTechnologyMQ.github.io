@@ -80,42 +80,44 @@ Just like the first sub-option, we can totally forget about the first item once 
 
 ## Full trace using "shifting" approach
 
-Pipe (`|`) indicates separation between sorted part and unsorted part.
+Sorted part and unsorted part put in their own *compartments*.
 
-> {| 40, 70, 20, 90, 30, 80, 20}
+> | 40, 70, 20, 90, 30, 80, 20
 > 
-> {20, | 40, 70, 90, 30, 80, 20}
+> 20, | 40, 70, 90, 30, 80, 20
 > 
-> {20, 20, | 40, 70, 90, 30, 80}
+> 20, 20, | 40, 70, 90, 30, 80
 > 
-> {20, 20, 30, | 40, 70, 90, 80}
+> 20, 20, 30, | 40, 70, 90, 80
 > 
-> {20, 20, 30, 40, | 70, 90, 80} (no change needed in this state)
+> 20, 20, 30, 40, | 70, 90, 80 (no change needed in this state)
 > 
-> {20, 20, 30, 40, 70, | 90, 80} (no change needed in this state)
+> 20, 20, 30, 40, 70, | 90, 80 (no change needed in this state)
 > 
-> {20, 20, 30, 40, 70, 90, | 80}
+> 20, 20, 30, 40, 70, 90, | 80
 > 
-> {20, 20, 30, 40, 70, 80, 90 |} 
+> 20, 20, 30, 40, 70, 80, 90 |
 
 
 ## Full trace using "swapping" approach
 
-> {| 40, 70, 20, 90, 30, 80, 20}
+Sorted part and unsorted part put in their own *compartments*.
+
+> | 40, 70, 20, 90, 30, 80, 20
 >
-> {20, | 70, 40, 90, 30, 80, 20}
+> 20, | 70, 40, 90, 30, 80, 20
 >
-> {20, 70, | 40, 90, 30, 80, 20}
+> 20, 70, | 40, 90, 30, 80, 20
 >
-> {20, 20, 40, | 90, 30, 80, 70}
+> 20, 20, 40, | 90, 30, 80, 70
 >
-> {20, 20, 30, 90, | 40, 80, 70}
+> 20, 20, 30, 90, | 40, 80, 70
 >
-> {20, 20, 30, 40, 90, | 80, 70}
+> 20, 20, 30, 40, 90, | 80, 70
 >
-> {20, 20, 30, 40, 70, 80, | 90} (no change needed in this state)
+> 20, 20, 30, 40, 70, 80, | 90 (no change needed in this state)
 >
-> {20, 20, 30, 40, 70, 80, 90 | }
+> 20, 20, 30, 40, 70, 80, 90 | 
 
 
 ## Bring it in!
