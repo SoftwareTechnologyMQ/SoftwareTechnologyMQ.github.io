@@ -7,8 +7,8 @@ within: programming
 <details class="prereq" markdown="1"><summary>Assumed Knowledge</summary>
 
   * <a href="functions">Functions</a>
-  * <a href="composite_data">Composite Data (Arrays)</a>
-  * <a href="classes_array_of_objects">Classes</a>
+  * <a href="compositedata">Composite Data (Arrays)</a>
+  * <a href="classesarrayofobjects">Classes</a>
   * <a href="lists">ArrayLists</a>
 </details>
 
@@ -80,40 +80,42 @@ Just like the first sub-option, we can totally forget about the first item once 
 
 ## Full trace using "shifting" approach
 
-> {_40_, 70, _20_, 90, 30, 80, 20}
+Pipe (`|`) indicates separation between sorted part and unsorted part.
+
+> {| 40, 70, 20, 90, 30, 80, 20}
 > 
-> {20, _40_, 70, 90, 30, 80, _20_}
+> {20, | 40, 70, 90, 30, 80, 20}
 > 
-> {20, 20, _40_, 70, 90, _30_, 80}
+> {20, 20, | 40, 70, 90, 30, 80}
 > 
-> {20, 20, 30, _40_, 70, 90, 80}
+> {20, 20, 30, | 40, 70, 90, 80}
 > 
-> {20, 20, 30, _40_, 70, 90, 80} (no change needed in this state)
+> {20, 20, 30, 40, | 70, 90, 80} (no change needed in this state)
 > 
-> {20, 20, 30, 40, _70_, 90, 80} (no change needed in this state)
+> {20, 20, 30, 40, 70, | 90, 80} (no change needed in this state)
 > 
-> {20, 20, 30, 40, 70, _90_, _80_}
+> {20, 20, 30, 40, 70, 90, | 80}
 > 
-> {20, 20, 30, 40, 70, 80, 90} 
+> {20, 20, 30, 40, 70, 80, 90 |} 
 
 
 ## Full trace using "swapping" approach
 
-> {_40_, 70, _20_, 90, 30, 80, 20}
+> {| 40, 70, 20, 90, 30, 80, 20}
 >
-> {20, 70, _40_, 90, 30, 80, 20}
+> {20, | 70, 40, 90, 30, 80, 20}
 >
-> {20, _70_, 40, 90, 30, 80, _20_}
+> {20, 70, | 40, 90, 30, 80, 20}
 >
-> {20, 20, _40_, 90, _30_, 80, 70}
+> {20, 20, 40, | 90, 30, 80, 70}
 >
-> {20, 20, 30, _90_, _40_, 80, 70}
+> {20, 20, 30, 90, | 40, 80, 70}
 >
-> {20, 20, 30, 40, _90_, 80, _70_}
+> {20, 20, 30, 40, 90, | 80, 70}
 >
-> {20, 20, 30, 40, 70, _80_, 90} (no change needed in this state)
+> {20, 20, 30, 40, 70, 80, | 90} (no change needed in this state)
 >
-> {20, 20, 30, 40, 70, 80, 90}
+> {20, 20, 30, 40, 70, 80, 90 | }
 
 
 ## Bring it in!
@@ -125,4 +127,6 @@ Now that we've had an intuitive idea of what needs to be done, let's formalize o
 
 ## Insertion Sort
 
-![](./assets/images/insertionSort.png)
+<img src = "./assets/images/insertionSort.png" width = 400>
+
+
