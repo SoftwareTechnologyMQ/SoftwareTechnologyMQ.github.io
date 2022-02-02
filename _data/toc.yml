@@ -2,6 +2,10 @@ nav:
   - title: COMP1000
     url: /comp1000
     subnav:
+      - title: Study Skills
+        url: /study_skills
+      - title: Google is (not) your friend
+        url: /google
       - title: Transition to Processing
         url: /transition_to_processing
       - title: Primitive Operations
