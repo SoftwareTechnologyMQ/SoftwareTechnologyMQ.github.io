@@ -31,7 +31,7 @@ Sorting is a fundamental operation that,
 
 For an unsorted collection, you have to go through each item of the collection in order to get the first highest value, then again for second highest, etc.
 
-For a sorted collection, the highest value will either be the first value or the last value. The $k$-highest is at the $k^{th}$ position. Thus, it reduces to a single-operation task.
+For a sorted collection, the highest value will either be the first value or the last value. The <i>k</i>-highest is at the <i>k</i><sup>th</sup> position. Thus, it reduces to a single-operation task.
 
 ### Example 2: Finding the number of unique items in a collection
 
