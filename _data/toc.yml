@@ -18,6 +18,8 @@ nav:
         url: /loops
       - title: Functions
         url: /functions
+      - title: Function call dissection
+        url: /function_call_dissection
       - title: Scope
         url: /scope
       - title: Compound Data
