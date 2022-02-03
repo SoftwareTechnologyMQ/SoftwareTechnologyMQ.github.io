@@ -27,11 +27,11 @@ Sorting is a fundamental operation that,
 1. improves the efficiency of several tasks, and, 
 2. makes several other non-trivial tasks, well, trivial.
 
-### Example 1: Finding the highest item in a collection
+### Example 1: Finding the k-highest item in a collection
 
-For an unsorted collection, you have to go through each item of the collection in order to get the highest value. 
+For an unsorted collection, you have to go through each item of the collection in order to get the first highest value, then again for second highest, etc.
 
-For a sorted collection, the highest value will either be the first value or the last value. Thus, it reduces to a single-operation task.
+For a sorted collection, the highest value will either be the first value or the last value. The $k$-highest is at the $k^{th}$ position. Thus, it reduces to a single-operation task.
 
 ### Example 2: Finding the number of unique items in a collection
 
@@ -43,7 +43,7 @@ For an sorted collection, every time an item is not the same as the next item, y
 
 The second approach is signficantly easier than the first.
 
-So... TL;DR - It makes things MUCH easier!
+Bottomline - It makes things MUCH easier!
 
 ### Cost of sorting
 
