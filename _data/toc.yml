@@ -30,6 +30,8 @@ nav:
         url: /refactoring
       - title: Program Design
         url:  /design
+      - title: Case Study
+        url:  /comp1000_case_study
       - title: PRACTICE QUESTIONS
         url:  https://github.com/gaurav1780/COMP1000PracticeQuestions  
   - title: COMP1010
