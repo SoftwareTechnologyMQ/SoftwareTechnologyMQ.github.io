@@ -1,6 +1,7 @@
 ---
-layout: programming
+layout: page
 title: Study skills particular to programming
+within: programming
 ---
 
 Learning to program (for the first time) means to _adjust your own thought patterns to match a new way of thinking_.  It is not just a series of facts to memorise (although there are some) and it is not just a technique you can apply without thought (although you will learn a few good techniques).  It is like learning a new language, you need to make real changes to _how you think_.

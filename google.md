@@ -1,6 +1,7 @@
 ---
-layout: programming
+layout: page
 title: How to use Google
+within: programming
 ---
 
 <div style="float:right">
