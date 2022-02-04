@@ -92,7 +92,7 @@ nav:
   - title: COMP6010
     url: /comp6010
     subnav:
-      - title: COMP6010 Week 1
+      - title: Introduction, variables, operators
         url: /comp6010_introduction
       - title: Number Systems
         url: /number_systems
