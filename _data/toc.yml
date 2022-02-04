@@ -93,11 +93,13 @@ nav:
     url: /comp6010
     subnav:
       - title: COMP6010 Week 1
-        url: /comp6010week1
-      - title: COMP6010 Week 2
-        url: /comp6010week2
+        url: /comp6010_introduction
+      - title: Number Systems
+        url: /number_systems
       - title: Boolean Logic
-        url: /booleanLogic
+        url: /boolean_logic
+      - title: Python Cheat Sheet
+        url: python_cheat_sheet
   - title: Common
     url: /common
     subnav:
