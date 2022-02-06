@@ -107,7 +107,8 @@ nav:
         url: /study_skills
       - title: How to Use Google
         url: /google
-
+      - title: Improving coding skills
+        url: improving_skills
   - title: Edit (for staff)
     url: https://github.com/SoftwareTechnologyMQ/softwaretechnologyMQ.github.io
     
