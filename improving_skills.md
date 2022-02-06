@@ -4,6 +4,8 @@ title: How can I improve my coding skills?
 within: programming
 ---
 
+## Author: Anita Furtado
+
 Wherever you are at in your programming career, it is always important to maintain your skills outside of university classes. One of the key underlying components of programming is problem solving, so the best way to continue to challenge your mind is through using code to solve real-life problems! Below are a few examples of how you can do this. 
 
 ## Practice questions from University
