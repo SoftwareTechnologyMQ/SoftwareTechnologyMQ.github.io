@@ -62,7 +62,7 @@ float distance(int x1, int y1, int x2, int y2) {
 	int s1 = square(x2-x1);
 	int s2 = square(y2-y1);
 	int sumSquares = s1 + s2;
-	float result = Math.sqrt(sumSquares);
+	float result = sqrt(sumSquares);
 	return result;
 }
 
@@ -108,13 +108,13 @@ A third entry is made for the call to `square` and placed on the stack.
 
 Entry for `square` is taken off the stack. `distance` becomes the active function.
 
-### STEP 7: `distance` calls `Math.sqrt` with parameter `29`
+### STEP 7: `distance` calls `sqrt` with parameter `29`
 
 ![](./fig/callStackProcessing/callStack7Processing.png)
 
-A third entry is made for the call to `Math.sqrt` and placed on the stack.
+A third entry is made for the call to `sqrt` and placed on the stack.
 
-### STEP 8: `Math.sqrt` returns 5.38516 to `distance`
+### STEP 8: `sqrt` returns 5.38516 to `distance`
 
 ![](./fig/callStackProcessing/callStack8Processing.png)
 
