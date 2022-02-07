@@ -74,55 +74,55 @@ int square(int num) {
 
 ### STEP 1: setup function is invoked by JVM
 
-![](./fig/04-recursion/callStack1.png)
+![](./fig/callStackProcessing/callStack1Processing.png)
 
 function call is placed on the stack. Note that parameter is `null` because we typically do not pass any arguments to setup, at least in this unit.
 
 ### STEP 2: setup function calls `distance` with parameters 1, 3, 6 and 5.
 
-![](./fig/04-recursion/callStack2.png)
+![](./fig/callStackProcessing/callStack2Processing.png)
 
 Another entry is made for the call to `distance` and placed on the call stack.
 
 ### STEP 3: `distance` calls `square` with parameter `5`
 
-![](./fig/04-recursion/callStack3.png)
+![](./fig/callStackProcessing/callStack3Processing.png)
 
 A third entry is made for the call to `square` and placed on the stack.
 
 ### STEP 4: `square` returns 25 to `distance`
 
-![](./fig/04-recursion/callStack4.png)
+![](./fig/callStackProcessing/callStack4Processing.png)
 
 Entry for `square` is taken off the stack. `distance` becomes the active function.
 
 ### STEP 5: `distance` calls `square` with parameter `2`
 
-![](./fig/04-recursion/callStack5.png)
+![](./fig/callStackProcessing/callStack5Processing.png)
 
 A third entry is made for the call to `square` and placed on the stack.
 
 ### STEP 6: `square` returns 4 to `distance`
 
-![](./fig/04-recursion/callStack6.png)
+![](./fig/callStackProcessing/callStack6Processing.png)
 
 Entry for `square` is taken off the stack. `distance` becomes the active function.
 
 ### STEP 7: `distance` calls `Math.sqrt` with parameter `29`
 
-![](./fig/04-recursion/callStack7.png)
+![](./fig/callStackProcessing/callStack7Processing.png)
 
 A third entry is made for the call to `Math.sqrt` and placed on the stack.
 
 ### STEP 8: `Math.sqrt` returns 5.38516 to `distance`
 
-![](./fig/04-recursion/callStack8.png)
+![](./fig/callStackProcessing/callStack8Processing.png)
 
 Entry for `square` is taken off the stack. `distance` becomes the active function.
 
 ### STEP 9: `distance` returns 5.38516 to `setup`
 
-![](./fig/04-recursion/callStack9.png)
+![](./fig/callStackProcessing/callStack9Processing.png)
 
 Entry for `distance` is taken off the stack. `setup` becomes the active function.
 
@@ -132,5 +132,5 @@ Entry for `setup` is taken off the stack. Call stack is now empty. Program has n
 
 ## Summary of control flow
 
-![](./fig/04-recursion/controlFlow.png)
+![](./fig/callStackProcessing/controlFlowProcessing.png)
 <!--<iframe src="https://giphy.com/embed/Az1CJ2MEjmsp2" width="480" height="221" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/bare-barren-Az1CJ2MEjmsp2">via GIPHY</a></p>-->
