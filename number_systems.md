@@ -102,23 +102,120 @@ $$
 
 or 6 in base 10.
 
-## 2.2 Converting to base *b*
+## 2.2 Converting between number systems
 
-First, we convert a number to binary:
+### 2.2.1 Converting from decimal to base *b*
+
+An integer in base \\(b\\) consists of values from 0 to \\(b-1\\).
+
+Hexadecimal is base-16, so it has values rom 0 to 15. However, beyond 9, the following symbols are used:
+
+<table>
+<tr><th>Value</th><th>Symbol</th></tr>
+<tr><td>10</td><td>a</td></tr>
+<tr><td>11</td><td>b</td></tr>
+<tr><td>12</td><td>c</td></tr>
+<tr><td>13</td><td>d</td></tr>
+<tr><td>14</td><td>e</td></tr>
+<tr><td>15</td><td>f</td></tr>
+</table>
 
 1. Start with result = 0
 2. If number is zero, go to step 5.
-3. Divide the number by 2 and put the remainder (0 or 1) to the left of result. 
+3. Divide the number by \\(b\\) and put the remainder (a value between 0 and \\(b-1\\) to the left of result. 
 4. Go to step 2. 
 5. Binary number is in the result.
 
-Now, to convert a base 10 number to base \\(n\\), use the following algorithm:
+In the operation \\(\frac{a}{b}\\), if \\(a \times d + r = b\\), we call \\(d\\) the *quotient* and \\(r\\) the *remainder*. Here \\(a\\) is being divided by \\(b\\) and \\(a\\) is the *dividend* (numerator) while \\(b\\) is the *divisor* (denomenator).
 
-1. Convert the number to binary - call this \\(temp\\).
-2. If \\(temp < n\\), go to step 5.
-3. Add the remainder to the result.
-4. Go to step 2.
-5. Number in base \\(b\\) is in the result.
+#### Examples
+
+46 to binary:
+
+| Divided | Divisor | Quotient | Remainder | Result |
+|---|---|---|---|---|
+| 46	| 2 | 23 | 0 | empty -> 0 |
+| 23	| 2 | 11 | 1 | 0 -> 10 |
+| 11	| 2 | 5 | 1 | 10 -> 110 |
+| 5	| 2 | 2 | 1 | 110 -> 1110 |
+| 2	| 2 | 1 | 0 | 1110 -> 01110 |
+| 1	| 2 | 0 | 1 | 01110 -> 101110 |
+| 0	| STOP |  |  |
+
+73 to binary:
+
+| Divided | Divisor | Quotient | Remainder | Result |
+|---|---|---|---|---|
+| 73	| 2 | 23 | 1 | empty -> 1 |
+| 36	| 2 | 11 | 0 | 1 -> 01 |
+| 18	| 2 | 5 | 0 | 01 -> 001 |
+| 9	| 2 | 2 | 1 | 001 -> 1001 |
+| 4	| 2 | 1 | 0 | 1001 -> 01001 |
+| 2	| 2 | 0 | 0 | 01001 -> 001001 |
+| 1	| 2 | 0 | 1 | 001001 -> 1001001 |
+| 0	| STOP |  |  |
+
+46 to base-3:
+
+| Divided | Divisor | Quotient | Remainder | Result |
+|---|---|---|---|---|
+| 46	| 3 | 15 | 1 | empty -> 1 |
+| 15	| 3 | 5 | 0 | 1 -> 01 |
+| 5	| 3 | 1 | 2 | 01 -> 201 |
+| 1	| 3 | 0 | 1 | 201 -> 1201 |
+| 0	| STOP |  |  |
+
+73 to base-16 (hexadecimal):
+
+| Divided | Divisor | Quotient | Remainder | Result |
+|---|---|---|---|---|
+| 73	| 16 | 4 | 9 | empty -> 9 |
+| 4	| 16 | 0 | 4 | 9 -> 49 |
+| 0	| STOP |  |  |
+
+2779 to base-16 (hexadecimal):
+
+| Divided | Divisor | Quotient | Remainder | Result |
+|---|---|---|---|---|
+| 2779	| 16 | 173 | 11 (b) | empty -> b |
+| 173	| 16 | 10 | 13 (d) | b -> db |
+| 10	| 16 | 0 | 10 (a) | db -> adb |
+
+
+### 2.2.1 Converting from base *b* to decimal
+
+1. \\(weight = 1, result = 0\\)
+2. Start with right-most digit (least significant digit)
+2. Multiply digit by \\(weight\\) and add to \\(result\\)
+3. Multiply \\(weight\\) by \\(b\\)
+4. If digit exists to the left of current digit, go to step 2
+5. Result holds the decimal value 
+
+Examples
+
+binary `1101` (base 2) to decimal.
+
+| Current Digit | Weight | Result |
+| 1 |	 1	| 0 -> 0 + 1\*1 = 1 |
+| 0 | 2	| 1 -> 1 + 0\*2 = 1 |
+| 1 | 4 | 1 -> 1 + 1\*4 = 5 |
+| 1 | 8 | 5 -> 5 + 1\*8 = 13 (result) |
+ 
+
+hexadecimal `adb` (base 16) to decimal.
+
+| Current Digit | Weight | Result |
+| b |	 1	| 0 -> 0 + b\*1 = 11 (remember, b is 11) |
+| d | 16	| 11 -> 11 + 13\*16 = 219 |
+| a | 256 | 219 -> 219 + 10\*256 = 2779 (result) |
+
+`1201 ` (base 3) to decimal.
+
+| Current Digit | Weight | Result |
+| 1 |	 1	| 0 -> 0 + 1\*1 = 1 |
+| 0 | 3	| 1 -> 1 + 0\*3 = 1 |
+| 2 | 9 | 1 -> 1 + 2\*9 = 19 |
+| 1 | 27 | 19 -> 19 + 1\*27 = 46 (result) |
 
 # 3. Data Types
 
@@ -223,7 +320,7 @@ But this leads to two representations of 0 (positive zero and negative zero) - n
 
 #### 3.1.2.3 Two's Complement
 
-An \\(n\\)-bit two's complement represents integers from \\(-2^{(n-1)} \ldots \hskip 2mm 2^{(n-1)} - 1\\) (inclusive on both sides).
+An \\(n\\)-bit two's complement represents integers in the range \\([-2^{(n-1)}, \hskip 2mm 2^{(n-1)} - 1\\)] (That represents all integers from \\(-2^{(n-1)}\\) to \\(2^{(n-1)} - 1\\)(inclusive on both sides).
 
 A negative number \\(k\\)is represented by,
 
