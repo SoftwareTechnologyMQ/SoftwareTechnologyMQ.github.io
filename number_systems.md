@@ -17,27 +17,23 @@ within: programming
   
 </details>
 
-# Table of Contents
-* [1. Representing Information](#1.-Representing-Information)
-* [2. Representing numbers in different bases](#2.-Representing-numbers-in-different-bases)
-	* [2.1 Positional number systems](#2.1-Positional-number-systems)
-	* [2.2 Converting to base *n*](#2.2-Converting-to-base-*n*)
-* [3. Data Types](#3.-Data-Types)
-	* [3.1 Integers](#3.1-Integers)
-		* [3.1.1 Unsigned Integers](#3.1.1-Unsigned-Integers)
-		* [3.1.2 Signed Integers](#3.1.2-Signed-Integers)
-			* [3.1.2.1 Signed Magnitude](#3.1.2.1-Signed-Magnitude)
-		* [3.1.3 One's Complement](#3.1.3-One's-Complement)
-		* [3.1.4 Two's Complement](#3.1.4-Two's-Complement)
-	* [3.2 Floating Point Numbers](#3.2-Floating-Point-Numbers)
-		* [3.2.1 To IEEE format](#3.2.1-To-IEEE-format)
-			* [3.2.1.1 Convert to binary representation](#3.2.1.1-Convert-to-binary-representation)
-			* [3.2.1.2 Normalize](#3.2.1.2-Normalize)
-			* [3.2.1.3 Add 127 to exponent, convert to binary](#3.2.1.3-Add-127-to-exponent,-convert-to-binary)
-			* [3.2.1.4 Combine, leaving off leading 1 of precision](#3.2.1.4-Combine,-leaving-off-leading-1-of-precision)
-		* [3.2.2 From IEEE format](#3.2.2-From-IEEE-format)
-			* [3.2.2.1 From IEEE format](#3.2.2.1-From-IEEE-format)
+# Table of contents
 
+- [1. Representing Information](#1-representing-information)
+- [2. Representing numbers in different bases](#2-representing-numbers-in-different-bases)
+  - [2.1 Positional number systems](#21-positional-number-systems)
+  - [2.2 Converting to base *b*](#22-converting-to-base-b)
+- [3. Data Types](#3-data-types)
+  - [3.1 Integers](#31-integers)
+    - [3.1.1 Unsigned Integers](#311-unsigned-integers)
+    - [3.1.2 Signed Integers](#312-signed-integers)
+    - [3.1.3 One's Complement](#313-ones-complement)
+    - [3.1.4 Two's Complement](#314-twos-complement)
+  - [3.2 Floating Point Numbers (ADVANCED)](#32-floating-point-numbers-advanced)
+    - [3.2.1 To IEEE format](#321-to-ieee-format)
+    - [Example 1](#example-1)
+    - [Example 2](#example-2)
+    - [3.2.2 From IEEE format](#322-from-ieee-format)
 
 # 1. Representing Information
 
@@ -274,7 +270,7 @@ Consider that we have 32 bits to use. The *IEEE Standard for Floating Point Arit
 
 ### 3.2.1 To IEEE format
 
-## Example 1 
+### Example 1 
 
 Convert to IEEE floating-point representation:
 
@@ -354,6 +350,58 @@ and pad to a total of 32 bits:
 
 1 100000001 10101000000000000000000
 
+### Example 2
+
+$$ 
+-6 \dfrac{5}{16}
+$$
+
+#### 3.2.1.1 Convert to binary representation
+
+<table>
+<tr>
+<td>n<sup>3</sup></td>
+<td>n<sup>2</sup></td>
+<td>n<sup>1</sup></td>
+<td>n<sup>0</sup></td>
+<th colspan="2">Decimal</th>
+<td>n<sup>-1</sup></td>
+<td>n<sup>-2</sup></td>
+<td>n<sup>-3</sup></td>
+<td>n<sup>-4</sup></td>
+<td>n<sup>-5</sup></td>
+</tr>
+<tr>
+<td>d<sub>3</sub></td>
+<td>d<sub>2</sub></td>
+<td>d<sub>1</sub></td>
+<td>d<sub>0</sub></td>
+<td colspan="2">.</td>
+<td>d<sub>-1</sub></td>
+<td>d<sub>-2</sub></td>
+<td>d<sub>-3</sub></td>
+<td>d<sub>-4</sub></td>
+<td>d<sub>-5</sub></td>
+</tr>
+</table>
+
+
+Just as before we see how many column values will go into a number, we continue for $n^{-1}$...
+
+$$
+0 \times n^3 + 1 \times n^2 + 1 \times n^1 + 0 \times n^0 + 0 \times n^{-1} + 1 \times n^{-2} + 0 \times n^{-3} + 1 \times n^{-4}
+$$
+
+$$
+0 \times 8 + 1 \times 4 + 1 \times 2 + 0 \times 1 + 0 \times \dfrac{1}{2} + 1 \times \dfrac{1}{4} + 0 \times \dfrac{1}{8} + 1 \times \dfrac{1}{16}
+$$
+
+or:
+
+-0110.0101
+
+Rest remains the same.
+
 ### 3.2.2 From IEEE format
 
 Consider:
@@ -409,55 +457,3 @@ $$
 }
 
 -->
-
-## Example 2
-
-$$ 
--6 \dfrac{5}{16}
-$$
-
-#### 3.2.1.1 Convert to binary representation
-
-<table>
-<tr>
-<td>n<sup>3</sup></td>
-<td>n<sup>2</sup></td>
-<td>n<sup>1</sup></td>
-<td>n<sup>0</sup></td>
-<th colspan="2">Decimal</th>
-<td>n<sup>-1</sup></td>
-<td>n<sup>-2</sup></td>
-<td>n<sup>-3</sup></td>
-<td>n<sup>-4</sup></td>
-<td>n<sup>-5</sup></td>
-</tr>
-<tr>
-<td>d<sub>3</sub></td>
-<td>d<sub>2</sub></td>
-<td>d<sub>1</sub></td>
-<td>d<sub>0</sub></td>
-<td colspan="2">.</td>
-<td>d<sub>-1</sub></td>
-<td>d<sub>-2</sub></td>
-<td>d<sub>-3</sub></td>
-<td>d<sub>-4</sub></td>
-<td>d<sub>-5</sub></td>
-</tr>
-</table>
-
-
-Just as before we see how many column values will go into a number, we continue for $n^{-1}$...
-
-$$
-0 \times n^3 + 1 \times n^2 + 1 \times n^1 + 0 \times n^0 + 0 \times n^{-1} + 1 \times n^{-2} + 0 \times n^{-3} + 1 \times n^{-4}
-$$
-
-$$
-0 \times 8 + 1 \times 4 + 1 \times 2 + 0 \times 1 + 0 \times \dfrac{1}{2} + 1 \times \dfrac{1}{4} + 0 \times \dfrac{1}{8} + 1 \times \dfrac{1}{16}
-$$
-
-or:
-
--0110.0101
-
-Rest remains the same.
