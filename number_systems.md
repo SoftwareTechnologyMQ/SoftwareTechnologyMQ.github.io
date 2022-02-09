@@ -47,18 +47,42 @@ It is easy to recognize two scenarios:
 
 # 2. Representing numbers in different bases
 
+An integer in base \\(b\\) consists of values from 0 to \\(b-1\\).
+
+Hexadecimal is base-16, so it has values rom 0 to 15. However, beyond 9, the following symbols are used:
+
+<table>
+<tr><th>Value</th><th>Symbol</th></tr>
+<tr><td>10</td><td>a</td></tr>
+<tr><td>11</td><td>b</td></tr>
+<tr><td>12</td><td>c</td></tr>
+<tr><td>13</td><td>d</td></tr>
+<tr><td>14</td><td>e</td></tr>
+<tr><td>15</td><td>f</td></tr>
+</table>
+
+A number \\(n\\) in base \\(b\\) is represented as \\(n_b\\). That is the base is in the subscript. Absence of subscript means it is a decimal value.
+
+For example, 
+\\(1101_2\\) is a base-2 or binary value.
+\\(1304_8\\) is a base-8 or octal value.
+\\(17CE2F{16}\\) is a base-16 or hexadecimal value.
+\\(1603_6\\) is is an invalid number since base-6 can only have digits between 0 and (6-1 = 5).
+
 ## 2.1 Positional number systems
 
 Consider these positions in a number system:
 
 <table>
 <tr>
+<td>...</td>
 <td>n<sup>3</sup></td>
 <td>n<sup>2</sup></td>
 <td>n<sup>1</sup></td>
 <td>n<sup>0</sup></td>
 </tr>
 <tr>
+<td>...</td>
 <td>d<sub>3</sub></td>
 <td>d<sub>2</sub></td>
 <td>d<sub>1</sub></td>
@@ -76,49 +100,35 @@ Consider the number 350 in base 10 (radix 10). That is, n is 10, and thus:
 
 {% raw %}
 $$
-0 \times n^3 + 3 \times n^2 + 5 \times n^1 + 0 \times n^0 
+3 \times n^2 + 5 \times n^1 + 0 \times n^0 
 $$
 {% endraw %}
 
 {% raw %}
 $$
-0 \times 1000 + 3 \times 100 + 5 \times 10 + 0 \times 1 
+3 \times 100 + 5 \times 10 + 0 \times 1 
 $$
 {% endraw %}
 
-Consider the number 0110 in base 2 (radix 2). That is, n is 2, and thus: 
+Consider the number 10110 in base 2 (radix 2). That is, n is 2, and thus: 
 
 {% raw %}
 $$
-0 \times n^3 + 1 \times n^2 + 1 \times n^1 + 0 \times n^0 
+1 \times n^4 + 0 \times n^3 + 1 \times n^2 + 1 \times n^1 + 0 \times n^0 
 $$
 {% endraw %}
 
 {% raw %}
 $$
-0 \times 8 + 1 \times 4 + 1 \times 2 + 0 \times 1 
+1 \times 16 + 0 \times 8 + 1 \times 4 + 1 \times 2 + 0 \times 1 
 $$
 {% endraw %}
 
-or 6 in base 10.
+or 22 in base 10.
 
 ## 2.2 Converting between number systems
 
 ### 2.2.1 Converting from decimal to base *b*
-
-An integer in base \\(b\\) consists of values from 0 to \\(b-1\\).
-
-Hexadecimal is base-16, so it has values rom 0 to 15. However, beyond 9, the following symbols are used:
-
-<table>
-<tr><th>Value</th><th>Symbol</th></tr>
-<tr><td>10</td><td>a</td></tr>
-<tr><td>11</td><td>b</td></tr>
-<tr><td>12</td><td>c</td></tr>
-<tr><td>13</td><td>d</td></tr>
-<tr><td>14</td><td>e</td></tr>
-<tr><td>15</td><td>f</td></tr>
-</table>
 
 1. Start with result = 0
 2. If number is zero, go to step 5.
@@ -182,7 +192,7 @@ In the operation \\(\frac{a}{b}\\), if \\(a \times d + r = b\\), we call \\(d\\)
 | 10	| 16 | 0 | 10 (a) | db -> adb |
 
 
-### 2.2.1 Converting from base *b* to decimal
+### 2.2.2 Converting from base *b* to decimal
 
 1. \\(weight = 1, result = 0\\)
 2. Start with right-most digit (least significant digit)
@@ -216,6 +226,27 @@ hexadecimal `adb` (base 16) to decimal.
 | 0 | 3	| 1 -> 1 + 0\*3 = 1 |
 | 2 | 9 | 1 -> 1 + 2\*9 = 19 |
 | 1 | 27 | 19 -> 19 + 1\*27 = 46 (result) |
+
+### 2.2.3 Converting between arbitrary bases
+
+Say, we need to convert a number \\(n\\) from base \\(b_1\\) to base \\(b2\\).
+
+1. Convert the number from base \\(b_1\\) to decimal.
+2. Convert the decimal version from decimal to base \\(b_2\\).
+
+Example(s):
+
+Convert \\(111001_2\\) to base-3.
+
+1. First convert to decimal: \\(111001_2 = 57_{10}\\)
+2. Convert from decimal to base-3: \\(2010_3\\)
+
+Convert \\(4307_9\\) to base-16.
+
+1. First convert to decimal: \\(4307_9 = 3166_{10}\\)
+2. Convert from decimal to base-3: \\(C5E_{16}\\)
+
+
 
 # 3. Data Types
 
@@ -322,7 +353,7 @@ But this leads to two representations of 0 (positive zero and negative zero) - n
 
 An \\(n\\)-bit two's complement represents integers in the range \\([-2^{(n-1)}, \hskip 2mm 2^{(n-1)} - 1\\)] (That represents all integers from \\(-2^{(n-1)}\\) to \\(2^{(n-1)} - 1\\)(inclusive on both sides).
 
-A negative number \\(k\\)is represented by,
+A negative number \\(k\\) is represented by,
 
 1. Add 1 to \\(k\\). Call this \\(m\\). Note that \\(m <= 0\\).
 2. Negate \\(m\\). Call this \\(p\\). Note that \\(p >= 0\\).
