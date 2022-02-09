@@ -207,7 +207,7 @@ We can keep the left-most bit for sign and flip the others so `n` + `-n` is alwa
 <tr><td>-3</th><td>1100</td></tr>
 <tr><td>-2</th><td>1101</td></tr>
 <tr><td>-1</th><td>1110</td></tr>
-<tr><td><p style = "color:red">-0</p></th><td><p style = "color:red">1111</p></td></tr>
+<tr><td><font style = "color:red">-0</font></th><td><font style = "color:red">1111</font></td></tr>
 <tr><td> 0</th><td>0000</td></tr>
 <tr><td> 1</th><td>0001</td></tr>
 <tr><td> 2</th><td>0010</td></tr>
