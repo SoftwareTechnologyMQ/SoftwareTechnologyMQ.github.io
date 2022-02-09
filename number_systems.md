@@ -200,22 +200,22 @@ We can keep the left-most bit for sign and flip the others so `n` + `-n` is alwa
 
 <table>
 <tr><th>Number</th><th>Bits</th></tr>
-<tr><td>-7</th><td>1000</td></tr>
-<tr><td>-6</th><td>1001</td></tr>
-<tr><td>-5</th><td>1010</td></tr>
-<tr><td>-4</th><td>1011</td></tr>
-<tr><td>-3</th><td>1100</td></tr>
-<tr><td>-2</th><td>1101</td></tr>
-<tr><td>-1</th><td>1110</td></tr>
-<tr><td>-0</th><td>1111</td></tr>
-<tr><td> 0</th><td>0000</td></tr>
-<tr><td> 1</th><td>0001</td></tr>
-<tr><td> 2</th><td>0010</td></tr>
-<tr><td> 3</th><td>0011</td></tr>
-<tr><td> 4</th><td>0100</td></tr>
-<tr><td> 5</th><td>0101</td></tr>
-<tr><td> 6</th><td>0110</td></tr>
-<tr><td> 7</th><td>0111</td></tr>
+<tr><td>-7</td><td>1000</td></tr>
+<tr><td>-6</td><td>1001</td></tr>
+<tr><td>-5</td><td>1010</td></tr>
+<tr><td>-4</td><td>1011</td></tr>
+<tr><td>-3</td><td>1100</td></tr>
+<tr><td>-2</td><td>1101</td></tr>
+<tr><td>-1</td><td>1110</td></tr>
+<tr><td>-0</td><td>1111</td></tr>
+<tr><td> 0</td><td>0000</td></tr>
+<tr><td> 1</td><td>0001</td></tr>
+<tr><td> 2</td><td>0010</td></tr>
+<tr><td> 3</td><td>0011</td></tr>
+<tr><td> 4</td><td>0100</td></tr>
+<tr><td> 5</td><td>0101</td></tr>
+<tr><td> 6</td><td>0110</td></tr>
+<tr><td> 7</td><td>0111</td></tr>
 </table>
 
 But this leads to two representations of 0 (positive zero and negative zero) - no good!
@@ -263,22 +263,22 @@ In a 4-bit system, -6 would be represented by,
 
 <table>
 <tr><th>Number</th><th>Bits</th></tr>
-<tr><td>-8</th><td>1000</td></tr>
-<tr><td>-7</th><td>1001</td></tr>
-<tr><td>-6</th><td>1010</td></tr>
-<tr><td>-5</th><td>1011</td></tr>
-<tr><td>-4</th><td>1100</td></tr>
-<tr><td>-3</th><td>1101</td></tr>
-<tr><td>-2</th><td>1110</td></tr>
-<tr><td>-1</th><td>1111</td></tr>
-<tr><td> 0</th><td>0000</td></tr>
-<tr><td> 1</th><td>0001</td></tr>
-<tr><td> 2</th><td>0010</td></tr>
-<tr><td> 3</th><td>0011</td></tr>
-<tr><td> 4</th><td>0100</td></tr>
-<tr><td> 5</th><td>0101</td></tr>
-<tr><td> 6</th><td>0110</td></tr>
-<tr><td> 7</th><td>0111</td></tr>
+<tr><td>-8</td><td>1000</td></tr>
+<tr><td>-7</td><td>1001</td></tr>
+<tr><td>-6</td><td>1010</td></tr>
+<tr><td>-5</td><td>1011</td></tr>
+<tr><td>-4</td><td>1100</td></tr>
+<tr><td>-3</td><td>1101</td></tr>
+<tr><td>-2</td><td>1110</td></tr>
+<tr><td>-1</td><td>1111</td></tr>
+<tr><td> 0</td><td>0000</td></tr>
+<tr><td> 1</td><td>0001</td></tr>
+<tr><td> 2</td><td>0010</td></tr>
+<tr><td> 3</td><td>0011</td></tr>
+<tr><td> 4</td><td>0100</td></tr>
+<tr><td> 5</td><td>0101</td></tr>
+<tr><td> 6</td><td>0110</td></tr>
+<tr><td> 7</td><td>0111</td></tr>
 </table>
 
 Advantages:
