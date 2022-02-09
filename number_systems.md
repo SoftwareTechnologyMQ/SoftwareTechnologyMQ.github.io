@@ -223,18 +223,24 @@ But this leads to two representations of 0 (positive zero and negative zero) - n
 
 #### 3.1.2.3 Two's Complement
 
-An {% raw %}$n${% endraw %}-bit two's complement represents integers from {% raw %}
-$-2^{(n-1)}${% endraw %} to {% raw %}$2^{(n-1)} - 1${% endraw %}.
+An $n$-bit two's complement represents integers from 
+$-2^{(n-1)}$ to $2^{(n-1)} - 1$.
 
 (inclusive on both sides).
 
-A negative number {% raw %}$k${% endraw %} is represented by,
+A negative number $k$ is represented by,
 
-1. Add 1 to {% raw %}$k$. Call this {% raw %}$m${% endraw %}. Note that {% raw %}$m <= 0${% endraw %}.
-2. Negate $m$. Call this {% raw %}$p${% endraw %}. Note that $p >= 0${% endraw %}.
-3. Flip the bits of {% raw %}$p${% endraw %}. 
+1. Add 1 to $k$. Call this $m$. Note that $m <= 0$.
+2. Negate $m$. Call this $p$. Note that $p >= 0$.
+3. Flip the bits of $p$. 
 
-This can be represented as {% raw %} $bin(k | k < 0) = flip(toBinary(negate(inc(k))))$ {% endraw %}. 
+This can be represented as 
+
+{% raw %} 
+$$
+bin(k | k < 0) = flip(toBinary(negate(inc(k))))
+$$ 
+{% endraw %}
 
 The order of operations should be:
 
@@ -346,7 +352,7 @@ $$
 </table>
 
 
-Just as before we see how many column values will go into a number, we continue for {% raw %} $n^{-1}$ {% endraw %}...
+Just as before we see how many column values will go into a number, we continue for $n^{-1}$...
 
 {% raw %}
 $$
