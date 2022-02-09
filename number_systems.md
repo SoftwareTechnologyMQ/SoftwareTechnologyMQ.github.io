@@ -38,7 +38,6 @@ katex: True
 
 # 1. Representing Information
 
-Testing: \\(x + y\\)
 How do we represent data in a computer? At a fundamental level, a computer is an electronic machine that works by controlling the flow of electrons
 
 It is easy to recognize two scenarios:
@@ -113,13 +112,13 @@ First, we convert a number to binary:
 4. Go to step 2. 
 5. Binary number is in the result.
 
-Now, to convert a base 10 number to base *n*, use the following algorithm:
+Now, to convert a base 10 number to base \\(n\\), use the following algorithm:
 
-1. Convert the number to binary (call this *temp*).
-2. If $temp < n$, go to step 5.
+1. Convert the number to binary - call this \\(temp\\).
+2. If \\(temp < n\\), go to step 5.
 3. Add the remainder to the result.
 4. Go to step 2.
-5. Number in base *b* is in the result.
+5. Number in base \\(b\\) is in the result.
 
 # 3. Data Types
 
@@ -224,16 +223,13 @@ But this leads to two representations of 0 (positive zero and negative zero) - n
 
 #### 3.1.2.3 Two's Complement
 
-An $n$-bit two's complement represents integers from 
-{% raw %}$-2^{(n-1)}${% endraw %} to $2^{(n-1)} - 1$.
+An \\(n\\)-bit two's complement represents integers from \\(-2^{(n-1)} \ldots \hskip 2mm 2^{(n-1)} - 1\\) (inclusive on both sides).
 
-(inclusive on both sides).
+A negative number \\(k\\)is represented by,
 
-A negative number $k$ is represented by,
-
-1. Add 1 to $k$. Call this $m$. Note that $m <= 0$.
-2. Negate $m$. Call this $p$. Note that $p >= 0$.
-3. Flip the bits of $p$. 
+1. Add 1 to \\(k\\). Call this \\(m\\). Note that \\(m <= 0\\).
+2. Negate \\(m\\). Call this \\(p\\). Note that \\(p >= 0\\).
+3. Flip the bits of \\(p\\). 
 
 This can be represented as 
 
@@ -353,7 +349,7 @@ $$
 </table>
 
 
-Just as before we see how many column values will go into a number, we continue for $n^{-1}$...
+Just as before we see how many column values will go into a number, we continue for \\(n^{-1}\\)...
 
 {% raw %}
 $$
@@ -437,7 +433,7 @@ $$
 </table>
 
 
-Just as before we see how many column values will go into a number, we continue for $n^{-1}$...
+Just as before we see how many column values will go into a number, we continue for \\(n^{-1}\\)...
 
 {% raw %}
 $$
