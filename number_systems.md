@@ -12,11 +12,452 @@ within: programming
 
 <details class="outcomes" markdown="1"><summary>Learning Outcomes:</summary>
 
-  * Outcome 3
-  * Outcome 4
+  * Represent integers (including negative integers) in different bases.
+  * Convert from one base to other.
   
 </details>
 
-## Author: 
+# Table of Contents
+* [1. Representing Information](#1.-Representing-Information)
+* [2. Representing numbers in different bases](#2.-Representing-numbers-in-different-bases)
+	* [2.1 Positional number systems](#2.1-Positional-number-systems)
+	* [2.2 Converting to base *n*](#2.2-Converting-to-base-*n*)
+* [3. Data Types](#3.-Data-Types)
+	* [3.1 Integers](#3.1-Integers)
+		* [3.1.1 Unsigned Integers](#3.1.1-Unsigned-Integers)
+		* [3.1.2 Signed Integers](#3.1.2-Signed-Integers)
+			* [3.1.2.1 Signed Magnitude](#3.1.2.1-Signed-Magnitude)
+		* [3.1.3 One's Complement](#3.1.3-One's-Complement)
+		* [3.1.4 Two's Complement](#3.1.4-Two's-Complement)
+	* [3.2 Floating Point Numbers](#3.2-Floating-Point-Numbers)
+		* [3.2.1 To IEEE format](#3.2.1-To-IEEE-format)
+			* [3.2.1.1 Convert to binary representation](#3.2.1.1-Convert-to-binary-representation)
+			* [3.2.1.2 Normalize](#3.2.1.2-Normalize)
+			* [3.2.1.3 Add 127 to exponent, convert to binary](#3.2.1.3-Add-127-to-exponent,-convert-to-binary)
+			* [3.2.1.4 Combine, leaving off leading 1 of precision](#3.2.1.4-Combine,-leaving-off-leading-1-of-precision)
+		* [3.2.2 From IEEE format](#3.2.2-From-IEEE-format)
+			* [3.2.2.1 From IEEE format](#3.2.2.1-From-IEEE-format)
 
-# Week 2
+
+# 1. Representing Information
+
+How do we represent data in a computer? At a fundamental level, a computer is an electronic machine that works by controlling the flow of electrons
+
+It is easy to recognize two scenarios:
+
+1. presence of current flowing through - call this state "1"
+2. absence of current flowing through - call this state "0"
+
+# 2. Representing numbers in different bases
+
+## 2.1 Positional number systems
+
+Consider these positions in a number system:
+
+<table>
+<tr>
+<td>n<sup>3</sup></td>
+<td>n<sup>2</sup></td>
+<td>n<sup>1</sup></td>
+<td>n<sup>0</sup></td>
+</tr>
+<tr>
+<td>d<sub>3</sub></td>
+<td>d<sub>2</sub></td>
+<td>d<sub>1</sub></td>
+<td>d<sub>0</sub></td>
+</tr>
+</table>
+
+$$
+d_3 \times n^3 + d_2 \times n^2 + d_1 \times n^1 + d_0 \times n^0 
+$$
+
+Consider the number 350 in base 10 (radix 10). That is, n is 10, and thus: 
+
+$$
+0 \times n^3 + 3 \times n^2 + 5 \times n^1 + 0 \times n^0 
+$$
+
+$$
+0 \times 1000 + 3 \times 100 + 5 \times 10 + 0 \times 1 
+$$
+
+Consider the number 0110 in base 2 (radix 2). That is, n is 2, and thus: 
+
+$$
+0 \times n^3 + 1 \times n^2 + 1 \times n^1 + 0 \times n^0 
+$$
+
+$$
+0 \times 8 + 1 \times 4 + 1 \times 2 + 0 \times 1 
+$$
+
+or 6 in base 10.
+
+## 2.2 Converting to base *b*
+
+First, we convert a number to binary:
+
+1. Start with result = 0
+2. If number is zero, go to step 5.
+3. Divide the number by 2 and put the remainder (0 or 1) to the left of result. 
+4. Go to step 2. 
+5. Binary number is in the result.
+
+Now, to convert a base 10 number to base *n*, use the following algorithm:
+
+1. Convert the number to binary (call this *temp*).
+2. If *temp < n*, go to step 5.
+3. Add the remainder to the result.
+4. Go to step 2.
+5. Number in base *b* is in the result.
+
+# 3. Data Types
+
+## 3.1 Integers
+
+There are two categories of integers (whole numbers):
+
+* Unsigned integers
+ * Typically, each bit represents decreasing (from left to right) magnitudes of powers of 2
+* Signed integers
+ * Signed magnitude
+ * 1's complement
+ * 2's complement
+
+Unsigned integers are all positive, and thus you can use all bits to represent positive numbers.
+
+Signed integers use a bit to represent whether the integer is positive or negative.
+
+### 3.1.1 Unsigned Integers
+
+Let's see how many unsigned (non-negative) integers can we store using 4 bits.
+
+<table>
+<tr><th>Number</th><th>Bits</th></tr>
+<tr><td>0</td><td>0000</td></tr>
+<tr><td>1</td><td>0001</td></tr>
+<tr><td>2</td><td>0010</td></tr>
+<tr><td>3</td><td>0011</td></tr>
+<tr><td>4</td><td>0100</td></tr>
+<tr><td>5</td><td>0101</td></tr>
+<tr><td>6</td><td>0110</td></tr>
+<tr><td>7</td><td>0111</td></tr>
+<tr><td>8</td><td>1000</td></tr>
+<tr><td>9</td><td>1001</td></tr>
+<tr><td>10</td><td>1010</td></tr>
+<tr><td>11</td><td>1011</td></tr>
+<tr><td>12</td><td>1100</td></tr>
+<tr><td>13</td><td>1101</td></tr>
+<tr><td>14</td><td>1110</td></tr>
+<tr><td>15</td><td>1111</td></tr>
+</table>
+
+- **What is the largest unsigned integer using 16 bits?**
+- **What is the largest unsigned integer using 32 bits?**
+
+### 3.1.2 Signed Integers
+
+But how can we represent negative numbers?
+
+#### 3.1.2.1 Signed Magnitude
+
+The simplest pattern (at least for humans) might be the "signed magnitude"... just use the left-most bit to mean negative.
+
+<table>
+<tr><th>Number</th><th>Bits</th></tr>
+<tr><td>-7</td><td>1111</td></tr>
+<tr><td>-6</td><td>1110</td></tr>
+<tr><td>-5</td><td>1101</td></tr>
+<tr><td>-4</td><td>1100</td></tr>
+<tr><td>-3</td><td>1011</td></tr>
+<tr><td>-2</td><td>1010</td></tr>
+<tr><td>-1</td><td>1001</td></tr>
+<tr><td>-0</td><td>1000</td></tr>
+<tr><td>0</td><td>0000</td></tr>
+<tr><td>1</td><td>0001</td></tr>
+<tr><td>2</td><td>0010</td></tr>
+<tr><td>3</td><td>0011</td></tr>
+<tr><td>4</td><td>0100</td></tr>
+<tr><td>5</td><td>0101</td></tr>
+<tr><td>6</td><td>0110</td></tr>
+<tr><td>7</td><td>0111</td></tr>
+</table>
+
+If we add 1 and -1, we should get zero. Using signed magnitude, it's 0001 + 1001 = 1010, which is -2. 
+So, no good :(
+
+### 3.1.3 One's Complement
+
+We can keep the left-most bit for sign and flip the others so `n` + `-n` is always `0000000` (Ignoring the sign bit).
+
+<table>
+<tr><th>Number</th><th>Bits</th></tr>
+<tr><td>-7</th><td>1000</td></tr>
+<tr><td>-6</th><td>1001</td></tr>
+<tr><td>-5</th><td>1010</td></tr>
+<tr><td>-4</th><td>1011</td></tr>
+<tr><td>-3</th><td>1100</td></tr>
+<tr><td>-2</th><td>1101</td></tr>
+<tr><td>-1</th><td>1110</td></tr>
+<tr><td><p style = "color:red">-0</p></th><td><p style = "color:red">1111</p></td></tr>
+<tr><td> 0</th><td>0000</td></tr>
+<tr><td> 1</th><td>0001</td></tr>
+<tr><td> 2</th><td>0010</td></tr>
+<tr><td> 3</th><td>0011</td></tr>
+<tr><td> 4</th><td>0100</td></tr>
+<tr><td> 5</th><td>0101</td></tr>
+<tr><td> 6</th><td>0110</td></tr>
+<tr><td> 7</th><td>0111</td></tr>
+</table>
+
+But this leads to two representations of 0 (positive zero and negative zero) - no good!
+
+### 3.1.4 Two's Complement
+
+An $n$-bit two's complement represents integers from $-2^{(n-1)}$ to $2^{(n-1)} - 1$ (inclusive on both sides).
+
+A negative number $k$ is represented by,
+
+1. Add 1 to $k$. Call this $m$. Note that $m <= 0$.
+2. Negate $m$. Call this $p$. Note that $p >= 0$.
+3. Flip the bits of $p$. 
+
+This can be represented as $bin(k | k < 0) = flip(bin(-(k+1)))$.
+
+In a 4-bit system, -6 would be represented by,
+
+1. adding 1 to get -5, 
+2. negating -5 to get 5,
+3. flipping binary representation of 5 (`0101`) to get `1010`.
+
+
+<table>
+<tr><th>Number</th><th>Bits</th></tr>
+<tr><td>-8</th><td>1000</td></tr>
+<tr><td>-7</th><td>1001</td></tr>
+<tr><td>-6</th><td>1010</td></tr>
+<tr><td>-5</th><td>1011</td></tr>
+<tr><td>-4</th><td>1100</td></tr>
+<tr><td>-3</th><td>1101</td></tr>
+<tr><td>-2</th><td>1110</td></tr>
+<tr><td>-1</th><td>1111</td></tr>
+<tr><td> 0</th><td>0000</td></tr>
+<tr><td> 1</th><td>0001</td></tr>
+<tr><td> 2</th><td>0010</td></tr>
+<tr><td> 3</th><td>0011</td></tr>
+<tr><td> 4</th><td>0100</td></tr>
+<tr><td> 5</th><td>0101</td></tr>
+<tr><td> 6</th><td>0110</td></tr>
+<tr><td> 7</th><td>0111</td></tr>
+</table>
+
+Advantages:
+
+* no negative zero 👍
+* -1 + 1 = 1111 + 0001 = 0000 (overflow discarded). 👍
+
+**What is the range of numbers represented in 16 bits using 2's complement?**
+
+## 3.2 Floating Point Numbers (ADVANCED)
+
+Could be used just to indicate where a decimal place
+
+Used to represent really big numbers and really small numbers.
+
+Consider that we have 32 bits to use. The *IEEE Standard for Floating Point Arithmetic* defined the following representation:
+
+* 1 bit for the sign (0 = positive, 1 = negative)
+* 8 bits for exponent (offset by 127)
+* 23 bits for precision (leading 1 assumed)
+
+### 3.2.1 To IEEE format
+
+## Example 1 
+
+Convert to IEEE floating-point representation:
+
+$$ 
+-6 \dfrac{5}{8}
+$$
+
+#### 3.2.1.1 Convert to binary representation
+
+<table>
+<tr>
+<td>n<sup>3</sup></td>
+<td>n<sup>2</sup></td>
+<td>n<sup>1</sup></td>
+<td>n<sup>0</sup></td>
+<th colspan="2">Decimal</th>
+<td>n<sup>-1</sup></td>
+<td>n<sup>-2</sup></td>
+<td>n<sup>-3</sup></td>
+<td>n<sup>-4</sup></td>
+</tr>
+<tr>
+<td>d<sub>3</sub></td>
+<td>d<sub>2</sub></td>
+<td>d<sub>1</sub></td>
+<td>d<sub>0</sub></td>
+<td colspan="2">.</td>
+<td>d<sub>-1</sub></td>
+<td>d<sub>-2</sub></td>
+<td>d<sub>-3</sub></td>
+<td>d<sub>-4</sub></td>
+</tr>
+</table>
+
+
+Just as before we see how many column values will go into a number, we continue for $n^{-1}$...
+
+$$
+0 \times n^3 + 1 \times n^2 + 1 \times n^1 + 0 \times n^0 + 1 \times n^{-1} + 0 \times n^{-2} + 1 \times n^{-3}
+$$
+
+$$
+0 \times 8 + 1 \times 4 + 1 \times 2 + 0 \times 1 + 1 \times \dfrac{1}{2} + 0 \times \dfrac{1}{4} + 1 \times \dfrac{1}{8}
+$$
+
+or:
+
+-0110.101
+
+#### 3.2.1.2 Normalize
+
+Move the decimal place to left or right to get a single 1 to the left of the decimal place. Count how many places and in which direction:
+
+-0110.101
+
+becomes:
+
+-01.10101
+
+with 2 moves (exponent).
+
+#### 3.2.1.3 Add 127 to exponent, convert to binary
+
+2 + 127 = 129
+
+which is:
+
+100000001
+
+in binary.
+
+#### 3.2.1.4 Combine, leaving off leading 1 of precision
+
+1 100000001 10101
+
+and pad to a total of 32 bits:
+
+1 100000001 10101000000000000000000
+
+### 3.2.2 From IEEE format
+
+Consider:
+
+00111101100000000000000000000000
+
+Do the reverse:
+
+#### 3.2.2.1 First digit is sign
+
+Break into parts:
+
+0 01111011 00000000000000000000000
+
+It is positive!
+
+#### 3.2.2.1 Next 8 bits is exponent, minus 127
+
+Convert next 8 unsigned bits into decimal, and subtract 127:
+
+01111011 is 123
+
+123 - 127 = -4
+
+#### 3.2.2.1 Get precision
+
+Put a one in front of the last 23 bits:
+
+1.00000000000000000000000
+
+and move the decimal spot by the exponent. In this case, 4 places to the left:
+
+0.000100000000000000000000000
+
+Convert to decimal:
+
+$$
+0 * \dfrac{1}{2} + 0 * \dfrac{1}{4} + 0 * \dfrac{1}{8} + 1 * \dfrac{1}{16} ...
+$$
+
+#### 3.2.2.1 All together
+
+$$
++ \dfrac{1}{16}
+$$
+
+<!--bibtex
+
+@misc{colorado,
+  title = {Chapter 2},
+  howpublished = {https://www.cs.colostate.edu/~cs270/.Fall13/Notes/Lecture1(C1).pdf},
+  note = {Accessed: 2015-09-09}
+}
+
+-->
+
+## Example 2
+
+$$ 
+-6 \dfrac{5}{16}
+$$
+
+#### 3.2.1.1 Convert to binary representation
+
+<table>
+<tr>
+<td>n<sup>3</sup></td>
+<td>n<sup>2</sup></td>
+<td>n<sup>1</sup></td>
+<td>n<sup>0</sup></td>
+<th colspan="2">Decimal</th>
+<td>n<sup>-1</sup></td>
+<td>n<sup>-2</sup></td>
+<td>n<sup>-3</sup></td>
+<td>n<sup>-4</sup></td>
+<td>n<sup>-5</sup></td>
+</tr>
+<tr>
+<td>d<sub>3</sub></td>
+<td>d<sub>2</sub></td>
+<td>d<sub>1</sub></td>
+<td>d<sub>0</sub></td>
+<td colspan="2">.</td>
+<td>d<sub>-1</sub></td>
+<td>d<sub>-2</sub></td>
+<td>d<sub>-3</sub></td>
+<td>d<sub>-4</sub></td>
+<td>d<sub>-5</sub></td>
+</tr>
+</table>
+
+
+Just as before we see how many column values will go into a number, we continue for $n^{-1}$...
+
+$$
+0 \times n^3 + 1 \times n^2 + 1 \times n^1 + 0 \times n^0 + 0 \times n^{-1} + 1 \times n^{-2} + 0 \times n^{-3} + 1 \times n^{-4}
+$$
+
+$$
+0 \times 8 + 1 \times 4 + 1 \times 2 + 0 \times 1 + 0 \times \dfrac{1}{2} + 1 \times \dfrac{1}{4} + 0 \times \dfrac{1}{8} + 1 \times \dfrac{1}{16}
+$$
+
+or:
+
+-0110.0101
+
+Rest remains the same.
