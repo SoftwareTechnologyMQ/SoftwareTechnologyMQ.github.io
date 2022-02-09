@@ -203,7 +203,7 @@ In the operation \\(\frac{a}{b}\\), if \\(a \times d + r = b\\), we call \\(d\\)
 
 Examples
 
-binary `1101` (base 2) to decimal.
+\\(1101_2\\) to decimal:
 
 | Current Digit | Weight | Result |
 | 1 |	 1	| 0 -> 0 + 1\*1 = 1 |
@@ -212,14 +212,14 @@ binary `1101` (base 2) to decimal.
 | 1 | 8 | 5 -> 5 + 1\*8 = 13 (result) |
  
 
-hexadecimal `adb` (base 16) to decimal.
+\\(adb_{16}\\) to decimal:
 
 | Current Digit | Weight | Result |
 | b |	 1	| 0 -> 0 + b\*1 = 11 (remember, b is 11) |
 | d | 16	| 11 -> 11 + 13\*16 = 219 |
 | a | 256 | 219 -> 219 + 10\*256 = 2779 (result) |
 
-`1201 ` (base 3) to decimal.
+\\(1201_3\\) to decimal:
 
 | Current Digit | Weight | Result |
 | 1 |	 1	| 0 -> 0 + 1\*1 = 1 |
@@ -245,7 +245,6 @@ Convert \\(4307_9\\) to base-16.
 
 1. First convert to decimal: \\(4307_9 = 3166_{10}\\)
 2. Convert from decimal to base-3: \\(C5E_{16}\\)
-
 
 
 # 3. Data Types
