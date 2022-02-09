@@ -17,7 +17,7 @@ within: programming
   
 </details>
 
-# Table of contents
+<!--# Table of contents
 
 - [1. Representing Information](#1-representing-information)
 - [2. Representing numbers in different bases](#2-representing-numbers-in-different-bases)
@@ -33,7 +33,7 @@ within: programming
     - [3.2.1 To IEEE format](#321-to-ieee-format)
     - [Example 1](#example-1)
     - [Example 2](#example-2)
-    - [3.2.2 From IEEE format](#322-from-ieee-format)
+    - [3.2.2 From IEEE format](#322-from-ieee-format)-->
 
 # 1. Representing Information
 
@@ -184,7 +184,7 @@ The simplest pattern (at least for humans) might be the "signed magnitude"... ju
 If we add 1 and -1, we should get zero. Using signed magnitude, it's 0001 + 1001 = 1010, which is -2. 
 So, no good :(
 
-### 3.1.3 One's Complement
+#### 3.1.2.2 One's Complement
 
 We can keep the left-most bit for sign and flip the others so `n` + `-n` is always `0000000` (Ignoring the sign bit).
 
@@ -210,7 +210,7 @@ We can keep the left-most bit for sign and flip the others so `n` + `-n` is alwa
 
 But this leads to two representations of 0 (positive zero and negative zero) - no good!
 
-### 3.1.4 Two's Complement
+#### 3.1.2.3 Two's Complement
 
 An $n$-bit two's complement represents integers from $-2^{(n-1)}$ to $2^{(n-1)} - 1$ (inclusive on both sides).
 
@@ -220,7 +220,13 @@ A negative number $k$ is represented by,
 2. Negate $m$. Call this $p$. Note that $p >= 0$.
 3. Flip the bits of $p$. 
 
-This can be represented as $bin(k | k < 0) = flip(bin(-(k+1)))$.
+This can be represented as $bin(k | k < 0) = flip(toBinary(negate(inc(k))))$. 
+
+The order of operations should be:
+
+**_I_**ncrement > **_N_**egate > **_To_** binary > **_F_**lip
+
+You can remember it as "INToF"
 
 In a 4-bit system, -6 would be represented by,
 
@@ -255,6 +261,24 @@ Advantages:
 * -1 + 1 = 1111 + 0001 = 0000 (overflow discarded). 👍
 
 **What is the range of numbers represented in 16 bits using 2's complement?**
+
+#### Examples
+
+```
+-46 in 8-bit binary
+I: Increment: -46+1 = -45
+N: Negate: -(-45) = 45
+To: To binary = 00101101
+F: Flip = 11010010
+```
+
+```
+-793 in 16-bit binary
+I: Increment: -793+1 = -792
+N: Negate: -(-792) = 792
+To: To binary = 0000001100011000
+F: Flip = 1111110011100111
+```
 
 ## 3.2 Floating Point Numbers (ADVANCED)
 
