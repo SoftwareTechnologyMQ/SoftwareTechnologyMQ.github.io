@@ -65,29 +65,39 @@ Consider these positions in a number system:
 </tr>
 </table>
 
+{% raw %}
 $$
 d_3 \times n^3 + d_2 \times n^2 + d_1 \times n^1 + d_0 \times n^0 
 $$
+{% endraw %}
 
 Consider the number 350 in base 10 (radix 10). That is, n is 10, and thus: 
 
+{% raw %}
 $$
 0 \times n^3 + 3 \times n^2 + 5 \times n^1 + 0 \times n^0 
 $$
+{% endraw %}
 
+{% raw %}
 $$
 0 \times 1000 + 3 \times 100 + 5 \times 10 + 0 \times 1 
 $$
+{% endraw %}
 
 Consider the number 0110 in base 2 (radix 2). That is, n is 2, and thus: 
 
+{% raw %}
 $$
 0 \times n^3 + 1 \times n^2 + 1 \times n^1 + 0 \times n^0 
 $$
+{% endraw %}
 
+{% raw %}
 $$
 0 \times 8 + 1 \times 4 + 1 \times 2 + 0 \times 1 
 $$
+{% endraw %}
 
 or 6 in base 10.
 
@@ -298,9 +308,11 @@ Consider that we have 32 bits to use. The *IEEE Standard for Floating Point Arit
 
 Convert to IEEE floating-point representation:
 
+{% raw %}
 $$ 
 -6 \dfrac{5}{8}
 $$
+{% endraw %}
 
 #### 3.2.1.1 Convert to binary representation
 
@@ -332,13 +344,17 @@ $$
 
 Just as before we see how many column values will go into a number, we continue for $n^{-1}$...
 
+{% raw %}
 $$
 0 \times n^3 + 1 \times n^2 + 1 \times n^1 + 0 \times n^0 + 1 \times n^{-1} + 0 \times n^{-2} + 1 \times n^{-3}
 $$
+{% endraw %}
 
+{% raw %}
 $$
 0 \times 8 + 1 \times 4 + 1 \times 2 + 0 \times 1 + 1 \times \dfrac{1}{2} + 0 \times \dfrac{1}{4} + 1 \times \dfrac{1}{8}
 $$
+{% endraw %}
 
 or:
 
@@ -412,14 +428,17 @@ $$
 
 Just as before we see how many column values will go into a number, we continue for $n^{-1}$...
 
+{% raw %}
 $$
 0 \times n^3 + 1 \times n^2 + 1 \times n^1 + 0 \times n^0 + 0 \times n^{-1} + 1 \times n^{-2} + 0 \times n^{-3} + 1 \times n^{-4}
 $$
+{% endraw %}
 
+{% raw %}
 $$
-0 \times 8 + 1 \times 4 + 1 \times 2 + 0 \times 1 + 0 \times \dfrac{1}{2} + 1 \times \dfrac{1}{4} + 0 \times \dfrac{1}{8} + 1 \times \dfrac{1}{16}
+=0 \times 8 + 1 \times 4 + 1 \times 2 + 0 \times 1 + 0 \times \dfrac{1}{2} + 1 \times \dfrac{1}{4} + 0 \times \dfrac{1}{8} + 1 \times \dfrac{1}{16}
 $$
-
+{% endraw %}
 or:
 
 -0110.0101
@@ -462,15 +481,19 @@ and move the decimal spot by the exponent. In this case, 4 places to the left:
 
 Convert to decimal:
 
+{% raw %}
 $$
 0 * \dfrac{1}{2} + 0 * \dfrac{1}{4} + 0 * \dfrac{1}{8} + 1 * \dfrac{1}{16} ...
 $$
+{% endraw %}
 
 #### 3.2.2.1 All together
 
+{% raw %}
 $$
 + \dfrac{1}{16}
 $$
+{% endraw %}
 
 <!--bibtex
 
