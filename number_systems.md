@@ -115,7 +115,7 @@ First, we convert a number to binary:
 Now, to convert a base 10 number to base *n*, use the following algorithm:
 
 1. Convert the number to binary (call this *temp*).
-2. If {% raw %} $temp < n$ {% raw %}, go to step 5.
+2. If $temp < n$, go to step 5.
 3. Add the remainder to the result.
 4. Go to step 2.
 5. Number in base *b* is in the result.
