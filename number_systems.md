@@ -2,6 +2,7 @@
 layout: page
 title: COMP6010 Week 2
 within: programming
+katex: True
 ---
 
 <details class="prereq" markdown="1"><summary>Assumed Knowledge:</summary>
