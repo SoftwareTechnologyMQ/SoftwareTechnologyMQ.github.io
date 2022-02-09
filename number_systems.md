@@ -222,7 +222,23 @@ But this leads to two representations of 0 (positive zero and negative zero) - n
 
 #### 3.1.2.3 Two's Complement
 
-An $n$-bit two's complement represents integers from $-2^{(n-1)}$ to $2^{(n-1)} - 1$ (inclusive on both sides).
+An `n`-bit two's complement represents integers from:
+
+{% raw %}
+$$
+-2^{(n-1)}
+$$
+{% endraw %}
+
+to
+
+{% raw %}
+$$
+2^{(n-1)} - 1
+$$ 
+{% endraw %}
+
+(inclusive on both sides).
 
 A negative number $k$ is represented by,
 
