@@ -38,6 +38,7 @@ katex: True
 
 # 1. Representing Information
 
+Testing: \\(x + y\\)
 How do we represent data in a computer? At a fundamental level, a computer is an electronic machine that works by controlling the flow of electrons
 
 It is easy to recognize two scenarios:
