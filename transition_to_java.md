@@ -135,7 +135,7 @@ Install the following software **in the order below**. You will be asked to choo
 
 1. [**Java Standard Edition (Java SE)**](http://www.oracle.com/technetwork/java/javase/downloads/index.html), previously known as Java Standard Development Kit (Java SDK). Current version (on the date of writing this document): `16.0.2`. You'll be fine as long as you have version 8 or above.
 
-2. [**Eclipse IDE for Java developers**](https://eclipse.org/downloads/). Current version (on the date of writing this document): `2021-06`.
+2. [**Eclipse IDE for Java developers**](https://eclipse.org/downloads/). Current version (on the date of writing this document): `2021-12`.
 
 **NOTE:** You are free to use any other IDE besides Eclipse (such as Visual Studio Code or NetBeans or IntelliJ) if you want. However, we shall be doing all screencasts and video tutorials using Eclipse.
 
