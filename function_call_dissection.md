@@ -55,7 +55,7 @@ void setup() {
 	int ax = 1, ay = 3;
 	int bx = 6, by = 5;
 	float d = distance(ax, ay, bx, by);
-	System.out.println("Distance: "+d);
+	println("Distance: "+d);
 }
 
 float distance(int x1, int y1, int x2, int y2) {
