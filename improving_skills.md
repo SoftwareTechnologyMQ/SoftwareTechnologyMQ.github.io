@@ -4,7 +4,7 @@ title: How can I improve my coding skills?
 within: programming
 ---
 
-## Author: Anita Furtado
+## Author: Anita Furtado <!-- William Lam hehe -->
 
 Wherever you are at in your programming career, it is always important to maintain your skills outside of university classes. One of the key underlying components of programming is problem solving, so the best way to continue to challenge your mind is through using code to solve real-life problems! Below are a few examples of how you can do this. 
 
@@ -23,7 +23,9 @@ HackerRank is similar to CodingBat in that it has questions sorted by different 
 
 ### <a href="https://open.kattis.com/" target="_blank">Kattis</a>
 
-Kattis tends to be a bit more advanced, however you can sort by the difficulty of problems and go from there! Note: Kattis usually requires the use of some type of input reader, in Java it is called Scanner (very straight-forward to learn, there are lots of YouTube tutorials that will guide you through it).
+Kattis tends to be a bit more advanced, however you can sort by the difficulty of problems and go from there!
+
+*Note: Kattis usually requires the use of some type of input reader, in Java it is called `Scanner` (very straight-forward to learn and there are lots of YouTube tutorials that will guide you through it).*
 
 ### <a href="https://leetcode.com/" target="_blank">LeetCode</a>
 
@@ -39,4 +41,4 @@ A great way to develop your skills in any programming field is to start working 
 
 
 ## Competitive Programming 
-If you would like to challenge yourself, Macquarie Uni has a Competitive Programming group who meet up every week to do practice problems and participate in competitions (like <a href="https://icpc.global/" target="_blank">ACM-ICPC</a>). If you are interested, first join the <a href="https://discord.gg/macs" target="_blank">MACS Discord</a> (Macquarie University Computing Society) and then navigate to the competitive-programming channel. From there you can ask a few questions and see how everything runs!
+If you would like to challenge yourself, Macquarie Uni has a Competitive Programming group who meet up every week to do practice problems and participate in competitions (like <a href="https://icpc.global/" target="_blank">ACM-ICPC</a>). If you are interested, first join the <a href="https://discord.gg/macs" target="_blank">MACS Discord</a> (Macquarie University Computing Society) and then navigate to the `#competitive-programming` channel. From there you can ask a few questions and see how everything runs!
