@@ -187,9 +187,9 @@ In the operation \\(\frac{a}{b}\\), if \\(a \times d + r = b\\), we call \\(d\\)
 
 | Divided | Divisor | Quotient | Remainder | Result |
 |---|---|---|---|---|
-| 2779	| 16 | 173 | 11 (b) | empty -> b |
-| 173	| 16 | 10 | 13 (d) | b -> db |
-| 10	| 16 | 0 | 10 (a) | db -> adb |
+| 2779	| 16 | 173 | 11 (B) | empty -> B |
+| 173	| 16 | 10 | 13 (D) | B -> DB |
+| 10	| 16 | 0 | 10 (A) | DB -> ADB |
 
 
 ### 2.2.2 Converting from base *b* to decimal
@@ -206,22 +206,25 @@ Examples
 \\(1101_2\\) to decimal:
 
 | Current Digit | Weight | Result |
+|---|---|---|
 | 1 |	 1	| 0 -> 0 + 1\*1 = 1 |
 | 0 | 2	| 1 -> 1 + 0\*2 = 1 |
 | 1 | 4 | 1 -> 1 + 1\*4 = 5 |
 | 1 | 8 | 5 -> 5 + 1\*8 = 13 (result) |
  
 
-\\(adb_{16}\\) to decimal:
+\\(ADB_{16}\\) to decimal:
 
 | Current Digit | Weight | Result |
-| b |	 1	| 0 -> 0 + b\*1 = 11 (remember, b is 11) |
-| d | 16	| 11 -> 11 + 13\*16 = 219 |
-| a | 256 | 219 -> 219 + 10\*256 = 2779 (result) |
+|---|---|---|
+| B |	 1	| 0 -> 0 + B\*1 = 0 + 11\*1 = 11 (remember, b is 11) |
+| D | 16	| 11 -> 11 + 13\*16 = 219 |
+| A | 256 | 219 -> 219 + 10\*256 = 2779 (result) |
 
 \\(1201_3\\) to decimal:
 
 | Current Digit | Weight | Result |
+|---|---|---|
 | 1 |	 1	| 0 -> 0 + 1\*1 = 1 |
 | 0 | 3	| 1 -> 1 + 0\*3 = 1 |
 | 2 | 9 | 1 -> 1 + 2\*9 = 19 |
@@ -229,7 +232,7 @@ Examples
 
 ### 2.2.3 Converting between arbitrary bases
 
-Say, we need to convert a number \\(n\\) from base \\(b_1\\) to base \\(b2\\).
+Say, we need to convert a number \\(n\\) from base \\(b_1\\) to base \\(b_2\\).
 
 1. Convert the number from base \\(b_1\\) to decimal.
 2. Convert the decimal version from decimal to base \\(b_2\\).
