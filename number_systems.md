@@ -66,7 +66,7 @@ A number \\(n\\) in base \\(b\\) is represented as \\(n_b\\). That is the base i
 For example, 
 \\(1101_2\\) is a base-2 or binary value.
 \\(1304_8\\) is a base-8 or octal value.
-\\(17CE2F{16}\\) is a base-16 or hexadecimal value.
+\\(17CE2F_{16}\\) is a base-16 or hexadecimal value.
 \\(1603_6\\) is is an invalid number since base-6 can only have digits between 0 and (6-1 = 5).
 
 ## 2.1 Positional number systems
