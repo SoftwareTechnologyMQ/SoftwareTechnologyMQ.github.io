@@ -274,4 +274,41 @@ table td { border: 1px solid #e8e8e8; }
 
 .highlight .il { color: #099; }
 
+.code-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .copy-code-button {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    grid-column-gap: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px 8px;
+  
+    &::before {
+      content: "Copy";
+    }
+  
+    &::after {
+      content: "📋";
+      display: block;
+    }
+  
+    // This class will be toggled via JavaScript
+    &.copied {
+      &::before {
+        content: "Copied!";
+      }
+  
+      &::after {
+        content: "✔️";
+      }
+    }
+  }
+  
+
 /*# sourceMappingURL=main.css.map */

@@ -92,14 +92,14 @@ nav:
   - title: COMP6010
     url: /comp6010
     subnav:
-      - title: Introduction, variables, operators
+      - title: Python Introduction, Variables, Operators
         url: /comp6010_introduction
       - title: Number Systems
         url: /number_systems
       - title: Boolean Logic
         url: /boolean_logic
       - title: Python Cheat Sheet
-        url: python_cheat_sheet
+        url: /python_cheat_sheet
   - title: Common
     url: /common
     subnav:

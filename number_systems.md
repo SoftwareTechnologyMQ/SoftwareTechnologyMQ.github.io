@@ -36,6 +36,7 @@ katex: True
     - [Example 2](#example-2)
     - [3.2.2 From IEEE format](#322-from-ieee-format)-->
 
+
 # 1. Representing Information
 
 How do we represent data in a computer? At a fundamental level, a computer is an electronic machine that works by controlling the flow of electrons
@@ -47,7 +48,7 @@ It is easy to recognize two scenarios:
 
 # 2. Representing numbers in different bases
 
-An integer in base \\(b\\) consists of values from 0 to \\(b-1\\).
+An integer in base $$b$$ consists of values from 0 to $$b-1$$.
 
 Hexadecimal is base-16, so it has values rom 0 to 15. However, beyond 9, the following symbols are used:
 
@@ -61,13 +62,14 @@ Hexadecimal is base-16, so it has values rom 0 to 15. However, beyond 9, the fol
 <tr><td>15</td><td>f</td></tr>
 </table>
 
-A number \\(n\\) in base \\(b\\) is represented as \\(n_b\\). That is the base is in the subscript. Absence of subscript means it is a decimal value.
+A number $$n$$ in base $$b$$ is represented as $$n_b$$. That is the base is in the subscript. Absence of subscript means it is a decimal value.
 
 For example, 
-\\(1101_2\\) is a base-2 or binary value.
-\\(1304_8\\) is a base-8 or octal value.
-\\(17CE2F_{16}\\) is a base-16 or hexadecimal value.
-\\(1603_6\\) is is an invalid number since base-6 can only have digits between 0 and (6-1 = 5).
+
+$$1101_2$$ is a base-2 or binary value.
+$$1304_8$$ is a base-8 or octal value.
+$$E2F_{16}$$ is a base-16 or hexadecimal value.
+$$1603_6$$ is is an invalid number since base-6 can only have digits between 0 and (6-1 = 5).
 
 ## 2.1 Positional number systems
 
@@ -132,11 +134,11 @@ or 22 in base 10.
 
 1. Start with result = 0
 2. If number is zero, go to step 5.
-3. Divide the number by \\(b\\) and put the remainder (a value between 0 and \\(b-1\\) to the left of result. 
+3. Divide the number by $$b$$ and put the remainder (a value between 0 and $$b-1$$ to the left of result. 
 4. Go to step 2. 
 5. Binary number is in the result.
 
-In the operation \\(\frac{a}{b}\\), if \\(a \times d + r = b\\), we call \\(d\\) the *quotient* and \\(r\\) the *remainder*. Here \\(a\\) is being divided by \\(b\\) and \\(a\\) is the *dividend* (numerator) while \\(b\\) is the *divisor* (denomenator).
+In the operation $$\frac{a}{b}$$, if $$a \times d + r = b$$, we call $$d$$ the *quotient* and $$r$$ the *remainder*. Here $$a$$ is being divided by $$b$$ and $$a$$ is the *dividend* (numerator) while $$b$$ is the *divisor* (denomenator).
 
 #### Examples
 
@@ -194,16 +196,16 @@ In the operation \\(\frac{a}{b}\\), if \\(a \times d + r = b\\), we call \\(d\\)
 
 ### 2.2.2 Converting from base *b* to decimal
 
-1. \\(weight = 1, result = 0\\)
+1. $$weight = 1, result = 0$$
 2. Start with right-most digit (least significant digit)
-2. Multiply digit by \\(weight\\) and add to \\(result\\)
-3. Multiply \\(weight\\) by \\(b\\)
+2. Multiply digit by $$weight$$ and add to $$result$$
+3. Multiply $$weight$$ by $$b$$
 4. If digit exists to the left of current digit, go to step 2
 5. Result holds the decimal value 
 
 Examples
 
-\\(1101_2\\) to decimal:
+$$1101_2$$ to decimal:
 
 | Current Digit | Weight | Result |
 |---|---|---|
@@ -213,7 +215,7 @@ Examples
 | 1 | 8 | 5 -> 5 + 1\*8 = 13 (result) |
  
 
-\\(ADB_{16}\\) to decimal:
+$$ADB_{16}$$ to decimal:
 
 | Current Digit | Weight | Result |
 |---|---|---|
@@ -221,7 +223,7 @@ Examples
 | D | 16	| 11 -> 11 + 13\*16 = 219 |
 | A | 256 | 219 -> 219 + 10\*256 = 2779 (result) |
 
-\\(1201_3\\) to decimal:
+$$1201_3$$ to decimal:
 
 | Current Digit | Weight | Result |
 |---|---|---|
@@ -232,22 +234,22 @@ Examples
 
 ### 2.2.3 Converting between arbitrary bases
 
-Say, we need to convert a number \\(n\\) from base \\(b_1\\) to base \\(b_2\\).
+Say, we need to convert a number $$n$$ from base $$b_1$$ to base $$b_2$$.
 
-1. Convert the number from base \\(b_1\\) to decimal.
-2. Convert the decimal version from decimal to base \\(b_2\\).
+1. Convert the number from base $$b_1$$ to decimal.
+2. Convert the decimal version from decimal to base $$b_2$$.
 
 Example(s):
 
-Convert \\(111001_2\\) to base-3.
+Convert $$111001_2$$ to base-3.
 
-1. First convert to decimal: \\(111001_2 = 57_{10}\\)
-2. Convert from decimal to base-3: \\(2010_3\\)
+1. First convert to decimal: $$111001_2$$ = $$57_{10}$$
+2. Convert from decimal to base-3: $$2010_3$$
 
-Convert \\(4307_9\\) to base-16.
+Convert $$4307_9$$ to base-16.
 
-1. First convert to decimal: \\(4307_9 = 3166_{10}\\)
-2. Convert from decimal to base-3: \\(C5E_{16}\\)
+1. First convert to decimal: $$4307_9$$ = $$3166_{10}$$
+2. Convert from decimal to base-3: $$C5E_{16}$$
 
 
 # 3. Data Types
@@ -353,13 +355,13 @@ But this leads to two representations of 0 (positive zero and negative zero) - n
 
 #### 3.1.2.3 Two's Complement
 
-An \\(n\\)-bit two's complement represents integers in the range \\([-2^{(n-1)}, \hskip 2mm 2^{(n-1)} - 1\\)] (That represents all integers from \\(-2^{(n-1)}\\) to \\(2^{(n-1)} - 1\\)(inclusive on both sides).
+An $$n$$-bit two's complement represents integers in the range $$[-2^{(n-1)}, \hskip 2mm 2^{(n-1)} - 1$$] (That represents all integers from $$-2^{(n-1)}$$ to $$2^{(n-1)} - 1$$(inclusive on both sides).
 
-A negative number \\(k\\) is represented by,
+A negative number $$k$$ is represented by,
 
-1. Add 1 to \\(k\\). Call this \\(m\\). Note that \\(m <= 0\\).
-2. Negate \\(m\\). Call this \\(p\\). Note that \\(p >= 0\\).
-3. Flip the bits of \\(p\\). 
+1. Add 1 to $$k$$. Call this $$m$$. Note that $$m <= 0$$.
+2. Negate $$m$$. Call this $$p$$. Note that $$p >= 0$$.
+3. Flip the bits of $$p$$. 
 
 This can be represented as 
 
@@ -479,7 +481,7 @@ $$
 </table>
 
 
-Just as before we see how many column values will go into a number, we continue for \\(n^{-1}\\)...
+Just as before we see how many column values will go into a number, we continue for $$n^{-1}$$...
 
 {% raw %}
 $$
@@ -563,7 +565,7 @@ $$
 </table>
 
 
-Just as before we see how many column values will go into a number, we continue for \\(n^{-1}\\)...
+Just as before we see how many column values will go into a number, we continue for $$n^{-1}$$...
 
 {% raw %}
 $$

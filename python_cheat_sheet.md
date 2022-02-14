@@ -1,3 +1,21 @@
+---
+layout: page
+title: Python Cheat Sheet
+within: programming
+---
+
+<details class="prereq" markdown="1"><summary>Assumed Knowledge</summary>
+
+  * [Primitive Operations](./primitive_operations)
+  * [Algorithms](./algorithms)
+</details>
+
+<details class="outcomes" markdown="1"><summary>Learning Outcomes</summary>
+
+  * Everything about basic Python
+
+</details>
+
 MIT License
 
 Copyright (c) 2018 Carlos Montecinos Geisse

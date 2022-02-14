@@ -1,5 +1,5 @@
 ---
-layout: meta
+layout: page
 title: Cognition of Coding
 ---
 
