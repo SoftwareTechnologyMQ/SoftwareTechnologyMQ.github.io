@@ -28,7 +28,7 @@ We refactor code to _takeaway duplicate or similar code_, _to make our program e
 
 You want meaningful variable names.  If you find you have a variable that is not self-describing, give it a better name.
 
-<div class="row">
+<!-- <div class="row">
 	<div class="col-xs-5">
 <pre><code>
 int d = 20;
@@ -44,14 +44,26 @@ int diameter = 20;
 ellipse(width/2, height/2, diameter, diameter);
 </code></pre>
 	</div>
-</div>
+</div> -->
+
+```java
+int d = 20;
+
+ellipse(width/2, height/2, d, d);
+```
+
+```java
+int diameter = 20;
+
+ellipse(width/2, height/2, diameter, diameter)
+```
 
 
 ### Magic Numbers
 
 Any value that you are using _in multiple places_ but _for the same underlying concept_ is called a magic number and should be replaced by a variable
 
-<div class="row">
+<!-- <div class="row">
 	<div class="col-xs-5">
 <pre><code>
 ellipse(width/2, height/2, 20, 20);
@@ -65,13 +77,21 @@ int circleSize = 20;
 ellipse(width/2, height/2, circleSize, circleSize);
 </code></pre>
 	</div>
-</div>
+</div> -->
+
+```java
+ellipse(width/2, height/2, 20, 20);
+```
+
+```java
+int circleSize = 20;
+ellipse(width/2, height/2, circleSize, circleSize);
+```
 
 # Conditions
 
 ### Common body of `if`
-
-<div class="row">
+<!-- <div class="row">
 	<div class="col-xs-5">
 <pre><code>
 if(x < 7)
@@ -87,11 +107,23 @@ if(x < 7 || x > 23)
 	y = 4;
 </code></pre>
 	</div>
-</div>
+</div> 
+-->
 
+```java
+if (x < 7)
+	y = 4;
+if (x > 23)
+	y = 4;
+```
+
+```java
+if (x < 7 || x > 23) 
+	y = 4;
+```
 
 ### Common `if` condition
-<div class="row">
+<!-- <div class="row">
 	<div class="col-xs-5">
 <pre><code>
 if(x < 7)
@@ -109,16 +141,30 @@ if(x < 7) {
 }
 </code></pre>
 	</div>
-</div>
+</div> -->
+
+```java
+if (x < 7)
+	y = 4;
+if (x < 7)
+	z = 9;
+```
+
+```java
+if (x < 7) {
+	y = 4;
+	z = 9;
+}
+```
 
 ### Nested `if` statements can sometimes be combined.
 
 It is often possible to replace nested `if` statements with a single `if` statement that has a more complex condition.  You should take this option _as long as the condition does not become too complex itself_.
-<div class="row">
+<!-- <div class="row">
 	<div class="col-xs-5">
 <pre><code>
-if(x < 7){
-	if (y < 7){
+if(x < 7) {
+	if (y < 7) {
 		y = 4;
 	}
 }
@@ -132,13 +178,27 @@ if(x < 7 && y < 7) {
 }
 </code></pre>
 	</div>
-</div>
+</div> -->
+
+```java 
+if(x < 7) {
+	if (y < 7) {
+		y = 4;
+	}
+}
+```
+
+```java
+if (x < 7 && y < 7) {
+	y = 4;
+}
+```
 
 # Loops
 
 ### Simple formula
 
-<div class="row">
+<!-- <div class="row">
 	<div class="col-xs-5">
 <pre><code>
 ellipse(30, 30, 10, 10);
@@ -156,13 +216,27 @@ for(int i = 30; i <= 150; i += 30){
 }
 </code></pre>
 	</div>
-</div>
+</div> -->
+
+```java
+ellipse(30, 30, 10, 10);
+ellipse(60, 60, 10, 10);
+ellipse(90, 90, 10, 10);
+ellipse(120, 120, 10, 10);
+ellipse(150, 150, 10, 10);
+```
+
+```java
+for (int i = 30; i <= 150; i += 30) {
+	ellipse(i, i, 10, 10);
+}
+```
 
 ### No simple forumla
 
 Introduce an array to store the values you need and loop over the array.
 
-<div class="row">
+<!-- <div class="row">
 	<div class="col-xs-5">
 <pre><code>
 ellipse(30, 30, 10, 10);
@@ -181,13 +255,28 @@ for(int i = 0; i < z.length; i++){
 }
 </code></pre>
 	</div>
-</div>
+</div> -->
+
+```java
+ellipse(30, 30, 10, 10);
+ellipse(50, 50, 10, 10);
+ellipse(110, 110, 10, 10);
+ellipse(120, 120, 10, 10);
+ellipse(160,160, 10, 10);
+```
+
+```java
+int[] z = {30, 50, 110, 120, 160};
+for (int i = 0; i < z.length; i++) {
+	ellipse(z[i], z[i], 10, 10);
+}
+```
 
 ### Loop with calculation
 
-Sometimes, in using a loop to position multiple things on the screen, we end up using a calculation based on the loop variable.  It is often possible to adjust the way that loop variable progresses instead.  You end up with more meaningful coe because the loop variable is taking exactly the values you need - it is a little-bit of documentation _and_ the code is simpler.
+Sometimes, in using a loop to position multiple things on the screen, we end up using a calculation based on the loop variable. It is often possible to adjust the way that loop variable progresses instead. You end up with more meaningful coe because the loop variable is taking exactly the values you need - it is a little-bit of documentation _and_ the code is simpler.
 
-<div class="row">
+<!-- <div class="row">
 	<div class="col-xs-5">
 <pre><code>
 for(int i = 0; i < 10; i++){
@@ -203,7 +292,19 @@ for(int i = 0; i < 100; i = i + 10){
 }
 </code></pre>
 	</div>
-</div>
+</div> -->
+
+```java
+for (int i = 0; i < 10; i++) {
+	ellipse(width/2, height/2, i*10, i*10);
+}
+```
+
+```java
+for (int i = 0; i < 100; i = i + 10) {
+	ellipse(width/2, height/2, i, i);
+}
+```
 
 # Functions
 
@@ -341,7 +442,7 @@ We now have two functions that are more likely to be used elsewhere in our progr
 
 If you end up with `return true` or `return false` in the body of an if, then the condition probably contains all the information you need.
 
-<div class="row">
+<!-- <div class="row">
 	<div class="col-xs-5">
 <pre><code>
 if(x){
@@ -357,13 +458,22 @@ if(x){
 return x;
 </code></pre>
 	</div>
-</div>
+</div> -->
 
-### dead code removal
+```java
+if (x) {
+	return true;
+} else {
+	return false;
+}
+```
+
+
+### Dead code removal
 
 You might have mutliple code paths in a function and you end up with mutliple `return` statements.  Make sure you don't have any redundant ones.
 
-<div class="row">
+<!-- <div class="row">
 	<div class="col-xs-5">
 <pre><code>
 if(x){
@@ -384,6 +494,23 @@ if(x){
 }
 </code></pre>
 	</div>
-</div>
+</div> -->
+
+```java
+if (x) {
+	return 1;
+} else {
+	return 2;
+}
+return 3;
+```
+
+```java
+if (x) {
+	return 1;
+} else {
+	return 2;
+}
+```
 
 _Incomming: vid to come here (??)_
