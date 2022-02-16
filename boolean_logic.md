@@ -23,7 +23,7 @@ within: programming
   
 </details>
 
-## Author: Yan Wang
+## Author: Yan Wang, Gaurav Gupta
 
 # History behind "Boolean"
 
