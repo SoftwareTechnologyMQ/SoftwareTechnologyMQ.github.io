@@ -102,6 +102,13 @@ nav:
         url: /boolean_logic
       - title: Python Cheat Sheet
         url: /python_cheat_sheet
+  - title: COMP2160
+    url: /comp2160
+    subnav:
+      - title: COMP2160 Topic 1
+        url: /comp2160_topic_1
+      - title: COMP2160 Topic 2
+        url: /comp2160_topic_2
   - title: Common
     url: /common
     subnav:
