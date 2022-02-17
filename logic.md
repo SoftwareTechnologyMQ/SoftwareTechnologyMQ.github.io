@@ -17,4 +17,24 @@ within: programming
 
 ## Author: Gaurav Gupta
 
-# 
+First of all, welcome to the unit and we hope you have as much fun programming, as we do, or more.
+
+Logical reasoning is critical for computer programming. Without it, it's like playing darts in a pitch dark room.
+
+Here, we have put together some aspects of logic that you may find useful during programming:
+
+### Set Theory
+
+### Number theory
+
+#### Algebraic Number Theory
+
+#### Computational Number Theory
+
+### Predicate Logic
+
+### Probablity
+
+### Graph Theory
+
+
