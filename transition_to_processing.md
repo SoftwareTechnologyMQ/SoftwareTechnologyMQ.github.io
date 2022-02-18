@@ -169,3 +169,6 @@ Compute the following expressions according to rules of Processing:
   - `12.0/5.0`= `2.4`
 </details>
 </div>
+
+## Practice package (including instructions) 
+[COMP1000PracticePackage.zip](./assets/COMP1000PracticePackage.zip)
