@@ -31,6 +31,8 @@ George Boole was an early 19th century English mathematician who worked in the f
 
 ![](./assets/images/georgeBoole.jpg)
 
+**Trivia time**: George Boole's house is at 5, Grenville Place, Cork.
+
 # What is Boolean logic
 
 Quite simply, boolean logic is the use of "and", "or", and "not" conditions. 
