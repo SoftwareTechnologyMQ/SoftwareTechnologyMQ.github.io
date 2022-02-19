@@ -131,4 +131,6 @@ Entry for `distance` is taken off the stack. `setup` becomes the active function
 
 ### STEP 10: `setup` terminates
 
-Entry for `setup` is taken off the stack. Call stack is now empty. Program has now finished execution.
+Entry for `setup` is taken off the stack. 
+Call stack is now empty. 
+Program has now finished execution.
