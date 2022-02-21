@@ -68,7 +68,7 @@ println(result);
 
 The above code executes the loop 6 times (for `a` = 6,5,4,3,2,1 but not for 0) each time multiplying the current value of `a` into `result` and the final value of `result` is 6\*5\*4\*3\*2\*1 = 720.
 
-There is a better way of tracing loops known as logic table construction. The logic table for the above example is given below.
+There is an even better way of tracing loops known as logic table construction. The logic table for the above example is given below.
 
 {: .table}
 | a 	| a > 0 	| result      	|
