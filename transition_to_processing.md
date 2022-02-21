@@ -28,7 +28,72 @@ Learning Processing: Introduction- Macquarie University Students [have access vi
 [Processing is available for all desktop operating systems](https://processing.org/download/).  You can't run it on an iPad or a Chromebook however.
 
 <div class="task" markdown="1">
-[Download and install](https://processing.org/download/) the processing environment on your own computer.
+[Download and install](https://processing.org/download/) the processing environment on your own computer. Install version 3.5.4.
+
+
+# Processing Coordinates
+
+When you open Processing an run an empty program you get a pop-up output (Applet), containing a dark grey square region inside it - *the display window*.
+By default, Processing display window is of size 100 by 100, which means it's 100 pixels wide and 100 pixels high. Each pixel is a cell, much like Excel cell.
+
+- The top-left pixel's address is at (0, 0) and is known as the *origin*.
+- The pixel to the right of the origin is at (1, 0).
+- The pixel to the right of (1, 0) is at (2, 0).
+- and so on
+- The pixel below the origin is at (0, 1).
+- The pixel below (0, 1) is at (0, 2).
+
+Exercise:
+
+- What is the location of a pixel that is `a` pixels to the **right** of `(x, y)`?
+- What is the location of a pixel that is `a` pixels to the **left** of `(x, y)`?
+- What is the location of a pixel that is `a` pixels **above** `(x, y)`?
+- What is the location of a pixel that is `a` pixels **below** `(x, y)`?
+
+<details markdown="1"><summary>Solution</summary>
+- a pixels to the right of (x, y): (x+a, y)
+<br>
+- a pixels to the left of (x, y): (x-a, y)
+<br>
+- a pixels above (x, y): (x, y-a)
+<br>
+- a pixels below (x, y): (x, y+a)
+</details>
+
+Exercise:
+
+- What is the location of a pixel that is 10 pixels to the right and 30 pixels above (50, 70)?
+
+<details markdown="1"><summary>Solution</summary>
+(60, 40)
+</details>
+
+Exercise:
+
+- What is the location of a pixel that is 10 pixels to the left and 30 pixels above (80, 40)?
+
+<details markdown="1"><summary>Solution</summary>
+(70, 10)
+</details>
+
+Exercise:
+
+- What is the location of a pixel that is 40 pixels to the right and 50 pixels below (10, 40)?
+
+<details markdown="1"><summary>Solution</summary>
+(50, 90)
+</details>
+
+
+Exercise:
+
+- What is the location of a pixel that is 40 pixels to the right and 50 pixels above (70, 50)?
+
+<details markdown="1"><summary>Solution</summary>
+(110, 0)
+</details>
+
+## Sample processing programs
 
 ### Example 1
 
@@ -58,6 +123,10 @@ Do you see any output window and if so, what is the end result? If not, what is 
 <details markdown="1"><summary>Solution</summary>
 Error message "Syntax error - Missing ";". To fix it, a semi-colon must be placed at the end of the first instruction.
 </details>
+
+Here is a short video we recorded to demonstrate downloading and installing Processing, and creating a simple program with a handul of functions.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FAPel-Dds9k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # How Processing Works
 
