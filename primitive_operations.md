@@ -82,10 +82,10 @@ What type is each of the following values?
 You must be careful to know what type any particular value has because it affects how the program runs.  For example, each of the basic operations we know about have particular effects based on the types it is working on.
 
 <table border="1px" style="padding: 5px">
-    <tr><th>type</th><th>`+`</th><th>`-`</th><th>`*`</th><th>`/`</th></tr>
-    <tr><td>`int`</td><td>normal addition</td><td>normal subtraction</td><td>normal multiplication</td><td>integer division</td></tr>
-    <tr><td>`float`</td><td>normal addition</td><td>normal subtraction</td><td>normal multiplication</td><td>normal division</td></tr>
-    <tr><td>`char`</td><td>something strange</td><td>something strange</td><td>something strange</td><td>something strange</td></tr>
+ <tr><th>type</th><th><code>+</code></th><th><code>-</code></th><th><code>*</code></th><th><code>/</code></th></tr>
+    <tr><td><code>int</code></td><td>normal addition</td><td>normal subtraction</td><td>normal multiplication</td><td>integer division</td></tr>
+    <tr><td><code>float</code></td><td>normal addition</td><td>normal subtraction</td><td>normal multiplication</td><td>normal division</td></tr>
+    <tr><td><code>char</code></td><td>something strange</td><td>something strange</td><td>something strange</td><td>something strange</td></tr>
 </table>
 
 You will notice that mostly things work out as you expect, but you need to be aware of _integer division_ and _not doing arithmetic on characters_.  Don't ever try and do arithmetic on characters and as for integer division...
@@ -129,13 +129,13 @@ circle(width/2, height/2, 40);
 
 <details markdown="1">
 <summary>solution</summary>
-  * `int` because it is set from `size` which only accepts `int`s
-  * `int` because it is set from `size` which only accepts `int`s
-  * `int` because if you don't say otherwise, processing treats numbers as integers
-  * `int` because if you don't say otherwise, processing treats numbers as
-  * `int` because dividing an `int` by another `int` will give you a third `int`
-  * `int` because dividing an `int` by another `int` will give you a third `int`
-  *  It is always OK to give an `int` where a `float` should go, processing will automatically convert it for you.
+  - <code>int</code> because it is set from <code>size</code> which only accepts <code>int</code>s
+  - <code>int</code> because it is set from <code>size</code> which only accepts <code>int</code>s
+  - <code>int</code> because if you don't say otherwise, processing treats numbers as integers
+  - <code>int</code> because if you don't say otherwise, processing treats numbers as
+  - <code>int</code> because dividing an <code>int</code> by another <code>int</code> will give you a third <code>int</code>
+  - <code>int</code> because dividing an <code>int</code> by another <code>int</code> will give you a third <code>int</code>
+  - It is always OK to give an <code>int</code> where a <code>float</code> should go, processing will automatically convert it for you.
 
 </details>
 </div>
