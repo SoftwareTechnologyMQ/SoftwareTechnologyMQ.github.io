@@ -100,8 +100,8 @@ Exercise:
 Once you have done this, copy-and-paste the following code into the processing IDE and hit the run button.
 
 ```java
-line(0, 0, width, height);
-line(0, height, width, 0);
+line(0, 0, 100, 100);
+line(0, 100, 100, 0);
 ```
 Do you see any output window and if so, what is the end result? If not, what is the error message, and what do you think needs to be done to fix it?
 
@@ -114,8 +114,8 @@ You should see an X drawn across a small window.  That window is a processing "s
 Now, copy-and-paste the following code into the processing IDE and hit the run button.
 
 ```java
-line(0, height/2, width/2, 0)
-line(width/2, height, width, height/2);
+line(0, 50, 50, 0)
+line(50, 100, 100, 50);
 ```
 
 Do you see any output window and if so, what is the end result? If not, what is the error message, and what do you think needs to be done to fix it?
