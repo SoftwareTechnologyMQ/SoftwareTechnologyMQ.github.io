@@ -262,6 +262,18 @@ multiDArray[1][2] = 4;
 
 When you work over these arrays, you need _nested loops_.  The outer will loop over the outer array and the inner loop will run all the way through for each inner array.
 
+You can traverse a two-dimesional array `arr` as:
+
+```java
+for(int i=0; i < arr.length; i++) {
+  //here you have access to sub-array at index i: arr[i]
+  /since arr[i] is the array, arr[i].length gives number of items in that array
+  for(int k=0; k < arr[i].length; k++) {
+    //here you have access to item k inside arr[i], that is arr[i][k]
+  }
+}
+```
+
 # Exercises
 
 #### Exercise 1
