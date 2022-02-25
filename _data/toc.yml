@@ -25,7 +25,7 @@ nav:
       - title: Scope
         url: /scope
       - title: Compound Data
-        url: /composite_data
+        url: /compound_data
       - title: Reference Semantics
         url: /reference_semantics
       - title: Refactoring
@@ -118,6 +118,8 @@ nav:
         url: /google
       - title: Improving coding skills
         url: improving_skills
+      - title: Testing Ground (experimental content)
+        url: testing_ground
   - title: Edit (README for details)
     url: https://github.com/SoftwareTechnologyMQ/softwaretechnologyMQ.github.io
     
