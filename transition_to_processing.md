@@ -170,5 +170,13 @@ Compute the following expressions according to rules of Processing:
 </details>
 </div>
 
-## Practice package (including instructions) 
+## Practice programs (to be introduced in week 2 practical class)
+
+These are programs to help you start with simple sketches are work your way up to more complex animation. Very helpful for the major work.
+
+[COMP1000PracticePrograms.zip](./assets/COMP1000PracticePrograms.zip)
+
+These are programs to help you get acquainted with test-driven development and help you with module exams (and also major work).
+
+## Practice package (to be introduced in week 3 practical class) (including instructions) 
 [COMP1000PracticePackage.zip](./assets/COMP1000PracticePackage.zip)
