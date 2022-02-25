@@ -245,8 +245,8 @@ These are programs to help you start with simple sketches are work your way up t
 
 [COMP1000PracticePrograms.zip](./assets/COMP1000PracticePrograms.zip)
 
-## Practice package (to be introduced in week 3 practical class) (including instructions) 
+## Test-driven development programs (to be introduced in week 3 practical class) (including instructions) 
 
 These are programs to help you get acquainted with test-driven development and help you with module exams (and also major work).
 
-[COMP1000PracticePackage.zip](./assets/COMP1000PracticePackage.zip)
+[COMP1000TestDrivenDevelopment.zip](./assets/COMP1000TestDrivenDevelopment.zip)
