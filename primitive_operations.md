@@ -18,30 +18,17 @@ within: programming
 
 # Drawing Primitives
 
-<<<<<<< Updated upstream
-{: .readings}
-Chapters 1 and 2 of [Learning Processing](http://learningprocessing.com/) by Daniel Shiffman.  Macquarie University students have access to an electronic copy [here at MQ library website](https://multisearch.mq.edu.au/permalink/61MACQUARIE_INST/7h5qs5/alma99244413575302171).
-=======
 ## Reading
 
 Chapters 1 and 2 of [Learning Processing](http://learningprocessing.com/) by Daniel Shiffman.  Macquarie University students have access to an electronic copy [via the library](https://multisearch.mq.edu.au/permalink/61MACQUARIE_INST/7h5qs5/alma99244413575302171).
->>>>>>> Stashed changes
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/a562vsSI2Po" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5N31KNgOO0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/n2oHuKG_BQc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<<<<<<< Updated upstream
-<p>
- 
-## Readings 
-
-[Coordinate System tutorial](https://processing.org/tutorials/coordinatesystemandshapes) at processing.org.
-=======
 ## Reading
 
 [Coordinate System tutorial at processing.org](https://processing.org/tutorials/coordinatesystemandshapes).
->>>>>>> Stashed changes
 
 ## More Details
 
@@ -158,3 +145,7 @@ circle(width/2, height/2, 40);
 # Furthering your Understanding
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7FM0zvbHKnQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/y48q9MsztzE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
