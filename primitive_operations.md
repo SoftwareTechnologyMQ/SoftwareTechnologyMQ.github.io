@@ -27,7 +27,8 @@ Chapters 1 and 2 of [Learning Processing](http://learningprocessing.com/) by Dan
 
 <p>
  
-{:.readings}
+## Readings 
+
 [Coordinate System tutorial](https://processing.org/tutorials/coordinatesystemandshapes) at processing.org.
 
 ## More Details
