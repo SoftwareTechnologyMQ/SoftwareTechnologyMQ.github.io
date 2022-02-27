@@ -19,14 +19,14 @@ within: programming
 # Drawing Primitives
 
 {: .readings}
-Chapters 1 and 2 of [Learning Processing](http://learningprocessing.com/) by Daniel Shiffman.  Macquarie University students have access to an electronic copy [via the library](https://www.mq.edu.au/about/campus-services-and-facilities/library).
+Chapters 1 and 2 of [Learning Processing](http://learningprocessing.com/) by Daniel Shiffman.  Macquarie University students have access to an electronic copy [here at MQ library website](https://multisearch.mq.edu.au/permalink/61MACQUARIE_INST/7h5qs5/alma99244413575302171).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/a562vsSI2Po" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5N31KNgOO0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/n2oHuKG_BQc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 {:.readings}
-[Coordinate System tutorial at processing.org](https://processing.org/tutorials/drawing/).
+[Coordinate System tutorial](https://processing.org/tutorials/coordinatesystemandshapes) at processing.org.
 
 ## More Details
 
