@@ -61,9 +61,9 @@ What type is each of the following values?
   * `41.0`
   * `0`
   * `0.0`
-  * 'c'
-  * 'f'
-  * '0'
+  * `'c'`
+  * `'f'`
+  * `'0'`
   * h
 <details markdown="1">
 <summary>solution</summary>
@@ -72,9 +72,9 @@ What type is each of the following values?
   * `41.0` : `float` (floating point number)
   * `0` : `int` (integer)
   * `0.0` : `float` (floating point number)
-  * 'c' : `char` (character)
-  * 'f' : `char` (character)
-  * '0' : `char` (character)
+  * `'c'` : `char` (character)
+  * `'f'` : `char` (character)
+  * `'0'` : `char` (character)
   * h : **this is an error.  the processing compiler will reject values like this**
 </details>
 </div>
