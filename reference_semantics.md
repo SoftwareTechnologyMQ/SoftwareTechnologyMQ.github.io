@@ -4,7 +4,7 @@ title: "Reference Semantics"
 within: programming
 ---
 <details class="prereq" markdown="1"><summary>Assumed Knowledge</summary>
-  * [Compound Data](composite_data)
+  * [Compound Data](compound_data)
 </details>
 
 <details class="outcomes" markdown="1"><summary>Learning Outcomes</summary>
@@ -13,7 +13,7 @@ within: programming
   * Understand how passing arrays to functions is a case of reference semantics
 </details>
 
-We discussed in the [compound data topic](composite_data) how compound data can't be stored directly in its memory slot.  Instead, that slot holds a _reference_ to some larger chunk of memory where the data is stored.
+We discussed in the [compound data topic](compound_data) how compound data can't be stored directly in its memory slot.  Instead, that slot holds a _reference_ to some larger chunk of memory where the data is stored.
 
 This different storage strategy leads to different behaviour for variables of these compound types.  We call the old way (the behaviour for `int`, `char`, and any other value that fits in its memory slot directly) _value semantics_ and we call the new behaviour (for arrays and objects) _reference semantics_.
 

@@ -12,7 +12,7 @@ within: programming
   * [Loops](./loops)
   * [Functions](./functions)
   * [Scope](./scope)
-  * [Compound Data](./composite_data)
+  * [Compound Data](./compound_data)
   * [Reference Semantics](./reference_semantics)
 </details>
 

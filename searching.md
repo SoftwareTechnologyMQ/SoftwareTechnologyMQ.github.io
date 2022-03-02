@@ -7,7 +7,7 @@ within: programming
 <details class="prereq" markdown="1"><summary>Assumed Knowledge</summary>
 
   * [Recursion](./recursion)
-  * [Arrays](./composite_data)
+  * [Arrays](./compound_data)
 
 </details>
 

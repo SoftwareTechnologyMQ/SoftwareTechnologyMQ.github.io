@@ -8,7 +8,7 @@ within: programming
   * [Variables](variables)
   * [Loops](loops)
   * [Functions](functions)
-  * [Compound Data](composite_data)
+  * [Compound Data](compound_data)
   * [Scope](scope)
 </details>
 
