@@ -6,8 +6,8 @@ within: programming
 
 <details class="prereq" markdown="1"><summary>Assumed Knowledge</summary>
 
-  * <a href="./composite_data">Composite Data</a>
-  * <a href="./composite_data">Recursion</a>
+  * <a href="./compound_data">Composite Data</a>
+  * <a href="./recursion">Recursion</a>
 </details>
 
 <details class="outcomes" markdown="1"><summary>Learning Outcomes</summary>
