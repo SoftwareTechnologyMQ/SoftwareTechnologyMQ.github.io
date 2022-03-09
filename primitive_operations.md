@@ -148,7 +148,7 @@ circle(width/2, height/2, 40);
 </details>
 </div>
 
-## Order of operations
+## Type significance in arithmetic expressions
 
 Fundamental rule is that when you apply an arithmetic operator on two values, say `a` and `b`, precision is maintained if at least one of them is a floating-point value. If they are both integer values, any precision (value after dot) is completely droppped.
 
@@ -171,6 +171,8 @@ For example,
 - `b` cannot be 0 in either `a / b` or `a%b`.
 - `a / b` is non-negative when both a and b are non-negative, or when both a and b are negative.
 - `a % b` is non-negative when a is non-negative.
+
+## Order of operations
 
 The arithmetic operators we discussed earlier have the following order of precedence or priority:
 
