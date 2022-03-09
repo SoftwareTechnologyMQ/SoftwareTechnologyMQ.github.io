@@ -58,9 +58,16 @@ This might all seem terribly obvious, but it is about to become very important.
 
 Values are grouped into _types_.  A type is a set of values that all work the same.  All the whole numbers work the same, so there is a type for these (`int`).  All the precise numbers work the same, so there is a type for these (`float`).  Here is a list of all the types you need to worry about:
 
-  * `int` : whole numbers.  Examples are `1`,`2`,`-7`,`0`,`1023977389`.
-  * `float`: numbers that might have decimal parts.  Examples are `1.2`,`2.45644`,`-13.0`,`0.0`.
-  * `char`: single characters that might appear in text.  Examples include `c`, `g`, `^`, `$`, `@`, `z`.
+  * `int` : whole numbers.  
+    * Examples: `1`,`2`,`-7`,`0`,`1023977389`.
+  * `float`: numbers that might have decimal parts.  
+    * Examples: `1.2`,`2.45644`,`-13.0`,`0.0`.
+  * `char`: exactly one character in single quotes.  
+    * Examples: `'c'`, `'g'`, `'^'`, `'$'`, `'@'`, `'z'`, `' '` (last one is a space character).
+  * `boolean`: `true` or `false`. 
+    * Examples: `true`, `false`, `true`, `true`, `false`.
+  * `String`: Zero or more characters representing arbitrary text inside double quotes.
+    * Examples: `"Voila"`, `"COMP1000 - Introduction to Computer Programming"`, `"0"`, `"D"`, `" "` (that's a space but in double quotes, hence String), `""` (that's an empty String).
 
 <div class="task" markdown="1">
 What type is each of the following values?
@@ -68,22 +75,28 @@ What type is each of the following values?
   * `12`
   * `41.0`
   * `0`
+  * `"Nice!"`
   * `0.0`
   * `'c'`
-  * `'f'`
+  * `"f"`
   * `'0'`
+  * `true`
   * h
+  * `"1729"`
 <details markdown="1">
 <summary>solution</summary>
 
   * `12`: `int` (integer)
   * `41.0` : `float` (floating point number)
   * `0` : `int` (integer)
+  * `"Nice!"`: `String` (arbitrary text)
   * `0.0` : `float` (floating point number)
-  * `'c'` : `char` (character)
-  * `'f'` : `char` (character)
-  * `'0'` : `char` (character)
+  * `'c'` : `char` (single character)
+  * `"f"` : `String` (arbitrary text)
+  * `'0'` : `char` (single character)
+  * `true`: `boolean` 
   * h : **this is an error.  the processing compiler will reject values like this**
+  * `"1729"`: `String` (arbitrary text because it's in double quotes)
 </details>
 </div>
 
@@ -169,8 +182,8 @@ For example,
 ### PRO-TIP: 
 
 - `b` cannot be 0 in either `a / b` or `a%b`.
-- `a / b` is non-negative when both a and b are non-negative, or when both a and b are negative.
-- `a % b` is non-negative when a is non-negative.
+- `a / b` is non-negative when both `a` and `b` are non-negative, or when both `a` and `b` are negative.
+- `a % b` is non-negative when `a` is non-negative. Sign of `b` is irrelevant.
 
 ## Order of operations
 
