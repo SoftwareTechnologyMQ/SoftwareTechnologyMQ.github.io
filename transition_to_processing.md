@@ -99,7 +99,7 @@ Exercise:
 
 Once you have done this, copy-and-paste the following code into the processing IDE and hit the run button.
 
-```java
+```processing
 line(0, 0, 100, 100);
 line(0, 100, 100, 0);
 ```
@@ -113,7 +113,7 @@ You should see an X drawn across a small window.  That window is a processing "s
  
 Now, copy-and-paste the following code into the processing IDE and hit the run button.
 
-```java
+```processing
 line(0, 50, 50, 0)
 line(50, 100, 100, 50);
 ```
@@ -132,7 +132,18 @@ Here is a short video we recorded to demonstrate downloading and installing Proc
 
 Programmers need to know how the machine they are programming actually work.  This is one of your primary tasks early on.  You can copy-and-paste some programs, and even make small changes to them, without understanding the underlying machine but you will run out of runway very quickly.
 
-So, what exactly occurs when a processing program is run?  If we think of the process as a _conversation_ between different _actors_ we would see a conversation like this:
+So, what exactly occurs when a processing program is run?  The syntax of a Processing program is:
+
+```processing
+void setup() {
+ //code that executes once, at the beginning of the program
+}
+
+void draw() {
+ //code that executes AFTER setup(), over and over
+}
+```
+If we think of the process as a _conversation_ between different _actors_ we would see a conversation like this:
 
 {: .chat.user.left}
 Please run this program
