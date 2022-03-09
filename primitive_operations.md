@@ -154,17 +154,17 @@ Fundamental rule is that when you apply an arithmetic operator on two values, sa
 
 For example,
 
-- `17 + 5 = 22`
-- `17 + 5.0 = 22.0`
-- `17 - 5.3 = 11.7`
-- `18.29 - 1 = 17.29`
-- `7 * 5 = 35`
-- `3 * 1.2 = 3.6`
-- `17 / 5 = 3` (precision dropped)
-- `17 / 5.0 = 3.4`
-- `17.0 / 5.0 = 3.4`
-- `5.0 / 1.2 = 4.16666`
-- `17 % 5 = 2` (2 is what's left behind after creating 3 equal groups of 5 from 17)
+- `17 + 5` = `22`
+- `17 + 5.0` = `22.0`
+- `17 - 5.3` = `11.7`
+- `18.29 - 1` = `17.29`
+- `7 * 5` = `35`
+- `3 * 1.2` = `3.6`
+- `17 / 5` = `3` (precision dropped)
+- `17 / 5.0` = `3.4`
+- `17.0 / 5.0` = `3.4`
+- `5.0 / 1.2` = `4.16666`
+- `17 % 5` = `2` (2 is what's left behind after creating 3 equal groups of 5 from 17)
 
 ### PRO-TIP: 
 
