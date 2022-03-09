@@ -34,9 +34,17 @@ Chapters 1 and 2 of [Learning Processing](http://learningprocessing.com/) by Dan
 
 A processing program is made up of _expressions_ and _statements_.  Statements come later, this topic shows us how to build up expressions to get a program.
 
-Processing has a whole pile of built in expressions you can use, most of which cause things to occur on the screen.  The full-set of expressions available are documented at [the processing reference page](https://processing.org/reference/) but we will list here all the ones you need in this text.  In processing, you also have a full suite of mathematical expressions available, plus (`+`), minus (`-`), multiply (`*`), and divide (`/`).
+Processing has a whole pile of built in expressions you can use, most of which cause things to occur on the screen.  The full-set of expressions available are documented at [the processing reference page](https://processing.org/reference/) but we will list here all the ones you need in this text.  In processing, you also have a full suite of mathematical expressions available:
 
-Warning!: Division might now work the way you expect.  We will explain why in a later topic.
+- Additive operators:
+    - Addition (`+`), 
+    - Subtraction (`-`), 
+- Multiplicative operators:
+    - Multiplication (`*`), 
+    - Division (`/`),
+    - Remainder (`%`)
+
+Warning!: Division and remainder might now work the way you expect.  We will explain why in a later topic.
 
 # Values and Types
 
@@ -78,8 +86,6 @@ What type is each of the following values?
   * h : **this is an error.  the processing compiler will reject values like this**
 </details>
 </div>
-
-
 
 You must be careful to know what type any particular value has because it affects how the program runs.  For example, each of the basic operations we know about have particular effects based on the types it is working on.
 
@@ -142,6 +148,47 @@ circle(width/2, height/2, 40);
 </details>
 </div>
 
+## Order of operations
+
+Fundamental rule is that when you apply an arithmetic operator on two values, say `a` and `b`, precision is maintained if at least one of them is a floating-point value. If they are both integer values, any precision (value after dot) is completely droppped.
+
+For example,
+
+- `17 + 5 = 22`
+- `17 + 5.0 = 22.0`
+- `17 - 5.3 = 11.7`
+- `18.29 - 1 = 17.29`
+- `7 * 5 = 35`
+- `3 * 1.2 = 3.6`
+- `17 / 5 = 3` (precision dropped)
+- `17 / 5.0 = 3.4`
+- `17.0 / 5.0 = 3.4`
+- `5.0 / 1.2 = 4.16666`
+- `17 % 5 = 2` (2 is what's left behind after creating 3 equal groups of 5 from 17)
+
+### PRO-TIP: 
+
+- `b` cannot be 0 in either `a / b` or `a%b`.
+- `a / b` is non-negative when both a and b are non-negative, or when both a and b are negative.
+- `a % b` is non-negative when a is non-negative.
+
+The arithmetic operators we discussed earlier have the following order of precedence or priority:
+
+1. Brackets `()`: Any operation inside a brackets must be perfomed before other operations outside the brackets.
+2. Multiplicative operators `*, /, %`. In the order of occurrence in the expression.
+3. Additive operators `+, -`. In the order of occurrence in the expression.
+
+Examples:
+
+- 5 + 20 / 3 = 5 + 6 = 11
+- (5 + 20) / 3 = 25 / 3 = 8
+- 5 + 20 / 3.0 = 5 + 6.6666 = 11.6666
+- (5 + 20) / 3.0 = 25 / 3.0 = 8.3333
+- 5 * 20 % 3 = 100 % 3 = 1
+- 5 * (20 % 3) = 5 * 2 = 10
+- (10 + 8) / ((20 - 15) * (12 / 5)) = 18 / (5 * 2) = 18 / 10 = 1
+- (10 + 8) / ((20 - 15.0) * (12 / 5)) = 18 / (5.0 * 2) = 18 / 10.0 = 1.8
+
 # Furthering your Understanding
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7FM0zvbHKnQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -149,3 +196,4 @@ circle(width/2, height/2, 40);
 <p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y48q9MsztzE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ 
