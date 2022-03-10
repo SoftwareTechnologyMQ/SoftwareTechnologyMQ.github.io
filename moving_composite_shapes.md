@@ -72,9 +72,9 @@ fill(0, 255, 0);
 triangle(x, y, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
 ```
 
+### Magic numbers
 
-
-This draws a triangle on a circle on a square. But that 25 and 50 are hard-coded values, we call "magic" numbers. (As in, appearing magically).
+This draws a triangle on a circle on a square. But that `25` and `50` are hard-coded values, we call *magic numbers*. (As in, appearing magically).
 
 To make the program scalable, we need to fix that. So we identify diameter, and then radius is always going to be half of that.
 
@@ -100,7 +100,7 @@ fill(0, 255, 0);
 triangle(x, y, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
 ```
 
-Similarly, the 2.25*PI and 2.75*PI are angles are magic numbers. Represent them properly, and we get:
+Similarly, the `2.25\*PI` and `2.75\*PI` are angles are magic numbers. Represent them properly, and we get:
 
 
 ```processing
@@ -127,8 +127,7 @@ fill(0, 255, 0);
 triangle(x, y, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
 ```
 
-Next, put the shape into draw, but NOT move. Note the reason why variables are LOCAL and not GLOBAL, is included:
-
+Next, put the shape into draw, but **not** move. Variables are *local* and not *global* since we don't need to remember their values from one iteration to another.
 
 ```processing
 void setup() {
@@ -166,27 +165,69 @@ void draw() {
 
 Next, let's say we want the shape to move UP.
 
-If you simply add a "y=y-1;" as the last statement, nothing will happen (seriously, try it!)
+If you simply add,
 
-Instead, we need to "REMEMBER" the value of the varying parameter, which is.... is it x? y? diameter? radius? angle1? angle2?
+```processing
+y=y-1;
+```
+
+as the last statement, nothing will happen (seriously, try it!). This is because y decreases by 1 and is IMMEDIATELY destroyed in the memory upon completion of first iteration of `draw()`. Then, it is declared and assigned to `height/2` again at the start of the second iteration. Again, it is destroyed in the memory upon completion of second iteration of `draw()` and so on and so forth.
+
+----------
+
+- `draw()` iteration 1
+- `y` declared and becomes `height/2`.
+- on the last statement in `draw`, `y` decreases by 1, becomes `height/2 - 1`.
+- `y` immediately destroyed and erased from memory upon completion of iteration 1.
+
+----------
+
+- `draw()` iteration 2
+- `y` declared and becomes `height/2`.
+- on the last statement in `draw`, `y` decreases by 1, becomes `height/2 - 1`.
+- `y` immediately destroyed and erased from memory upon completion of iteration 2.
+
+----------
+
+- `draw()` iteration 3
+- `y` declared and becomes `height/2`.
+- on the last statement in `draw`, `y` decreases by 1, becomes `height/2 - 1`.
+- `y` immediately destroyed and erased from memory upon completion of iteration 3.
+
+----------
+
+- forever and ever...
+
+----------
 
 
-If your answer is y, you are right. Because moving up is "y" domain.
+Instead, we need to *remember* the value of the varying parameter, which is....  
 
-Now, our variables need to be global because we need to "remember" their values from one iteration of draw to another.
+- `x`? 
+- `y`? 
+- `diameter`? 
+- `radius`? 
+- `angle1`? 
+- `angle2`?
 
-Actually, in this scenario, only y needs to be global as others remain the same, but that would mean we can't make changes later on.
 
-What if I need the shape to go left/right.
+If your answer is `y`, you are right. Because moving up is `y` domain.
+
+Now, our variables need to be global because we need to *remember* their values from one iteration of draw to another.
+
+Actually, in this scenario, only `y` needs to be global as others remain the same, but that would mean we can't make changes later on.
+
+What if I need the shape to go left/right? Yes, it will be `x` that I vary.
+What if I want the shape to becomes smaller/bigger? It will be `diameter`.
 
 So we keep all relevant variables global.
 
+`x` and `y` need to be declared global but cannot be assigned the right value until size executes. So - 
 
-x and y need to be declared global but cannot be assigned the right value until size executes. So - global declaration, local initialization.
+> *Global Declaration, Local Initialization*
 
 
 Finally, we get our answer:
-
 
 
 ```processing
