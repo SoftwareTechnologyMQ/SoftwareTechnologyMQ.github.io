@@ -12,6 +12,8 @@ nav:
         url: /algorithms
       - title: Variables
         url: /variables
+      - title: Moving Composite Shapes
+        url: /moving_composite_shapes
       - title: Debugging in Processing
         url: /debugging_processing
       - title: Conditions
