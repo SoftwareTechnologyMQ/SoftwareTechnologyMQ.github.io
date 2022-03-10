@@ -15,7 +15,7 @@ within: programming
   * Be able to move a complex shape (or change some other attributes)
 </details>
 
-Note: ALl the codes in this page are provided at [movingCompositeShapesCode.zip(./assets/codes/movingCompositeShapesCode.zip)
+Note: ALl the codes in this page are provided at [movingCompositeShapesCode.zip](./assets/codes/movingCompositeShapesCode.zip)
 
 # Moving composite shapes
 
