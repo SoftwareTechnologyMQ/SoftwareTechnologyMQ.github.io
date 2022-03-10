@@ -34,9 +34,17 @@ Chapters 1 and 2 of [Learning Processing](http://learningprocessing.com/) by Dan
 
 A processing program is made up of _expressions_ and _statements_.  Statements come later, this topic shows us how to build up expressions to get a program.
 
-Processing has a whole pile of built in expressions you can use, most of which cause things to occur on the screen.  The full-set of expressions available are documented at [the processing reference page](https://processing.org/reference/) but we will list here all the ones you need in this text.  In processing, you also have a full suite of mathematical expressions available, plus (`+`), minus (`-`), multiply (`*`), and divide (`/`).
+Processing has a whole pile of built in expressions you can use, most of which cause things to occur on the screen.  The full-set of expressions available are documented at [the processing reference page](https://processing.org/reference/) but we will list here all the ones you need in this text.  In processing, you also have a full suite of mathematical expressions available:
 
-Warning!: Division might now work the way you expect.  We will explain why in a later topic.
+- Additive operators:
+    - Addition (`+`), 
+    - Subtraction (`-`), 
+- Multiplicative operators:
+    - Multiplication (`*`), 
+    - Division (`/`),
+    - Remainder (`%`)
+
+Warning!: Division and remainder might now work the way you expect.  We will explain why in a later topic.
 
 # Values and Types
 
@@ -50,9 +58,16 @@ This might all seem terribly obvious, but it is about to become very important.
 
 Values are grouped into _types_.  A type is a set of values that all work the same.  All the whole numbers work the same, so there is a type for these (`int`).  All the precise numbers work the same, so there is a type for these (`float`).  Here is a list of all the types you need to worry about:
 
-  * `int` : whole numbers.  Examples are `1`,`2`,`-7`,`0`,`1023977389`.
-  * `float`: numbers that might have decimal parts.  Examples are `1.2`,`2.45644`,`-13.0`,`0.0`.
-  * `char`: single characters that might appear in text.  Examples include `c`, `g`, `^`, `$`, `@`, `z`.
+  * `int` : whole numbers.  
+    * Examples: `1`,`2`,`-7`,`0`,`1023977389`.
+  * `float`: numbers that might have decimal parts.  
+    * Examples: `1.2`,`2.45644`,`-13.0`,`0.0`.
+  * `char`: exactly one character in single quotes.  
+    * Examples: `'c'`, `'g'`, `'^'`, `'$'`, `'@'`, `'z'`, `' '` (last one is a space character).
+  * `boolean`: `true` or `false`. 
+    * Examples: `true`, `false`, `true`, `true`, `false`.
+  * `String`: Zero or more characters representing arbitrary text inside double quotes.
+    * Examples: `"Voila"`, `"COMP1000 - Introduction to Computer Programming"`, `"0"`, `"D"`, `" "` (that's a space but in double quotes, hence String), `""` (that's an empty String).
 
 <div class="task" markdown="1">
 What type is each of the following values?
@@ -60,26 +75,30 @@ What type is each of the following values?
   * `12`
   * `41.0`
   * `0`
+  * `"Nice!"`
   * `0.0`
   * `'c'`
-  * `'f'`
+  * `"f"`
   * `'0'`
+  * `true`
   * h
+  * `"1729"`
 <details markdown="1">
 <summary>solution</summary>
 
   * `12`: `int` (integer)
   * `41.0` : `float` (floating point number)
   * `0` : `int` (integer)
+  * `"Nice!"`: `String` (arbitrary text)
   * `0.0` : `float` (floating point number)
-  * `'c'` : `char` (character)
-  * `'f'` : `char` (character)
-  * `'0'` : `char` (character)
+  * `'c'` : `char` (single character)
+  * `"f"` : `String` (arbitrary text)
+  * `'0'` : `char` (single character)
+  * `true`: `boolean` 
   * h : **this is an error.  the processing compiler will reject values like this**
+  * `"1729"`: `String` (arbitrary text because it's in double quotes)
 </details>
 </div>
-
-
 
 You must be careful to know what type any particular value has because it affects how the program runs.  For example, each of the basic operations we know about have particular effects based on the types it is working on.
 
@@ -142,6 +161,67 @@ circle(width/2, height/2, 40);
 </details>
 </div>
 
+## Type significance in arithmetic expressions
+
+Fundamental rule is that when you apply an arithmetic operator on two values, say `a` and `b`, precision is maintained if at least one of them is a floating-point value. If they are both integer values, any precision (value after dot) is completely droppped.
+
+For example,
+
+- `17 + 5` = `22`
+- `17 + 5.0` = `22.0`
+- `17 - 5.3` = `11.7`
+- `18.29 - 1` = `17.29`
+- `7 * 5` = `35`
+- `3 * 1.2` = `3.6`
+- `17 / 5` = `3` (precision dropped)
+- `17 / 5.0` = `3.4`
+- `17.0 / 5.0` = `3.4`
+- `5.0 / 1.2` = `4.16666`
+- `17 % 5` = `2` (2 is what's left behind after creating 3 equal groups of 5 from 17)
+
+### PRO-TIP: 
+
+- `b` cannot be 0 in either `a / b` or `a%b`.
+- `a / b` is non-negative when both `a` and `b` are non-negative, or when both `a` and `b` are negative.
+- `a % b` is non-negative when `a` is non-negative. Sign of `b` is irrelevant.
+
+## Order of operations
+
+The arithmetic operators we discussed earlier have the following order of precedence or priority:
+
+1. Brackets `()`: Any operation inside a brackets must be perfomed before other operations outside the brackets.
+2. Multiplicative operators `*, /, %`. In the order of occurrence in the expression.
+3. Additive operators `+, -`. In the order of occurrence in the expression.
+
+Examples:
+
+- `5 + 20 / 3` 
+  - = `5 + 6` 
+  - = `11`
+- `(5 + 20) / 3` 
+  - = `25 / 3` 
+  - = `8`
+- `5 + 20 / 3.0` 
+  - = `5 + 6.6666` 
+  - = `11.6666`
+- `(5 + 20) / 3.0`
+  - = `25 / 3.0` 
+  - = `8.3333`
+- `5 * 20 % 3` 
+  - = `100 % 3` 
+  - = `1`
+- `5 * (20 % 3)` 
+  - = `5 * 2` 
+  - = `10`
+- `(10 + 8) / ((20 - 15) * (12 / 5))` 
+  - = `18 / (5 * 2)` 
+  - = `18 / 10` 
+  - = `1`
+- `(10 + 8) / ((20 - 15.0) * (12 / 5))` 
+  - = `18 / (5.0 * 2)` 
+  - = `18 / 10.0` 
+  - = `1.8`
+
 # Furthering your Understanding
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7FM0zvbHKnQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -149,3 +229,4 @@ circle(width/2, height/2, 40);
 <p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y48q9MsztzE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ 
