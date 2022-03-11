@@ -55,19 +55,51 @@ Consider the following composite shape.
 ```processing
 size(600, 400);
 background(255);
+noStroke();
+fill(0, 0, 255);
+rectMode(CENTER); //this means instead of top-left corner, we specify the center x and center y, applies to square too
+square(300, 200, 50); //create a bounding box around the circle, to be drawn over the square
+fill(255, 0, 0);
+circle(300, 200, 50);
+//to understand the following calculations, read this: https://processing.org/tutorials/trig
+float onCircleX1 = 300 + 25*cos(2.25*PI);
+float onCircleY1 = 200 + 25*sin(2.25*PI);
+float onCircleX2 = 300 + 25*cos(2.75*PI);
+float onCircleY2 = 200 + 25*sin(2.75*PI);
+fill(0, 255, 0);
+triangle(300, 200, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
+```
+
+The first problem is that if we want to relocate this shape to another position in the display window, we have to replace 
+
+- every single occurrence of `300` with the new `x` value
+- every single occurrence of `200` with the new `y` value
+
+
+However, if we store the `x` and `y` values in two variables, we only have to change it once in case we change our mind.
+
+
+```processing
+size(600, 400);
+background(255);
+
 float x = width/2;
 float y = height/2;
+
 noStroke();
 fill(0, 0, 255);
 rectMode(CENTER); //this means instead of top-left corner, we specify the center x and center y, applies to square too
 square(x, y, 50); //create a bounding box around the circle, to be drawn over the square
+
 fill(255, 0, 0);
 circle(x, y, 50);
+
 //to understand the following calculations, read this: https://processing.org/tutorials/trig
 float onCircleX1 = x + 25*cos(2.25*PI);
 float onCircleY1 = y + 25*sin(2.25*PI);
 float onCircleX2 = x + 25*cos(2.75*PI);
 float onCircleY2 = y + 25*sin(2.75*PI);
+
 fill(0, 255, 0);
 triangle(x, y, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
 ```
@@ -81,21 +113,27 @@ To make the program scalable, we need to fix that. So we identify diameter, and 
 ```processing
 size(600, 400);
 background(255);
+
 float x = width/2;
 float y = height/2;
+
 float diameter = random(50, 100);
 float radius = diameter/2;
+
 noStroke();
 fill(0, 0, 255);
 rectMode(CENTER); //this means instead of top-left corner, we specify the center x and center y, applies to square too
 square(x, y, diameter); //create a bounding box around the circle, to be drawn over the square
+
 fill(255, 0, 0);
 circle(x, y, diameter);
+
 //to understand the following calculations, read this: https://processing.org/tutorials/trig
 float onCircleX1 = x + radius*cos(2.25*PI);
 float onCircleY1 = y + radius*sin(2.25*PI);
 float onCircleX2 = x + radius*cos(2.75*PI);
 float onCircleY2 = y + radius*sin(2.75*PI);
+
 fill(0, 255, 0);
 triangle(x, y, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
 ```
@@ -106,16 +144,21 @@ Similarly, the `2.25\*PI` and `2.75\*PI` are angles are magic numbers. Represent
 ```processing
 size(600, 400);
 background(255);
+
 float x = width/2;
 float y = height/2;
+
 float diameter = random(50, 100);
 float radius = diameter/2;
+
 noStroke();
 fill(0, 0, 255);
 rectMode(CENTER); //this means instead of top-left corner, we specify the center x and center y, applies to square too
 square(x, y, diameter); //create a bounding box around the circle, to be drawn over the square
+
 fill(255, 0, 0);
 circle(x, y, diameter);
+
 //to understand the following calculations, read this: https://processing.org/tutorials/trig
 float angle1 = 2.25*PI;
 float angle2 = 2.75*PI;
@@ -123,6 +166,7 @@ float onCircleX1 = x + radius*cos(angle1);
 float onCircleY1 = y + radius*sin(angle1);
 float onCircleX2 = x + radius*cos(angle2);
 float onCircleY2 = y + radius*sin(angle2);
+
 fill(0, 255, 0);
 triangle(x, y, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
 ```
@@ -142,22 +186,27 @@ void draw() {
    */
   float x = width/2;
   float y = height/2;
+
   float diameter = random(50, 100);
   float radius = diameter/2;
   float angle1 = 2.25*PI;
   float angle2 = 2.75*PI;
+
   background(255); //so as to clear any previous shape
   noStroke();
   fill(0, 0, 255);
   rectMode(CENTER); //this means instead of top-left corner, we specify the center x and center y, applies to square too
   square(x, y, diameter); //create a bounding box around the circle, to be drawn over the square
+
   fill(255, 0, 0);
   circle(x, y, diameter);
+
   //to understand the following calculations, read this: https://processing.org/tutorials/trig
   float onCircleX1 = x + radius*cos(angle1);
   float onCircleY1 = y + radius*sin(angle1);
   float onCircleX2 = x + radius*cos(angle2);
   float onCircleY2 = y + radius*sin(angle2);
+
   fill(0, 255, 0);
   triangle(x, y, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
 }
@@ -200,18 +249,7 @@ as the last statement, nothing will happen (seriously, try it!). This is because
 
 ----------
 
-
-Instead, we need to *remember* the value of the varying parameter, which is....  
-
-- `x`? 
-- `y`? 
-- `diameter`? 
-- `radius`? 
-- `angle1`? 
-- `angle2`?
-
-
-If your answer is `y`, you are right. Because moving up is `y` domain.
+Instead, we need to *remember* the value of the varying parameter, which is `y`.
 
 Now, our variables need to be global because we need to *remember* their values from one iteration of draw to another.
 
@@ -226,9 +264,7 @@ So we keep all relevant variables global.
 
 > *Global Declaration, Local Initialization*
 
-
 Finally, we get our answer:
-
 
 ```processing
 float x;

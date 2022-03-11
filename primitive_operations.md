@@ -120,25 +120,13 @@ Processing will also convert between some types if you ask it to.  In particular
 
 ## Characters
 
-While we are thinking about it, how does Processing know when I mean the _character_ `0` instead of the number `0`?  All characters are within inverted commas, so the character `0` will look like `'0'`.  The same holds for all other characters, they look like `'c'`, `'g'`, `'^'`, `'$'`, `'@'`, `'z'` in Processing code
+While we are thinking about it, how does Processing know when I mean the _character_ `'0'` instead of the number `0`?  All characters are within single quotes, so the character `0` will look like `'0'`.  The same holds for all other characters, they look like `'c'`, `'g'`, `'^'`, `'5'`, `'$'`, `'@'`, `'z'` in Processing code.
 
-<div class="task" markdown="1"><a name="blue_circle"></a>
-Write processing code that will draw a blue circle that is 20 pixels wide in the center of the sketch window.  You should use [pantone 2178 C](https://www.pantone.com/color-finder/2718-C) as your inspiration.
-<details markdown="1">
-<summary>solution</summary>
-~~~~~
-noStroke();
-fill(92, 136, 218); // These RGB values give the right shade of blue
-circle(width/2, height/2, 20);
-~~~~~
-</details>
-</div>
-
-<div class="task" markdown="1">
 Identify the _type_ of each item in the following code.
-~~~~~
+
+```processing
 circle(width/2, height/2, 40);
-~~~~~
+```
 
   * What is the type of `width`
   * What is the type of `height`
@@ -156,14 +144,14 @@ circle(width/2, height/2, 40);
   - <code>int</code> because if you don't say otherwise, processing treats numbers as
   - <code>int</code> because dividing an <code>int</code> by another <code>int</code> will give you a third <code>int</code>
   - <code>int</code> because dividing an <code>int</code> by another <code>int</code> will give you a third <code>int</code>
-  - It is always OK to give an <code>int</code> where a <code>float</code> should go, processing will automatically convert it for you.
+  - Processing automatically converts an integer to a float. For example, `8` is converted to `8.0`, `-17` to `-17.0`.
 
 </details>
 </div>
 
 ## Type significance in arithmetic expressions
 
-Fundamental rule is that when you apply an arithmetic operator on two values, say `a` and `b`, precision is maintained if at least one of them is a floating-point value. If they are both integer values, any precision (value after dot) is completely droppped.
+Fundamental rule is that when you apply an arithmetic operator on two values, say `a` and `b`, precision is maintained if at least one of them is a floating-point value. If they are both integer values, any precision (value after dot) is completely dropped.
 
 For example,
 
@@ -183,7 +171,16 @@ For example,
 
 - `b` cannot be 0 in either `a / b` or `a%b`.
 - `a / b` is non-negative when both `a` and `b` are non-negative, or when both `a` and `b` are negative.
-- `a % b` is non-negative when `a` is non-negative. Sign of `b` is irrelevant.
+	- `17/5 = 3`
+	- `17/-5 = -3`
+	- `-17/5 = -3`
+	- `-17/-5 = 3`
+- In Processing, `a % b` is non-negative when `a` is non-negative. Sign of `b` is irrelevant.
+	- `17%5 = 2`
+	- `17%-5 = 2`
+	- `-17%5 = -2`
+	- `-17%5 = -2`
+	- `0%8 = 0`
 
 ## Order of operations
 
