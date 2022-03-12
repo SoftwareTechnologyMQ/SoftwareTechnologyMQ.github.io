@@ -311,6 +311,30 @@ try,
 x = x - 1;
 ```
 
-and see what happens. You can similarly change other aspects of the shape.
+and see what happens. 
+
+You can also change the dimensions of the shape but in this case, you have to be careful.
+
+If you only add the following, the envelope's height and seal's diameter won't change.
+
+```processing
+envelopeWidth = envelopeWidth + 1;
+```
+
+If you increase all three by 1, the *shape* will be lost.
+
+```processing
+envelopeWidth = envelopeWidth + 1;
+envelopeHeight = envelopeHeight + 1;
+sealDiameter = sealDiameter + 1;
+```
+
+What you need to do is to increase `envelopeWidth` and calculate the others based on it.
+
+```processing
+envelopeWidth = envelopeWidth + 1;
+envelopeHeight = envelopeWidth/2;
+sealDiameter = envelopeHeight/4;
+```
 
 Now you know how to move complex shapes/actors/characters around.
