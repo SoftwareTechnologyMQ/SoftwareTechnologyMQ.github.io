@@ -15,7 +15,10 @@ within: programming
   * Be able to move a complex shape (or change some other attributes)
 </details>
 
-Note: ALl the codes in this page are provided at [movingCompositeShapesCode.zip](./assets/codes/movingCompositeShapesCode.zip)
+All the codes in this page are provided at [movingCompositeShapesCode.zip](./assets/codes/movingCompositeShapesCode.zip). 
+
+A second version is also available at at [movingCompositeShapesCodeTrigonometryVersion.zip](./assets/codes/movingCompositeShapesCodeTrigonometryVersion.zip).
+
 
 # Moving composite shapes
 
@@ -53,122 +56,91 @@ Moving a composite shape is trickier than moving a basic shape. But the key ther
 Consider the following composite shape.
 
 ```processing
-size(600, 400);
+size(600, 400); //change to 100, 100 and see what happens
 background(255);
+
+rectMode(CENTER); //specify center coordinates instead of top-left coordinates
+fill(255);
+rect(300, 200, 200, 100); 
+
+triangle(300, 200, 200, 150, 400, 150);
+
 noStroke();
-fill(0, 0, 255);
-rectMode(CENTER); //this means instead of top-left corner, we specify the center x and center y, applies to square too
-square(300, 200, 50); //create a bounding box around the circle, to be drawn over the square
-fill(255, 0, 0);
-circle(300, 200, 50);
-//to understand the following calculations, read this: https://processing.org/tutorials/trig
-float onCircleX1 = 300 + 25*cos(2.25*PI);
-float onCircleY1 = 200 + 25*sin(2.25*PI);
-float onCircleX2 = 300 + 25*cos(2.75*PI);
-float onCircleY2 = 200 + 25*sin(2.75*PI);
-fill(0, 255, 0);
-triangle(300, 200, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
+fill(200, 0, 0);
+circle(300, 200, 25);
+
+fill(50);
+textAlign(CENTER, BOTTOM);
+textSize(25);
+text("Harry Potter", 300, 250);
 ```
 
-The first problem is that if we want to relocate this shape to another position in the display window, we have to replace 
-
-- every single occurrence of `300` with the new `x` value
-- every single occurrence of `200` with the new `y` value
+The first problem is that if we want to relocate this shape to another position in the display window, we have to replace each of the `x` and `y` values.
 
 
 However, if we store the `x` and `y` values in two variables, we only have to change it once in case we change our mind.
 
 
 ```processing
-size(600, 400);
+size(600, 400); //change to 100, 100 and see what happens
 background(255);
 
 float x = width/2;
 float y = height/2;
 
+rectMode(CENTER); //specify center coordinates instead of top-left coordinates
+fill(255);
+rect(x, y, 200, 100); 
+
+triangle(x, y, x-100, y-50, x+100, y-50);
+
 noStroke();
-fill(0, 0, 255);
-rectMode(CENTER); //this means instead of top-left corner, we specify the center x and center y, applies to square too
-square(x, y, 50); //create a bounding box around the circle, to be drawn over the square
+fill(200, 0, 0);
+circle(x, y, 25);
 
-fill(255, 0, 0);
-circle(x, y, 50);
-
-//to understand the following calculations, read this: https://processing.org/tutorials/trig
-float onCircleX1 = x + 25*cos(2.25*PI);
-float onCircleY1 = y + 25*sin(2.25*PI);
-float onCircleX2 = x + 25*cos(2.75*PI);
-float onCircleY2 = y + 25*sin(2.75*PI);
-
-fill(0, 255, 0);
-triangle(x, y, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
+fill(50);
+textAlign(CENTER, BOTTOM);
+textSize(25);
+text("Harry Potter", x, y + 50);
 ```
 
 ### Magic numbers
 
-This draws a triangle on a circle on a square. But that `25` and `50` are hard-coded values, we call *magic numbers*. (As in, appearing magically).
+This draws a triangle on a circle on a square. But that dimensions:
+
+- `200` and `100` in `rect`, 
+- `100` and `50` in `triangle`, 
+- `25` in `circle`, and, 
+- `50` in `text`
+
+are hard-coded values, we call *magic numbers*. (As in, appearing magically).
 
 To make the program scalable, we need to fix that. So we identify diameter, and then radius is always going to be half of that.
 
 ```processing
-size(600, 400);
+size(600, 400); //change to 100, 100 and see what happens
 background(255);
 
 float x = width/2;
 float y = height/2;
+float envelopeWidth = width/3;
+float envelopeHeight = envelopeWidth/2;
+float sealDiameter = envelopeHeight/4;
 
-float diameter = random(50, 100);
-float radius = diameter/2;
+rectMode(CENTER); //specify center coordinates instead of top-left coordinates
+fill(255);
+rect(x, y, envelopeWidth, envelopeHeight); 
 
-noStroke();
-fill(0, 0, 255);
-rectMode(CENTER); //this means instead of top-left corner, we specify the center x and center y, applies to square too
-square(x, y, diameter); //create a bounding box around the circle, to be drawn over the square
-
-fill(255, 0, 0);
-circle(x, y, diameter);
-
-//to understand the following calculations, read this: https://processing.org/tutorials/trig
-float onCircleX1 = x + radius*cos(2.25*PI);
-float onCircleY1 = y + radius*sin(2.25*PI);
-float onCircleX2 = x + radius*cos(2.75*PI);
-float onCircleY2 = y + radius*sin(2.75*PI);
-
-fill(0, 255, 0);
-triangle(x, y, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
-```
-
-Similarly, the `2.25\*PI` and `2.75\*PI` are angles are magic numbers. Represent them properly, and we get:
-
-
-```processing
-size(600, 400);
-background(255);
-
-float x = width/2;
-float y = height/2;
-
-float diameter = random(50, 100);
-float radius = diameter/2;
+triangle(x, y, x-envelopeWidth/2, y-envelopeHeight/2, x+envelopeWidth/2, y-envelopeHeight/2);
 
 noStroke();
-fill(0, 0, 255);
-rectMode(CENTER); //this means instead of top-left corner, we specify the center x and center y, applies to square too
-square(x, y, diameter); //create a bounding box around the circle, to be drawn over the square
+fill(200, 0, 0);
+circle(x, y, sealDiameter);
 
-fill(255, 0, 0);
-circle(x, y, diameter);
-
-//to understand the following calculations, read this: https://processing.org/tutorials/trig
-float angle1 = 2.25*PI;
-float angle2 = 2.75*PI;
-float onCircleX1 = x + radius*cos(angle1);
-float onCircleY1 = y + radius*sin(angle1);
-float onCircleX2 = x + radius*cos(angle2);
-float onCircleY2 = y + radius*sin(angle2);
-
-fill(0, 255, 0);
-triangle(x, y, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
+fill(50);
+textAlign(CENTER, BOTTOM);
+textSize(sealDiameter);
+text("Harry Potter", x, y + envelopeHeight/2);
 ```
 
 Next, put the shape into draw, but **not** move. Variables are *local* and not *global* since we don't need to remember their values from one iteration to another.
@@ -182,35 +154,36 @@ void setup() {
 void draw() {
   /*
   variables are local since we don't need to remember
-  their values from one iteration to another
+   their values from one iteration to another
    */
+
+  background(255);
+
   float x = width/2;
   float y = height/2;
+  float envelopeWidth = width/3;
+  float envelopeHeight = envelopeWidth/2;
+  float sealDiameter = envelopeHeight/4;
 
-  float diameter = random(50, 100);
-  float radius = diameter/2;
-  float angle1 = 2.25*PI;
-  float angle2 = 2.75*PI;
+  rectMode(CENTER); //specify center coordinates instead of top-left coordinates
+  fill(255);
+  stroke(0);
+  rect(x, y, envelopeWidth, envelopeHeight); 
+  
+  triangle(x, y, x-envelopeWidth/2, y-envelopeHeight/2, x+envelopeWidth/2, y-envelopeHeight/2);
 
-  background(255); //so as to clear any previous shape
   noStroke();
-  fill(0, 0, 255);
-  rectMode(CENTER); //this means instead of top-left corner, we specify the center x and center y, applies to square too
-  square(x, y, diameter); //create a bounding box around the circle, to be drawn over the square
+  fill(200, 0, 0);
+  circle(x, y, sealDiameter);
 
-  fill(255, 0, 0);
-  circle(x, y, diameter);
-
-  //to understand the following calculations, read this: https://processing.org/tutorials/trig
-  float onCircleX1 = x + radius*cos(angle1);
-  float onCircleY1 = y + radius*sin(angle1);
-  float onCircleX2 = x + radius*cos(angle2);
-  float onCircleY2 = y + radius*sin(angle2);
-
-  fill(0, 255, 0);
-  triangle(x, y, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
+  fill(50);
+  textAlign(CENTER, BOTTOM);
+  textSize(sealDiameter);
+  text("Harry Potter", x, y + envelopeHeight/2);
 }
 ```
+
+## Trying to update state with local variables
 
 Next, let's say we want the shape to move UP.
 
@@ -249,18 +222,20 @@ as the last statement, nothing will happen (seriously, try it!). This is because
 
 ----------
 
-Instead, we need to *remember* the value of the varying parameter, which is `y`.
+Instead, we need to *retain* the value of the varying parameter, which is `y`.
 
-Now, our variables need to be global because we need to *remember* their values from one iteration of draw to another.
+Now, our variables need to be global because we need to *retain* their values from one iteration of draw to another.
 
 Actually, in this scenario, only `y` needs to be global as others remain the same, but that would mean we can't make changes later on.
 
 What if I need the shape to go left/right? Yes, it will be `x` that I vary.
-What if I want the shape to becomes smaller/bigger? It will be `diameter`.
+What if I want the shape to becomes smaller/bigger? It will be `envelopeWidth `, `envelopeHeight` and `sealDiameter`.
 
 So we keep all relevant variables global.
 
-`x` and `y` need to be declared global but cannot be assigned the right value until size executes. So - 
+`x`, `y` and `envelopeWidth` depend on `width` and `height` and therefore need to be declared global but cannot be assigned the right value until size executes. 
+
+`envelopeHeight` and `sealDiameter` then depend on `envelopeWidth ` so they are assigned values after `envelopeWidth` is assigned the right value.
 
 > *Global Declaration, Local Initialization*
 
@@ -269,34 +244,55 @@ Finally, we get our answer:
 ```processing
 float x;
 float y;
-float diameter = random(50, 100);
-float radius = diameter/2;
-float angle1 = 2.25*PI;
-float angle2 = 2.75*PI;
+float envelopeWidth;
+float envelopeHeight;
+float sealDiameter;
+
 void setup() {
   size(600, 400);
-  //once we know size, we can assign values to x, y
+  //once we know size, we can assign values to x, y, envelopeWidth
   x = width/2;
   y = height/2;
+  envelopeWidth = width/3;
+
+  /*
+  and only after we know envelopeWidth, 
+   can we assign values to envelopeHeight, sealDiameter
+   */
+  envelopeHeight = envelopeWidth/2;
+  sealDiameter = envelopeHeight/4;
+
   background(255);
 }
+
 void draw() {
   background(255);
-  noStroke();
-  fill(0, 0, 255);
-  rectMode(CENTER); //this means instead of top-left corner, we specify the center x and center y, applies to square too
-  square(x, y, diameter); //create a bounding box around the circle, to be drawn over the square
-  fill(255, 0, 0);
-  circle(x, y, diameter);
-  //to understand the following calculations, read this: https://processing.org/tutorials/trig
-  float onCircleX1 = x + radius*cos(angle1);
-  float onCircleY1 = y + radius*sin(angle1);
-  float onCircleX2 = x + radius*cos(angle2);
-  float onCircleY2 = y + radius*sin(angle2);
-  fill(0, 255, 0);
-  triangle(x, y, onCircleX1, onCircleY1, onCircleX2, onCircleY2);
+
+  rectMode(CENTER); //specify center coordinates instead of top-left coordinates
+  fill(255);
+  stroke(0);
+  rect(x, y, envelopeWidth, envelopeHeight); 
   
-  y = y - 1;
+  triangle(x, y, x-envelopeWidth/2, y-envelopeHeight/2, x+envelopeWidth/2, y-envelopeHeight/2);
+  
+  noStroke();
+  fill(200, 0, 0);
+  circle(x, y, sealDiameter);
+  
+  fill(50);
+  textAlign(CENTER, BOTTOM);
+  textSize(sealDiameter);
+  text("Harry Potter", x, y + envelopeHeight/2);
+  
+  /*
+  and finally update the aspect that needs updating
+  here we move up, so y will decrease.
+  
+  if you want to expand the envelope, envelopeWidth will increase.
+  but in that case, you will need to re-calculate envelopeHeight, sealDiameter
+  */
+  
+  y = y - 1; 
 }
 ```
 
@@ -312,10 +308,9 @@ y = y - 1;
 try, 
 
 ```processing
-angle1 = angle1 + 0.01; 
-angle2 = angle2 + 0.01; 
+x = x - 1;
 ```
 
-and see what happens. It's pretty neat (we think!)
+and see what happens. You can similarly change other aspects of the shape.
 
 Now you know how to move complex shapes/actors/characters around.
