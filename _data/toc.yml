@@ -16,6 +16,8 @@ nav:
         url: /moving_composite_shapes
       - title: Debugging in Processing
         url: /debugging_processing
+      - title: Boolean expressions
+        url: /boolean_expressions_java
       - title: Conditions
         url: /conditions
       - title: Loops
