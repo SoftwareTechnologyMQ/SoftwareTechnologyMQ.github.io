@@ -127,16 +127,31 @@ Order of operations is,
 3. Then, `&&`
 4. Then, `||`
 
-# Questions (Solutions will be released soon)
+# Questions
 
 - `!true`
 - `!!!!true`
 - `!!false`
 - `6 >= 4 && 6 < 1`
 - `6 >= 4 || 6 < 1`
-- `!6 >= 4 && 6 < 1` (Hint: it calcuates `!(6 >= 4)` first)
-- `!6 >= 4 || 6 < 1`
+- `!(6 >= 4) && 6 < 1`
+- `!(6 >= 4) || 6 < 1`
 - `!(1 == 7 && 2 == 9)`
 - `1==2 || 3==4 || 5==6 || 7==8 || true`
 - `1==2 && 3==4 && 5==6 && 7==8 && true`
 - `!(1 == 7 && 2 == 9) && !(true && !false)`
+
+
+# Solutions
+
+- `!true` = `false`
+- `!!!!true` = `true`
+- `!!false` = `false`
+- `6 >= 4 && 6 < 1` = `false`
+- `6 >= 4 || 6 < 1` = `true`
+- `!(6 >= 4) && 6 < 1` = `false`
+- `!(6 >= 4) || 6 < 1` = `false`
+- `!(1 == 7 && 2 == 9)` = `true`
+- `1==2 || 3==4 || 5==6 || 7==8 || true` = `true`
+- `1==2 && 3==4 && 5==6 && 7==8 && true` = `false`
+- `!(1 == 7 && 2 == 9) && !(true && !false)` = `false`
