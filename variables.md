@@ -66,6 +66,18 @@ Before we can fully grasp this, we need to update our understanding of how a Pro
 
 From here on in, we will tend to leave out the conversation because it is the same every time, but we will often look to the memory bank to see what is going on in our program.
 
+## Variables in memory
+
+The following diagrams illustrates how each variable is stored in the memory and also what happens when you copy a variable (source) into another (destination). It's the value the source variable holds is copied into the destination variable, so that now both variables hold the value held by the source.
+
+Note that different variables need different number of bytes in the memory.
+
+Memory assigned to variables does not need to be in the same order as the variable assignment operation. Where will a variable be stored depends on Operating System.
+
+![](./assets/images/variables.png)
+
+## Grid structure
+
 We visualise this memory bank as a grid of buckets (we will also call a bucket a "slot in memory").  Each bucket may hold a value.  A program with no variables, will have a memory that looks like a grid of empty holes
 
 <svg xmlns="http://www.w3.org/2000/svg" height="200" width="400" version="1.1" viewBox="0 0 105.83333 52.916666">
@@ -376,41 +388,78 @@ The problem description does not directly relate to variables, so we need to "re
 Compared to the solution to the [previous exercise](./primitive_operations.html#blue_circle), we need to:
 
   * Introduce the `setup` and `draw` functions.  You can't have animated programs without them.
-  * Stop using a set-value for the y-position of the circle and introduce a variable for this `ypos` instead.
+  * Stop using a set-value for the y-position of the circle and introduce a variable for this `yPos` instead.
   * Start that variable at 0 when the program starts.  `setup` is run once when the program starts, so that is the right place to put it.
   * Clear the background everytime the sketch is drawn so that old circles go away.
   * Change the value of the variable each time the sketch is drawn so it is set to a new value ready for the next screen drawing.
 
 ~~~~~
-int ypos;
+int yPos;
 
 void setup(){
-  ypos = 0;
+  yPos = 0;
 }
 
 void draw(){
   background(255);
   noStroke();
   fill(92, 136, 218);
-  circle(width/2, ypos, 20);
-  ypos++;
+  circle(width/2, yPos, 20);
+  yPos++;
 }
 ~~~~~
 </details></div>
 
+
 ## Some more details of randomness
 
-In processing, we can get a random real number between 0 and `n` (including 0 but **excluding** `n`) using,
+In processing, we can get a random floating-point number between 0 and `n` (including 0 but **excluding** `n`) using,
 
-```java
-double r = random(n);
+```processing
+float r = random(n);
 ```
 
 If we cast the result to an integer, that integer will be between 0 and `n` (including 0 but **excluding** `n`)
 
-```java
+```processing
 int z = (int)r;
 ```
+
+Example:
+
+```processing
+float amount = random(2.5); //could be 0.0000 to 2.49999
+int dollars = (int)amount; 
+//dollars could be 0 or 1 or 2, 2 with lower probability
+```
+
+Similarly, we can get a random floating-point number between `low` and `high` (including `low` but **excluding** `high`) using,
+
+```processing
+float r = random(low, high);
+```
+
+If we cast the result to an integer, that integer will be between `low` and `high` (including `low` but **excluding** `high`)
+
+```processing
+int z = (int)r;
+```
+
+Example:
+
+```processing
+float amount = random(2.5, 4.8); //could be 2.5 to 4.79999
+int dollars = (int)amount; 
+//dollars could be 2 or 3 or 4, 2 with the lowest probability,
+//4 with higher, and 3 with highest
+```
+
+```processing
+float r = random(1, 7); //could be 1.0 to 6.99999 but not 7
+int diceRoll = (int)r; 
+//diceRoll can be 1,2,3,4,5,6 all with (almost) the same probability
+```
+
 
 <div class="task" markdown="1"><a name="timed_animated_blue_circle"></a>
 _Difficult:_ Write a processing program that moves a blue circle from the top of the window to the bottom of the window in exactly 200 frames of time, no matter what the size of the window is.  If you have forgotten how to put animate blue circle on the screen, you should review this [previous exercise](./variables#animated_blue_circle).
@@ -421,12 +470,12 @@ Here we need to use one variable (the `height` variable) to determine the value 
 Compared to the solution to the [previous exercise](./variables.html#animated_blue_circle), we need to start using a variable to control the speed of the circle.  That variable must be a `float` because we will be dividing the size of the screen by 200 and we have no idea what the size of the screen might be.  This means we also need to move to a `float` for the position on the screen.  NB: `circle` will happily accept an `int` or a `float`, so we have no further changes to make there.
 
 ~~~~~
-float ypos;
+float yPos;
 float yspeed;
 
 void setup(){
   size(800,800);
-  ypos = 0;
+  yPos = 0;
   yspeed = height/200;
 }
 
@@ -434,8 +483,8 @@ void draw(){
   background(255);
   noStroke();
   fill(92, 136, 218);
-  circle(width/2, ypos, 20);
-  ypos = ypos + speed;
+  circle(width/2, yPos, 20);
+  yPos = yPos + speed;
 }
 ~~~~~
 
@@ -444,12 +493,12 @@ Experiment with this program by changing what is in line 5 and checking the anim
 **Hold-on!** It's not working????  This solution is actually wrong thanks to a subtlety of how `int`s and `float`s are divided.  See what happens when the height of the window goes below 200 (say 100)?  The circle does not move.  If we "think backwards from the problem to what must be happening" we see that `yspeed` must be getting set to `0`, but how?  Well `100/200` is 0.5 in `float` arithmetic, but it is `0` in `int` arithmetic.  So processing must be using `int` arithmetic. But why?  `height` is an `int`, and, because procesing uses the _left-most_ number to decide which type of arithmetic to use, `int`/`float` is done in `int` arithmetic, so we have to convert `height` to a `float` _first_. <aside>"tricky" rules like `int`/`float` being different from `float`/`int` are called _edge cases_ and are frequent sources of bugs.  You can't remember all the edge cases, so you often need to work backwards and think what "must be" true to find them</aside>
 
 ~~~~~
-float ypos;
+float yPos;
 float yspeed;
 
 void setup(){
   size(800,800);
-  ypos = 0;
+  yPos = 0;
   float h = (float)height;
   yspeed = h/200;
 }
@@ -458,8 +507,8 @@ void draw(){
   background(255);
   noStroke();
   fill(92, 136, 218);
-  circle(width/2, ypos, 20);
-  ypos = ypos + yspeed;
+  circle(width/2, yPos, 20);
+  yPos = yPos + yspeed;
 }
 ~~~~~
 
