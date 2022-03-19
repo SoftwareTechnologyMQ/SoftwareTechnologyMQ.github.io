@@ -66,8 +66,11 @@ The following are the six relational operators we will use:
 
 # Boolean operators
 
+For this section, we will assume that `a` and `b` are `boolean` values (`true` or `false`)
+
 ## && (and) operator
-`a && b` is `true` when **both** `a` and `b` are `true`
+
+`a && b` is `true` when **both** boolean operands, `a` and `b`, are `true`
 
 | a | b | a && b |
 |---|---|------|
@@ -78,13 +81,22 @@ The following are the six relational operators we will use:
 
 
 ## || (or) operator
-`a || b` is `true` when **either** `a` **or** `b` is `true`
+`a || b` is `true` when **either** of the boolean operands, `a` **or** `b`, is `true`.
 
-<table>
+<!-- &#124; is pipe -->
+
+| a | b | a &#124;&#124; b |
+|---|---|------|
+|false|false|false|
+|false|true|false|
+|true|false|false|
+|true|true|true|
+
+<!--<table>
     <tr>
-        <td>a</td>
-        <td>b</td>
-        <td>a || b</td>
+        <td><b>a</b></td>
+        <td><b>b</b></td>
+        <td><b>a || b</b></td>
     </tr>
     <tr>
         <td>false</td>
@@ -106,7 +118,7 @@ The following are the six relational operators we will use:
         <td>true</td>
         <td>true</td>
     </tr>
-</table>
+</table>-->
 
 ## ! (not) operator
 
@@ -129,29 +141,45 @@ Order of operations is,
 
 # Questions
 
-- `!true`
-- `!!!!true`
-- `!!false`
-- `6 >= 4 && 6 < 1`
-- `6 >= 4 || 6 < 1`
-- `!(6 >= 4) && 6 < 1`
-- `!(6 >= 4) || 6 < 1`
-- `!(1 == 7 && 2 == 9)`
-- `1==2 || 3==4 || 5==6 || 7==8 || true`
-- `1==2 && 3==4 && 5==6 && 7==8 && true`
-- `!(1 == 7 && 2 == 9) && !(true && !false)`
+1. `6 > 4`
+1. `6 > 4 == true`
+1. `6 < 4`
+1. `6 < 4 == true`
+1. `!true`
+1. `!"Done"`
+1. `!!!!true`
+1. `!!false`
+1. `6 >= 4 && 6 < 1`
+1. `6 >= 4 || 6 < 1`
+1. `6 >= 4 || 10`
+1. `true || false && false`
+1. `!(6 >= 4) && 6 < 1`
+1. `!(6 >= 4) || 6 < 1`
+1. `!(1 == 7 && 2 == 9)`
+1. `1==2 || 3==4 || 5==6 || 7==8 || true`
+1. `1==2 && 3==4 && 5==6 && 7==8 && true`
+1. `!(1 == 7 && 2 == 9) && !(true && !false)`
 
 
 # Solutions
 
-- `!true` = `false`
-- `!!!!true` = `true`
-- `!!false` = `false`
-- `6 >= 4 && 6 < 1` = `false`
-- `6 >= 4 || 6 < 1` = `true`
-- `!(6 >= 4) && 6 < 1` = `false`
-- `!(6 >= 4) || 6 < 1` = `false`
-- `!(1 == 7 && 2 == 9)` = `true`
-- `1==2 || 3==4 || 5==6 || 7==8 || true` = `true`
-- `1==2 && 3==4 && 5==6 && 7==8 && true` = `false`
-- `!(1 == 7 && 2 == 9) && !(true && !false)` = `false`
+1. `6 > 4` = `true`
+1. `6 > 4 == true` = `true` 
+1. - `6 < 4` = `false`
+1. `6 < 4 == true` = `false` 
+ 	- moral from the above: `exp == true` and `exp` are the same. 
+ 	- similarly, `exp == false` and `!exp` are the same.
+1. `!true` = `false`
+1. `!"Done"` invalid (`!` doesn't operate on String variables)
+1. `!!!!true` = `true`
+1. `!!false` = `false`
+1. `6 >= 4 && 6 < 1` = `false`
+1. `6 >= 4 || 6 < 1` = `true`
+1. `6 >= 4 || 10` invalid (right hand side value is integer, not boolean)
+1. `true || false && false` = `true` (`&&` is before `||` in precedence)
+1. `!(6 >= 4) && 6 < 1` = `false`
+1. `!(6 >= 4) || 6 < 1` = `false`
+1. `!(1 == 7 && 2 == 9)` = `true`
+1. `1==2 || 3==4 || 5==6 || 7==8 || true` = `true`
+1. `1==2 && 3==4 && 5==6 && 7==8 && true` = `false`
+1. `!(1 == 7 && 2 == 9) && !(true && !false)` = `false`
