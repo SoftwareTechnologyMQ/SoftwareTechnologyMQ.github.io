@@ -71,27 +71,27 @@ null
 null
 ```
 
-Each item of the array is a `Rectangle` reference, and initialized to the default value (which, for objects, is `null`).
+Each item of the array is a `Rectangle` reference, and initialised to the default value (which, for objects, is `null`).
 
 The memory diagram for the current state of the array is
 
 ![](./fig/03-classes-and-objects/array-of-objects-figure0.png)
 
-Any attempt to access an instance variable or instance method on any of the items of the array will raise a `NullPointerException`.
+Any attempt to access an instance variable or instance method on any of the items of the array will throw a `NullPointerException`.
 
 ```java
-blocks[0].width = 5; //NullPointerException
-String str = blocks[0].toString(); //NullPointerException
+blocks[0].width = 5; // NullPointerException
+String str = blocks[0].toString(); // NullPointerException
 ```
 
-## Hence...
+### Hence...
 
 #### STEP 2 - Instantiating each object
 
 ```java
 for(int i=0; i < blocks.length; i++) {
-	blocks[i] = new Rectangle(i+1, i*2); //instantiate item at index i
-	System.out.println(blocks[i]); //display it
+	blocks[i] = new Rectangle(i+1, i*2); // instantiate item at index i
+	System.out.println(blocks[i]); // display it
 }
 ```
 
@@ -173,8 +173,8 @@ for(int i=0; i < data.length; i++) {
 You can also access an instance variable or instance method on any of the items of the array.
 
 ```java
-blocks[0].width = 5; //change the width of the first item to 5
-int h = blocks[3].height; //store height of fourth item into h
+blocks[0].width = 5; // change the width of the first item to 5
+int h = blocks[3].height; // store height of fourth item into h
 ```
 
-Complete code is provided in [ArrayOfObjects.java](./codes/ArrayOfObjects.java)
+The complete code for `Rectangle` and `ArrayOfObjects` is provided in [`ArrayOfObjects.java`](./codes/ArrayOfObjects.java).
