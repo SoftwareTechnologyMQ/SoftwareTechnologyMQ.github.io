@@ -171,10 +171,10 @@ So, no need to evaluate the second sub-expression.
 
 If the first of the two sub-expressions (`a`) is `true`, `a || b` becomes true.
 
-|<h3>Short-circuit logic summary<h3>|
+|Short-circuit logic summary|
 |---|
-|<h3><code>false && anything = false</code></h3>|
-|<h3><code>true &#124;&#124; anything = true</code></h3>|
+|<code>false && anything = false</code>|
+|<code>true &#124;&#124; anything = true</code>|
 
 Examples:
 
