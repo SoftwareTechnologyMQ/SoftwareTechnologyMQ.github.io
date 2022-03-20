@@ -226,27 +226,30 @@ Examples:
 1. `20 == 4 && 12*31 >= 41*9 && 1973%127 > 50 && 1000==1000`
 1. `2+8 == 10 || 1729*9271 != 16029559 || 1000==2000`
 
-# Solutions
-
+<details>
+<summary>Solutions</summary>
+<pre>
 1. `6 > 4` = `true`
-1. `6 > 4 == true` = `true` 
-1. `6 < 4` = `false`
-1. `6 < 4 == true` = `false` 
+2. `6 > 4 == true` = `true` 
+3. `6 < 4` = `false`
+4. `6 < 4 == true` = `false` 
  	- `exp == true` and `exp` are the same. 
  	-  `exp == false` and `!exp` are the same.
-1. `!true` = `false`
-1. `!"Done"` invalid (`!` doesn't operate on String variables)
-1. `!!!!true` = `true`
-1. `!!false` = `false`
-1. `6 >= 4 && 6 < 1` = `false`
-1. `6 >= 4 || 6 < 1` = `true`
-1. `6 >= 4 || 10` invalid (right hand side value is integer, not boolean)
-1. `true || false && false` = `true` (`&&` is before `||` in precedence)
-1. `!(6 >= 4) && 6 < 1` = `false`
-1. `!(6 >= 4) || 6 < 1` = `false`
-1. `!(1 == 7 && 2 == 9)` = `true`
-1. `1==2 || 3==4 || 5==6 || 7==8 || true` = `true`
-1. `1==2 && 3==4 && 5==6 && 7==8 && true` = `false`
-1. `!(1 == 7 && 2 == 9) && !(true && !false)` = `false`
-1. `20 == 4 && 12*31 >= 41*9 && 1973%127 > 50 && 1000==1000` = `false` (short-circuit `&&`)
-1. `2+8 == 10 || 1729*9271 != 16029559 || 1000==2000` = `true` (short circuit `||`)
+5. `!true` = `false`
+6. `!"Done"` invalid (`!` doesn't operate on String variables)
+7. `!!!!true` = `true`
+8. `!!false` = `false`
+9. `6 >= 4 && 6 < 1` = `false`
+10. `6 >= 4 || 6 < 1` = `true`
+11. `6 >= 4 || 10` invalid (right hand side value is integer, not boolean)
+12. `true || false && false` = `true` (`&&` is before `||` in precedence)
+13. `!(6 >= 4) && 6 < 1` = `false`
+14. `!(6 >= 4) || 6 < 1` = `false`
+15. `!(1 == 7 && 2 == 9)` = `true`
+16. `1==2 || 3==4 || 5==6 || 7==8 || true` = `true`
+17. `1==2 && 3==4 && 5==6 && 7==8 && true` = `false`
+18. `!(1 == 7 && 2 == 9) && !(true && !false)` = `false`
+19. `20 == 4 && 12*31 >= 41*9 && 1973%127 > 50 && 1000==1000` = `false` (short-circuit `&&`)
+20. `2+8 == 10 || 1729*9271 != 16029559 || 1000==2000` = `true` (short circuit `||`)
+</pre>
+</details>
