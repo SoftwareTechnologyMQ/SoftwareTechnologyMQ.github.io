@@ -88,8 +88,8 @@ For this section, we will assume that `a` and `b` are `boolean` values (`true` o
 | a | b | a &#124;&#124; b |
 |---|---|------|
 |false|false|false|
-|false|true|false|
-|true|false|false|
+|false|true|true|
+|true|false|true|
 |true|true|true|
 
 <!--<table>
