@@ -68,7 +68,7 @@ The following are the six relational operators we will use:
 
 For this section, we will assume that `a` and `b` are `boolean` values (`true` or `false`)
 
-## && (and) operator
+## `&&` (and) operator
 
 `a && b` is `true` when **both** boolean operands, `a` and `b`, are `true`
 
@@ -80,7 +80,7 @@ For this section, we will assume that `a` and `b` are `boolean` values (`true` o
 |true|true|true|
 
 
-## || (or) operator
+## `||` (or) operator
 `a || b` is `true` when **either** of the boolean operands, `a` **or** `b`, is `true`.
 
 <!-- &#124; is pipe -->
@@ -120,7 +120,7 @@ For this section, we will assume that `a` and `b` are `boolean` values (`true` o
     </tr>
 </table>-->
 
-## ! (not) operator
+## `!` (not) operator
 
 The `!` (not) operator negates the boolean value to which it is applied.
 
@@ -141,7 +141,7 @@ Order of operations is,
 
 # Short-circuit logic
 
-## Short-circuiting &&
+## Short-circuiting `&&`
 
 If the first of the two boolean values is `false`, Processing or java doesn't bother evaluating the second boolean value.
 
@@ -167,7 +167,7 @@ false && a<=20
 But, both `false && false` and `false && true` are `false`.
 So, no need to evaluate the second sub-expression.
 
-## Short-circuiting ||
+## Short-circuiting `||`
 
 If the first of the two sub-expressions (`a`) is `true`, `a || b` becomes true.
 
@@ -226,8 +226,8 @@ Examples:
 1. `20 == 4 && 12*31 >= 41*9 && 1973%127 > 50 && 1000==1000`
 1. `2+8 == 10 || 1729*9271 != 16029559 || 1000==2000`
 
-
-# Solutions
+<details>
+    <summary>Solutions</summary>
 
 1. `6 > 4` = `true`
 1. `6 > 4 == true` = `true` 
@@ -251,4 +251,4 @@ Examples:
 1. `!(1 == 7 && 2 == 9) && !(true && !false)` = `false`
 1. `20 == 4 && 12*31 >= 41*9 && 1973%127 > 50 && 1000==1000` = `false` (short-circuit `&&`)
 1. `2+8 == 10 || 1729*9271 != 16029559 || 1000==2000` = `true` (short circuit `||`)
-
+</details>
