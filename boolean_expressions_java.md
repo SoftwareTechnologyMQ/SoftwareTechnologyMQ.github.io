@@ -139,6 +139,70 @@ Order of operations is,
 3. Then, `&&`
 4. Then, `||`
 
+# Short-circuit logic
+
+## Short-circuiting &&
+
+If the first of the two boolean values is `false`, Processing or java doesn't bother evaluating the second boolean value.
+
+For example:
+
+```processing
+int a = 3;
+boolean b = a>=10 && a<=20;
+```
+
+Here, 
+
+- `a>=10` is,
+- `3>=10` which is, 
+- `false`
+
+Hence, the expression becomes:
+
+```processing
+false && a<=20
+```
+
+But, both `false && false` and `false && true` are `false`.
+So, no need to evaluate the second sub-expression.
+
+## Short-circuiting ||
+
+If the first of the two sub-expressions (`a`) is `true`, `a || b` becomes true.
+
+|<h3>Short-circuit logic summary<h3>|
+|---|
+|<h3><code>false && anything = false</code></h3>|
+|<h3><code>true &#124;&#124; anything = true</code></h3>|
+
+Examples:
+
+- `&&`
+
+	`true && true && true && false && true && true && true` 
+
+	= `true && true && false && true && true && true` 
+
+	= `true && false && true && true && true` 
+
+	= `false && true && true && true` 
+	
+	= `false`
+
+- `||`
+
+	`false || false || false || true || true || false || true` 
+
+	= `false || false || true || true || false || true` 
+
+	= `false || true || true || false || true`
+
+	= `true || true || false || true` 
+	
+	= `true`
+
+
 # Questions
 
 1. `6 > 4`
@@ -159,16 +223,18 @@ Order of operations is,
 1. `1==2 || 3==4 || 5==6 || 7==8 || true`
 1. `1==2 && 3==4 && 5==6 && 7==8 && true`
 1. `!(1 == 7 && 2 == 9) && !(true && !false)`
+1. `20 == 4 && 12*31 >= 41*9 && 1973%127 > 50 && 1000==1000`
+1. `2+8 == 10 || 1729*9271 != 16029559 || 1000==2000`
 
 
 # Solutions
 
 1. `6 > 4` = `true`
 1. `6 > 4 == true` = `true` 
-1. - `6 < 4` = `false`
+1. `6 < 4` = `false`
 1. `6 < 4 == true` = `false` 
- 	- moral from the above: `exp == true` and `exp` are the same. 
- 	- similarly, `exp == false` and `!exp` are the same.
+ 	- `exp == true` and `exp` are the same. 
+ 	-  `exp == false` and `!exp` are the same.
 1. `!true` = `false`
 1. `!"Done"` invalid (`!` doesn't operate on String variables)
 1. `!!!!true` = `true`
@@ -183,3 +249,6 @@ Order of operations is,
 1. `1==2 || 3==4 || 5==6 || 7==8 || true` = `true`
 1. `1==2 && 3==4 && 5==6 && 7==8 && true` = `false`
 1. `!(1 == 7 && 2 == 9) && !(true && !false)` = `false`
+1. `20 == 4 && 12*31 >= 41*9 && 1973%127 > 50 && 1000==1000` = `false` (short-circuit `&&`)
+1. `2+8 == 10 || 1729*9271 != 16029559 || 1000==2000` = `true` (short circuit `||`)
+
