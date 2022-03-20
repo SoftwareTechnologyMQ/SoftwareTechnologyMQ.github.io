@@ -15,10 +15,11 @@ within: programming
   * Be able to move a complex shape (or change some other attributes)
 </details>
 
+## Author: Gaurav Gupta
+
 All the codes in this page are provided at [movingCompositeShapesCode.zip](./assets/codes/movingCompositeShapesCode.zip). 
 
 A second version is also available at at [movingCompositeShapesCodeTrigonometryVersion.zip](./assets/codes/movingCompositeShapesCodeTrigonometryVersion.zip).
-
 
 # Moving composite shapes
 
