@@ -219,6 +219,31 @@ Examples:
   - = `18 / 10.0` 
   - = `1.8`
 
+# Shorthand operators
+
+When you want to update the value of a variable, you can use a *shorthand operator*.
+
+```processing
+var = var + a; //var+=a;
+var = var - a; //var-=a;
+var = var * a; //var*=a;
+var = var / a; //var/=a;
+var = var % a; //var%=a;
+
+var = var + 1; //var++;
+var = var - 1; //var--;
+```
+
+Examples,
+
+```processing
+nStudents+=4; //increases nStudents by 4
+n*=10; //multiplies n by 10 and copies that into n
+b/=2; //divides b by 2 and copies that into b
+c++; //increases c by 1
+e--; //decreases e by 1
+```
+
 # Furthering your Understanding
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7FM0zvbHKnQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

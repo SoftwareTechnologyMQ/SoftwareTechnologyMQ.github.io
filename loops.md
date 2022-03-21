@@ -39,21 +39,158 @@ Firstly, loops are _statements_ not expressions, for the same reasons as `if` st
 
 Both loops and `if` statements are called "control-flow" statements because they change the flow of the program from top-to-bottom to somethings more complex.  We will see another control flow statement when we see functions.
 
+## Motivation
+
+First of all, are we really missing out on anything given what we already know (variables, operators and conditions)? Let's see...
+
+We know that `draw()` executes repeatedly so the following program will display a row of circles ... but, ONE AT A TIME.
+
+```processing
+float x = 25;
+
+void setup() {
+	size(400, 200);
+	background(255);
+}
+
+void draw() {
+	fill(255, 0, 0);
+	noStroke();
+	circle(x, height/2, dia);
+}
+```
+
+If we want all the circles to be displayed, at the same time, they all need to be drawn together, in the same iteration of draw.
+
+Note, we don't need `x` at all... well, right now.
+
+```processing
+void setup() {
+	size(400, 200);
+	background(255);
+}
+
+void draw() {
+	fill(255, 0, 0);
+	noStroke();
+	
+	circle(25, height/2, 50);
+	circle(75, height/2, 50);
+	circle(125, height/2, 50);
+	circle(175, height/2, 50);
+	circle(225, height/2, 50);
+	circle(275, height/2, 50);
+	circle(325, height/2, 50);
+	circle(375, height/2, 50);
+}
+```
+
+Great! However...
+
+### Problem 1 
+
+This solution works for a display window with `width` of 400 or less. If the width is 800 pixels, the circles only span the left half. 
+
+### Problem 2
+
+If we decide to change the diameter, we have to change each of the 8 statements.
+
+## In comes abstraction
+
+We will tweak the code so that the changing values (25, 75, ...) have a pattern.
+
+```processing
+void setup() {
+	size(400, 200);
+	background(255);
+}
+
+void draw() {
+	fill(255, 0, 0);
+	noStroke();
+	
+	float dia = 50;
+	float x = dia/2;
+	
+	circle(x, height/2, dia);
+	x=x+dia;
+	
+	circle(x, height/2, dia);
+	x=x+dia;
+	
+	circle(x, height/2, dia);
+	x=x+dia;
+	
+	circle(x, height/2, dia);
+	x=x+dia;
+	
+	circle(x, height/2, dia);
+	x=x+dia;
+	
+	circle(x, height/2, dia);
+	x=x+dia;
+	
+	circle(x, height/2, dia);
+	x=x+dia;
+	
+	circle(x, height/2, dia);
+	x=x+dia;	
+}
+```
+
+Now, after initializing the value of `x`, we have the following two statements executing repeatedly:
+
+```processing
+	circle(x, height/2, dia);
+	x=x+dia;
+```
+
+This solves the second problem, and now we don't need to change each statement if diameter changes.
+
+It's just the number of times the two statements should execute that we have to control. If we want the circles to span all the way to the right, this should happen as long as `x < width`.
+
+So, our pseudo-code is:
+
+```processing
+NOTE THAT THIS IS A PSEUDO-CODE, NOT COMPILABLE CODE
+
+void setup() {
+	size(CAN BE ANY VALID VALUE, 200);
+	background(255);
+}
+
+void draw() {
+	fill(255, 0, 0);
+	noStroke();
+	
+	float dia = 50;
+	float x = dia/2;
+	
+	REPEAT THE FOLLOWING TWO STATEMENTS, AS LONG AS x < width
+		circle(x, height/2, dia);
+		x=x+dia;
+	END REPEAT
+}
+```
+
+
 ## A `while` loop
 
-
-```java
+```processing
 while(boolean expression) {
-	code inside loop
+	statement 1
+	statement 2
+	...
+	statement n
 }
 rest of the code
 ```
 
-<center><img src="loopsFigs/whileLoop.png" style="width: 300px;"/></center>
+<center><img src="./assets/images/whileLoop.png" style="width: 300px;"/></center>
 
 Example:
 
-```java
+```processing
 int a = 6;
 int result = 1;
 while(a > 0) {
@@ -94,7 +231,7 @@ While constructing a logic table, one is strongly encouraged to follow the follo
 
 ### Example for constructing a logic table
 
-```java
+```processing
 int a = 10, b = 2, c = 100;
 int result = 0;
 while(a > b && c > a) {
@@ -143,20 +280,20 @@ Such a table is not a formal document, it is _an aid to understanding_ and this 
 
 ## for-loop
 
-A for-loop is more compact than the while loop and more common in real-life applications.
+A for-loop is more compact than the while loop and more common in real-life applications, especially once we cover arrays, that, in turn, form basis for lists and maps. 
 
-```java
+```processing
 for(initializations; boolean expression; post-iteration update(s)) {
   code inside loop;
 }
 rest of the code;
 ```
 
-<center><img src="loopsFigs/forLoop.png" style="width: 300px;"/></center>
+<center><img src="./assets/images/forLoop.png" style="width: 300px;"/></center>
 
 Example:
 
-```java
+```processing
 int result = 0;
 for(int i=1; i <= 16; i*=2) {
   result = result + i;
@@ -184,30 +321,30 @@ Trace (logic table):
 Instead of drawing a simple circle, we draw three circles, each 10 pixels larger than the last.  Each has a 2 pixel border, making a bulleye shape.  Nothing else needs to change, the center of the bullsye animates in exactly the same way as the circle did.
 
 ~~~~~
-int ypos;
+int yPos;
 int speed;
 
 void setup(){
-  ypos = 0;
+  yPos = 0;
   speed = 1;
 }
 
 void draw(){
   background(255);
 
-  if (ypos == height){
+  if (yPos == height){
     speed = -1;
   }
-  if (ypos == 0){
+  if (yPos == 0){
     speed = 1;
   }
   noFill();
   stroke(92, 136, 218);
   strokeWeight(2);
   for(int i = 0; i < 40; i = i + 10){
-    circle(width/2, ypos, i);
+    circle(width/2, yPos, i);
   }
-  ypos = ypos + speed;
+  yPos = yPos + speed;
 
 }
 ~~~~~
@@ -233,6 +370,37 @@ for(int i = 0; i < 5; i++){
 Notice that this program has no `setup` and no `draw` functions, it is a special type of non-animated Processing program.
 </details>
 </div>
+
+
+## Exercises based on loops
+
+Here are some exercises, hopefully in increasing order of difficulty, to help you progress through your understanding of loops.
+
+1. Write a loop that displays the following pattern: 
+	```
+	1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+	```
+	
+2. Write a loop that displays the following pattern: 
+	```
+	12 11 10 9 8 7 6 5 4 3 2 1 0 -1 -2
+	```
+
+3. Write a loop that displays the following pattern: 
+	```
+	300 150 75 37 18 9 4 2 1
+	```
+
+4. Write a loop that displays the following pattern: 
+	```
+	1 10 100 1000 10000 100000 1000000
+	```
+
+5. Write a loop that adds the first 10000 positive integers (1 to 10000) and stores the result in a variable `total`.
+
+6. Write a loop that multiplies the first 12 positive integers (1 to 12) and stores the result in a variable `total`.
+
+
 
 
 ## Nesting of control structures
@@ -276,7 +444,7 @@ We would like to generate a pattern based on input integer `N > 0`
 
 Outer loop -
 
-```java
+```processing
 for(int i=1; i<=N; i++) {
 	display current line
 	change line using println();
@@ -289,7 +457,7 @@ for(int i=1; i<=N; i++) {
 
 Inner loop -
 
-```java
+```processing
 for(int k=1; k<=i; k++) {
 	print("^");
 }
@@ -297,7 +465,7 @@ for(int k=1; k<=i; k++) {
 
 **COMPLETE SOLUTION**
 
-```java
+```processing
 for(int i=1; i<=N; i++) {
 	for(int k=1; k<=i; k++) {
 		print("^");
@@ -341,7 +509,7 @@ else { //even counter: dash
 
 <details markdown="1"><summary>Solution</summary>
 
-```java
+```processing
 for(int i=1; i<=N; i++) {
 	for(int k=1; k<=i; k++) {
 		if(i%2 == 1) { //odd counter: cap
@@ -436,13 +604,15 @@ So, instead we'll iterate over numbers generated via a random-number generator.
 
 For scenarios 1 to 3, you may assume that `n` is generated using the following statement:
 
-```java
+```processing
 int x = 1 + (int)random(100); //x can be any integer from 1 to 100
 int n = 10*x; //n can be one of the values from [10, 20, ..., 1000]
 ```
 
-
 <div class="task" markdown="1">
+
+## Scenario 1
+
 Write a piece of code that determines the number of times we get a 6 when a normal 6-faced die is rolled `n` times.
 <details markdown="1"><summary>Solution</summary>
 
@@ -463,6 +633,9 @@ println(total);
 </div>
 
 <div class="task" markdown="1">
+
+## Scenario 2
+
 Write a piece of code that determines the average outcome when a normal 6-faced dice is rolled `n` times.
 <details markdown="1"><summary>Solution</summary>
 You should expect to get 3 just about every time right?
@@ -482,9 +655,12 @@ println(total/n);
 </div>
 
 <div class="task" markdown="1">
+
+## Scenario 3
+
 For this scenario, you should assume that `n` is generated using the following statement:
 
-```java
+```processing
 int n = (int)random(101); //n can be any integer from 0 to 100
 ```
 
@@ -505,7 +681,7 @@ Thus, there are 3+2+1 = 6 handshakes for 4 people.
 
 If a fifth person (Eddie) joins the party, he shakes hands with all others.
 
-Thus, there are **`4`**+3+2+1 = 10 handshakes for 5 people.
+Thus, there are **`4`**+`3`+`2`+`1` = `10` handshakes for 5 people.
 
 A table summarizing this pattern is given below,
 
