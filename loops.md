@@ -146,7 +146,7 @@ Such a table is not a formal document, it is _an aid to understanding_ and this 
 A for-loop is more compact than the while loop and more common in real-life applications.
 
 ```java
-for(initializations; boolean expression; update(s)) {
+for(initializations; boolean expression; post-iteration update(s)) {
   code inside loop;
 }
 rest of the code;
