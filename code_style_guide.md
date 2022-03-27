@@ -183,7 +183,7 @@ returnType funtionName(<parameters>) {
 }
 ```
 
-Example of well-indented code:
+## Example of good indentation:
 
 ```java
 int mystery(int[] a) {
@@ -203,7 +203,7 @@ int mystery(int[] a) {
 }
 ```
 
-Example of decently-indented code with minor mistakes:
+## Example of decently-indented code with minor mistakes:
 
 ```java
 int mystery(int[] a) {
