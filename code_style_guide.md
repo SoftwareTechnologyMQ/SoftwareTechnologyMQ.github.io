@@ -64,6 +64,64 @@ else {
 }
 ```
 
+## Example of good indentation:
+
+```java
+int a = 10, b = 20;
+if(a%2 == 0) {
+	a++;
+	b--;
+}
+else {
+	if(b%2 == 0) {
+		b++;
+		a--;
+		if(a == b) {
+			a = b;
+		}
+	}
+}
+```
+
+## Example of bad indentation (1):
+
+```java
+int a = 10, b = 20;
+if(a%2 == 0) {
+a++;
+b--;
+}
+else {
+	if(b%2 == 0) {
+		b++;
+a--;
+		if(a == b) {
+		a = b;
+			}
+	}
+}
+```
+
+## Example of bad indentation (2):
+
+```java
+int a = 10, b = 20;
+if(a%2 == 0) {
+	a++;
+		b--;
+	}
+	else {
+		if(b%2 == 0) {
+			b++;
+				a--;
+				if(a == b) {
+					a = b;
+						}
+							}
+								}
+```
+
+
 #### Loops
 
 ```java
@@ -75,6 +133,46 @@ while(exp) {
 ```java
 for(init; exp; update) {
 	//loop body
+}
+```
+
+## Example of good indentation:
+
+```java
+for(int i=0; i < 10; i++) {
+	int a = 200;
+	while(a > 10) {
+		if(a%2 == 0) {
+			counter++;
+		}
+		else {
+			counter+=2;
+		}
+		a/=2;
+	}
+	for(int k=a; k > 1; k--) {
+		counter*=2;
+	}
+}
+```
+
+## Example of bad indentation:
+
+```java
+for(int i=0; i < 10; i++) {
+ int a = 200;
+ while(a > 10) {
+		if(a%2 == 0) {
+		 counter++;
+		}
+		else {
+		 counter+=2;
+		}
+		a/=2;
+	}
+	for(int k=a; k > 1; k--) {
+			counter*=2;
+	}
 }
 ```
 
