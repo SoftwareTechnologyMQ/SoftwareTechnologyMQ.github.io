@@ -108,6 +108,8 @@ nav:
         url: /boolean_logic
       - title: Python Cheat Sheet
         url: /python_cheat_sheet
+      - title: Python unittest
+        url: /python_unittest
   - title: COMP2160
     url: /comp2160
     subnav:
