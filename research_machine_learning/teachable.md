@@ -1,0 +1,1 @@
+how to split your footage into categories and to feed it though teachable machine.

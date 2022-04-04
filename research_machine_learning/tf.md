@@ -1,0 +1,1 @@
+discussions and examples of what is going on when tensor flow code is run on the pi

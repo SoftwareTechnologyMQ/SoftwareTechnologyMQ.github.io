@@ -1,0 +1,1 @@
+how to export the right model from teachable machine and get it onto the pi

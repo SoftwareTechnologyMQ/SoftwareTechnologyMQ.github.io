@@ -1,0 +1,1 @@
+basic instructions for getting a RaspbarianLite image and installing the required libraries
