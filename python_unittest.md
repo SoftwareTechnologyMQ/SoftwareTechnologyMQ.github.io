@@ -147,5 +147,199 @@ Example:
 assertAlmostEqual(square(1.25), 1.5625)
 ```
 
+## assertTrue, assertFalse
+
+`assertTrue` passes if and only if the value passed to the assertion is `True`.
+
+```python
+assertTrue(isPositive(3))
+```
+
+`assertFalse` is the opposite, it passes if and only if the value passed to the assertion is `False`.
+
+```python
+assertTrue(isPositive(0))
+```
+
+# Summary of assertions
+
+A list of all assertions is given below:
+
+| Method                                                                                                                 | Checks                                  | Version |
+| ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------- |
+| [assertEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertEqual)                           | a == b                                  | 3.x     |
+| [assertNotEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotEqual)                     | a != b                                  | 3.x     |
+| [assertTrue](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertTrue)                             | bool(x) is True                         | 3.x     |
+| [assertFalse](https://docs.python.org/3/library/unittest.html#unittest.TestCase.ssertFalse)                            | bool(x) is False                        | 3.x     |
+| [assertIs](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIs)                                 | a is b                                  | 3.x     |
+| [assertIsNot](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsNot)                           | a is not b                              | 3.x     |
+| [assertIsNone](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsNone)                         | x is None                               | 3.x     |
+| [assertIsNotNone](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsNotNone)                   | x is not None                           | 3.x     |
+| [assertIn](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIn)                                 | a in b                                  | 3.x     |
+| [assertNotIn](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotIn)                           | a not in b                              | 3.x     |
+| [assertIsInstance](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsInstance)                 | is instance(a,b)                        | 3.x     |
+| [assertNotIsInstance](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotIsInstance)           | not is instance(a,b)                    | 3.x     |
+| [assertRaises](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertRaises)                         | fun(\*args,\*\*kwds) raises exc         | 3.x     |
+| [assertRaisesRegexp](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertRaisesRegexp)             | fun(\*args,\*\*kwds) raises exc(regex)  | 3.x     |
+| [assertAlmostEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertAlmostEqual)               | round(a-b,7) == 0                       | 3.x     |
+| [assertNotAlmostEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotAlmostEqual)         | round(a-b,7) != 0                       | 3.x     |
+| [assertGreater](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertGreater)                       | a > b                                   | 3.x     |
+| [assertGreaterEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertGreaterEqual)             | a >= b                                  | 3.x     |
+| [assertLess](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertLess)                             | a < b                                   | 3.x     |
+| [assertLessEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertLessEqual])                  | a <= b                                  | 3.x     |
+| [assertRegexpMatches](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertRegexpMatches)           | r.search(s)                             | 3.x     |
+| [assertNotRegexpMatches](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotRegexpMatches)     | not r.search(s)                         | 3.x     |
+| [assertItemsEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertItemsEqual)                 | sorted(a) == sorted(b)                  | 3.x     |
+| [assertDictContainsSubset](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertDictContainsSubset) | all the key/value pairs in a exist in b | 3.x     |
+| [assertMultiLineEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertMultiLineEqual)         | strings                                 | 3.x     |
+| [assertSequenceEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertSequenceEqual)           | sequences                               | 3.x     |
+| [assertListEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertListEqual)                   | lists                                   | 3.x     |
+| [assertTupleEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertTupleEqual)                 | tuples                                  | 3.x     |
+| [assertSetEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertSetEqual)                     | sets or frozensets                      | 3.x     |
+| [assertDictEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertDictEqual)                   | dicts                                   | 3.x     |
+
+# How are assertions used
+
+Assertions need to be wrapped in a class with the header:
+
+```python
+class Tester(unittest.TestCase):
+```
+
+and then inside a function with the header:
+
+```python
+def test_function_name(self):
+```
+
+So, if the name of the function to be tested is `is_positive`, it would become:
+
+```python
+def test_is_positive(self):
+```
+
+and if the name of the function to be tested is `square`, it would become:
+
+```python
+def test_square(self):
+```
+
+So far, we got:
+
+```python
+class Tester(unittest.TestCase):
+	def test_function_name(self):
+```
+
+In there, you can have whatever assertions you want. You just need to prefix each assertion with `self.`. Some examples:
+
+```python
+self.assertTrue(is_positive(20))
+self.assertEqual(square(6), 36))
+self.assertAlmostEqual(average(3, 4), 3.5)
+```
+
+## One final step
+
+The final step is to include the *driver*, so as to specify that it's a `unittest` we want to run.
+
+```python
+if __name__ == "__main__":    
+    unittest.main() 
+```
+
+## Outcomes
+
+If all the tests pass, python lets out an incredibly excited....
+
+
+```
+OK
+```
+
+(I guess the developers have a rather dry sense of humor).
+
+In case of failure, it will tell you the problem and also that it `Failed`. For example:
+
+```
+Traceback (most recent call last):
+  File "/Users/gauravgupta/Documents/SoftwareTechnologyMQ.github.io/assets/codes/unittest_example_1.py", line 5, in test_is_positive
+    self.assertTrue(is_positive(5635.5))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
+```
+
+Here, it's saying that `self.assertTrue(is_positive(5635.5))` failed because the function call resulted in `False`, which is not `True` (as per the assertions demands).
+
+# A complete example
+
+```
+import unittest
+
+class Tester(unittest.TestCase):
+    def test_is_positive(self):
+        self.assertTrue(is_positive(5635.5))
+        self.assertTrue(is_positive(1))
+        self.assertTrue(is_positive(0.1))
+        self.assertTrue(is_positive(0.01))
+        self.assertFalse(is_positive(0))
+        self.assertFalse(is_positive(-0.1))
+        self.assertFalse(is_positive(-0.01))
+        self.assertFalse(is_positive(-11454.4))
+    
+def is_positive(val):
+    if val > 0:
+        return True
+    else:
+        return False
+
+if __name__ == "__main__":    
+    unittest.main() 
+```
+
+# An example where you complete the function
+
+```python
+import unittest
+
+class Tester(unittest.TestCase):
+    def test_is_odd(self):
+        self.assertTrue(is_odd(5))
+        self.assertTrue(is_odd(-5))
+        self.assertTrue(is_odd(517))
+        self.assertTrue(is_odd(-6561))
+        self.assertFalse(is_odd(0))
+        self.assertFalse(is_odd(8))
+        self.assertFalse(is_odd(-8))
+        self.assertFalse(is_odd(8096))
+        self.assertFalse(is_odd(-8096))
+    
+def is_odd(val):
+    return True # replace this with actual code
+
+if __name__ == "__main__":    
+    unittest.main() 
+```
+    
+# An example where you write the tests and then the function
+
+```python
+import unittest
+
+class Tester(unittest.TestCase):
+    def test_is_divisible_by(self):
+        # TODO
+    
+def is_odd(a, b):
+    return True #update so it returns True if and only if a is divisible by b
+
+if __name__ == "__main__":    
+    unittest.main() 
+```
+
 
 
