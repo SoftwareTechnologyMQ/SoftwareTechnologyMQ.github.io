@@ -152,7 +152,7 @@ assertAlmostEqual(square(1.25), 1.5625)
 `assertTrue` passes if and only if the value passed to the assertion is `True`.
 
 ```python
-assertTrue(isPositive(3))
+assertTrue(is_positive(3))
 ```
 
 `assertFalse` is the opposite, it passes if and only if the value passed to the assertion is `False`.
