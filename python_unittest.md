@@ -62,13 +62,15 @@ In test-driven development, tests are written before the code and cover the diff
 
 ## Example 2
 
-Let's say we are given specifications for writing a function that takes in three numbers, and returns the *median* value, that is the value that sits in the middle when the numbers are arranged in ascending (or descending) order.
+### Problem definition: Write a function that takes in three numbers, and returns the *median* value, that is the value that sits in the middle when the numbers are arranged in ascending (or descending) order.
 
 For number 1.5, 0.7 and 8.3, it's the number 1.5 that is the median value.
 
-So let's write some tests and compare our notes.
+Let us write some tests and compare our notes.
 
-First family of values will be three distinct values. The median should lie in all three places across the set.
+### First family of values will be three distinct values. 
+
+The median should lie in all three places across the set.
 
 - Second value is the median
 	- 1.2, 3.5, 8.4: First less than third
@@ -81,7 +83,9 @@ First family of values will be three distinct values. The median should lie in a
 	- 1.2, 8.4, 3.5: First less than second
 
 
-Second family of values should be two of the same values and a third unique value. The order should be shuffled to explore all combinations. On the same line of thought as the first family, we get the following combinations
+### Second family of values should be two of the same values and a third unique value. 
+
+The order should be shuffled to explore all combinations. On the same line of thought as the first family, we get the following combinations
 
 - First and second are the same
 	- 25, 25, 75: Unique value is higher
@@ -95,7 +99,7 @@ Second family of values should be two of the same values and a third unique valu
 
 Note that we should try and not re-use the same few numerical value for all the cases, hence we replaced 1.2, 3.5 and 8.4 with 25 and 75 for the second family. 
 
-Third family of values is where all three values are the same.
+### Third family of values is where all three values are the same.
 
 - -10000, -10000, -10000
 
@@ -121,17 +125,17 @@ The complete set, and required answer, are:
 
 Python checks if the input matches the value returned using assertions.
 
-## assertEquals
-The simplest assertion is `assertEquals`. The following assertion passes if and only if `a` is exactly the same as `b`.
+## assertEqual
+The simplest assertion is `assertEqual`. The following assertion passes if and only if `a` is exactly the same as `b`.
 
 ```python
-assertEquals(a, b)
+assertEqual(a, b)
 ```
 
 Example:
 
 ```python 
-assertEquals(square(6), 36)
+assertEqual(square(6), 36)
 ```
 
 ## assertAlmostEqual
