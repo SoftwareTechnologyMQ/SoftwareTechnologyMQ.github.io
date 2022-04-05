@@ -54,7 +54,11 @@ The only way to work in Raspabarian Lite is via the terminal.  In the next works
 
 ## Terminal Preview
 
-One you have logged in, type `ls` exactly as it is written here, then press enter. This will give you a list of files and directories that the Raspberry Pi holds. In this list, you will find a directory that is named 'mq_mini_console'.
+One you have logged in, type `ls` exactly as it is written here, then press enter. This will give you a list of files and directories that the Raspberry Pi holds. 
+
+### updated to here
+
+In this list, you will find a directory that is named 'mq_mini_console'.
 <div style="width:75%; margin:auto">
 	<img src="figs/raspberry_pi_run_mini_console2.png"/>
 </div>
