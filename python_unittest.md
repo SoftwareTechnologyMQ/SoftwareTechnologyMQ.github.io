@@ -139,16 +139,19 @@ assertEqual(square(6), 36)
 ```
 
 ## assertAlmostEqual
-`assertAlmostEqual` takes into account rounding-off errors that may occur while comparing floating-point values. The following assertion passes if and only if `a` is almost the same as `b` (upto 6 to 7 decimal places)
+`assertAlmostEqual` takes into account rounding-off errors that may occur while comparing floating-point values. The following assertion passes if and only if `a` is almost the same as `b`, upto 6 to 7 decimal places by default, or up to `n` decimal places if the third parameter is supplied. If `n` is supplied, it rounds off the numbers to `n` decimal places. `2.236` rounded-off to 2 decimal places will be `2.24`, while `1.4641` rounded-off to 2 decimal places will be `1.46`.
 
 ```python
 assertAlmostEqual(a, b)
+#OR
+assertAlmostEqual(a, b, n)
 ```
 
 Example:
 
 ```python 
 assertAlmostEqual(square(1.25), 1.5625)
+assertAlmostEqual(square(1.2, 1.464, 3) #just check first 3 decimal places
 ```
 
 ## assertTrue, assertFalse
@@ -350,7 +353,13 @@ class Tester(unittest.TestCase):
         self.assertAlmostEqual(-2.5, average(-2, -3))
         self.assertAlmostEqual(0, average(2, -2))
         self.assertAlmostEqual(-51.3, average(-51.1, -51.5))
-    
+        
+        #up to 2 decimal places
+        self.assertAlmostEqual(average(1.2555, 1.3), 1.28, 2) 
+        
+        #up to 1 decimal place only
+        self.assertAlmostEqual(average(1.2345, 4.5678), 2.9, 1)
+
 def average(a, b):
     return (a+b)/2
 
