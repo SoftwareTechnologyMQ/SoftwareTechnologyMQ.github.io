@@ -54,7 +54,7 @@ To use Raspberry Pi, we need a monitor to view what we are doing, as well as a k
 
 The mini console will automatically run when the Raspberry Pi is started. To exit the games, press the 'esc' button. 
 
-Try doing other things with the Rasperry Pi as well, such as going on the internet! Make sure you are connected to the internet via an ethernet chord. If you have a Raspberry Pi 3 or 4, you can connect to wifi wirelessly. <a href="https://projects.raspberrypi.org/en">Here</a> are some resources to show all the other projects you could do with a Raspberry Pi.
+Try doing other things with the Rasperry Pi as well, such as going on the internet! Make sure you are connected to the internet via an ethernet cord. If you have a Raspberry Pi 3 or 4, you can connect to wifi wirelessly. <a href="https://projects.raspberrypi.org/en">Here</a> are some resources to show all the other projects you could do with a Raspberry Pi.
 
 ## Restarting the mini console
 
