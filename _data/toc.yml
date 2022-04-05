@@ -128,6 +128,46 @@ nav:
         url: improving_skills
       - title: Testing Ground (experimental content)
         url: testing_ground
+  - title: Research Skills (Java/MiniConsole)
+    url: /research
+    subnav:
+      - title: Road to Research 
+        url: road_to_research
+      - title: Mini-Console (Pi)
+        url: /research_mini_console/setup
+      - title: Mini-Console (PC)
+        url: /research_mini_console/setup_dev
+      - title: Terminal Basics
+        url: /research_mini_console/terminal
+      - title: Getting Code with Git
+        url: /research_mini_console/getting_code
+      - title: Changing Code
+        url: /research_mini_console/changing_code
+      - title: Getting Your Work Incorporated
+        url: /research_mini_console/incorporating_code
+      - title: Hacking on Complex Code
+        url: /research_mini_console/hacking_code
+  - title: Research Skills (Machine Learning)
+    url: /research
+    subnav:
+      - title: Road to Research 
+        url: road_to_research
+      - title: Pi Setup
+        url: /research_machine_learning/setup
+      - title: Getting the Code
+        url: /research_machine_learning/getting_code
+      - title: TensorFlow on Pi
+        url: /research_machine_learning/tf
+      - title: Capturing New Footage
+        url: /research_machine_learning/footage
+      - title: Teachable Machine
+        url: /research_machine_learning/teachable
+      - title: Run Your Own Model
+        url: /research_machine_learning/custom_model
+      - title: Get your changes incorporated
+        url: /research_machine_learning/incorporating_code
+      - title: Notifications
+        url: /research_machine_learning/notifications
   - title: Edit (README for details)
     url: https://github.com/SoftwareTechnologyMQ/softwaretechnologyMQ.github.io
     
