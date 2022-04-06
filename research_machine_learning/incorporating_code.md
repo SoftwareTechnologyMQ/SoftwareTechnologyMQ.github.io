@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Getting your changes incorporated"
-within: hacking
+within: machine_learning
 ---
 
 # Getting Your Work Incorporated

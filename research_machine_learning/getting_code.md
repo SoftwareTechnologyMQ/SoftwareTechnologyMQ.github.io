@@ -84,3 +84,5 @@ You should have cloned the main repository in yesterday's lesson. But **remember
 5. Enter the `git remote -v` command again to ensure your new origin points to your teams repository (*NOTE: There should be two links `fetch` and `push`*)  
 ![git remote2 screenshot](figs/clone-2.png)
 
+TODO: the last part of this needs updating.  Because we don't rely on the SD image, we don't have the broken remote.   Plus we might also like to explain how to check you got what you got.
+
