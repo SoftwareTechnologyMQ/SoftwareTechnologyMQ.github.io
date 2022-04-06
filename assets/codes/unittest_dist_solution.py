@@ -5,7 +5,7 @@ class Tester(unittest.TestCase):
     def test_dist(self):
         self.assertAlmostEqual(dist(0,0,0,0), 0)
         self.assertAlmostEqual(dist(1,1,0,0), sqrt(2))
-        self.assertAlmostEqual(dist(1,2,3,4), sqrt(8))
+        self.assertAlmostEqual(dist(1,2,3,4), sqrt(8), 2)
         self.assertAlmostEqual(dist(1,7,2,9), 2.236, 3)
     
 '''
