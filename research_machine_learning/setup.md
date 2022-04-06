@@ -59,27 +59,55 @@ The only way to work in Raspabarian Lite is via the terminal. In the next worksh
 
 One you have logged in, type `ls` exactly as it is written here, then press enter. This will give you a list of files and directories that the Raspberry Pi holds.
 
-### updated to here
+### TODO (cameron): Installing the Required Libraries/Tools
 
-In this list, you will find a directory that is named 'mq_mini_console'.
+\_Cameron: can you please do a fresh install on a fresh pi and check to see what needs intstalling to get it going?
 
-<div style="width:75%; margin:auto">
-	<img src="figs/raspberry_pi_run_mini_console2.png"/>
-</div>
-<br>
+If you check the code you will see the python libs. I know each of those need installing.\_
 
-Now we want to navigate to this file. Type `cd mq_mini_console` and press enter.
+# Installing the camera
 
-<div style="width:75%; margin:auto">
-	<img src="figs/raspberry_pi_run_mini_console3.png"/>
-</div>
-<br>
+You have been supplied with a Pi "NoIR" camera module. The following animation (from the offical raspberry pi website) shows how to connect it.
 
-The only way we have to run the console is via the console and from within this directory. There is a "script" in this directory that we can execute on the terminal. Type `./run` and wait for the mini console to appear on the screen again.
+![https://projects-static.raspberrypi.org/projects/getting-started-with-picamera/7ab130979e77e11eb977625713823e41ebe1ae64/en/images/connect-camera.gif](https://projects-static.raspberrypi.org/projects/getting-started-with-picamera/7ab130979e77e11eb977625713823e41ebe1ae64/en/images/connect-camera.gif)
 
-<div style="width:75%; margin:auto">
-	<img src="figs/raspberry_pi_run_mini_console4.png"/>
-</div>
-<br>
+We will need to dig a bit deeper into how to use the Pi before we can start getting images off the camera.
 
-You may have noticed we use Terminal a lot within this project. If everything on this page is complete, go to the 'Terminal Basics' link in the navigation menu to continue with the workshop's day 1 tasks and learn more about terminal.
+# Getting things on and off the Pi
+
+At this point you have the Pi connected to the internet, you can see the terminal via the monitor and you can send information to it via the keyboard.
+
+When we cloned with git, we went to the web to get the data, but we were not using a web browser. It is quite hard to navigate the world without a web browser these days and you will want one soon. In these circumstances, it is best to access the Pi from another computer and to send/read files from that computer or copy/paste commands.
+
+To do so, we need to access the Pi via _ssh_ over the _local network_.
+
+## Enable SSH
+
+At the terminal, enter
+
+```
+sudo raspi-config
+```
+
+This will launch the rasperry pi configuration tool. Under `interfaces`, choose to `enable ssh`. You can close the configuration program and reboot now.
+
+You might get a warning about security of SSH with the default password - don't worry about this just now, but perhaps consider changing it. `sudo raspi-config` is your path to a new password as well.
+
+{:.keypoint}
+When SSH is enabled, anyone on your network can connect to your computer if they know the user and password. Since everyone knows the default raspberry pi user and password you are at the mercy of your network-mates if you don't adjust the password.
+
+## Getting Network Address
+
+If you have connected the Pi to the network, it has an address given by the Uni systems. You can find this address by typing
+
+```
+hostname -I
+```
+
+Into the terminal.
+
+TODO: need to do this on pi to see what it says and finish this section. You have to cover windows and mac, which is a pain. Don't forget to explain how to ftp in! You might also quickly demo how to copy/paste into that terminal so you can use the browser.
+
+# Next Steps
+
+You may have noticed we use Terminal a lot within this project. If you have not used a terminal much in the past, we recommend you make [this worksheet](https://medium.com/@grace.m.nolan/terminal-for-beginners-e492ba10902a) your next stop. After that, move on to [Getting the Code](getting_code.html).
