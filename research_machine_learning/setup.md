@@ -65,6 +65,12 @@ One you have logged in, type `ls` exactly as it is written here, then press ente
 
 If you check the code you will see the python libs. I know each of those need installing.\_
 
+```
+sudo apt-get update
+sudo apt-get upgrade
+
+```
+
 # Installing the camera
 
 You have been supplied with a Pi "NoIR" camera module. The following animation (from the offical raspberry pi website) shows how to connect it.
@@ -89,7 +95,7 @@ At the terminal, enter
 sudo raspi-config
 ```
 
-This will launch the rasperry pi configuration tool. Under `interfaces`, choose to `enable ssh`. You can close the configuration program and reboot now.
+This will launch the rasperry pi configuration tool. Under `3 Interface Options`, choose `12 SSH` to enable ssh and select `Yes`. You can close the configuration program and reboot now with `shutdown -r now`.
 
 You might get a warning about security of SSH with the default password - don't worry about this just now, but perhaps consider changing it. `sudo raspi-config` is your path to a new password as well.
 
