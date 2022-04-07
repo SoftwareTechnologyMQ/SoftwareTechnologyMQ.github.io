@@ -59,16 +59,33 @@ The only way to work in Raspabarian Lite is via the terminal. In the next worksh
 
 One you have logged in, type `ls` exactly as it is written here, then press enter. This will give you a list of files and directories that the Raspberry Pi holds.
 
-### TODO (cameron): Installing the Required Libraries/Tools
+# Installing the Required Libraries/Tools
 
-\_Cameron: can you please do a fresh install on a fresh pi and check to see what needs intstalling to get it going?
-
-If you check the code you will see the python libs. I know each of those need installing.\_
+Next we need to install the libraries and tools that we will be using. First we should update the pi. We can do this by running:
 
 ```
 sudo apt-get update
 sudo apt-get upgrade
+```
 
+Then we will need to install the following libraries:
+
+- `git`: So we can grab the code from Bitbucket
+- `pip`: The python package manager - this is how we will install the majority of our python libraries.
+- `python3-numpy`: We need to install this for compatability reasons.
+- `libjpeg-dev`: We need to install this for the python library `Pillow`
+
+```
+sudo apt-get install git pip python3-numpy libjpeg-dev
+```
+
+Finally we can finish by using `pip` to install out python libraries:
+
+- `tflite-runtime`: Tensorflow lite
+- `Pillow`: For inteactiing with images.
+
+```
+pip install tflite-runtime Pillow
 ```
 
 # Installing the camera
