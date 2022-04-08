@@ -207,6 +207,12 @@ A list of all assertions is given below:
 
 # How are assertions used
 
+First thing is to import the `unittest` library as:
+
+```python
+import unittest
+```
+
 Assertions need to be wrapped in a class with the header:
 
 ```python
