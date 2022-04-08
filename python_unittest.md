@@ -165,7 +165,7 @@ assertTrue(is_positive(3))
 `assertFalse` is the opposite, it passes if and only if the value passed to the assertion is `False`.
 
 ```python
-assertTrue(isPositive(0))
+assertFalse(isPositive(0))
 ```
 
 # Summary of assertions
