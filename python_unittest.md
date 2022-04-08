@@ -151,7 +151,7 @@ Example:
 
 ```python 
 assertAlmostEqual(square(1.25), 1.5625)
-assertAlmostEqual(square(1.2, 1.464, 3) #just check first 3 decimal places
+assertAlmostEqual(square(1.2), 1.464, 3) #just check first 3 decimal places
 ```
 
 ## assertTrue, assertFalse
