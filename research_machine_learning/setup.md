@@ -82,7 +82,7 @@ sudo apt-get install git pip python3-numpy libjpeg-dev
 Finally we can finish by using `pip` to install out python libraries:
 
 - `tflite-runtime`: Tensorflow lite
-- `Pillow`: For inteactiing with images.
+- `Pillow`: For inteacting with images.
 
 ```
 pip install tflite-runtime Pillow

@@ -32,7 +32,7 @@ Before you get started, make sure you have completed the [Setup Worksheet](setup
 1. Made a [Bitbucket](https://bitbucket.org/) account
 3. Installed Git (hopefully you also did this on Day 1. Ask the supervisors for help if you have not done this yet. Pi's have Git installed by default)
 4. Told Git who you are  
-  * Open a terminal window either by clicking on the icon or pressing `Ctrl + Alt + T`
+  * From within the pi terminal..
   * Run `git config --global user.name "YOUR-BITBUCKET-USERNAME"`
   * Run `git config --global user.email "YOUR-BITBUCKET-EMAIL"`
   * Run `git config --list` to view your config details to confirm you have correctly set your name and email.
@@ -65,24 +65,36 @@ If you are **not** the group member who hosts the repository you will need to:
 
 **Before moving on to the next step, make sure that everyone in your group has accepted their invitation, otherwise they will not be able to make changes to the repository.**
 
-## Cloning and Remote Origins
-
-![Remote Origin Diagram](figs/remote-origins.jpg)
+## Cloning and running the code
 
 You should have cloned the main repository in yesterday's lesson. But **remember** - that copy is pointing to the main repository which you don't have write access to. So we need to have our clone point to the new `forked` repository you just set up.
 
-1. Open a terminal window
-2. Enter the following git command: `git remote -v`.
+1. Boot into terminal
+2. Enter the following git command: `git clone <YOUR-FORKED-REPOSITORY-LINK>`.
 
- ![git remote screenshot](figs/clone-1.png)
- *This command will show you where your local copy of the repository is currently pointing to. At this stage, it should be pointing to the `mqcomputingdept` repository with the following link: `https://<YOUR_USERNAME>@bitbucket.org/mqcomputingdept/mq_mini_console.git`*
+ This will create a new directory with the cloned code inside it.
 
-3. Enter the following command to change the origin to point to your fork:  
-  `git remote set-url origin <YOUR-FORKED-REPOSITORY-LINK>`
-4. Enter the following command to set the upstream repository that you forked from. This is so you can continue to pull changes from either your forked repository or the original one.  
-`git remote add upstream https://<YOUR-USERNAME>@bitbucket.org/mqcomputingdept/mq_mini_console.git`
-5. Enter the `git remote -v` command again to ensure your new origin points to your teams repository (*NOTE: There should be two links `fetch` and `push`*)  
-![git remote2 screenshot](figs/clone-2.png)
+ ![Post-Clone](figs/post_clone.png)
 
-TODO: the last part of this needs updating.  Because we don't rely on the SD image, we don't have the broken remote.   Plus we might also like to explain how to check you got what you got.
+ You can get into this with 
 
+ `cd pi_camera_detection`
+
+ Another `ls` (or `ls -al` which i prefer) will show you that there is two directories and two text files.
+
+![Look Inside](figs/look_inside.png)
+
+{: .keypoint}
+Whichever directory you are currently "in" is called your "working directory".  Many Linux commands rely on being in the right working directory to act the way you want. 
+
+From within `pi_camera_detection` working directory, run
+
+~~~~
+python3 predict.py
+~~~~
+
+To run the program.  To stop the program you can:
+  * wait for it to finish (unless you chose Camera input)
+  * press `Ctrl-C` (i.e hold the control-key and hit "c").
+
+To see the source code, you can use `nano predict.py`
