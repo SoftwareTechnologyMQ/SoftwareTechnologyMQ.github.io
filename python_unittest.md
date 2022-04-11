@@ -414,5 +414,8 @@ if __name__ == "__main__":
     unittest.main() 
 ```
 
+# PRACTICE PACKAGE!!!
+
+Find the entire practice package at [COMP6010PracticePackage.zip](https://softwaretechnologymq.github.io/assets/codes/COMP6010PracticePackage.zip)
 
 
