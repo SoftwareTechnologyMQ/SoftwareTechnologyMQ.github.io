@@ -164,8 +164,6 @@ nav:
         url: /research_machine_learning/footage
       - title: Teachable Machine
         url: /research_machine_learning/teachable
-      - title: Run Your Own Model
-        url: /research_machine_learning/custom_model
       - title: Get your changes incorporated
         url: /research_machine_learning/incorporating_code
       - title: Notifications
