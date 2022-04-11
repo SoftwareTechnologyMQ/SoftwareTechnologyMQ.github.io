@@ -110,6 +110,8 @@ nav:
         url: /python_cheat_sheet
       - title: Python unittest
         url: /python_unittest
+      - title: Python Lists
+        url: /python_lists
   - title: COMP2160
     url: /comp2160
     subnav:
