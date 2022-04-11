@@ -151,7 +151,7 @@ Example:
 
 ```python 
 assertAlmostEqual(square(1.25), 1.5625)
-assertAlmostEqual(square(1.2, 1.464, 3) #just check first 3 decimal places
+assertAlmostEqual(square(1.2), 1.464, 3) #just check first 3 decimal places
 ```
 
 ## assertTrue, assertFalse
@@ -165,7 +165,7 @@ assertTrue(is_positive(3))
 `assertFalse` is the opposite, it passes if and only if the value passed to the assertion is `False`.
 
 ```python
-assertTrue(isPositive(0))
+assertFalse(isPositive(0))
 ```
 
 # Summary of assertions
@@ -206,6 +206,12 @@ A list of all assertions is given below:
 | [assertDictEqual](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertDictEqual)                   | dicts                                   | 3.x     |
 
 # How are assertions used
+
+First thing is to import the `unittest` library as:
+
+```python
+import unittest
+```
 
 Assertions need to be wrapped in a class with the header:
 
