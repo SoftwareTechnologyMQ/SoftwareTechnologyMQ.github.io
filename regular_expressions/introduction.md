@@ -3,10 +3,10 @@ layout: page
 title: Introduction to Regular Expressions
 ---
 
-Regular expressions, or regex, is used to identify patterns in a text. In this tutorial we will focus of regex in python, but during your degree you may see it multiple languages such as javascript and scala.
+Regular expressions, or regex, is used to identify patterns in a text. In this tutorial we will focus of regex in python, but during your degree you may see it in multiple languages such as javascript and scala.
 
 ## Syntax
-Before starting, here's a list of useful special characters in Python to refer back to.
+Before starting, here's a list of useful special characters in Python's regex library to refer back to.
 * `.` - any character except newline.
 * `\n` - new line.
 * `\s` - white space.
@@ -26,7 +26,7 @@ Before starting, here's a list of useful special characters in Python to refer b
 * `{m,n}` - matches as many as possible of m to n occurrences.
 
 ## Getting started
-To use regex in python you'll need to use the [re](https://docs.python.org/3/library/re.html) library. To find all the occurrences of a pattern you can use `re.findall()`, but to also get the location of those matches, `re.finditer()` is useful.
+To use regex in python you'll need to use the [re](https://docs.python.org/3/library/re.html) library. There's also a [regex](https://pypi.org/project/regex/) library but it's not yet needed. To find all the occurrences of a pattern you can use `re.findall()`, but to also get the location of those matches, `re.finditer()` is useful.
 
 ```py
 import re
