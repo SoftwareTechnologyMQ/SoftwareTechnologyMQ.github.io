@@ -82,7 +82,7 @@ def feed(lst_globs):
 {: .keypoint}
 This is an early and inefficient version, we have probably improved it but the overall idea is the same
 
-This function is a special type of Python fundion, a generator.  If can be put on the range section of a loop and will give items one-by-one until it runs out.  This generator gives back file locations, looping thrhough each image until it runs out.  If the source feed is the camera instead, it takes a new picture each time and puts it in a special file location, giving that back each time.  The file location never changes, but there will be new image from the camera each time it is generated.  In this case, there is no end to the list of images generated, it goes until the user hits `Ctrl-C`.
+This function is a special type of Python function, a generator.  If can be put on the range section of a loop and will give items one-by-one until it runs out.  This generator gives back file locations, looping thrhough each image until it runs out.  If the source feed is the camera instead, it takes a new picture each time and puts it in a special file location, giving that back each time.  The file location never changes, but there will be new image from the camera each time it is generated.  In this case, there is no end to the list of images generated, it goes until the user hits `Ctrl-C`.
 
 # Load a TensorFlow Lite Interpreter and name its input and output tensors
 
