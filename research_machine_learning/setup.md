@@ -79,7 +79,7 @@ Then we will need to install the following libraries:
 sudo apt-get install git pip python3-numpy libjpeg-dev
 ```
 
-Finally we can finish by using `pip` to install out python libraries:
+Finally we can finish by using `pip` to install the required python libraries:
 
 - `tflite-runtime`: Tensorflow lite
 - `Pillow`: For inteacting with images.
@@ -135,7 +135,7 @@ TODO: need to do this on pi to see what it says and finish this section. You hav
 
 SFTP ([Secure File Transfer Protocol](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol)) is a way to access the pi's filesystem through SSH. To connect to our pi this way, we will be using [Cyberduck](https://cyberduck.io). Cyberduck will allow us to view the pi's filesystem in the same way as we view the local file system on our computer. First, you will need to install Cyberduck from [here](https://cyberduck.io).
 
-Once installed open Cyberduck and you will see an empty screen. **Note** I'm performing this step on a Mac but the steps are identical for both Windows and Linux machines.
+Once installed open Cyberduck and you will see an empty screen. **Note** in the pictures, this performing this step is perfomed on a Mac, but the steps are identical for both Windows and Linux machines.
 
 ![New Cyberduck Window](figs/cyberduck-new.png)
 
@@ -154,7 +154,7 @@ This will bring up a menu to setup the connection.
 
 ![Cyberduck Connection Settings](figs/cyberduck-connection-settings.png)
 
-Once you click connect, it might take a while to mount. Once it's mounted you should see be able to see the raspberry pi's home directory. To test the connection works, try drag-n-dropping an image into the home directory. You can double check this by running the `ls` command on the pi, which should show the file.
+Once you click connect, it might take a while to mount. Once it's mounted you should see be able to see the raspberry pi's home directory. To test the connection works, try drag-n-dropping an image into the home directory. This will copy the image from your local machine to the pi over SSH! You can double check this by running the `ls` command on the pi, which should show the images in the filesystem.
 
 # Next Steps
 
