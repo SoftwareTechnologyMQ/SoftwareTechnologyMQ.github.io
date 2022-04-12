@@ -193,8 +193,6 @@ int[] taxicab = {10, 70, 20, 90};
 
 Here, `taxicab` is the *reference* and the block with the integer values `10, 70, 20, 90` is the *instance*.
 
-<p>&nbsp;
-
 ```processing
 int[] cutoffs = {50, 65, 75, 85};
 char[] punctuations = {'.', '!', '?', ',', ';', ':'};
