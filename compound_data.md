@@ -104,8 +104,6 @@ myArray = new int[5];
   <rect height="3.969" width="3.969" stroke="#263738" y="249.4" x="3.969" stroke-width=".7650" fill="none"/>
  </g>
 </svg>
-
-
 </div>
 </div>
 
@@ -140,6 +138,10 @@ So you can have,
 - an array of 400 arrays
 - and so on...
 
+Perhaps the most important concept to understand in arrays is the difference between a *reference* and an *instance*.
+
+- ***Reference*** - the variable name by which you know the array
+- ***Instance*** - the actual collection of items to which a reference refers.
 
 ## Syntax to create an array
 
@@ -149,36 +151,55 @@ There are a few ways to create an array.
 
 The most common way to create an array is by specifying the type and size of the array.
 
-```java
+```processing
 type[] arrayName = new type[size];
 ```
 
-#### Example
+#### Example - integer array
 
-```java
+```processing
 int[] arr = new int[5]; //an array that holds 5 integers
 ```
 
-```java
-boolean[] flags = new boolean[8]; //an array that holds 8 booleans
+![](./assets/images/intArray.png)
+
+Here, `arr` is the *reference* and the block with 5 integer values is the *instance*.
+
+#### Example - boolean array
+
+```processing
+boolean[] flags = new boolean[4]; //an array that holds 4 booleans
 ```
+
+![](./assets/images/booleanArray.png)
+
+Here, `flags` is the *reference* and the block with 4 boolean values is the *instance*.
 
 ### Creating array - Option 2
 
 When you know the values that need to be stored in the array beforehand, you can create an array as,
 
-```java
+```processing
 type[] arrayName = {item1, item2, ....};
 ```
 
-#### Example
+#### Examples
 
-```java
-int[] cutoffs = {50, 65, 75, 85};
+```processing
+int[] taxicab = {10, 70, 20, 90};
 ```
 
-```java
+![](./assets/images/intArrayPopulated.png)
+
+Here, `taxicab` is the *reference* and the block with the integer values `10, 70, 20, 90` is the *instance*.
+
+<p>&nbsp;
+
+```processing
+int[] cutoffs = {50, 65, 75, 85};
 char[] punctuations = {'.', '!', '?', ',', ';', ':'};
+double[] significantNumbers = {3.141, 1.618, 2.718, 57.295, 1.202, 1.414};
+boolean[] twentyTwo = {true, false, true, true, false};
 ```
 
 # Size of an array
@@ -191,7 +212,7 @@ Note that, given what we said above this means `.length` should be read as "foll
 
 For example,
 
-```java
+```processing
 int[] data = new int[20];
 println(data.length); //displays 20
 ```
@@ -205,7 +226,7 @@ println(data.length); //displays 20
 
 Thus you can traverse an array using a loop from `0` to `arr.length - 1` as,
 
-```java
+```processing
 for(int i=0; i < arr.length; i++) {
 	//do what you want with arr[i]
 }
@@ -217,7 +238,7 @@ Create an array that holds the outcome of 20 dice rolls.
 
 Each dice roll is a random integer between 1 and 6.
 
-```java
+```processing
 int[] outcomes = new int[20];
 for(int i=0; i < outcomes.length; i++) {
 	outcomes[i] = (int)random(1, 7); //remember 7 is not included
@@ -226,7 +247,7 @@ for(int i=0; i < outcomes.length; i++) {
 
 Then we can find out the average outcome as,
 
-```java
+```processing
 int total  = 0;
 for(int i=0; i < outcomes.length; i++) {
 	total += outcomes[i];
@@ -236,61 +257,85 @@ double average = (total * 1.0)/outcomes.length;
 ```
 
 
-# Storage of an array and representation
+# Copying an array into another array
 
-For the next example, note that an integer takes up 4 bytes of memory.
+When an array, say `src`, is copied into another array, say `dest`, both references - `src` and `dest` - refer to the instance to which `src` was originally referring.
 
-The array items are held together in a block.
 
-Consider the following array,
-
-```java
-int[] arr = new int[4];
+```processing
+int[] src = {10, 70, 20, 90};
+int[] dest = src;
 ```
 
-If the first item is at memory address 200-203, the second item will be at 204-207, the third item will be at 208-211 and the last item from 212-215.
+![](./assets/images/arrayRefCopy.png)
 
-The array itself holds the starting address, in this case 200.
-That's why we say that an array is a *reference*.
+We call this a ***reference copy***.
 
-We represent this as,
+**NOTE:** The type of arrays must be the same. You cannot copy an `int` array into a `float` array. The following will not work:
 
-<div>
-<center><img src="arraysFigs/arrays-figure0.png" style="width: 300px;"></center>
-</div>
-
-or a more simplified way of adding the array label above the items.
-
-<div>
-<center><img src="arraysFigs/arrays-figure1.png" style="width: 100px;"></center>
-</div>
-
-#### Example
-
-```java
-boolean[] flags = {true, false, false, true, false};
+```processing
+int[] taxi = {10, 70, 20, 90};
+float[] cab = taxi; //Compilation error!
 ```
 
-<div>
-<center><img src="arraysFigs/arrays-figure2.png" style="width: 100px;"></center>
-</div>
+### Another example
 
+```processing
+int[] a = {70, 80, 60};
+int[] b = {10, 70, 20, 90};
+int[] c = a;
+a = b;
+```
+
+- After the first line, there is one reference and one instance.
+
+![](./assets/images/refCopyStep1.png)
+
+- After the second line, there are two references and two instances.
+
+![](./assets/images/refCopyStep2.png)
+
+- After the third line, there are three references but still, only two instances. Currently, `a` and `c` refer to the same instance.
+
+![](./assets/images/refCopyStep3.png)
+
+- After the fourth line, there are three references but still, only two instances. Now, `a` and `b` refer to the same instance.
+
+![](./assets/images/refCopyStep4.png)
 
 # Exercises
 
 ## Exercise 1
 
-Draw the memory diagram for the following code,
+Create the following arrays:
 
-```java
-int[] data = new int[]{50, 90, 30, 20, 60};
-```
+1. An array `a` that has capacity for 2000 integers.
+2. An array `b` that has capacity for 5000 characters.
+3. An array `c` that has capacity for 666 booleans.
+4. An array `d` that has capacity for 1 float.
+5. An array `e` containing the values `5, 6, 7, 8`.
+6. An array `f` containing the values `false, true, true`.
+7. An array `g` containing the values `'M', 'e', 's', 's', 'i'`.
+8. An array `h` containing the values `1.414, 7.2, -2.5, 9.81`.
 
 ## Exercise 2
 
+1. Assume the existence of integer array `tom` and make a reference copy of `tom` into `jerry`.
+1. Assume the existence of boolean array `aang` and make a reference copy of `aang` into `katara` as well as `toph`.
+
+## Exercise 3
+
 Draw the memory diagram for the following code,
 
-```java
+```processing
+int[] data = new int[]{50, 90, 30, 20, 60};
+```
+
+## Exercise 4
+
+Draw the memory diagram for the following code,
+
+```processing
 int[] data = new int[6];
 for(int i=0; i < data.length; i++) {
 	if(i%2 == 0) {
@@ -302,36 +347,62 @@ for(int i=0; i < data.length; i++) {
 }
 ```
 
-## Exercise 3
+## Exercise 6
+
+List the references and instance created in the following code.
+
+```processing
+int[] a = {10, 70, 20, 90};
+int[] b = a;
+char[] c = {'h', 'e', 'y', '!'};
+char[] d = c;
+boolean b = new boolean[10];
+```
+
+## Exercise 7
+
+Explain why the following code will not compile.
+
+```processing
+int[] a = {10, 70, 20, 90};
+int[] b = new int[10];
+b[2] = a;
+```
+
+## Exercise 8
 
 Write a piece of code that creates the arrays represented in the following diagram.
 
-<div>
-<center><img src="arraysFigs/arrays-figure7.png" style="width: 300px;"></center>
-</div>
+![](./assets/images/refCopyProblem1.png)
 
-## Exercise 4
+## Exercise 9
+
+Write a piece of code that creates the arrays represented in the following diagram.
+
+![](./assets/images/refCopyProblem2.png)
+
+## Exercise 10
 
 Draw the memory diagram for the following code,
 
-```java
+```processing
 int[] a = {4,8,15,16,23,42};
 int[] b = a;
 b[2] = 100;
 b = new int[]{104,101,108,108,111};
 ```
 
-## Exercise 5
+## Exercise 11
 
 Write a piece of code that creates an array with 100 integers, each between 1 and 20. Count the number of items that are divisible by the item after them.
 
 For example, if the first few items of the array are `{20, 5, 8, 4, 4, ...}`, 20 is divisible by 5, 8 is divisible by 4, and 4 is divisible by 4, so we have 3 such items so far.
 
-## Exercise 6
+## Exercise 12
 
 Consider the following piece of code.
 
-```java
+```processing
 int[] items = new int[10];
 items[0] = 1;
 for(int i=1; i < items.length; i++) {
@@ -351,7 +422,7 @@ What are the contents of the array `items`?
 The ages of 20 people is stored in an array `ageList`. Write a piece of code that determines the range of the distribution. That is, the age difference between the oldest and the youngest person.
 
 <details markdown="1"><summary>Solution</summary>
-```java
+```processing
 //assuming ageList is a boolean array containing 20 items
 
 int min = ageList[0];
@@ -377,7 +448,7 @@ int range = max - min;
 The state of 25 electrical switches is held in an array `smartSwitches`. The states can be "On" (true) or "Off" (false). Write a piece of code that toggles all switches. That is, all switches that are currently "On" should turn "Off", and all switches that are currently "Off" should turn "On".
 
 <details markdown="1"><summary>Solution</summary>
-```java
+```processing
 //assuming smartSwitches is a boolean array containing 25 items
 
 for(int i=0; i < smartSwitches.length; i++) {
@@ -401,7 +472,7 @@ Assume that we are encoding birthdays as integers where:
 The birthdays of 1000 people is stored in an array `bdays`. Write a piece of code that displays the most frequent date of birth. For the basic version, you may display an integer between 0 and 365. For the advanced version, display the actual data in `DD/MM` format.
 
 <details markdown="1"><summary>Solution</summary>
-```java
+```processing
 //assuming bdays is an array containing 1000 items
 //such that each item is in range [0...365]
 
@@ -446,7 +517,7 @@ I keep track of the time taken (in minutes) to run each kilometer over a 100km r
 Write a piece of code that determines my fastest lap (for example, display "Kilometer 0-1" if the first kilometer was the fastest, and "Kilometer 63-64" if the 64th kilometer was the fastest.)
 
 <details markdown="1"><summary>Solution</summary>
-```java
+```processing
 //assuming lapTimes is a float array containing 100 items
 int fastestLap = 0;
 for(int i=1; i < lapTimes.length; i++) {
