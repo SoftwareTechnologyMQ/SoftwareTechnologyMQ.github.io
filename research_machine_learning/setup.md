@@ -131,6 +131,31 @@ Into the terminal.
 
 TODO: need to do this on pi to see what it says and finish this section. You have to cover windows and mac, which is a pain. Don't forget to explain how to ftp in! You might also quickly demo how to copy/paste into that terminal so you can use the browser.
 
+## Connecting to the pi via SFTP
+
+SFTP ([Secure File Transfer Protocol](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol)) is a way to access the pi's filesystem through SSH. To connect to our pi this way, we will be using [Cyberduck](https://cyberduck.io). Cyberduck will allow us to view the pi's filesystem in the same way as we view the local file system on our computer. First, you will need to install Cyberduck from [here](https://cyberduck.io).
+
+Once installed open Cyberduck and you will see an empty screen. **Note** I'm performing this step on a Mac but the steps are identical for both Windows and Linux machines.
+
+![New Cyberduck Window](figs/cyberduck-new.png)
+
+Next we want to setup a new connection with the pi, which we can do by clicking on the the `Open Connection` button highlighted below in red.
+
+![New Cyberduck Connection](figs/cyberduck-new-connection.png)
+
+This will bring up a menu to setup the connection.
+
+- Select `SFTP (SSH File Transfer Protocol)` in the top drop-down menu.
+- Enter the IP address of the raspberry pi that you got in the last section from running `hostname -I`. You can leave the port unchanged.
+- Enter the username for the pi, which should be `pi` (unless you've changed it).
+- Enter the password for the pi, which should be `raspberry` (unless you've changed it).
+- Make sure the `SSH Private Key` is set to `None`
+- Click `connect`!
+
+![Cyberduck Connection Settings](figs/cyberduck-connection-settings.png)
+
+Once you click connect, it might take a while to mount. Once it's mounted you should see be able to see the raspberry pi's home directory. To test the connection works, try drag-n-dropping an image into the home directory. You can double check this by running the `ls` command on the pi, which should show the file.
+
 # Next Steps
 
 You may have noticed we use Terminal a lot within this project. If you have not used a terminal much in the past, we recommend you make [this worksheet](https://medium.com/@grace.m.nolan/terminal-for-beginners-e492ba10902a) your next stop. After that, move on to [Getting the Code](getting_code.html).
