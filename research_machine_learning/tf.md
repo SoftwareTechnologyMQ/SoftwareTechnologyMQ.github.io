@@ -61,7 +61,7 @@ else:
   src_i = args.source
 ~~~~~
 
-At the end of this block of code, we have an array of models and the index of the model we want to use - similarly for sources.  If the user put in a command line option to pick the model or source, the `args` variable will contain their choices.  Thus, we have to `if` blocks, one for models and one for sources, which first looks to see if an option was given on the command line and asks the user for their choice if none was given.  
+At the end of this block of code, we have an array of models and the index of the model we want to use - similarly for sources.  If the user put in a command line option to pick the model or source, the `args` variable will contain their choices.  Thus, we have two `if` blocks, one for models and one for sources, which first looks to see if an option was given on the command line and asks the user for their choice if none was given.  
 
 We use two arrays-of-tuples (`models` and `sources`) to keep track of what models/sources are available and where they can be found in the file system.  The first parameter of the tuple is a human-readable name and the second is the path in the file system.  Images can be in multiple paths, so we give an array of paths.  As you add new images that you want processed, you can either put them in a folder already represented or you can add your new folder here.  If you add a new model, it will need its own directory and that directory will need to be added to `models`.
 
@@ -82,7 +82,7 @@ def feed(lst_globs):
 {: .keypoint}
 This is an early and inefficient version, we have probably improved it but the overall idea is the same
 
-This function is a special type of Python function, a generator.  If can be put on the range section of a loop and will give items one-by-one until it runs out.  This generator gives back file locations, looping thrhough each image until it runs out.  If the source feed is the camera instead, it takes a new picture each time and puts it in a special file location, giving that back each time.  The file location never changes, but there will be new image from the camera each time it is generated.  In this case, there is no end to the list of images generated, it goes until the user hits `Ctrl-C`.
+This function is a special type of Python function, a generator.  It can be put on the range section of a loop and will give items one-by-one until it runs out.  This generator gives back file locations, looping thrhough each image until it runs out.  If the source feed is the camera instead, it takes a new picture each time and puts it in a special file location, giving that back each time.  The file location never changes, but there will be new image from the camera each time it is generated.  In this case, there is no end to the list of images generated, it goes until the user hits `Ctrl-C`.
 
 # Load a TensorFlow Lite Interpreter and name its input and output tensors
 
@@ -95,7 +95,7 @@ interpreter = tflite.Interpreter(models[model_i][1]+"/model.tflite")
 interpreter.allocate_tensors()
 ~~~~~
 
-To _run_ a tensor is simply fill the input tensor with the data from your image, execute it, and read that data that appears in the output tensor.
+To _run_ a tensor is to simply fill the input tensor with the data from your image, execute it, and read the data that appears in the output tensor.
 
 We output some information about our input tensor to help debug if things go wrong.  This code assumes certain things about the "shape" of this tensor so we can check here to see any custom models match what is expected.
 
@@ -120,11 +120,11 @@ We rely on the `feed` generator to send us images one at a time, from whichever 
 for img_path in feed(sources[src_i][1]):
 ~~~~~
 
-and the rest of the processing is done once for each
+and the rest of the processing is done once for each.
 
 # Run the model to create a prediction
 
-The image ins loaded, converted to the right data format for this model, and resized to match the shape of the input tensor
+The image is loaded, converted to the right data format for this model, and resized to match the shape of the input tensor
 
 ~~~~~
   img = Image.open(img_path).convert('RGB').resize((width, height))
@@ -158,6 +158,7 @@ The output data represents a percentage confidence in the prediction, but becaus
 ~~~~~
 
 And we now have our prediction!  It is in a strange form though.  We have an array of numbers between 0 and 1.
+
 # Convert the output Tensor to a prediction
 
 We firstly need to know what the output tensor represents.  Every model is trained on a set of possible outputs. ImageNet has 1 thousand ("bird", "mug", "rifle", "plane", etc), the cutom `covered` model has just two ("covered" or "uncovered").  Each slot in output tensor is the confidence that that category is the right one.  Take a look in the `labels.txt` of your model to see what each index corresponds to.  The output tensor just gives an integer, we need the `labels.txt` to turn that number (index) into the category that the model was trained with.
