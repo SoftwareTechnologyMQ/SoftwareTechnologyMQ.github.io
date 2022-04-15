@@ -41,7 +41,7 @@ nav:
       - title: Code Style Guide
         url: /code_style_guide
       - title: PRACTICE QUESTIONS
-        url:  https://github.com/gaurav1780/COMP1000PracticeQuestions  
+        url:  https://github.com/gaurav1780/COMP1000PracticeQuestions
   - title: COMP1010
     url: /comp1010
     subnav:
@@ -133,8 +133,8 @@ nav:
   - title: Research Skills (Java/MiniConsole)
     url: /research
     subnav:
-      - title: Road to Research 
-        url: road_to_research
+      - title: Road to Research
+        url: /road_to_research
       - title: Mini-Console (Pi)
         url: /research_mini_console/setup
       - title: Mini-Console (PC)
@@ -152,8 +152,8 @@ nav:
   - title: Research Skills (Machine Learning)
     url: /research
     subnav:
-      - title: Road to Research 
-        url: road_to_research
+      - title: Road to Research
+        url: /road_to_research
       - title: Pi Setup
         url: /research_machine_learning/setup
       - title: Getting the Code
@@ -168,6 +168,10 @@ nav:
         url: /research_machine_learning/incorporating_code
       - title: Notifications
         url: /research_machine_learning/notifications
+  - title: Regular expressions
+    url: /regex
+    subnav:
+      - title: Introduction to regular expressions
+        url: /regular_expressions/introduction
   - title: Edit (README for details)
     url: https://github.com/SoftwareTechnologyMQ/softwaretechnologyMQ.github.io
-    
