@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 1729  -->
+  <question type="cloze">
+    <name>
+      <text>Boolean operations - 0</text>
+    </name>
+    <questiontext format="markdown">
+      <text><![CDATA[What are the values of the different boolean variables when the following code executes.
+
+```java
+boolean a = 5 > 5;
+boolean b = !(5 != 5);
+boolean c = 3 > 10 || 6 < 50;
+boolean d = !(4 >= 1 && 4 <= 6);
+boolean e = !(3 > 5) && !(3-1 > 5);
+```
+
+a = {1:MCS:=false~true}
+b = {1:MCS:=true~false}
+c = {1:MCS:=true~false}
+d = {1:MCS:=false~true}
+e = {1:MCS:=true~false}]]></text>
+    </questiontext>
+    <generalfeedback format="moodle_auto_format">
+      <text></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+  <!-- question: 1234  -->
+  <question type="cloze">
+      <name>
+        <text>declare bool</text>
+      </name>
+      <questiontext format="html">
+        <text><![CDATA[<p dir="ltr" style="text-align: left;">Write a statement that creates a variable {=varName1} and assign the value {=val1} to it.<br></p><p dir="ltr" style="text-align: left;">{1:SAC:=int} {1:SAC:=cy} = {1:SAC:=1942} ;</p>]]></text>
+      </questiontext>
+      <generalfeedback format="html">
+        <text></text>
+      </generalfeedback>
+      <penalty>0.3333333</penalty>
+      <hidden>0</hidden>
+      <idnumber></idnumber>
+  </question>
+
+  <!-- question: 793  -->
+    <question type="cloze">
+      <name>
+        <text>expressions</text>
+      </name>
+      <questiontext format="html">
+        <text><![CDATA[<p dir="ltr" style="text-align: left;"></p><p dir="ltr">What would the following expressions be evaluated to, in Processing?</p><p dir="ltr"></p><ul><li>2 * 7 / 5 {1:NM:=2~2.8#this is an integer expression}</li><li>(20 / 8) * 8 {2:NM:=16}</li><li>53%10*10 + 53/10 {1:NM:=35}</li><li>3 + 8 / 5.0 {1:NM:=4.6:0.0001~2#division before addition, also 5.0 makes it floating-point~2.2#division before addition}</li></ul><p></p><br><p></p>]]></text>
+      </questiontext>
+      <generalfeedback format="html">
+        <text></text>
+      </generalfeedback>
+      <penalty>0.3333333</penalty>
+      <hidden>0</hidden>
+      <idnumber></idnumber>
+    </question>
+
+
+
+</quiz>
