@@ -76,7 +76,7 @@ Then we will need to install the following libraries:
 - `libjpeg-dev`: We need to install this for the python library `Pillow`
 
 ```
-sudo apt-get install git pip python3-numpy libjpeg-dev
+sudo apt-get install git pip python3-numpy libjpeg-dev libopenjp2-7-dev picamera
 ```
 
 Finally we can finish by using `pip` to install the required python libraries:
