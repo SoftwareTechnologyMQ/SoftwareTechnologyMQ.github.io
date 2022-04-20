@@ -34,7 +34,7 @@ Since we have enabled the legacy camera support, we can use the `raspistill` com
 The full command is
 
 ~~~~~
-raspistill -awb geryworld -tl 1000 -1 0 -o captures/img%04d.jpg
+raspistill -awb greyworld -tl 1000 -1 0 -o captures/img%04d.jpg
 ~~~~~
 
 if your camera is upside down, you might want to add `-rot 180` to rotate the images
