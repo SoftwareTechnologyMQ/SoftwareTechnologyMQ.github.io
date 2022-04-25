@@ -102,5 +102,7 @@ Running the above code in python returns
 This [link](https://regex101.com/) can be helpful to debug your code.
 1. Find all the occurrences of `b`. Example sentence: *he made a bad bid for the bed*.
 2. Find all the occurrences of the word `ever`. Example sentence: *We are never, ever, ever, ever getting back together. Make sure not to include everyone*.
-3. Find all occurrences starting with `b` and ending with `d`. Example sentence: *he made a baaad bid for the bed*.
-4. **Advanced:** Find all words in a text. The text can contain multiple sentences ending in one of `!?.`. Only words containing letters from the English alphabet should be included.
+3. Find all the occurrences of any of the characters in the word `ever`. Example sentence: *We are never, ever, ever, ever getting back together. Make sure not to include everyone*.
+4. Find all the occurrences of the phrase `ev` or `re`. Example sentence: *We are never, ever, ever, ever getting back together. Make sure not to include everyone*.
+5. Find all occurrences of substrings starting with `b` and ending with `d`. Example sentence: *Abid made a baaad bid for the bed and got hit in the abdomen*.
+6. **Advanced:** Find all words in a text. The text can contain multiple sentences ending in one of `!?.`. Only words containing letters from the English alphabet should be included.

@@ -175,11 +175,13 @@ For example,
 	- `17/-5 = -3`
 	- `-17/5 = -3`
 	- `-17/-5 = 3`
-- In Processing, `a % b` is non-negative when `a` is non-negative. Sign of `b` is irrelevant.
+- In Processing (and Java), the sign of `a%b` is the same as the sign of `a` (or zero). The sign of `b` is irrelevant. This behaviour varies in other programming languages (such as Python).
 	- `17%5 = 2`
 	- `17%-5 = 2`
 	- `-17%5 = -2`
 	- `-17%5 = -2`
+	- `20%5 = 0`
+	- `-20%5 = 0`
 	- `0%8 = 0`
 
 ## Order of operations

@@ -76,10 +76,10 @@ Then we will need to install the following libraries:
 - `libjpeg-dev`: We need to install this for the python library `Pillow`
 
 ```
-sudo apt-get install git pip python3-numpy libjpeg-dev
+sudo apt-get install git pip python3-numpy libjpeg-dev libopenjp2-7-dev picamera
 ```
 
-Finally we can finish by using `pip` to install out python libraries:
+Finally we can finish by using `pip` to install the required python libraries:
 
 - `tflite-runtime`: Tensorflow lite
 - `Pillow`: For inteacting with images.
@@ -130,6 +130,31 @@ hostname -I
 Into the terminal.
 
 TODO: need to do this on pi to see what it says and finish this section. You have to cover windows and mac, which is a pain. Don't forget to explain how to ftp in! You might also quickly demo how to copy/paste into that terminal so you can use the browser.
+
+## Connecting to the pi via SFTP
+
+SFTP ([Secure File Transfer Protocol](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol)) is a way to access the pi's filesystem through SSH. To connect to our pi this way, we will be using [Cyberduck](https://cyberduck.io). Cyberduck will allow us to view the pi's filesystem in the same way as we view the local file system on our computer. First, you will need to install Cyberduck from [here](https://cyberduck.io).
+
+Once installed open Cyberduck and you will see an empty screen. **Note** in the pictures, this performing this step is perfomed on a Mac, but the steps are identical for both Windows and Linux machines.
+
+![New Cyberduck Window](figs/cyberduck-new.png)
+
+Next we want to setup a new connection with the pi, which we can do by clicking on the the `Open Connection` button highlighted below in red.
+
+![New Cyberduck Connection](figs/cyberduck-new-connection.png)
+
+This will bring up a menu to setup the connection.
+
+- Select `SFTP (SSH File Transfer Protocol)` in the top drop-down menu.
+- Enter the IP address of the raspberry pi that you got in the last section from running `hostname -I`. You can leave the port unchanged.
+- Enter the username for the pi, which should be `pi` (unless you've changed it).
+- Enter the password for the pi, which should be `raspberry` (unless you've changed it).
+- Make sure the `SSH Private Key` is set to `None`
+- Click `connect`!
+
+![Cyberduck Connection Settings](figs/cyberduck-connection-settings.png)
+
+Once you click connect, it might take a while to mount. Once it's mounted you should see be able to see the raspberry pi's home directory. To test the connection works, try drag-n-dropping an image into the home directory. This will copy the image from your local machine to the pi over SSH! You can double check this by running the `ls` command on the pi, which should show the images in the filesystem.
 
 # Next Steps
 

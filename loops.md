@@ -371,6 +371,119 @@ Notice that this program has no `setup` and no `draw` functions, it is a special
 </details>
 </div>
 
+# break and continue statements
+
+IMPORTANT: Anything you can do with `break` and `continue`, you can do without them (typically using boolean variables and expressions)
+
+## break
+
+The `break` statements exists the **innermost** loop (to the statement immediately after it). It is useufl when you don't explicitly know the terminating value (as in example 1 below).
+
+### Example 1
+
+```processing
+for(int i=40; i<=100; i++) {
+	int r = (int)sqrt(i);
+	int back = r*r;
+	if(i == back) {
+		break;
+	}
+	print(i+" ");
+}
+```
+
+The above code computes the integer part of the square root, and multiplies it by itself to see if the original number is reached or not (which it does for perfect squares). Thus, the output would be:
+
+```
+40 41 42 43 44 45 46 47 48
+```
+
+Without using `break`:
+
+```processing
+boolean foundPerfectSquare = false;
+for(int i=40; i<=100 && !foundPerfectSquare; i++) {
+	int r = (int)sqrt(i);
+	int back = r*r;
+	if(i == back) {
+		foundPerfectSquare = true;
+	}
+	else {
+		print(i+" ");
+	}
+}
+```
+
+### Example 2
+
+```processing
+for(int i=1; i<=4; i++) {
+	for(int k=1; k<=4; k++) {
+		if(k > i) {
+			break;
+		}
+		print(k+" ");
+	}
+	println();
+}
+```
+
+The above code would exit the inner loop for,
+
+- `k=2` when `i=1`
+- `k=3` when `i=2`
+- `k=4` when `i=3`
+
+The output would be:
+
+```
+1
+1 2
+1 2 3
+1 2 3 4
+```
+
+Without using `break`:
+
+```processing
+for(int i=1; i<=4; i++) {
+	for(int k=1; k<=i; k++) {
+		print(k+" ");
+	}
+	println();
+}
+```
+
+## continue
+
+The `continue` statement skips the rest of the iteration of the innermost loop and goes back to the loop header.
+
+### Example
+
+```processing
+for(int i=10; i<=30; i++) {
+	if(i%3!=0 && i%8!=0) {
+		continue;
+	}
+	print(i+" ");
+}
+```
+
+Whenever you reach the continue statement in the above code, it skips the rest of the loop (the `print` statement) and instead, goes straight to `post-execution update` (`i++`). The output contains only numbers those that are multiples of 3 or 8 (or both).
+
+```
+12 15 16 18 21 24 27 30
+```
+
+Without using `continue`:
+
+```processing
+for(int i=10; i<=30; i++) {
+	if(i%3==0 || i%8==0) {
+		print(i+" ");
+	}
+}
+```
 
 ## Exercises based on loops
 
@@ -399,8 +512,6 @@ Here are some exercises, hopefully in increasing order of difficulty, to help yo
 5. Write a loop that adds the first 10000 positive integers (1 to 10000) and stores the result in a variable `total`.
 
 6. Write a loop that multiplies the first 12 positive integers (1 to 12) and stores the result in a variable `total`.
-
-
 
 
 ## Nesting of control structures
