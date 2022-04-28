@@ -220,15 +220,58 @@ Stacks – **Undo**.
 (()())))
 ```
 
-1. Open bracket means `push('(')`: Stack = `(`
-2. Open bracket means `push('(')`: Stack = `(, (`
-3. Close bracket means `pop()`: Stack = `(`
-4. Open bracket means `push('(')`: Stack = `(, (`
-5. Close bracket means `pop()`: Stack = `(`
-6. Close bracket means `pop()`: Stack = empty
-7. Close bracket means `pop()`: Stack is empty but string not done - invalid.
+1. Open round bracket means `push('(')`: Stack = `(`
+2. Open round bracket means `push('(')`: Stack = `(, (`
+3. Close round bracket means check if not empty and then for match, which passes, and `pop()`: Stack = `(`
+4. Open round bracket means `push('(')`: Stack = `(, (`
+5. Close round bracket means check if not empty and then for match, which passes, and `pop()`: Stack = `(`
+6. Close round bracket means check if not empty and then for match, which passes, and `pop()`: Stack = empty
+7. Close round bracket means check if not empty which fails, and hence invalid.
 
+### Example 2
 
+```
+(]{}[]
+```
+
+1. Open round bracket means `push('(')`: Stack = `(`
+2. Close **square** bracket means check if not empty and then for match, which fails, and hence invalid
+
+### Example 3
+
+```
+(([{}]))
+```
+
+This will pass as every closing bracket matches with the top of the stack opening bracket (which is then popped).
+
+```java
+public static boolean isBalanced(String brackets) {
+	MyStack stk = new MyStack();
+	String opening = "([{";
+	String closing = ")]}";
+	for(int i=0; i < brackets.length(); i++) {
+		char cur = brackets.charAt(i);
+		if(opening.indexOf(cur)>=0) { //if it's an opening bracket
+			stk.push(cur+""); //remember, ours is a stack that holds Strings
+		}
+		else if(closing.indexOf(cur)>=0) { //closing bracket
+			if(stk.isEmpty()) { //no matching opening bracket
+				return false;
+			}
+			String popped = stk.pop();
+			if(opening.indexOf(popped) != closing.indexOf(cur)) { //not a match
+				return false;
+			}
+		}
+		else { //some other character
+			return false;
+		}
+	}
+	return stk.isEmpty(); //only if stack is empty
+}
+```
+		
 
 ## Reverse Polish Notation
 
@@ -281,3 +324,95 @@ The process to evaluate a valid RPN stored in a String is very simple. We assume
 5. Item = 2, Stack = `2.0 7.0 6.0`
 6. Item = -, Stack = `5.0 6.0`
 7. Item = /, Stack = `1.2`
+
+## Code for evaluating RPN
+
+Just a small variation of our `MyStack` class for this example:
+
+```java
+import java.util.ArrayList;
+
+public class MyNumberStack {
+    public ArrayList<Double> items;
+
+    public MyNumberStack() {
+        items = new ArrayList<Double>();
+    }
+
+    public void push(Double item) {
+        items.add(0, item);
+    }
+
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
+
+    public Double pop() {
+        if (isEmpty()) {
+            return null;
+        } else {
+            return items.remove(0);
+        }
+    }
+
+    public String toString() {
+        return items.toString();
+    }
+}
+```
+
+```java
+public class MyNumberStackClient {
+
+    public static void main(String[] args) {
+        String s = "3 4 5 + /";
+        System.out.println(evaluate(s));
+    }
+
+    public static boolean isOperation(String s) {
+        return s.length() == 1 && "+-*/".indexOf(s) >= 0;
+    }
+
+    public static Double evaluate(String rpn) {
+        String[] tokens = rpn.split(" ");
+        MyNumberStack stk = new MyNumberStack();
+        for (int i = 0; i < tokens.length; i++) {
+            if (isOperation(tokens[i])) { // operator
+                if (stk.isEmpty()) { // first operand not there
+                    return null;
+                }
+                double top = stk.pop();
+                if (stk.isEmpty()) { // second operand not there
+                    return null;
+                }
+                double secondFromTop = stk.pop();
+
+                // apply the right operation and push it back
+                if (tokens[i].equals("+")) {
+                    stk.push(secondFromTop + top);
+                }
+                if (tokens[i].equals("-")) {
+                    stk.push(secondFromTop - top);
+                }
+                if (tokens[i].equals("*")) {
+                    stk.push(secondFromTop * top);
+                }
+                if (tokens[i].equals("/")) {
+                    stk.push(secondFromTop / top);
+                }
+            } else {
+                stk.push(Double.parseDouble(tokens[i])); // we assume it's a number
+            }
+        }
+        double top = stk.pop();
+        if (stk.isEmpty()) {
+            return top;
+        } else {
+            return null; // something left on the stack
+        }
+    }
+}
+```
+	
+	
+	

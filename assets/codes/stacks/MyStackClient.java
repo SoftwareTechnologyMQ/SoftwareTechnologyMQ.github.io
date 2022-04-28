@@ -1,4 +1,4 @@
-public class Client {
+public class MyStackClient {
     public static void main(String[] args) {
         MyStack stk = new MyStack();
         stk.push("my young padawan");
