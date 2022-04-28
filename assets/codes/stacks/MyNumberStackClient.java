@@ -3,6 +3,9 @@ public class MyNumberStackClient {
     public static void main(String[] args) {
         String s = "3 6 4 - /";
         System.out.println(evaluate(s));
+
+        s = "3 6 4 - / 7 *";
+        System.out.println(evaluate(s));
     }
 
     public static boolean isOperation(String s) {
