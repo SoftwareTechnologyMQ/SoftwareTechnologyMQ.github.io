@@ -21,6 +21,11 @@ within: programming
 
 ## Author: Gaurav Gupta
 
+## Entire code from this page is available in [stacksQueues.zip](./assets/codes/stacksQueues.zip).
+
+- To use these in Eclipse, create a java project from scratch and copy the files into the `src` folder.
+- To use these in VS Code, unzip and open the folder.
+
 # Abstract Data Types (ADT)
 
 - ADT is a way of thinking about a data structure
@@ -31,8 +36,8 @@ within: programming
 # Stacks and Queues
 
 - Two ADTs that are really lists with more restricted interfaces
-	- **Stack**: add items to, and remove items from, the top. 
-	- **Queue**: add things to the back, remove from the front.
+	- **Stack**: add items to, and remove items from, the top. This is known as **Last In First Out** (*LIFO*). 
+	- **Queue**: add things to the back, remove from the front. This is known as **First In First Out** (*FIFO*).
 
 # Motivation
 
@@ -416,5 +421,41 @@ public class MyNumberStackClient {
     }
 }
 ```
-	
-## Entire code from this page is available in [stacks.zip](./assets/codes/stacks.zip)
+
+# Queues
+
+Queues are **First-In-First-Out** (*FIFO*) data structure. The overall structure is very similar to stacks.
+
+An example is provided below, and the client is in `MyQueueClient.java` in the zip file linked at the top.
+
+```java
+import java.util.ArrayList;
+
+public class MyQueue {
+    public ArrayList<String> items;
+
+    public MyQueue() {
+        items = new ArrayList<String>();
+    }
+
+    public void insert(String item) {
+        items.add(item); // insert at the back
+    }
+
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
+
+    public String remove() {
+        if (isEmpty()) {
+            return null;
+        } else {
+            return items.remove(0); // remove from the front
+        }
+    }
+
+    public String toString() {
+        return items.toString();
+    }
+}
+```
