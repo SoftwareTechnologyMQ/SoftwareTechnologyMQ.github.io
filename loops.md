@@ -526,6 +526,107 @@ Let's take some examples of a situation where such nesting is required.
 
 ### Nesting scenario 1
 
+(Thanks to Filip Zurawski for most of this explanation)
+
+Let's say this is the pattern we want to display in the console.
+
+```
+1 2 3 4 5
+2 3 4 5 6
+3 4 5 6 7
+4 5 6 7 8
+5 6 7 8 9
+```
+
+As we can see, the horizontal change (within the line) is 1 at every step. 
+
+Now look at the first column. The change in starting values is 1 between rows. 
+
+The outer loop handles changes in starting values of rows (change from one line to another).
+
+The inner loop handles horizontal change (change within a line).
+
+We can start with a blank nested loop.
+
+```processing
+for (int i = ...; expression; post-execution update) {
+	for(int k = ...; expression; post-execution update) {
+		print(k+" "); //display the value but don't change line
+	}
+	println(); //to change the line
+}
+```
+
+We know that our vertical change is 1 and we would like to go from 1 to 5 inclusive. Therefore, 
+
+```processing
+for (int i = 1; i <= 5; i++) { //i++ is the same as i=i+1 or i+=1 
+	for(int k = ...; expression; post-execution update) {
+		print(k+" ");
+	}
+	println();
+}
+```
+
+Let's look at our horizontal change (change within a line) now - we know it changes by 1, therefore it's `k++`.
+
+We also know our starting value in each row, which is `i`.
+
+What remains is our expression. We are starting at `i` and would like to take care of the next 4 numbers excluding `i` itself. Using the power of mathematics, we can abstract it to `k <= i + 4`. 
+
+Now plug it into the template,
+
+```
+for (int i = 1; i <= 5; i++) { //i++ is the same as i=i+1 or i+=1 
+	for(int k = i; k <= i + 4; k++) {
+		print(k+" ");
+	}
+	println();
+}
+```
+
+### Nesting scenario 2
+
+
+Let's say this is the pattern we want to display in the console.
+
+```
+5 4 3 2 1 0 -1
+10 8 6 4 2 0 -2
+15 12 9 6 3 0 -3
+20 16 12 8 4 0 -4
+```
+
+We know that our vertical change is 5 and we would like to go from 5 to 20 (inclusive on both sides). Therefore, 
+
+```processing
+for (int i = 5; i <= 20; i+=5) {
+	for(int k = ...; expression; post-execution update) {
+		print(k+" ");
+	}
+	println();
+}
+```
+
+Let's look at our horizontal change (change within a line) now - we know it changes by -1, therefore it's `k--`.
+
+We also know our starting value in each row, which is `i`.
+
+What remains is our expression. We are starting at `i` and would like to take care of the next 6 numbers excluding `i` itself. Using the power of mathematics, we can abstract it to `k >= i - 6`. 
+
+Now plug it into the template,
+
+```
+for (int i = 1; i <= 5; i++) { 
+	for(int k = i; k >= i - 6; k--) {
+		print(k+" ");
+	}
+	println();
+}
+```
+
+### Nesting scenario 3
+
 We would like to generate a pattern based on input integer `N > 0`
 
 
@@ -702,6 +803,49 @@ for(int i=1; i<=N; i++) {
 </details>
 </div>
 
+
+## Exercises based on loops
+
+Here are some exercises, hopefully in increasing order of difficulty, to help you progress through your understanding of nested loops.
+
+1. Display the following pattern in the console using nested loops.
+
+	```
+	100 90 80 70 60 50 40 30 20 10
+	95 85 75 65 55 45 35 25 15 5
+	90 80 70 60 50 40 30 20 10 0
+	85 75 65 55 45 35 25 15 5 -5
+	```
+
+2. Display the following pattern in the console using nested loops.
+
+	```
+	10 9 8 7 6 5 4 3 2 1 0
+	9 8 7 6 5 4 3 2 1 0
+	8 7 6 5 4 3 2 1 0
+	7 6 5 4 3 2 1 0
+	6 5 4 3 2 1 0
+	5 4 3 2 1 0
+	4 3 2 1 0
+	3 2 1 0
+	2 1 0
+	```
+
+
+2. Display the following pattern in the console using nested loops.
+
+	```
+	10 9 8 7 6 5 4 3 2 1 0
+	9 8 7 6 5 4 3 2 1 0
+	8 7 6 5 4 3 2 1 0
+	7 6 5 4 3 2 1 0
+	6 5 4 3 2 1 0
+	5 4 3 2 1 0
+	4 3 2 1 0
+	3 2 1 0
+	2 1 0
+	```
+	
 # Coding in the real world
 
 Just like in conditions, lets see some real-world scenarios where we need to use loops.

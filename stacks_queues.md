@@ -417,4 +417,4 @@ public class MyNumberStackClient {
 }
 ```
 	
-## Entire code from this page is available in [stacks.zip](./assets/code/stacks.zip)
+## Entire code from this page is available in [stacks.zip](./assets/codes/stacks.zip)
