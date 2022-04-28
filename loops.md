@@ -616,8 +616,8 @@ What remains is our expression. We are starting at `i` and would like to take ca
 
 Now plug it into the template,
 
-```
-for (int i = 1; i <= 5; i++) { 
+```processing
+for (int i = 5; i <= 20; i+=5) {
 	for(int k = i; k >= i - 6; k--) {
 		print(k+" ");
 	}
@@ -835,15 +835,14 @@ Here are some exercises, hopefully in increasing order of difficulty, to help yo
 2. Display the following pattern in the console using nested loops.
 
 	```
-	10 9 8 7 6 5 4 3 2 1 0
-	9 8 7 6 5 4 3 2 1 0
-	8 7 6 5 4 3 2 1 0
-	7 6 5 4 3 2 1 0
-	6 5 4 3 2 1 0
-	5 4 3 2 1 0
-	4 3 2 1 0
-	3 2 1 0
-	2 1 0
+	1 2 4
+	8 4 2 1
+	1 2 4 8 16
+	32 16 8 4 2 1
+	1 2 4 8 16 32 64
+	128 64 32 16 8 4 2 1
+	1 2 4 8 16 32 64 128 256
+	512 256 128 64 32 16 8 4 2 1
 	```
 	
 # Coding in the real world
