@@ -1,0 +1,135 @@
+{%- assign page_paths = site.data.toc.nav -%}
+
+<style>
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      position: absolute;
+      margin: 0;
+      overflow-x: hidden;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    .sidebar {
+      width: 25%;
+      position: absolute;
+      margin: 0;
+      overflow-x: hidden;
+    }
+  }
+
+  .sidebar a {
+    color: black;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+  }
+
+  .sidebar ol {
+    list-style-type: roman;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: relative;
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    display: block;
+    color: black;
+    background: white;
+    text-align: left;
+  }
+
+  .show {
+    display: block;
+  }
+
+  .wrapper {
+    margin-left: 25%;
+  }
+</style>
+
+<div class="sidebar">
+  <ul>
+    {%- for page1 in page_paths -%}
+    {% if page1.subnav %}
+    <li class="dropdown" data-name="{{ page1.title }}"> {{ page1.title }} ▼
+      <ol id="{{ page1.title }}" class="dropdown-content">
+        {%- for page2 in page1.subnav -%}
+        <li><a href="{{ page2.url }}">{{ page2.title }}</a></li>
+        {%- endfor -%}
+      </ol>
+    </li>
+    {% else %}
+    <li><a href="{{ page1.url }}">{{ page1.title }}</a></li>
+    {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</div>
+
+
+<script>
+  let openDropdowns = [];
+
+  window.addEventListener('load', function (e) {
+    //Load saved open dropdowns on page load
+    dropdownOpen = localStorage.getItem('dropdownOpen');
+
+    //Clean up saved data if anything went wrong (which it hopefully shouldnt)
+    openDropdowns = CleanArray(dropdownOpen.split(","));
+    localStorage.setItem('dropdownOpen', ArrayToString(openDropdowns));
+
+    //Open back up each dropdown that was open prior
+    if (openDropdowns.length > 0) {
+      openDropdowns.forEach(element => {
+        document.getElementById(element).classList.toggle("show");
+      })
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    var target = e.target;
+    if (target.tagName && target.tagName.toLowerCase() == "li") {
+      document.getElementById(target.dataset.name).classList.toggle("show");
+
+      if (!openDropdowns.includes(target.dataset.name)) {
+        openDropdowns.push(target.dataset.name);
+      } else {
+        openDropdowns.pop(target.dataset.name);
+      }
+
+      localStorage.setItem('dropdownOpen', ArrayToString(openDropdowns));
+    }
+  });
+
+  //Converts array to string seperated by delimiter
+  function ArrayToString(array, delimiter = ",") {
+    let str = "";
+    let index = 0;
+
+    array.forEach(element => {
+      if (element !== undefined && element) {
+        str += element + (index < array.length - 1 ? delimiter : "");
+        index++;
+      }
+    });
+
+    return str;
+  }
+
+  //Removes duplicate, null, undefined and nonexistent (not in DOM) items in an array
+  function CleanArray(array) {
+    let newArr = [];
+    array.forEach(element => {
+      if (element && !newArr.includes(element) && document.getElementById(element)) {
+        console.log(document.getElementById(element));
+        newArr.push(element);
+      }
+    });
+
+    return newArr;
+  }
+</script>
