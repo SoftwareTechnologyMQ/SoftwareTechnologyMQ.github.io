@@ -30,15 +30,12 @@ def sum_even_2(n):
     """
     Return the sum of the first n positive EVEN integers (2+4+...+(2*n))
     """
-    sum = 0
-    for i in range(2, 2*n + 1, 2):
-        sum = sum + i
-    return sum
 
-de
-    None
-
-de
+def divisible_in_range(val, start, end):
+    """
+    Return true if val has a factor in the range [low, high] and false otherwise.
+    remember that n%0 is undefined!
+    """
     None
 
 def is_prime(n):
