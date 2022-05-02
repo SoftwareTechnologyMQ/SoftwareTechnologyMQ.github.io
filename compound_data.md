@@ -301,6 +301,75 @@ a = b;
 
 ![](./assets/images/refCopyStep4.png)
 
+
+# Passing an array to a function
+
+When you pass an array to a function, a reference copy of the actual parameter is made into the formal parameter. Thus, the array inside the function refers to the same array that was passed.
+
+```processing
+void setup() {
+	int[] data = {10, 70, 20, 90};
+	int sum = total(data);
+}
+
+int total(int[] arr) {
+	int result = 0;
+	for(int i=0; i < arr.length; i++) {
+		result+=arr[i];
+	}
+	return result;
+}
+```
+
+Here, `arr` is a reference copy of `data`.
+
+![](./assets/images/passingArrayToFunction.png)
+
+## Modifying array contents inside a function
+
+When you modify the **contents of** an array inside a function, the **contents of** the passed array are also modified, because we are operating on the reference copy (see previous diagram).
+
+```processing
+void setup() {
+	int[] data = {10, 70, 20, 90};
+	negate(data);
+	for(int i=0; i < data.length; i++) {
+		print(data[i]+" ");
+	} //outputs -10 -70 -20 -90
+}
+
+void negate(int[] arr) {
+	int result = 0;
+	for(int i=0; i < arr.length; i++) {
+		arr[i]*=-1;
+	}
+}
+```
+
+![](./assets/images/modifyingArrayContentsInsideFunction.png)
+
+
+## Modifying an array itself inside a function
+
+When you modify (re-reference) the array itself inside a function, the passed array is NOT modified, because we re-referenced the reference copy.
+
+```processing
+void setup() {
+	int[] data = {10, 70, 20, 90};
+	expand(data);
+	for(int i=0; i < data.length; i++) {
+		print(data[i]+" ");
+	} //outputs 10 70 20 90
+}
+
+void expand(int[] arr) {
+	arr = new int[10];
+}
+```
+
+![](./assets/images/modifyingArrayInsideFunction.png)
+
+
 # Exercises
 
 ## Exercise 1
