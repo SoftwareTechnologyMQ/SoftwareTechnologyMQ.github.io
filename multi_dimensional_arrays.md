@@ -178,7 +178,7 @@ So… why did I say that you shouldn’t think of 2-d arrays in terms of rows an
 		int[] c = {30, 80};
 		int[] arr = {a, b, c};
 		negateAll(arr);
-		//arr becomes {{-10, -70, -20, -90}, {}, {-30, -80}}
+		//arr becomes { {-10, -70, -20, -90}, {}, {-30, -80} }
 	}
 	
 	void negateAll(int[][] data) {
