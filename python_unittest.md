@@ -263,16 +263,18 @@ if __name__ == "__main__":
 
 ## Outcomes
 
-If all the tests pass, python lets out an incredibly excited....
+If all the tests pass, python tells you everything went well, using **OK**.
 
 
 ```
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
 OK
 ```
 
-(I guess the developers have a rather dry sense of humor).
-
-In case of failure, it will tell you the problem and also that it `Failed`. For example:
+In case of failure, it will tell you the problem and also that it **Failed**. For example:
 
 ```
 Traceback (most recent call last):
@@ -282,6 +284,34 @@ AssertionError: False is not true
 
 ----------------------------------------------------------------------
 Ran 1 test in 0.001s
+
+FAILED (failures=1)
+```
+
+If all tests in a file pass, you should see something like (example for file containing 13 tests):
+
+```
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 0.023s
+
+OK
+```
+
+For each test failed, you get an explanation, such as,
+
+```
+..........F..
+======================================================================
+FAIL: test_sum_even (__main__.Tester)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/gauravgupta/Downloads/comp6010practicePackage-main/02_loops.py", line 195, in test_sum_even
+    self.assertEqual(sum_even(2, 6), 6)
+AssertionError: 8 != 6
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.024s
 
 FAILED (failures=1)
 ```
