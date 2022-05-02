@@ -149,46 +149,46 @@ So… why did I say that you shouldn’t think of 2-d arrays in terms of rows an
 ## Example of passing multi-dimensional array to a function
 
 ```processing
-void setup() {
-	int[] a = {10, 70, 20, 90};
-	int[] b = {};
-	int[] c = {30, 80};
-	int[] arr = {a, b, c};
-	int sum = total(arr);
-	println(sum);
-}
-
-int total(int[][] data) {
-	int result = 0;
-	for(int i=0; i < data.length; i++) {
-		for(int k=0; k < data[i].length; k++) {
-			result+=data[i][k];
-		}
+	void setup() {
+		int[] a = {10, 70, 20, 90};
+		int[] b = {};
+		int[] c = {30, 80};
+		int[] arr = {a, b, c};
+		int sum = total(arr);
+		println(sum);
 	}
-	return result;
-}
+	
+	int total(int[][] data) {
+		int result = 0;
+		for(int i=0; i < data.length; i++) {
+			for(int k=0; k < data[i].length; k++) {
+				result+=data[i][k];
+			}
+		}
+		return result;
+	}
 ```
 
 ## Example of modiying contents of a multi-dimensional array in a function
 
 ```processing
-void setup() {
-	int[] a = {10, 70, 20, 90};
-	int[] b = {};
-	int[] c = {30, 80};
-	int[] arr = {a, b, c};
-	negateAll(arr);
-	// arr becomes {{-10, -70, -20, -90}, {}, {-30, -80}}
-}
-
-void negateAll(int[][] data) {
-	int result = 0;
-	for(int i=0; i < data.length; i++) {
-		for(int k=0; k < data[i].length; k++) {
-			data[i][k]*=-1;
+	void setup() {
+		int[] a = {10, 70, 20, 90};
+		int[] b = {};
+		int[] c = {30, 80};
+		int[] arr = {a, b, c};
+		negateAll(arr);
+		//arr becomes {{-10, -70, -20, -90}, {}, {-30, -80}}
+	}
+	
+	void negateAll(int[][] data) {
+		int result = 0;
+		for(int i=0; i < data.length; i++) {
+			for(int k=0; k < data[i].length; k++) {
+				data[i][k]*=-1;
+			}
 		}
 	}
-}
 ```
 
 ## Challenging question 1
@@ -196,21 +196,21 @@ void negateAll(int[][] data) {
 What is the state of the array `arr` inside `setup()` after `reset1` is called?
 
 ```processing
-void setup() {
-	int[] a = {10, 70, 20, 90};
-	int[] b = {};
-	int[] c = {30, 80};
-	int[] arr = {a, b, c};
-	reset1(arr);
-	//what are the contents of arr here?
-}
-
-void reset1(int[][] data) {
-	int result = 0;
-	for(int i=0; i < data.length; i++) {
-		data[i][k] = new int[4];
+	void setup() {
+		int[] a = {10, 70, 20, 90};
+		int[] b = {};
+		int[] c = {30, 80};
+		int[] arr = {a, b, c};
+		reset1(arr);
+		//what are the contents of arr here?
 	}
-}
+	
+	void reset1(int[][] data) {
+		int result = 0;
+		for(int i=0; i < data.length; i++) {
+			data[i][k] = new int[4];
+		}
+	}
 ```
 
 ## Challenging question 2
@@ -218,16 +218,16 @@ void reset1(int[][] data) {
 What is the state of the array `arr` inside `setup()` after `reset2` is called?
 
 ```processing
-void setup() {
-	int[] a = {10, 70, 20, 90};
-	int[] b = {};
-	int[] c = {30, 80};
-	int[] arr = {a, b, c};
-	reset2(arr);
-	//what are the contents of arr here?
-}
-
-void reset2(int[][] data) {
-	data = { {1, 2}, {3, 4} };
-}
+	void setup() {
+		int[] a = {10, 70, 20, 90};
+		int[] b = {};
+		int[] c = {30, 80};
+		int[] arr = {a, b, c};
+		reset2(arr);
+		//what are the contents of arr here?
+	}
+	
+	void reset2(int[][] data) {
+		data = { {1, 2}, {3, 4} };
+	}
 ```
