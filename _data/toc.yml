@@ -32,6 +32,8 @@ nav:
         url: /compound_data
       - title: Reference Semantics
         url: /reference_semantics
+      - title: Multi-dimensional Arrays
+        url: /multi_dimensional_arrays
       - title: Refactoring
         url: /refactoring
       - title: Program Design
