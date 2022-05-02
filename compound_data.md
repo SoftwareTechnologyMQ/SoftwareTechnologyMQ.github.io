@@ -301,7 +301,6 @@ a = b;
 
 ![](./assets/images/refCopyStep4.png)
 
-
 # Passing an array to a function
 
 When you pass an array to a function, a reference copy of the actual parameter is made into the formal parameter. Thus, the array inside the function refers to the same array that was passed.
@@ -309,7 +308,7 @@ When you pass an array to a function, a reference copy of the actual parameter i
 ```processing
 void setup() {
 	int[] data = {10, 70, 20, 90};
-	int sum = total(data);
+	int sum = total(data); //outputs 190
 }
 
 int total(int[] arr) {
@@ -369,6 +368,81 @@ void expand(int[] arr) {
 
 ![](./assets/images/modifyingArrayInsideFunction.png)
 
+
+## Returning an array from a function
+
+You can always create an array and return it from a function
+
+### Example 1
+
+```processing
+void setup() {
+	int[] data = {10, 70, -20, -90, 30, 80, 60, 0, -50};
+	
+	int[] sub = getFirst(data, 4);
+	
+	for(int i=0; i < sub.length; i++) {
+		print(sub[i]+" ");
+	} //outputs 10 70 -20 -90
+	
+	int[] bar = getFirst(data, 2);
+	for(int i=0; i < bar.length; i++) {
+		print(bar[i]+" ");
+	} //outputs 10 70
+	
+	
+	for(int i=0; i < data.length; i++) {
+		print(data[i]+" ");
+	} //outputs 10 70 -20 -90 30 80 60 0 -50
+}
+
+int[] getFirst(int[] arr, int n) { //we assume n>=0, n<arr.length
+	int[] result = new int[n];
+	for(int i=0; i < n; i++) {
+		result[i] = arr[i];
+	}
+	return result;
+}
+```
+
+
+### Example 2
+
+```processing
+void setup() {
+	int[] data = {10, 70, -20, -90, 30, 80, 60, 0, -50};
+	
+	int[] negs = getNegativeItems(data);
+	
+	for(int i=0; i < negs.length; i++) {
+		print(negs[i]+" ");
+	} //outputs -20 -90 -50
+	
+	for(int i=0; i < data.length; i++) {
+		print(data[i]+" ");
+	} //outputs 10 70 -20 -90 30 80 60 0 -50
+}
+
+int[] getNegativeItems(int[] arr) {
+	int count = 0;
+	for(int i=0; i < arr.length; i++) {
+		if(arr[i] < 0) { //negative
+			count++;
+		}
+	}
+	
+	int[] result = new int[count]; 
+	
+	int destIndex = 0;
+	for(int i=0; i < arr.length; i++) {
+		if(arr[i] < 0) { //negative
+			result[destIndex] = arr[i];
+			destIndex++;
+		}
+	}
+	return result;
+}
+```
 
 # Exercises
 
@@ -478,6 +552,34 @@ for(int i=1; i < items.length; i++) {
 ```
 
 What are the contents of the array `items`?
+
+## Exercise 13
+
+Complete the following function defintiion. The name of the function clearly indicates what is expected from the function.
+
+```processing
+int countPositiveItems(float[] data) {
+	return 0; //to be completed
+}
+```
+
+## Exercise 14
+
+Define a function that when passed an integer array, returns the number of odd numbers in the array.
+
+## Exercise 15
+
+Define a function that when passed two boolean arrays, returns `true` if they contain the same number of items, `false` otherwise. 
+
+## Exercise 16
+
+Define a function that when passed two floating-point arrays that are guaranteed to be of the same lengths, returns an array where each item is the product of the corresponding items in the passed arrays.
+
+For example, if the arrays passed are `{1.2, 1.5, 1.3}` and `{1.8, 1.6, 1.9}`, the array returned should be `{1.2*1.8, 1.5*1.6, 1.4*1.9}`.
+
+## Exercise 17
+
+Define a function that when passed a `char` array, returns the reverse of the array. The array passed should NOT be modified.
 
 # Furthering your understanding
 
