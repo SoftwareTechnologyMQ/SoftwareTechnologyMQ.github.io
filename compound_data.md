@@ -140,6 +140,8 @@ So you can have,
 
 ## Perhaps the most important concept to understand in arrays is the difference between a *reference* and an *instance*.
 
+![](https://media.giphy.com/media/WV2tRAlb4Qc741GHVn/giphy.gif)
+
 ### ***Reference*** - the variable name by which you know the array
 
 ### ***Instance*** - the actual collection of items to which a reference refers.
@@ -164,7 +166,11 @@ int[] arr = new int[5]; //an array that holds 5 integers
 
 ![](./assets/images/intArray.png)
 
-Here, `arr` is the *reference* and the block with 5 integer values is the *instance*.
+**Reference**: `arr`
+
+**Instance**: the block with 5 integer values
+
+-----------------
 
 #### Example - boolean array
 
@@ -174,7 +180,11 @@ boolean[] flags = new boolean[4]; //an array that holds 4 booleans
 
 ![](./assets/images/booleanArray.png)
 
-Here, `flags` is the *reference* and the block with 4 boolean values is the *instance*.
+**reference**: `flags` 
+
+**instance**: the block with 4 boolean values
+
+-----------------
 
 ### Creating array - Option 2
 
@@ -192,7 +202,11 @@ int[] taxicab = {10, 70, 20, 90};
 
 ![](./assets/images/intArrayPopulated.png)
 
-Here, `taxicab` is the *reference* and the block with the integer values `10, 70, 20, 90` is the *instance*.
+**reference**: `taxicab`
+
+**instance**: the block with the integer values `10, 70, 20, 90` 
+
+-----------------
 
 ```processing
 int[] cutoffs = {50, 65, 75, 85};
