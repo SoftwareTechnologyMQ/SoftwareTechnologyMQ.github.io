@@ -158,6 +158,10 @@ The most common way to create an array is by specifying the type and size of the
 type[] arrayName = new type[size];
 ```
 
+**NOTE**: This only works when the arrya is first created (more on this later) 
+
+```processing
+
 #### Example - integer array
 
 ```processing
@@ -269,6 +273,52 @@ double average = (total * 1.0)/outcomes.length;
 //multiplication with 1.0 to convert int to double
 ```
 
+# Re-referencing an array
+
+Remember how we noted that the following only works when the array is FIRST created?
+	
+```processing
+int[] taxi = {10, 70, 20, 90};
+```
+
+If we split this statement, it would be:
+
+```processing
+int[] taxi; //declaration - creates the reference
+
+// following ATTEMPTS to link the reference to the instance. 
+// BUT SYNTACTICALLY INVALID
+
+taxi = {90, 20, 70, 10}; //INCORRECT
+```
+
+Once an array reference is created, to re-reference it to a new instance, you have to use the following syntax:
+
+```processing
+arrayName = new Type[size];
+```
+
+or 
+
+```processing
+arrayName = new Type[]{item1, item2, ...};
+```
+
+For example,
+
+```processing
+taxicab = {90, 20, 70, 10}; 			//INCORRECT
+taxicab = new int[]{90, 20, 70, 10}; 	//CORRECT
+```
+
+```processing
+boolean[] switches;
+
+switches = {true, false, true}; 				//INCORRECT
+switches = new boolean[]{true, false, true}; 	//CORRECT
+```
+
+You can also re-reference an array to another instance already created (and referenced by some other array). Here's how...
 
 # Copying an array into another array
 
