@@ -16,9 +16,24 @@ within: programming
 
 # Author: Gaurav Gupta
 
-One of the biggest mistakes one can make when thinking of 2 dimensional arrays is visualizing them as rows and columns. 
+### One of the biggest mistakes one can make when thinking of 2 dimensional arrays is visualizing them as rows and columns. 
 
-Let's go through basic arrays and build up to 2 dimensional arrays.
+<center>
+<details>
+<summary>
+This is how I feel about it
+</summary>
+<center>
+![](./assets/images/nonono.gif)
+</center>
+</details>
+</center>
+
+<p>
+
+Stay with me for a bit and see why should you let go of the *rows* and *columns* approach and adapt and *sets* approach.
+
+Lets go through basic arrays and build up to 2-dimensional arrays.
 
 1.  It’s critical to understand the concept of `reference` and `instance`. In the following code, `src` and `dest` are two references that refer to the same instance that is the collection of values 10, 70, 20, 90 (and the length attribute is also tucked away somewhere).
 
@@ -231,3 +246,4 @@ What is the state of the array `arr` inside `setup()` after `reset2` is called?
 		data = { {1, 2}, {3, 4} };
 	}
 ```
+
