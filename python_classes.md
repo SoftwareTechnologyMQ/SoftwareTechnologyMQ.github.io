@@ -37,7 +37,7 @@ Instead we *package* both values in one data type - `Point`. Each `Point` *objec
 
 A class needs to be *defined* only once.
 
-Syntax:
+#### Syntax:
 
 ```python
 class <class_name>:
@@ -46,7 +46,7 @@ class <class_name>:
     ...
 ```
 
-Example:
+#### Example:
 
 ```python
 class Point:
@@ -54,7 +54,7 @@ class Point:
     y = 0
 ```
 
-Exercise:
+#### Exercise:
 
 Repeat the same process for following classes:
 
@@ -65,19 +65,19 @@ Repeat the same process for following classes:
 
 Objects of a class are (almost) the same as variables of a type.
 
-Syntax:
+#### Syntax:
 
 ```python
 object_name = class_name()
 ```
 
-Example:
+#### Example:
 
 ```python
 p = Point()
 ```
 
-Exercise:
+#### Exercise:
 
 Repeat the same process for classes `Rectangle` and `Person`, creating objects with names of your choice.
 
@@ -85,7 +85,7 @@ Repeat the same process for classes `Rectangle` and `Person`, creating objects w
 
 You can access (read/write) attributes of an object by using the dot (`.`) operator.
 
-Syntax:
+#### Syntax:
 
 ```python
 print(object_name.attribute_name)
@@ -93,7 +93,7 @@ object_name.attribute_name = value
 ...
 ```
 
-Example:
+#### Example:
 
 ```python
 print(p.x, p.y)
@@ -102,7 +102,7 @@ p.y = 29
 print(p.x, p.y)
 ```
 
-Exercise:
+#### Exercise:
 
 Repeat the same process for classes `Rectangle` and `Person`, assigning values of your choice to the attributes. For `gender`, use one the values from `['Male', 'Female', 'Gender Diverse']`.
 
@@ -110,7 +110,7 @@ Repeat the same process for classes `Rectangle` and `Person`, assigning values o
 
 This is probably the most important function when it comes to classes. Instead of creating an object with default values, you can create objects with the values you want.
 
-Syntax:
+#### Syntax:
 
 ```python
 class class_name:
@@ -122,7 +122,7 @@ class class_name:
 
 Notice how you don't have to declare the attribytes separately any more. Python infers the attriutes from the parameter list.
 
-Example:
+#### Example:
 
 ```python
 class Point:
@@ -139,13 +139,13 @@ Repeat the same process for classes `Rectangle` and `Person` with the same attri
 
 Once the `__init__` function is defined inside the class, we can create parameterized objects.
 
-Syntax:
+#### Syntax:
 
 ```python
 object_name = class_name(value_for_attribute_1, value_for_attribute_2, ...)
 ```
 
-Example:
+#### Example:
 
 ```python
 p = Point(17, 29)
@@ -175,7 +175,7 @@ b = Point("Hi", "Bye")
 b.x+=1 #this will cause a TypeError
 ```
 
-Exercise:
+#### Exercise:
 
 Repeat the same process for classes `Rectangle` and `Person`, creating objects with names of your choice and attribute values of your choice as well.
 
@@ -183,7 +183,7 @@ Repeat the same process for classes `Rectangle` and `Person`, creating objects w
 
 Any function inside a class automatically has access to the attributes of the instance on which the function is called.
 
-Syntax:
+#### Syntax:
 
 ```python
 class class_name:
@@ -191,7 +191,7 @@ class class_name:
         function_body
 ```
 
-Example:
+#### Example:
 
 ```python
 class Point:
@@ -212,7 +212,7 @@ In the first function `distance_from_origin`, all we need is the calling object,
 
 In the second function `distance_from`, we want to calculate the distance between the calling object (`self`) and another object, so we have to provide the second object as the parameter.
 
-Exercise:
+#### Exercise:
 
 Repeat the same process for classes `Rectangle` and `Person`, creating functions `area`, `is_square` and `resize(percentage)` in `Rectangle`, and functions `get_first_name` and `can_drink_alcohol(legal_drinking_age)`.
 
@@ -220,13 +220,13 @@ Repeat the same process for classes `Rectangle` and `Person`, creating functions
 
 You call functions on an object the same way you access attributes; using the dot (`.`) operator.
 
-Syntax:
+#### Syntax:
 
 ```python
 object_name.function_name(parameters_besides_self)
 ```
 
-Example:
+#### Example:
 
 ```python
 p = Point(2, 5)
@@ -235,6 +235,6 @@ print(p.distance_from_origin())
 print(q.distance_from(p))
 ```
         
-Exercise:
+#### Exercise:
 
 Repeat the same process for classes `Rectangle` and `Person`, calling the functions created in the previous section.
