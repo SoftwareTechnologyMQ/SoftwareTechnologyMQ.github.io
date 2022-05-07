@@ -41,17 +41,17 @@ Syntax:
 
 ```python
 class <class_name>:
-	attribute_1 = default_value_1
-	attribute_2 = default_value_2
-	...
+    attribute_1 = default_value_1
+    attribute_2 = default_value_2
+    ...
 ```
 
 Example:
 
 ```python
 class Point:
-	x = 0
-	y = 0
+    x = 0
+    y = 0
 ```
 
 Exercise:
@@ -187,8 +187,8 @@ Syntax:
 
 ```python
 class class_name:
-	def function_name(self, other_values_besides_attributes):
-		function_body
+    def function_name(self, other_values_besides_attributes):
+        function_body
 ```
 
 Example:
