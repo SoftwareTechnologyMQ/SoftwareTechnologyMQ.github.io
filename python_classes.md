@@ -114,10 +114,10 @@ Syntax:
 
 ```python
 class class_name:
-	def __init__(self, attribute_1, attribute_2, ...):
-		self.attribute_1 = attribute_1
-		self.attribute_2 = attribute_2
-		...
+    def __init__(self, attribute_1, attribute_2, ...):
+        self.attribute_1 = attribute_1
+        self.attribute_2 = attribute_2
+        ...
 ```
 
 Notice how you don't have to declare the attribytes separately any more. Python infers the attriutes from the parameter list.
