@@ -238,3 +238,52 @@ print(q.distance_from(p))
 #### Exercise:
 
 Repeat the same process for classes `Rectangle` and `Person`, calling the functions created in the previous section.
+
+# A complete working example
+
+```python
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def distance_from_origin(self):
+        return (self.x ** 2 + self.y ** 2) ** 0.5
+
+    def distance_from(self, other):
+        dx = self.x - other.x
+        dy = self.y - other.y
+        return (dx ** 2 + dy ** 2) ** 0.5
+
+    def __eq__(self, other): # used when you compare object1 == object2
+        if (isinstance(other, Point)):
+            return self.x == other.x and self.y == other.y
+        return False
+    
+    def __str__(self): #called when you display str(object)
+        return "("+str(self.x)+", "+str(self.y)+")"
+
+if __name__ == "__main__":
+    p = Point(10, 20)
+    q = Point(40, 30)
+    r = Point(10, 20)
+
+    print("Point p:",str(p))
+    print("Point q:",str(q))
+    print("Point r:",str(r))
+    print("Distance of p from origin: {:.2f}".format(p.distance_from_origin()))
+    print("Distance of p from q: {:.2f}".format(p.distance_from(q)))
+    print("p same as q?",p == q)
+    print("p same as r?",p == r)
+```
+
+## Exercise:
+
+Write a complete working example for the following classes (in increasing order of difficulty):
+
+1. `Circle`
+2. `Rectangle`
+3. `Cuboid` (or `Box`)
+4. `Time` (as in time of day)
+5. `Date` (as in date of year)
+6. `Polygon` (represented by the points on the polygon)
