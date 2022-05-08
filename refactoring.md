@@ -160,6 +160,7 @@ if (x < 7) {
 ### Nested `if` statements can sometimes be combined.
 
 It is often possible to replace nested `if` statements with a single `if` statement that has a more complex condition.  You should take this option _as long as the condition does not become too complex itself_.
+
 <!-- <div class="row">
 	<div class="col-xs-5">
 <pre><code>
