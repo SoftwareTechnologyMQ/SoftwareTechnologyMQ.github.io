@@ -134,3 +134,74 @@ Entry for `setup` is taken off the stack. Call stack is now empty. Program has n
 
 ![](./fig/callStackProcessing/controlFlowProcessing.png)
 <!--<iframe src="https://giphy.com/embed/Az1CJ2MEjmsp2" width="480" height="221" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/bare-barren-Az1CJ2MEjmsp2">via GIPHY</a></p>-->
+
+# Another example
+
+```processing
+void setup() {
+	size(600, 400);
+	background(255);
+	print(foo(1729));
+}
+
+int foo(int n) {
+	return bar(n%10)/2;
+}
+
+int bar(int n) {
+	return n+1;
+}
+```
+
+The function `foo` is called with actual parameter 1729.
+This is copied into the formal parameter `n` for function call `foo(1729)`. This function in turns call the function `bar` with the actual parameter 9, that is copied into the actual parameter `n` for function call `bar(9)`. `bar(9)` returns 10 to `foo(1729)`. `foo(1729)` divides it by 2, and returns 5 to `setup`.
+
+Notice that `n` for `foo(1729)` and `n` for `bar(9)` are local variables for the respective function calls. Draw the call stack and it will really help you out!
+
+# One last example
+
+Consider the following code:
+
+```processing
+int x = 0;
+
+void init() {
+	x = width;
+}
+
+void update() {
+	x--;
+}
+
+void draw() {
+	background(255);
+	line(x, 0, x, height);
+	update();
+}
+
+void setup() {
+	size(600, 400);
+	background(255);
+	init();
+}
+```
+
+The sequence of functions called is:
+
+1. `setup`
+2. `size`
+3. `background`
+4. `init`
+5. `draw`
+6. `background`
+7. `line`
+8. `update`
+9. `draw`
+10. `background`
+11. `line`
+12. `update`
+13. `draw`
+14. `background`
+15. `line`
+16. `update`
+17. (and the four - `draw`, `background`, `line`, `update` repeat)
