@@ -16,20 +16,9 @@ within: programming
 
 # Author: Gaurav Gupta
 
-### One of the biggest mistakes one can make when thinking of 2 dimensional arrays is visualizing them as rows and columns. 
+### The biggest mistake people make while studying 2-dimensional arrays is visualizing them as rows and columns. 
 
-<center>
-<details>
-<summary>
-This is how I feel about it
-</summary>
-<center>
 ![](./assets/images/nonono.gif)
-</center>
-</details>
-</center>
-
-<p>
 
 Stay with me for a bit and see why should you let go of the *rows* and *columns* approach and adapt and *sets* approach.
 

@@ -114,6 +114,8 @@ nav:
         url: /python_unittest
       - title: Python Lists
         url: /python_lists
+      - title: Python Classes
+        url: /python_classes
   - title: COMP2160
     url: /comp2160
     subnav:
