@@ -319,31 +319,31 @@ Note that the following examples show cases where new functions could be created
 
 You might have similar code in two (or more) place in your program.  For example
 
-~~~~~
+```java
 stroke(0);
 fill(255, 0, 0);
 ellipse(255, 200, 40, 40);
-~~~~~
+```
 
 in one place and
 
-~~~~~
+```java
 stroke(0);
 fill(255, 0, 0);
 ellipse(300, 250, 40, 40);
-~~~~~
+```
 
 in another.
 
 You should create a function to do that job
 
-~~~~~
+```java
 void drawRedEllipse(int x, int y){
 	stroke(0);
 	fill(255, 0, 0);
 	ellipse(x, y, 40, 40);
 }
-~~~~~
+```
 
 and replace the other places with calls to this function.
 
@@ -352,25 +352,25 @@ and replace the other places with calls to this function.
 
 Imagine you have, in one place in the code:
 
-~~~~~
+```java
 stroke(0)
 fill(255, 0, 0);
 ellipse(150, 200, 40, 40);
-~~~~~
+```
 
 and at another place in the code:
 
-~~~~~
+```java
 stroke(0)
 fill(255, 0, 0);
 rect(300, 250, 40, 40);
-~~~~~
+```
 
 The structure is the same, the numbers are the same, the intent is very similar, it would be great to have one place to put this code.
 
 To achieve this, you should introduce a parameter that can be used to indicate which version of the major variation should be used. Create a new function and constants for the new parameter:
 
-~~~~~
+```java
 int SHAPE_ELLIPSE = 1;
 int SHAPE_RECT = 2;
 
@@ -383,25 +383,25 @@ void drawRedShape(int x, int y, int shape) {
 		rect(x, y, 40, 40);
 	}
 }
-~~~~~
+```
 
 and in the first place, replace with:
 
-~~~~~
+```java
 drawRedShape(150, 200, SHAPE_ELLIPSE);
-~~~~~
+```
 
 and in the second place, replace with:
 
-~~~~~
+```java
 drawRedShape(300, 250, SHAPE_RECT);
-~~~~~
+```
 
 ### Splitting big functions
 
 The following function picks the (first) array element that is closest to the average
 
-~~~~~
+```java
 int closestToAverage(int[] a){
 
 	int sum = 0;
@@ -427,7 +427,7 @@ int closestToAverage(int[] a){
 
 	return closest;
 }
-~~~~~
+```
 
 The function is really doing two separate tasks:
 
