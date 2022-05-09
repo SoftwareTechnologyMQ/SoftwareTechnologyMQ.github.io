@@ -205,7 +205,7 @@ int digits(int input){
 </details>
 </div>
 
-## Is Divisible
+#### Is Divisible
 
 <div class="task" markdown="1">
 
@@ -234,7 +234,7 @@ boolean isDivisible(int a, int b) {
 </details>
 </div>
 
-## Leap Years
+#### Leap Years
 
 <div class="task" markdown="1">
 
@@ -260,7 +260,7 @@ boolean isLeapYear(int year){
 </details>
 </div>
 
-## Non-trivial divisors
+#### Non-trivial divisors
 
 <div class="task" markdown="1">
 
