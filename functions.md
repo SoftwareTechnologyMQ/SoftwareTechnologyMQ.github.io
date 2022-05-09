@@ -219,7 +219,13 @@ Given two integers (store in formal parameters `a, b`), define a function that d
 
 ```java
 boolean isDivisible(int a, int b){
-    return (a%b == 0) || (b%a == 0);
+    if(b!=0 && a%b==0) {
+    	return true;
+    }
+    if(a!=0 && b%a==0) {
+    	return true;
+    }
+    return false;
 }
 ```
 </details>
