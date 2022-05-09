@@ -226,8 +226,14 @@ Given two integers (store in formal parameters `a, b`), define a function that d
 	We need to only apply the modulus after ensuring the number is not 0 to circumvent that.
 */
 
-boolean isDivisible(int a, int b) {
-  return b != 0 && (a % b) == 0 || a != 0 && (b % a) == 0;
+boolean isDivisible(int a, int b){
+    if(b!=0 && a%b==0) {
+    	return true;
+    }
+    if(a!=0 && b%a==0) {
+    	return true;
+    }
+    return false;
 }
 ```
 
