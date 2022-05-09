@@ -218,10 +218,17 @@ Given two integers (store in formal parameters `a, b`), define a function that d
 <details markdown="1"><summary>Solution</summary>
 
 ```java
-boolean isDivisible(int a, int b){
-    return (a % b) == 0;
+/*
+	We need to check if divisible both ways. That is, a % b and b % a. 
+	Notice, that taking modulus 0 of a number will crash our program with a "ArithmeticException: / by zero" error.
+	We need to only apply the modulus after ensuring the number is not 0 to circumvent that.
+*/
+
+boolean isDivisible(int a, int b) {
+  return b != 0 && (a % b) == 0 || a != 0 && (b % a) == 0;
 }
 ```
+
 </details>
 </div>
 
