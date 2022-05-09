@@ -184,7 +184,7 @@ The fact that a function call in processing can _do_ something and also _evaluat
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VU284tKC_HY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Number of digits in an integer
+#### Number of digits in an integer
 
 <div class="task" markdown="1">
 
