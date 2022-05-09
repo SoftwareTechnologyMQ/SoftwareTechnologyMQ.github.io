@@ -184,6 +184,7 @@ The fact that a function call in processing can _do_ something and also _evaluat
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VU284tKC_HY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Number of digits in an integer
 
 <div class="task" markdown="1">
 
@@ -204,6 +205,7 @@ int digits(int input){
 </details>
 </div>
 
+## Is Divisible
 
 <div class="task" markdown="1">
 
@@ -232,8 +234,11 @@ boolean isDivisible(int a, int b) {
 </details>
 </div>
 
+## Leap Years
+
 <div class="task" markdown="1">
-An year is leap if it satisfies one of the two conditions,
+
+A year is leap if it satisfies one of the two conditions,
 
 1. it's divisible by 400, or,
 2. it's divisible by 4 but **NOT** by 100.
@@ -255,7 +260,10 @@ boolean isLeapYear(int year){
 </details>
 </div>
 
+## Non-trivial divisors
+
 <div class="task" markdown="1">
+
 
 I would like to count the number of non-trivial (apart from 1 and itself) divisors of a given integer. Some input-output mappings are:
 
