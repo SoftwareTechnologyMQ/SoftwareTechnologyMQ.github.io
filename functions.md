@@ -225,7 +225,6 @@ Given two integers (store in formal parameters `a, b`), define a function that d
 	Notice, that taking modulus 0 of a number will crash our program with a "ArithmeticException: / by zero" error.
 	We need to only apply the modulus after ensuring the number is not 0 to circumvent that.
 */
-
 boolean isDivisible(int a, int b){
     if(b!=0 && a%b==0) {
     	return true;

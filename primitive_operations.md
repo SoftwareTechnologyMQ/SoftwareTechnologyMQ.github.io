@@ -166,6 +166,7 @@ For example,
 - `17.0 / 5.0` = `3.4`
 - `5.0 / 1.2` = `4.16666`
 - `17 % 5` = `2` (2 is what's left behind after creating 3 equal groups of 5 from 17)
+- `24 % 8` = `0` (this means 24 is divisible by 8. Important: Divisibility is only defined on integers, not floats. So, while you can, don't use `%` on floats)
 
 ### PRO-TIP: 
 
