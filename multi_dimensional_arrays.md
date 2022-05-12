@@ -197,6 +197,8 @@ So… why did I say that you shouldn’t think of 2-d arrays in terms of rows an
 	}
 ```
 
+![](./assets/images/two_dimensional_array_to_function_modifying.png)
+
 ## Challenging question 1
 
 What is the state of the array `arr` inside `setup()` after `reset1` is called?
