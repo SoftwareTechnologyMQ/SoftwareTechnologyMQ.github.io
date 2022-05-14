@@ -175,6 +175,7 @@ So… why did I say that you shouldn’t think of 2-d arrays in terms of rows an
 
 ![](./assets/images/two_dimensional_array_to_function.png)
 
+
 ## Example of modiying contents of a multi-dimensional array in a function
 
 ```processing
@@ -198,6 +199,7 @@ So… why did I say that you shouldn’t think of 2-d arrays in terms of rows an
 ```
 
 ![](./assets/images/two_dimensional_array_to_function_modifying.png)
+
 
 ## Challenging question 1
 

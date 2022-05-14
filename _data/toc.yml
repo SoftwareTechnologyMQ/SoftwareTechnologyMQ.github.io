@@ -116,6 +116,8 @@ nav:
         url: /python_lists
       - title: Python Classes
         url: /python_classes
+      - title: Python File I/O
+        url: /python_files_folders
   - title: COMP2160
     url: /comp2160
     subnav:
