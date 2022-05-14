@@ -8,7 +8,10 @@ body { font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, .highlight { margin-bottom: 15px; }
 
 /** `main` element */
-main { display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */ }
+main { 
+  display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */ 
+  font-size: 20px;
+}
 
 /** Images */
 img { max-width: 100%; vertical-align: middle; }
@@ -43,7 +46,12 @@ blockquote { color: #828282; border-left: 4px solid #e8e8e8; padding-left: 15px;
 blockquote > :last-child { margin-bottom: 0; }
 
 /** Code formatting */
-pre, code { font-size: 15px; border: 1px solid #e8e8e8; border-radius: 3px; background-color: #eef; }
+pre, code { 
+  font-size: 20px; 
+  border: 1px solid #e8e8e8; 
+  border-radius: 3px; 
+  background-color: #eef; 
+}
 
 code { padding: 1px 5px; }
 
