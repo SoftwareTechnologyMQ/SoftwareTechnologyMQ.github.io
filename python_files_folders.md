@@ -169,20 +169,37 @@ StudentID, 	Grade
 
 We would like to ignore the first two lines since the first line is the header and second line is blank.
 
-```python
-with open(filename, 'r') as f:
-	next(f)
-	next(f)
-	for line in f:
-		print("Line:",line)
-```
-
 Output:
 
 ```
 Line: 40404040,  	90
 Line: 41234567,		60
 Line: 41729000,		70
+```
+
+You can store the data in a list or dictionary or whichever collection is most suitable.
+
+
+```python
+with open('grades.csv', 'r') as f:
+	records = {}
+	next(f)
+	next(f)
+	for line in f:
+		line = line.strip()
+		tokens = line.split(',')
+		for i in range(len(tokens)):
+    			tokens[i] = int(tokens[i].strip())
+		# the above processing can also be done using the following:
+		# tokens = [int(item.strip()) for item in line.strip().split(',')]
+		records[tokens[0]] = tokens[1] # add to dictionary
+	print(records)
+```
+
+Output (`records`):
+
+```
+{40404040: 90, 41234567: 60, 41729000: 70}
 ```
 
 # File Writing
@@ -231,6 +248,6 @@ DONE.
 
 # A practical example
 
-Say, we have a csv file that holds student grades. We can read the file, store the data in a dictionary, and then output filtered information to a file.
+Say, we have a csv file that holds student grades. We can read the file, store the data in a collection, perform analysis, and then output filtered information to a file. 
 
-
+Complete example: [example\_python\_file\_io.zip](./assets/codes/COMP6010/example_python_file_io.ZIP)
