@@ -183,8 +183,8 @@ You can store the data in a list or dictionary or whichever collection is most s
 ```python
 with open('grades.csv', 'r') as f:
 	records = {}
-	next(f)
-	next(f)
+	next(f) # ignore first line
+	next(f) # ignore second line
 	for line in f:
 		line = line.strip()
 		tokens = line.split(',')
@@ -200,6 +200,18 @@ Output (`records`):
 
 ```
 {40404040: 90, 41234567: 60, 41729000: 70}
+```
+
+More compact (albeit complex) version of the same program:
+
+```python
+with open('grades_file.csv', 'r') as f:
+	records = {}
+	lines = f.readlines()[2:] # skip first two lines
+	for line in lines:
+		tokens = [int(item.strip()) for item in line.strip().split(',')]
+		records[tokens[0]] = tokens[1] # add to dictionary
+	print(records)
 ```
 
 # File Writing
