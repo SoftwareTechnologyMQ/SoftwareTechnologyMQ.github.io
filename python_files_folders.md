@@ -54,13 +54,13 @@ with open(<file to open>, "r") as f:
 Example:
 
 ```python
-with open("input.xml, "r") as f:
+with open("input.xml", "r") as f:
 	<do something with f>
 
-with open("index.html, "r") as g:
+with open("index.html", "r") as g:
 	<do something with g>
 	
-with open("usr/gauravgupta/grades.csv, "r") as h:
+with open("usr/gauravgupta/grades.csv", "r") as h:
 	<do something with h>
 ```
 
@@ -262,4 +262,5 @@ DONE.
 
 Say, we have a csv file that holds student grades. We can read the file, store the data in a collection, perform analysis, and then output filtered information to a file. 
 
-Complete example: [example\_python\_file\_io.zip](./assets/codes/COMP6010/example_python_file_io.zip)
+# Complete example: 
+# [example\_python\_file\_io.zip](./assets/codes/COMP6010/example_python_file_io.zip)
