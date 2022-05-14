@@ -262,4 +262,4 @@ DONE.
 
 Say, we have a csv file that holds student grades. We can read the file, store the data in a collection, perform analysis, and then output filtered information to a file. 
 
-Complete example: [example\_python\_file\_io.zip](./assets/codes/COMP6010/example_python_file_io.ZIP)
+Complete example: [example\_python\_file\_io.zip](./assets/codes/COMP6010/example_python_file_io.zip)
