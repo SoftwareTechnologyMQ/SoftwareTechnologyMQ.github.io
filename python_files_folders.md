@@ -46,6 +46,8 @@ h = open("usr/gauravgupta/grades.csv, "r")
 
 ## 2. with - as - open
 
+The advantage of opening files in this way is to not have to flush and close them (in case of write mode).
+
 ```python
 with open(<file to open>, "r") as f:
 	<do something with f>
@@ -71,8 +73,8 @@ We will continue using the second method from now on.
 There are three main functions using which we can read data from files:
 
 1. `read()`: returns the contents of entire file as a string.
-2. `readLine()`: returns the contents up to a newline character.
-3. `readLines()`: returns a list of different lines in the file.
+2. `readline()`: returns the contents up to a newline character.
+3. `readlines()`: returns a list of different lines in the file.
 
 Say the file contents of file `data.txt` are:
 
@@ -97,13 +99,13 @@ It contains many sentences.
 This being the last one.
 ```
 
-## readLine()
+## readline()
 
 ```python
 with open("data.txt", "r") as f:
-	print("Line:",f.readLine())
-	print("Line:",f.readLine())
-	print("Line:",f.readLine())
+	print("Line:",f.readline())
+	print("Line:",f.readline())
+	print("Line:",f.readline())
 ```
 
 Output:
@@ -116,11 +118,11 @@ Line: This being the last one.
 
 Reading the whole file line-by-line like this is possible, but awkward.
 
-## readLines()
+## readlines()
 
 ```python
 with open("data.txt", "r") as f:
-	lines = f.readLines()
+	lines = f.readlines()
 	for line in lines:
 		print("Line:",line)
 ```
@@ -137,7 +139,7 @@ Of course, we can cut out the middle-person and reduce it to:
 
 ```python
 with open("data.txt", "r") as f:
-	for line in f.readLines():
+	for line in f.readlines():
 		print("Line:",line)
 ```
 
@@ -232,7 +234,11 @@ with open("file.txt", "w") as f:
     f.write("Hi!\n")
     f.write("Nice to meet you :)\n")
     f.write("Bye!\n")
+    # Can also use:
+    # f.write("Hi!\nNice to meet you :)\nBye!\n");
 ```
+
+We don't need to explicitly call the `close()` method. It is handled behind the scenes.
 
 Contents of `file.txt` after the code is executed:
 
