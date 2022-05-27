@@ -145,9 +145,7 @@ circle(width/2, height/2, 40);
   - <code>int</code> because dividing an <code>int</code> by another <code>int</code> will give you a third <code>int</code>
   - <code>int</code> because dividing an <code>int</code> by another <code>int</code> will give you a third <code>int</code>
   - Processing automatically converts an integer to a float. For example, `8` is converted to `8.0`, `-17` to `-17.0`.
-
 </details>
-</div>
 
 ## Type significance in arithmetic expressions
 

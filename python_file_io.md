@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Python files and folders
+title: Python File I/O
 within: programming
 ---
 
