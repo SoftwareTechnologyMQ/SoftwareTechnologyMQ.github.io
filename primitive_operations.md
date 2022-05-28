@@ -145,9 +145,7 @@ circle(width/2, height/2, 40);
   - <code>int</code> because dividing an <code>int</code> by another <code>int</code> will give you a third <code>int</code>
   - <code>int</code> because dividing an <code>int</code> by another <code>int</code> will give you a third <code>int</code>
   - Processing automatically converts an integer to a float. For example, `8` is converted to `8.0`, `-17` to `-17.0`.
-
 </details>
-</div>
 
 ## Type significance in arithmetic expressions
 
@@ -166,6 +164,7 @@ For example,
 - `17.0 / 5.0` = `3.4`
 - `5.0 / 1.2` = `4.16666`
 - `17 % 5` = `2` (2 is what's left behind after creating 3 equal groups of 5 from 17)
+- `24 % 8` = `0` (this means 24 is divisible by 8. Important: Divisibility is only defined on integers, not floats. So, while you can, don't use `%` on floats)
 
 ### PRO-TIP: 
 

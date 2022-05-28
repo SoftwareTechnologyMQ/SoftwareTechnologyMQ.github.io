@@ -160,8 +160,6 @@ type[] arrayName = new type[size];
 
 **NOTE**: This only works when the arrya is first created (more on this later) 
 
-```processing
-
 #### Example - integer array
 
 ```processing
@@ -389,6 +387,12 @@ Here, `arr` is a reference copy of `data`.
 
 ![](./assets/images/passingArrayToFunction.png)
 
+
+Another example:
+
+![](./assets/images/passingArrayToFunction.drawio.png)
+
+
 ## Modifying array contents inside a function
 
 When you modify the **contents of** an array inside a function, the **contents of** the passed array are also modified, because we are operating on the reference copy (see previous diagram).
@@ -433,12 +437,15 @@ void expand(int[] arr) {
 
 ![](./assets/images/modifyingArrayInsideFunction.png)
 
-
 ## Returning an array from a function
 
 You can always create an array and return it from a function
 
-### Example 1
+### Example 1 (with memory diagram)
+
+![](./assets/images/functionReturningArray.drawio.png)
+
+### Example 2
 
 ```processing
 void setup() {
@@ -470,8 +477,7 @@ int[] getFirst(int[] arr, int n) { //we assume n>=0, n<arr.length
 }
 ```
 
-
-### Example 2
+### Example 3
 
 ```processing
 void setup() {

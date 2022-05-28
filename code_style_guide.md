@@ -751,3 +751,7 @@ if(found) {
 	//...
 }
 ```
+
+# Miscellaneous tips
+
+- It's good to have debugging print statements in the code but they should be remove (not just commented out) in the production code or the final code submitted for code style inspection.

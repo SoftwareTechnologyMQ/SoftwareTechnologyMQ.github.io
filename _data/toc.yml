@@ -2,8 +2,8 @@ nav:
   - title: COMP1000
     url: /comp1000
     subnav:
-      - title: Logic, Fundamentals
-        url: /logic
+      # - title: Logic, Fundamentals
+      #   url: /logic
       - title: Transition to Processing
         url: /transition_to_processing
       - title: Primitive Operations
@@ -116,6 +116,10 @@ nav:
         url: /python_lists
       - title: Python Classes
         url: /python_classes
+      - title: Python File I/O
+        url: /python_file_io
+      - title: Python File System
+        url: /python_file_system
   - title: COMP2160
     url: /comp2160
     subnav:
