@@ -607,18 +607,29 @@ for (int i = 5; i <= 20; i+=5) {
 	println();
 }
 ```
+But will this work well when we analyse our rows?
 
-Let's look at our horizontal change (change within a line) now - we know it changes by -1, therefore it's `k--`.
+Let's look at our horizontal change (change within a line) now - we know it changes by -1 in the first line, -2 in the second line, -3 in the third line and -4 in the fourth line. Had we decided to construct our outer loop as above, we would need to come up with a complicated way to decrease the numbers. 
+We can come up with a better solution if we notice, that every row starts with numbers that are consecutive multiples of 5. Hence, we can construct our outer loop as below:
 
-We also know our starting value in each row, which is `i`.
+```processing
+for (int i = 1; i <= 4; i++) {
+	for(int k = ...; expression; post-execution update) {
+		print(k+" ");
+	}
+	println();
+}
+```
 
-What remains is our expression. We are starting at `i` and would like to take care of the next 6 numbers excluding `i` itself. Using the power of mathematics, we can abstract it to `k >= i - 6`. 
+Since we have already established that our starting values are consecutive multiples of 5, we can use our iterator to help create a starting value of the outer loop. In this case, it will be `5*i`.
+
+What remains is our expression. We are starting at `i` and would like to go all the way to some negative number, which conveniently seems to be oddly similar to `-i`. Since our `i` will be equal to 1 in the first row, 2 in the second row etc. We can safely assume that `-i` will indeed be our final value.
 
 Now plug it into the template,
 
 ```processing
-for (int i = 5; i <= 20; i+=5) {
-	for(int k = i; k >= i - 6; k--) {
+for (int i = 1; i <= 5; i++) {
+	for(int k = 5 * i; k >= -i; k -= i) {
 		print(k+" ");
 	}
 	println();

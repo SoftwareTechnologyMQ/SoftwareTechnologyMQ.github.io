@@ -16,6 +16,9 @@ within: programming
 { % include_relative assets/svgs/sampleSVG.md % }
 ```
 
+
+
+
 {% include_relative assets/svgs/sampleSVG.md %}
 
 ## Using markdown_helper
