@@ -44,7 +44,7 @@ In the above example,
 
 - Formal parameter in function `square` is `n`.
 - Actual parameter in the function call `square(a)` is `a` (5).
-- If the function call was `square(d/20 + e/9)`, the actual parameter would be `d/4 + e/9` (100/20 + 36/9 = 9).
+- If the function call was `square(d/20 + e/9)`, the actual parameter would be `d/20 + e/9` (100/20 + 36/9 = 9).
 
 # What happens during a function call?
 

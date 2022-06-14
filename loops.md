@@ -612,14 +612,16 @@ Let's look at our horizontal change (change within a line) now - we know it chan
 
 We also know our starting value in each row, which is `i`.
 
-What remains is our expression. We are starting at `i` and would like to take care of the next 6 numbers excluding `i` itself. Using the power of mathematics, we can abstract it to `k >= i - 6`. 
+The change is -1 for the first line, -2 for the second line and so on. We can have a second variable for that, `dec`. 
+
+The inner loop runs 7 times and we start from 0 to make our calculations easier. 
 
 Now plug it into the template,
 
 ```processing
-for (int i = 5; i <= 20; i+=5) {
-	for(int k = i; k >= i - 6; k--) {
-		print(k+" ");
+for (int i = 5, dec=1; i <= 20; i+=5, dec++) {
+	for(int k = 0; k < 7; k++) {
+		print((i - k*dec)+" ");
 	}
 	println();
 }
