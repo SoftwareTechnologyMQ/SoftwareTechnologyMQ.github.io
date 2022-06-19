@@ -36,13 +36,73 @@ Chapters 3 and 4 of [Learning Processing](https://learningprocessing.com) by Dan
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/50Rzvxvi8D0?list=PLRqwX-V7Uu6aFNOgoIMSbSYOkKNTo89uf" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Data types
+
+In (typed) programming languages, values are stored in variables. Each variable has a data type that determines how the contents of that variable are interpreted.
+
+The most common data types in Processing are:
+
+- `int`: to store something that will definitely be a whole number or an integer. Such as,
+	- number of vehicles
+	- lives left
+	- stage of the game
+- `float`: to store numerical values that are not guaranteed to be integers, but can have a decimal component. Such as,
+	- speed
+	- time taken
+	- account balance
+	- diameter (there's more to it than meets the eye)
+- `boolean`: values that have only two states (Yes/No, Up/Down, Dead/Alive, Left/Right, ...). These values are stored as,
+	- `true`, representing *validity*.
+	- `false`, representing *invalidity*. 
+- `char`: characters that are represented as single symbols. These are enclosed in single quote. For example, 
+	- `'a'`, 
+	- `'&'`, 
+	- `'6'` (as opposed to `6`), 
+	- ` ` (space), 
+	- ...
+
+When it comes to numerical values, we suggest you store in `float` unless absolutely sure that the value will definitely be a whole number. 
+
+## int, float and char relationship
+
+Take an analogy where dogs are a special type of animal. If Fluffy is a dog, Fluffy is definitely an animal too. However, if Sparky is an animal, it's not necessary that Sparky is a dog. Sparky can be a cat, cow, snake, or any other animal type.
+
+Just like that, `int` is a special type of `float`. If `x` is an `int`, x can be copied into a `float`. But if `y` is a float, `y` cannot be copied into an `x`.
+
+Another way of looking at it is that copying an `int` value into a `float` variable would just mean that it's interpreted as a floating-point value. 17 will be interpreted as 17.0, -8 will be interpreted as -8.0.
+
+However, if we *try and copy* a `float` (floating-point value) into an `int`, we *might* loose the decimal component. Trying to copy 17.29 into an `int`, if permitted, would cause loss of the `17.29` part which can have dire consequences in the program. Due to this possibility, `float` values CANNOT be copied into `int`.
+
+Rule:
+
+- `int` to `float`: 👍
+- `float` to `int`: 👎
+
+Similarly, `char` is a further subset of `int`, and applying the same rule:
+
+- `char` to `int`: 👍
+- `int` to `char`: 👎
+
+If you remember the hierarchy, the rules are easy to follow.
+
+Here's my personal way of remembering it when I started programming, 
+
+- float -> animals
+- int -> dogs
+- char -> poodle
+
+All poodles are dogs and all dogs are animals.
+But all animals are not dogs and all dogs are not poodles.
+
+NOTE: You can still copy a `float` into an `int` by explicitly dropping the precision, or an `int` into a `char`. This is known as *casting* and will be covered soon.
+
 ## Expressions or Statements
 
 Every part of a program can be clasified as a _statement_ or an _expression_ and it is useful to do so.
 
 A _statement_ is a section of code that _does something_.  For example, it might update a memory location, or draw something to the screen
 
-An _expression_ is a section of code that _has a value_.  For example `2` has the value 2 (obvioulsy).  A more complex example is
+An _expression_ is a section of code that _has a value_.  For example `2` has the value 2 (obviously) while `3+5` evaluates to 8.  A more complex example is,
 
 ~~~~~
 int x;
@@ -55,10 +115,40 @@ x = 5;
 
   * Values are expressions
   * Variables are expressions
-  * Declations (such as `int x`) are statements
+  * Declarations (such as `int x`) are statements
   * Assignments (such as `x = 5`) are statements
 
 Notice that the assignment statement is made up of two expressions connected with an `=` symbol?
+
+## Some examples of declarations (and initializations)
+
+### Valid
+
+```processing
+//declarations
+int a;
+float b;
+char c;
+boolean d;
+
+//declarations + initializations
+int rego = 1729;
+float bill = 67.14;
+char initial = 'G';
+boolean alive = true;
+float balance = 6714; //can hold an int in a float
+int first = 'a'; //holds the integer value corresponding to 'a' (97)
+```
+
+### Invalid
+
+```processing
+//declarations + initializations
+int rego = 17.29; //cannot store a float in int (without casting)
+float bill = true; //canot store a boolean in a float
+char initial = 97; //cannot store an int in a char (without casting)
+boolean alive = 10; //type mismatch
+```
 
 ## How memory works
 
@@ -464,7 +554,7 @@ int diceRoll = (int)r;
 <div class="task" markdown="1"><a name="timed_animated_blue_circle"></a>
 _Difficult:_ Write a processing program that moves a blue circle from the top of the window to the bottom of the window in exactly 200 frames of time, no matter what the size of the window is.  If you have forgotten how to put animate blue circle on the screen, you should review this [previous exercise](./variables#animated_blue_circle).
 <details class="solution" markdown="1"><summary>solution</summary>
-Here we need to use one variable (the `height` variable) to determine the value in another variable.  Another way to consider the problem statement (as a Processing programmer) is "write a program where a blue circle is drawn on the screen and every time it is drawn it moves downwards a little.  The amount it moves downward each time is 1/200th of the height of the window.""
+Here we need to use one variable (the `height` variable) to determine the value in another variable.  Another way to consider the problem statement (as a Processing programmer) is "write a program where a blue circle is drawn on the screen and every time it is drawn it moves downwards a little.  The amount it moves downward each time is 1/200th of the height of the window."
 
 
 Compared to the solution to the [previous exercise](./variables.html#animated_blue_circle), we need to start using a variable to control the speed of the circle.  That variable must be a `float` because we will be dividing the size of the screen by 200 and we have no idea what the size of the screen might be.  This means we also need to move to a `float` for the position on the screen.  NB: `circle` will happily accept an `int` or a `float`, so we have no further changes to make there.
