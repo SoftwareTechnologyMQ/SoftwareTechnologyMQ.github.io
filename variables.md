@@ -58,8 +58,7 @@ The most common data types in Processing are:
 	- `'a'`, 
 	- `'&'`, 
 	- `'6'` (as opposed to `6`), 
-	- ` ` (space), 
-	- ...
+	- `' '` (space), 
 
 When it comes to numerical values, we suggest you store in `float` unless absolutely sure that the value will definitely be a whole number. 
 
@@ -85,11 +84,11 @@ Similarly, `char` is a further subset of `int`, and applying the same rule:
 
 If you remember the hierarchy, the rules are easy to follow.
 
-Here's my personal way of remembering it when I started programming, 
+Some programmers find the following analogy useful too: 
 
-- float -> animals
-- int -> dogs
-- char -> poodle
+- `float` -> animals
+- `int` -> dogs
+- `char` -> poodle
 
 All poodles are dogs and all dogs are animals.
 But all animals are not dogs and all dogs are not poodles.
