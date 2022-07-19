@@ -57,12 +57,12 @@ You should have become familiar with both steps already, but they were both done
 
 # What does a Java Program look like?
 
-All Java programs have the following structure
+All Java programs have the following structure,
 
 ~~~~~java
 public class Main {
   public static void main(String[] args){
-    <CODE GOES HERE>
+    // CODE GOES HERE
   }
 }
 ~~~~~
@@ -133,9 +133,9 @@ public class HelloWorld {
 
 Install the following software **in the order below**. You will be asked to choose your operating system for each software, and whether it's 32-bits or 64-bits. If not sure, use this [link](http://www.computerhope.com/issues/ch001121.htm) to determine the same.
 
-1. [**Java Standard Edition (Java SE)**](http://www.oracle.com/technetwork/java/javase/downloads/index.html), previously known as Java Standard Development Kit (Java SDK). Current version (on the date of writing this document): `16.0.2`. You'll be fine as long as you have version 8 or above.
+1. [**Java Standard Edition (Java SE)**](http://www.oracle.com/technetwork/java/javase/downloads/index.html), previously known as Java Standard Development Kit (Java SDK). Current version (on the date of writing this document): `18.0.1.1`. You'll be fine as long as you have version 8 or above.
 
-2. [**Eclipse IDE for Java developers**](https://eclipse.org/downloads/). Current version (on the date of writing this document): `2021-12`.
+2. [**Eclipse IDE for Java developers**](https://eclipse.org/downloads/). Current version (on the date of writing this document): `2022-06`.
 
 **NOTE:** You are free to use any other IDE besides Eclipse (such as Visual Studio Code or NetBeans or IntelliJ) if you want. However, we shall be doing all screencasts and video tutorials using Eclipse.
 
@@ -143,7 +143,7 @@ Install the following software **in the order below**. You will be asked to choo
 
 Once you have installed Java SE, you are ready to write and run Java programs. First we'll learn how to write and run a java program from command prompt.
 
-Open notepad and type the following code in it.
+Open Notepad or TextEdit and type the following code in it.
 
 ```java
 public class MyFirstProgram {
@@ -153,7 +153,7 @@ public class MyFirstProgram {
 }
 ```
 
-Save the file as `MyFirstProgram.java` \(case sensitive\).
+Save the file as `MyFirstProgram.java` \(remember, it's case sensitive!\).
 
 Open command prompt \(or terminal on Mac\), go to the folder in which `MyFirstProgram.java` exists, and type the following:
 
@@ -275,15 +275,15 @@ public class Worker {
 
 ## Adding more functions to a java program
 
-In Processing, you added extra functions at the bottom of the file, or in other tabs.  Where should they go in Java?  Everything in Java needs to be inside a class, so you have to put it inbetween the first and last curly-braces, but keep them separate from `main`
+In Processing, you added extra functions at the bottom of the file, or in other tabs.  Where should they go in Java?  Everything in Java needs to be inside a class, so you have to put it inbetween the first and last curly-braces, but keep them separate from the `main` function:
 
 ~~~~~java
 public class Main {
   public static void main(String[] args){
-    //something
+    // something
   }
 
-  <OTHER FUNCTIONS GO IN HERE>
+  // OTHER FUNCTIONS GO IN HERE
 
 }
 ~~~~~
