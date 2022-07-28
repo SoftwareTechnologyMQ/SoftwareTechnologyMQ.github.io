@@ -218,8 +218,9 @@ What is the state of the array `arr` inside `setup()` after `reset1` is called?
 	void reset1(int[][] data) {
 		int result = 0;
 		for(int i=0; i < data.length; i++) {
-			for(k=0; k < data[i].length; k++){
+			for(k=0; k < data[i].length; k++) {
 				data[i][k] = new int[4];
+			}
 		}
 	}
 ```
