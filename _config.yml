@@ -53,3 +53,10 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# Tipue search settings
+tipue_search:
+  include:
+    pages: true
+  exclude:
+    files: [search.html]
