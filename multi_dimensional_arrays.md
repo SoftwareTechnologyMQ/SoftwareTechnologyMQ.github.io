@@ -140,7 +140,7 @@ Now, if we back substitute `current` with `data[i]`, we get,
 Note, you can also create the same array as:
 
 ```processing
-    int[] data = { {10, 70}, {20, 90, 30}, {80}} ;
+    int[][] data = { {10, 70}, {20, 90, 30}, {80}} ;
 ```
 
 So… why did I say that you shouldn’t think of 2-d arrays in terms of rows and columns? Because, as you see, not each sub-array needs to have the same number of items. Even if you ignore that (which you shouldn’t), while the above is easily to visual, the following is not:
@@ -157,7 +157,7 @@ So… why did I say that you shouldn’t think of 2-d arrays in terms of rows an
 		int[] a = {10, 70, 20, 90};
 		int[] b = {};
 		int[] c = {30, 80};
-		int[] arr = {a, b, c};
+		int[][] arr = {a, b, c};
 		int sum = total(arr);
 		println(sum);
 	}
@@ -183,7 +183,7 @@ So… why did I say that you shouldn’t think of 2-d arrays in terms of rows an
 		int[] a = {10, 70, 20, 90};
 		int[] b = {};
 		int[] c = {30, 80};
-		int[] arr = {a, b, c};
+		int[][] arr = {a, b, c};
 		negateAll(arr);
 		//arr becomes { {-10, -70, -20, -90}, {}, {-30, -80} }
 	}
@@ -210,7 +210,7 @@ What is the state of the array `arr` inside `setup()` after `reset1` is called?
 		int[] a = {10, 70, 20, 90};
 		int[] b = {};
 		int[] c = {30, 80};
-		int[] arr = {a, b, c};
+		int[][] arr = {a, b, c};
 		reset1(arr);
 		//what are the contents of arr here?
 	}
@@ -218,7 +218,8 @@ What is the state of the array `arr` inside `setup()` after `reset1` is called?
 	void reset1(int[][] data) {
 		int result = 0;
 		for(int i=0; i < data.length; i++) {
-			data[i][k] = new int[4];
+			for(k=0; k < data[i].length; k++){
+				data[i][k] = new int[4];
 		}
 	}
 ```
@@ -232,7 +233,7 @@ What is the state of the array `arr` inside `setup()` after `reset2` is called?
 		int[] a = {10, 70, 20, 90};
 		int[] b = {};
 		int[] c = {30, 80};
-		int[] arr = {a, b, c};
+		int[][] arr = {a, b, c};
 		reset2(arr);
 		//what are the contents of arr here?
 	}
