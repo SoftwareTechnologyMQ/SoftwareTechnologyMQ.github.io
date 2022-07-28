@@ -183,3 +183,5 @@ nav:
         url: /regular_expressions/introduction
   - title: Edit (README for details)
     url: https://github.com/SoftwareTechnologyMQ/softwaretechnologyMQ.github.io
+  - title: Search
+    url: /search
