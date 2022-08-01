@@ -158,7 +158,7 @@ The most common way to create an array is by specifying the type and size of the
 type[] arrayName = new type[size];
 ```
 
-**NOTE**: This only works when the arrya is first created (more on this later) 
+**NOTE**: This only works when the array is first created (more on this later) 
 
 #### Example - integer array
 
