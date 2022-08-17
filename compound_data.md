@@ -515,6 +515,23 @@ int[] getNegativeItems(int[] arr) {
 }
 ```
 
+# Instance copy of an array
+
+When you want to *duplicate* or *clone* an array, you can create an array of the same size as the original array, and copy all items over. This is known as *instance copy*.
+
+```processing
+int[] source = {10, 70, 20, 90};
+
+//creating an instance copy of source into destination -
+
+int[] destination = new int[source.length]; //same size as source
+for(int i=0; i < source.length; i++) {
+	destination[i] = source[i];
+}
+```
+
+![](./assets/images/instanceCopyOfArray.png)
+
 # Exercises
 
 ## Exercise 1
