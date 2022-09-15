@@ -139,7 +139,7 @@ println(isEven);
 
 The else-block is executed in the above code, `isEven` becomes `false`, and is displayed on the console.
 
-## Statements not Expressions
+## Statements, not Expressions
 
 An `if` is a _statement_ not an _expression_.  That means it has no intrinsic value, it exists only for what it can _do_.  For example, variables are _expressions_ because if  you put one in your code, it is the same as putting some value in that spot (the value stored in the variable).  However, an `if` may effect variables, or draw things on the screen, but the statement itself has no value, i.e. `if (1 < 2) {line(1,1,,1,);}` is not the same as putting some value in that spot.
 
@@ -282,6 +282,68 @@ Interestingly, this has saved us from one conditional!  It is perhaps a little h
 
 </details>
 </div>
+
+## Tracing "flow" (or control flow)
+
+One of the pillars of programming is for the programmer to be able to trace how the program executes. Which is the next line to execute? With conditions, and later loops and functions, the program can take different paths. Hence, these three (conditions, loops and functions) are called *control flow structures*.
+
+As an example, consider the following code:
+
+```java
+int a = 5, b = 2, c = 10;
+if(a < b) {
+	if(c == a) {
+		c = c + 1;
+	}
+}
+else {
+	if(b < c) {
+		b = c - a;
+	}
+	else {
+		a = 0;
+	}
+}
+```
+
+There are four possibilities:
+
+1. 1 --> 2 --> 3--> 4
+
+	Effective program:
+	
+	```processing
+	int a = 5, b = 2, c = 10;
+	c = c + 1;
+	```
+
+2. 1 --> 2 --> 3
+
+	Effective program:
+	
+	```processing
+	int a = 5, b = 2, c = 10;
+	```
+
+3. 1 --> 2 --> 8 --> 9
+
+	Effective program:
+	
+	```processing
+	int a = 5, b = 2, c = 10;
+	b = c - a;
+	```
+
+4. 1 --> 2 --> 8 --> 12
+
+	Effective program:
+	
+	```processing
+	int a = 5, b = 2, c = 10;
+	a = 0;
+	```
+
+A program that might look long and daunting actually reduces to a much-smaller final code if you can trace the code manually. Flowcharts are great, but manually being able to ***determine the next statement that will execute*** is just ... 🤌!
 
 ## Coding in the real world
 
