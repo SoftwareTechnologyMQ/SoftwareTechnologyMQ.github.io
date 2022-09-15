@@ -28,11 +28,13 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
-
 kramdown:
-  math_engine: katex
   syntax_highlighter: rouge
   syntax_highlighter_opts:
+    default_lang: java
+    css_class: 'highlight'
+    span:
+      line_numbers: false
     block:
       line_numbers: true
 
