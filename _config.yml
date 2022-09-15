@@ -26,11 +26,6 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: bluephonebox
 # github_username:  gaurav1780
 
-theme: minima
-
-plugins:
-  - jekyll-feed
-
 # Build settings
 markdown: kramdown
 kramdown:
@@ -43,6 +38,10 @@ kramdown:
       line_numbers: false
     block:
       line_numbers: true
+
+theme: minima
+plugins:
+  - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default.

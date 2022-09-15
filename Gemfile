@@ -31,3 +31,5 @@ end
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
 gem "markdown_helper", "~> 2.5.4"
+
+gem "kramdown-parser-gfm"
