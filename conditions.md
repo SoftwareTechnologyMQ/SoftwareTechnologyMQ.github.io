@@ -313,10 +313,10 @@ Lines 1 --> 2 --> 3--> 4
 
 Effective program:
 	
-{% highlight java linenos %}
+```java
 int a = (int)random(5), b = (int)random(5), c = (int)random(5);
 c = c + 1;
-{% endhighlight %}
+```
 
 ### Possibility 2
 
