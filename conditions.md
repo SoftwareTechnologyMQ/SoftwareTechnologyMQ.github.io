@@ -311,44 +311,44 @@ There are four possibilities:
 
 Lines 1 --> 2 --> 3--> 4
 
-	Effective program:
+Effective program:
 	
-	```processing
-	int a = 5, b = 2, c = 10;
-	c = c + 1;
-	```
+```processing
+int a = 5, b = 2, c = 10;
+c = c + 1;
+```
 
 ### Possibility 2
 
 Lines 1 --> 2 --> 3
 
-	Effective program:
+Effective program:
 	
-	```processing
-	int a = 5, b = 2, c = 10;
-	```
+```processing
+int a = 5, b = 2, c = 10;
+```
 
 ### Possibility 3
 
 Lines 1 --> 2 --> 8 --> 9
 
-	Effective program:
+Effective program:
 	
-	```processing
-	int a = 5, b = 2, c = 10;
-	b = c - a;
-	```
+```processing
+int a = 5, b = 2, c = 10;
+b = c - a;
+```
 
 ### Possibility 4
 
 Lines 1 --> 2 --> 8 --> 12
 
-	Effective program:
+Effective program:
 	
-	```processing
-	int a = 5, b = 2, c = 10;
-	a = 0;
-	```
+```processing
+int a = 5, b = 2, c = 10;
+a = 0;
+```
 
 A program that might look long and daunting actually reduces to a much-smaller final code if you can trace the code manually. Flowcharts are great, but manually being able to ***determine the next statement that will execute*** is just ... 🤌!
 
