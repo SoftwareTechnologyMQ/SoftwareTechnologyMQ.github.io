@@ -44,28 +44,28 @@ Write a program that draws a blue cirle that moves from the top to the bottom of
 The problem description does not directly relate to conditions, so we need to "re-interpret" it to put it into "code-speak".  Another way to consider the problem statement (as a Processing programmer) is "write a program where a blue circle is drawn on the screen and every time it is drawn it moves a little.  IF it has hit the bottom previously, it should move up, otherwiser it should move down".  This leads us more directly to some code.  We need a condition so that we can choose which code path will run on any individual frame (`if (hitBottom)`) and to make it work we need a boolean _recording_ if we have hit the bottom before.  Finally, we need an condition that checks everytime we draw the sketch if we just hit the bottom.
 
 ~~~~~
-int ypos;
+int yPos;
 boolean hitBottom;
 
 void setup(){
-  ypos = 0;
+  yPos = 0;
   hitBottom = false;
 }
 
 void draw(){
   background(255);
 
-  if (ypos == height){
+  if (yPos == height){
     hitBottom = true;
   }
 
   noStroke();
   fill(92, 136, 218);
-  circle(width/2, ypos, 20);
+  circle(width/2, yPos, 20);
   if (hitBottom){
-    ypos--;
+    yPos--;
   } else {
-    ypos++;
+    yPos++;
   }
 
 }
@@ -211,41 +211,41 @@ println(max);
 
 <div class="task" markdown="1"><a name="two_way_animated_blue_circle"></a>
 Adjust [your animated blue circle](./conditions.html#one_way_animated_blue_circle) so it also bounces off the top of the screen, thus always going up and down forever, never disapearing.  Note that there are two approaches to solving this.
-<details class="solution" markdown="1"><summary>solution 1</summary>
+<details class="solution" markdown="1"><summary>Solution 1</summary>
 We can simply use the `hitBottom` boolean in a smarter way.  What if we think of is as "moving up" instead?  Then it will be `false` at the start, and change to `true` when we hit the bottom, then `false` again when we hit the top.
 
 ~~~~~
-int ypos;
+int yPos;
 boolean movingUp;
 
 void setup(){
-  ypos = 0;
+  yPos = 0;
   movingUp = false;
 }
 
 void draw(){
   background(255);
 
-  if (ypos == height){
+  if (yPos == height){
     movingUp = true;
   }
-  if (ypos == 0){
+  if (yPos == 0){
     movingUp = false;
   }
   noStroke();
   fill(92, 136, 218);
-  circle(width/2, ypos, 20);
+  circle(width/2, yPos, 20);
   if (movingUp){
-    ypos--;
+    yPos--;
   } else {
-    ypos++;
+    yPos++;
   }
 }
 ~~~~~
 
-Notice that we _can't_ use an `else` on the `ypos` check.  Many new programmers will try this.  Why won't that work?
+Notice that we _can't_ use an `else` on the `yPos` check.  Many new programmers will try this.  Why won't that work?
 </details>
-<details class="solution" markdown="1"><summary>solution 2</summary>
+<details class="solution" markdown="1"><summary>Solution 2</summary>
 Solution 1 is the simplest, but you will see many people suggest the following solution.  It works really well if _any more complex animation_ is required, so it is a good idea to understand it now.
 
 In this solution we rephrase the task into the following "draw a blue circle that is moving each frame of the animation.  At first, it should move with a speed of +1 (i.e. down the screen) but when the circle hits the bottom of the screen its speed should reverse to -1 (i.e. up the screen).  Again it will reverse when it hit the top of the screen, etc."
@@ -253,27 +253,27 @@ In this solution we rephrase the task into the following "draw a blue circle tha
 Instead of keeping a boolean telling us what phase of the animation we are in, we are keeping a number telling us what speed the circle is moving, using the trick that a negative speed means we are moving up the screen instead of down.
 
 ~~~~~
-int ypos;
+int yPos;
 int speed;
 
 void setup(){
-  ypos = 0;
+  yPos = 0;
   speed = 1;
 }
 
 void draw(){
   background(255);
 
-  if (ypos == height){
+  if (yPos == height){
     speed = -1;
   }
-  if (ypos == 0){
+  if (yPos == 0){
     speed = 1;
   }
   noStroke();
   fill(92, 136, 218);
-  circle(width/2, ypos, 20);
-  ypos = ypos + speed;
+  circle(width/2, yPos, 20);
+  yPos = yPos + speed;
 }
 ~~~~~
 

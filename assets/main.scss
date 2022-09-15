@@ -506,3 +506,18 @@ nav.navbar-default {
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+pre.highlight {
+  margin: 0;
+  padding: 1em;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+// td.rouge-gutter {
+//   @extend td.gutter;
+// }
+
+// td.rouge-code {
+//   @extend td.code;
+// }
