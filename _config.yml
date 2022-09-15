@@ -28,8 +28,14 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
+
 kramdown:
   math_engine: katex
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
 theme: minima
 plugins:
   - jekyll-feed
