@@ -26,21 +26,23 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: bluephonebox
 # github_username:  gaurav1780
 
+theme: minima
+
+plugins:
+  - jekyll-feed
+
 # Build settings
 markdown: kramdown
 kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
+    formatter: HTMLLinewise
     default_lang: java
     css_class: 'highlight'
     span:
       line_numbers: false
     block:
       line_numbers: true
-
-theme: minima
-plugins:
-  - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default.
