@@ -80,7 +80,7 @@ Conditions are based on *boolean expressions* and the program takes a specific c
 ## An `if` condition
 An `if` condition executes the conditional code only if the `expression` is evaluated to `true` and then the rest of the code. If the `expression` is evaluated to `false`, it executes the `rest of the code` irrespectively afterwards.
 
-```java
+```processing
 if(boolean expression) {
 	conditional code
 }
@@ -92,7 +92,7 @@ rest of the code
 
 Example:
 
-```java
+```processing
 int x = 10;
 int result = 5;
 if(x > 8) {
@@ -109,7 +109,7 @@ The above code executes the conditional code, increasing `result` by 1 and displ
 ## An `if-else` condition
 An `if-else` condition executes the `if` block if the `boolean expression` is evaluated to `true` and the `else` block if the `boolean expression` is evaluated to `false`. The `rest of the code` is executes afterwards irrespectively.
 
-```java
+```processing
 if(boolean expression) {
 	if-block statements
 }
@@ -123,7 +123,7 @@ rest of the code
 
 Example:
 
-```java
+```processing
 int x = 13;
 boolean isEven;
 if(x % 2 == 0) {
@@ -147,7 +147,7 @@ An `if` is a _statement_ not an _expression_.  That means it has no intrinsic va
 <div class="task" markdown="1">
 Draw a flowchart for the following code and determine the values of `a, b, c` after the code executes.
 
-```java
+```processing
 int a = 5, b = 2, c = 10;
 if(a < b) {
 	if(c == a) {
@@ -171,7 +171,7 @@ else {
 <div class="task" markdown="1">
 What is wrong with the following code? Draw a flowchart to illustrate the problem. Write the corrected code.
 
-```java
+```processing
 int a = (int)random(6);
 int b = (int)random(6);
 int max;
@@ -274,7 +274,6 @@ void draw(){
   fill(92, 136, 218);
   circle(width/2, ypos, 20);
   ypos = ypos + speed;
-
 }
 ~~~~~
 
@@ -289,26 +288,28 @@ One of the pillars of programming is for the programmer to be able to trace how 
 
 As an example, consider the following code:
 
-```java
-int a = 5, b = 2, c = 10;
-if(a < b) {
-	if(c == a) {
-		c = c + 1;
-	}
-}
-else {
-	if(b < c) {
-		b = c - a;
-	}
-	else {
-		a = 0;
-	}
-}
+```processing
+1.		int a = 5, b = 2, c = 10;
+2.		if(a < b) {
+3.			if(c == a) {
+4.				c = c + 1;
+5.			}
+6.		}
+7.		else {
+8.			if(b < c) {
+9.				b = c - a;
+10.			}
+11.			else {
+12.				a = 0;
+13.			}
+14.		}
 ```
 
 There are four possibilities:
 
-1. 1 --> 2 --> 3--> 4
+### Possibility 1
+
+Lines 1 --> 2 --> 3--> 4
 
 	Effective program:
 	
@@ -317,7 +318,9 @@ There are four possibilities:
 	c = c + 1;
 	```
 
-2. 1 --> 2 --> 3
+### Possibility 2
+
+Lines 1 --> 2 --> 3
 
 	Effective program:
 	
@@ -325,7 +328,9 @@ There are four possibilities:
 	int a = 5, b = 2, c = 10;
 	```
 
-3. 1 --> 2 --> 8 --> 9
+### Possibility 3
+
+Lines 1 --> 2 --> 8 --> 9
 
 	Effective program:
 	
@@ -334,7 +339,9 @@ There are four possibilities:
 	b = c - a;
 	```
 
-4. 1 --> 2 --> 8 --> 12
+### Possibility 4
+
+Lines 1 --> 2 --> 8 --> 12
 
 	Effective program:
 	
@@ -364,7 +371,7 @@ Write a piece of code that outputs the percentage discount for a given category 
 
 <details markdown="1"><summary>Solution</summary>
 
-```java
+```processing
 int discountPercent = 0;
 
 if(category == 'D') {
@@ -407,7 +414,7 @@ Given the number of hours and minutes in two variables, write a piece of code th
 <details markdown="1"><summary>Solution 1</summary>
 We have two solutions, this one only uses simple boolean expressions, but that creates a complex, nested set of `if` statements.
 
-```java
+```processing
 int parkingFee = 0;
 
 if (minutes >= 180) {
@@ -449,7 +456,7 @@ if (minutes >= 180) {
 <details markdown="1"><summary>Solution 2</summary>
 This second solution needs more complex boolean expressions, but that makes things simpler overall.
 
-```java
+```processing
 int parkingFee = 0;
 
 if (minutes >= 180 && minutes < 210) {
@@ -497,7 +504,7 @@ An additional variable `dayOfWeek` is available and is 0 for Monday, 1 for Tuesd
 
 <details markdown="1"><summary>Solution</summary>
 
-```java
+```processing
 int parkingFee = 0;
 
 if (dayOfWeek < 5) { //NOT the weekend
