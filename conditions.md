@@ -148,7 +148,7 @@ An `if` is a _statement_ not an _expression_.  That means it has no intrinsic va
 Draw a flowchart for the following code and determine the values of `a, b, c` after the code executes.
 
 ```java
-int a = 5, b = 2, c = 10;
+int a = (int)random(5), b = (int)random(5), c = (int)random(5);
 if(a < b) {
 	if(c == a) {
 		c = c + 1;
@@ -289,20 +289,20 @@ One of the pillars of programming is for the programmer to be able to trace how 
 As an example, consider the following code:
 
 ```java
-1.		int a = 5, b = 2, c = 10;
-2.		if(a < b) {
-3.			if(c == a) {
-4.				c = c + 1;
-5.			}
-6.		}
-7.		else {
-8.			if(b < c) {
-9.				b = c - a;
-10.			}
-11.			else {
-12.				a = 0;
-13.			}
-14.		}
+int a = (int)random(5), b = (int)random(5), c = (int)random(5);
+if(a < b) {
+	if(c == a) {
+		c = c + 1;
+	}
+}
+else {
+	if(b < c) {
+		b = c - a;
+	}
+	else {
+		a = 0;
+	}
+}
 ```
 
 There are four possibilities:
@@ -314,7 +314,7 @@ Lines 1 --> 2 --> 3--> 4
 Effective program:
 	
 ```java
-int a = 5, b = 2, c = 10;
+int a = (int)random(5), b = (int)random(5), c = (int)random(5);
 c = c + 1;
 ```
 
@@ -325,7 +325,7 @@ Lines 1 --> 2 --> 3
 Effective program:
 	
 ```java
-int a = 5, b = 2, c = 10;
+int a = (int)random(5), b = (int)random(5), c = (int)random(5);
 ```
 
 ### Possibility 3
@@ -335,7 +335,7 @@ Lines 1 --> 2 --> 8 --> 9
 Effective program:
 	
 ```java
-int a = 5, b = 2, c = 10;
+int a = (int)random(5), b = (int)random(5), c = (int)random(5);
 b = c - a;
 ```
 
@@ -346,7 +346,7 @@ Lines 1 --> 2 --> 8 --> 12
 Effective program:
 	
 ```java
-int a = 5, b = 2, c = 10;
+int a = (int)random(5), b = (int)random(5), c = (int)random(5);
 a = 0;
 ```
 
