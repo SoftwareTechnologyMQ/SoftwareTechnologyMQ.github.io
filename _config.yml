@@ -31,7 +31,6 @@ markdown: kramdown
 kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-    formatter: HTMLLinewise
     default_lang: java
     css_class: 'highlight'
     span:
