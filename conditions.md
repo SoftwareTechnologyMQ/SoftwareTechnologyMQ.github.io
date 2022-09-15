@@ -313,10 +313,10 @@ Lines 1 --> 2 --> 3--> 4
 
 Effective program:
 	
-```processing
+{% highlight java %}
 int a = 5, b = 2, c = 10;
 c = c + 1;
-```
+{% endhighlight %}
 
 ### Possibility 2
 
