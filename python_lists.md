@@ -118,7 +118,7 @@ if 'Amy Santiago' in names:
 ## Adding items to list
 
 - Add an item to the end of the list using `append`.
-- Add an item AFTER a given index using `insert.
+- Add an item AT a given index using `insert`.
 - Add multiple items to the end of the list using `extend`.
 
 Examples,
