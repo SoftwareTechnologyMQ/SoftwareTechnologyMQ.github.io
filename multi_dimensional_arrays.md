@@ -18,9 +18,11 @@ within: programming
 
 ### The biggest mistake people make while studying 2-dimensional arrays is visualizing them as rows and columns. 
 
-![](./assets/images/nonono.gif)
+<p align="center">
+<img width = 400 src = "./assets/images/nonono.gif" alt="Nope">
+</p>
 
-Stay with me for a bit and see why should you let go of the *rows* and *columns* approach and adapt and *sets* approach.
+Stay with me for a bit and see why should you let go of the *rows* and *columns* approach and adapt to *sets* approach.
 
 Lets go through basic arrays and build up to 2-dimensional arrays.
 
