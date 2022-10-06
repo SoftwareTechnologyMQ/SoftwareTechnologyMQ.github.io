@@ -96,7 +96,8 @@ Sorted part and unsorted part put in their own *compartments*.
 > 
 > 20, 30, 40, 70, 80, 90, | 20
 > 
-> 20, 20, 30, 40, 70, 80, 90
+> 20, 20, 30, 40, 70, 80, 90 |
+> 
 
 
 ## Full trace using "swapping" approach
