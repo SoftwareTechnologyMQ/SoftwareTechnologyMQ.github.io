@@ -35,6 +35,10 @@ String second = "Super Nintendo Chalmers"; // declaring and initializing in one 
 
 The memory diagram for the first object is provided below. The variable str is a `String` reference to the `String` instance that holds a `char[]` reference (named `elements`) which refers to a `char[]` instance holding the actual items (and the `length` attribute).
 
+<p align="center">
+	<img src="./assets/images/StringObject.png" width=500 alt="String object">
+</p>
+
 ## Length of a String
 
 Length (number of characters) of a String `str` is given by `str.length()`.
