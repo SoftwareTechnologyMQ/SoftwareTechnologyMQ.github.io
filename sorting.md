@@ -130,6 +130,21 @@ Now that we've had an intuitive idea of what needs to be done, let's formalize o
 
 ## Insertion Sort
 
-<img src = "./assets/images/insertionSort.png" width = 400>
+<img src = "./assets/images/insertionSortAscendingLeft.png" width = 500>
 
+Note that we can have variations of the same algorithm. For instance, the following version of insertion sort sorts in ascending order, starting the sorting process from right to left.
+
+<img src = "./assets/images/insertionSortAscendingRight.png" width = 500>
+
+## Selection Sort
+
+<img src = "./assets/images/selectionSort.png" width = 500>
+
+Note that we can have variations of the same algorithm. For instance, the following version of selection sort sorts in ascending order, starting the sorting process from right to left.
+
+<img src = "./assets/images/selectionSortAscendingRight.png" width = 500>
+
+Yes another version of selection sort sorts in descending order, starting the sorting process from right to left.
+
+<img src = "./assets/images/selectionSortDescendingRight.png" width = 500>
 
