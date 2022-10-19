@@ -37,10 +37,10 @@ Example:
 f = open("input.xml, "r")
 <do something with f>
 
-g = open("C:\Documents\index.html, "r")
+g = open("C:\Documents\index.html", "r")
 <do something with g>
 
-h = open("usr/gauravgupta/grades.csv, "r")
+h = open("usr/gauravgupta/grades.csv", "r")
 <do something with h>
 ```
 

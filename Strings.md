@@ -77,25 +77,13 @@ String c = 3.14 + str + '!'; //c becomes "3.14Wow!"
 
 ## Checking if two Strings are identical
 
-DO NOT check for equality of Strings using `==`. Because, just like arrays, Strings are references, and `==` checks if they are reference copies (referring to the same instance). Instead, use the function `equals` (or `equalsIgnoreCase` for case-insensitive equality check).
+DO NOT check for equality of Strings using `==`. Because, just like arrays, Strings are references, and `==` checks if they are reference copies (referring to the same instance) and works in a rather eccentric manner in Java. Instead, use the function `equals` (or `equalsIgnoreCase` for case-insensitive equality check).
 
 ```java
-String a = "Messi";
-String b = "Messi";  
-//Java sees one "Messi" instance already exists and makes b refer to that
-//This is known as heap
-
-boolean c = a == b; //will be true as both a and b refer to same instance 
-boolean d = a.equals(b); //will be true
-```
-
-But if we force a new instance -
-
-```java
-String a = "Messi";
-String b = new String("Messi"); //enforcing a new instance
-boolean c = a == b; //will be false
-boolean d = a.equals(b); //will be true
+String a = "mess";
+boolean usingOperator1 = (a == "mess"); //true
+boolean usingOperator2 = (a+"i" == "messi"); //false
+boolean usingEquals = "messi".equals(a+"i"); //true
 ```
 
 ## substring
