@@ -20,16 +20,31 @@ within: programming
   * Be able to do arithmetic the way computers do.
  </details>
 
-{: .readings}
-Learning Processing: Introduction- Macquarie University Students [have access via the library](https://multisearch.mq.edu.au/permalink/61MACQUARIE_INST/1c87tk9/alma99244325146802171)
+# Textbook
+
+The textbook for this unit is "Learning Processing: A Beginner's Guide to Programming Images, Animation, and Interaction" by Daniel Shiffman. Scan the following QR Code or click on [this link](https://multisearch.mq.edu.au/permalink/61MACQUARIE_INST/467l3g/cdi_skillsoft_books24x7_bks00089202) to download it via Macquarie University. 
+
+Steps to download the book:
+
+1. Click on "Elsevier ScienceDirect Books Complete".
+2. At ScienceDirect website, click on "Download all chapters" (you may need to authenticate yourself as an MQ student at this stage).
+
+&nbsp;
+
+<center>
+## QR Code for textbook
+</center>
+
+<div>
+<center><img src="assets/images/learningProcessing.png" style="width: 400px;"/></center>
+</div>
 
 # Install Processing
 
-[Processing is available for all desktop operating systems](https://processing.org/download/).  You can't run it on an iPad or a Chromebook however.
+[Processing is available for most desktop operating systems](https://processing.org/download/). You can't run it on an iPad or a Chromebook however.
 
 <div class="task" markdown="1">
 [Download and install](https://processing.org/download/) the processing environment on your own computer. Install the latest stable version (ask on forums if unsure).
-
 
 # Processing Coordinates
 
