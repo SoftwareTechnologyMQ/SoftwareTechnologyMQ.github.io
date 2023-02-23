@@ -28,7 +28,7 @@ Learning Processing: Introduction- Macquarie University Students [have access vi
 [Processing is available for all desktop operating systems](https://processing.org/download/).  You can't run it on an iPad or a Chromebook however.
 
 <div class="task" markdown="1">
-[Download and install](https://processing.org/download/) the processing environment on your own computer. Install version 3.5.4.
+[Download and install](https://processing.org/download/) the processing environment on your own computer. Install the latest stable version (ask on forums if unsure).
 
 
 # Processing Coordinates
@@ -250,14 +250,56 @@ Compute the following expressions according to rules of Processing:
 </details>
 </div>
 
-## Practice programs (to be introduced in week 2 practical class)
+## Commenting
 
-These are programs to help you start with simple sketches are work your way up to more complex animation. Very helpful for the major work.
+Anything you type after `//` and before a new line is not a part of the compiled code.
+
+Similarly, anything you type between `/*` and `*/` is not a part of the compiled code.
+
+Extra whitespaces and newlines are also ignored during compilation.
+
+The following program,
+
+```processing
+size(300, 200); //300 pixels wide and 200 pixels high
+
+int x = 150;
+int y = 100;
+
+float xSpeed = random(5); //anything from 0.0 to 4.99999 (excludes 5)
+
+/*
+We calculate ySpeed proportional to xSpeed 
+so that the ball exits the screen exactly
+at the bottom right corner
+*/
+float ySpeed = xSpeed * (height - y) / (width - x);
+```
+
+is compiled to,
+
+```processing
+size(300, 200); 
+int x = 150;
+int y = 100;
+float xSpeed = random(5); 
+float ySpeed = xSpeed * (height - y) / (width - x);
+```
+
+&nbsp;
+
+<div>
+<center><img src="assets/images/comments.png" style="width: 400px;"/></center>
+</div>
+
+## Practice programs 
+
+These are programs to help you start with simple sketches are work your way up to more complex animation. Very helpful for incremental learning and assignments.
 
 [COMP1000PracticePrograms.zip](./assets/COMP1000PracticePrograms.zip)
 
-## Test-driven development programs (to be introduced in week 3 practical class) (including instructions) 
+## ADVANCED (HD-level for now) Test-driven development programs 
 
-These are programs to help you get acquainted with test-driven development and help you with module exams (and also major work).
+These are programs to help you get acquainted with test-driven development and help you with module exams (and also major work). Instructions file inside the package explains what needs to be done.
 
 [COMP1000TestDrivenDevelopment.zip](./assets/COMP1000TestDrivenDevelopment.zip)
