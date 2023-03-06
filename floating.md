@@ -36,8 +36,4 @@ To prove that future software developers need to understand why floating-point a
 
 ![](./assets/images/laneCrossing.mp4)
 
-Now, if someone can go ahead and write this program using integer arithemtic only, I'll bow my head before them.
-
-## A sample program
-
-Let's take a look at the following program that attempts to draw 
+Now, if someone can go ahead and write this program using integer arithemtic only, I'll be more than happy to eat some humble pie. Remember, the display window size can be modified from one execution to the other (600 x 400, 601 x 493, 123 x 500, 200 x 107 as some examples).
