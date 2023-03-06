@@ -549,6 +549,156 @@ int diceRoll = (int)r;
 //diceRoll can be 1,2,3,4,5,6 all with (almost) the same probability
 ```
 
+## Global and local variables
+
+We will cover more on this topic under "Scope" but a preliminary explanation is provided here.
+
+### Local variables
+
+Local variables are declared inside a function (like `setup()` or `draw()` and as soon as that iteration of function terminates, the variable is deleted from the memory.
+
+```
+void setup() {
+	size(500, 200);
+}
+
+void draw() {
+	int x = (int)random(width);
+	int y = (int)random(height);
+	circle(x, y, 20);
+}
+```
+
+During each iteration of `draw()`, variables `x` and `y` are declared, initialized, and used, and soon as that iteration finishes, the variables are deleted, only for the whole cycle to repeat in the next iteration. Local variables are generally used for fleeting values, only needed temporarily.	
+
+### Global variables
+
+Global variables are declared, typically, at the top of the program, **before** any function definition (such as `setup` or `draw`). Typically, a variable is declared as *global* if we need it for the entire program, and we need to keep track of its state. In the case of processing, across several iterations of `draw()`, and perhaps also in other functions.
+
+These variables, if uninitialized, will be assigned the default value of their data type, by `setup`. Global variables can be accessed inside any function and only one shared copy of a global variable exists. If one section of your code modifies the variable, it is modified for all other parts of the program.
+
+```processing
+int x = 1729;
+
+void setup() {
+	print("x inside setup: "+x);
+}
+
+void draw() {
+	print("x inside draw: "+x);
+	exit(); //exit after first iteration
+}
+```
+
+Both print statements will display the same value (1729).
+
+```processing
+int x = 1729;
+
+void setup() {
+	print("x inside setup: "+x);
+	x = x + 1;
+}
+
+void draw() {
+	print("x inside draw: "+x);
+	exit(); //exit after first iteration
+}
+```
+
+Now, the values output in the statement inside setup will be 1729 while the one in the statement inside draw will be 1730.
+
+
+```processing
+int x = 1729;
+
+void setup() {
+	print("x inside setup: "+x);
+	x = x + 1;
+}
+
+void draw() {
+	print("x inside draw: "+x);
+	x = x + 1;
+}
+```
+
+This time the first output (inside setup) will be 1729, while the draw, in the absence of `exit()` and the increment statement will product outputs of 1730, 1731, 1732, ...
+
+*Advanced: Do you think the values will increase indefinitely?*
+
+### Late initialization of global variables
+
+Sometimes you don't have sufficient information to assign a value to a global variable when you declare it. 
+
+For example, I would then like to draw a circle of diameter 50 centred at the centre of a display window, and then move the circle in random direction along each axis. 
+
+#### Version 1 (buggy)
+
+```processing
+//BUGGY!
+int x = width/2;
+int y = height/2;
+
+void setup() {
+	size(200, 500);
+	background(255);
+}
+
+void draw() {
+	circle(x, y, 50);
+	x = x + (int)random(-1, 2);
+	y = y + (int)random(-1, 2);
+}
+```
+
+You will notice the circle first appears centred at the top-left corner. That is because the default values of `width` and `height` variables are 0.
+
+#### Version 2 (buggy)
+
+```processing
+//BUGGY!
+
+void setup() {
+	size(200, 500);
+	int x = width/2;
+	int y = height/2;
+	background(255);
+}
+
+void draw() {
+	circle(x, y, 50);
+	x = x + (int)random(-1, 2);
+	y = y + (int)random(-1, 2);
+}
+```
+
+This version will not compile at all, because the variables `x` and `y` are declared (see the keyword `int`?) inside `setup()`, so they cannot be used outside that function.
+
+What we CAN do is to declare them globally but initialize after we have the required information.
+
+#### Version 3
+
+```processing
+int x, y; //global declaration
+
+void setup() {
+	size(200, 500);
+
+	//local initialization
+	
+	x = width/2; 
+	y = height/2;
+	background(255);
+}
+
+void draw() {
+	circle(x, y, 50);
+	x = x + (int)random(-1, 2);
+	y = y + (int)random(-1, 2);
+}
+```
+
 
 <div class="task" markdown="1"><a name="timed_animated_blue_circle"></a>
 _Difficult:_ Write a processing program that moves a blue circle from the top of the window to the bottom of the window in exactly 200 frames of time, no matter what the size of the window is.  If you have forgotten how to put animate blue circle on the screen, you should review this [previous exercise](./variables#animated_blue_circle).
