@@ -62,6 +62,37 @@ The most common data types in Processing are:
 
 When it comes to numerical values, we suggest you store in `float` unless absolutely sure that the value will definitely be a whole number. 
 
+## Declaring a variable
+
+A variable is declared as,
+
+```
+<type> <variableName>;
+```
+
+Examples,
+
+```processing
+int x;
+float y;
+boolean flag;
+char ch;
+```
+
+Before you use a variable, you need to initialize it. You can do it during declaration, or later. 
+
+Examples,
+
+```processing
+int x = 1729;
+float y = 3.14;
+boolean flag = true;
+char ch = '*';
+int val;
+//...initialize later, but before first use
+val = 6174; //remember, dont declare again
+```
+
 ## int, float and char relationship
 
 Take an analogy where dogs are a special type of animal. If Fluffy is a dog, Fluffy is definitely an animal too. However, if Sparky is an animal, it's not necessary that Sparky is a dog. Sparky can be a cat, cow, snake, or any other animal type.
