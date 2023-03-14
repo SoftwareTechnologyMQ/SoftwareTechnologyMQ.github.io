@@ -79,7 +79,7 @@ boolean flag;
 char ch;
 ```
 
-Before you use a variable, you need to initialize it. You can do it during declaration, or later. 
+Before you use a variable, you need to assign it a value. You can do it during declaration (also called *initialization*), or later. 
 
 Examples,
 
@@ -89,7 +89,7 @@ float y = 3.14;
 boolean flag = true;
 char ch = '*';
 int val;
-//...initialize later, but before first use
+//...assign later, but before first use
 val = 6174; //remember, dont declare again
 ```
 
