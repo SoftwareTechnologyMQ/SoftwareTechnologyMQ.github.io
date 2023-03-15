@@ -64,6 +64,8 @@ The following are the six relational operators we will use:
 |`==`|Equal to|`5.2 == 5.8` = `true` while `6.4 == 6.5` = `false`|
 |`!=`|Not equal to|`5 != 3.9` = `true` while `5 != 5` = `false`|
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FCM54REaY58" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 # Boolean operators
 
 For this section, we will assume that `a` and `b` are `boolean` values (`true` or `false`)
@@ -149,7 +151,9 @@ Examples:
 - `!(10/2 == 5)` = `false` because the expression `(10/2 == 5)` which is `true` is negated by the `!`.
 - `!(5 < 3)` = `true` because the expression `(5 < 3)` which is `false` is negated by the `!`.
 - `!!!!(5 < 3)` = `false`.
-- 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vsgYPNpvj-A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 # Order of operations
 
 Order of operations is,

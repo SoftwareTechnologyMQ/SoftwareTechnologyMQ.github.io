@@ -106,6 +106,8 @@ print(result);
 
 The above code executes the conditional code, increasing `result` by 1 and displaying the value 6.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1oVo6mYYeTs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## An `if-else` condition
 An `if-else` condition executes the `if` block if the `boolean expression` is evaluated to `true` and the `else` block if the `boolean expression` is evaluated to `false`. The `rest of the code` is executes afterwards irrespectively.
 
@@ -139,10 +141,18 @@ println(isEven);
 
 The else-block is executed in the above code, `isEven` becomes `false`, and is displayed on the console.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jgmZ2T8mWl0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Statements, not Expressions
 
-An `if` is a _statement_ not an _expression_.  That means it has no intrinsic value, it exists only for what it can _do_.  For example, variables are _expressions_ because if  you put one in your code, it is the same as putting some value in that spot (the value stored in the variable).  However, an `if` may effect variables, or draw things on the screen, but the statement itself has no value, i.e. `if (1 < 2) {line(1,1,,1,);}` is not the same as putting some value in that spot.
+An `if` is a _statement_ not an _expression_. Therefore, you are free to put any valid conditional code inside the scope of another condition.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jgmZ2T8mWl0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+<!--That means it has no intrinsic value, it exists only for what it can _do_.  For example, variables are _expressions_ because if  you put one in your code, it is the same as putting some value in that spot (the value stored in the variable).  However, an `if` may effect variables, or draw things on the screen, but the statement itself has no value, i.e. `if (1 < 2) {line(1,1,,1,);}` is not the same as putting some value in that spot.-->
+
+Exercise:
 
 <div class="task" markdown="1">
 Draw a flowchart for the following code and determine the values of `a, b, c` after the code executes.
@@ -189,9 +199,7 @@ Both assignment operators are conditional and it is possible, in terms of contro
 
 <center><img src="conditionsFigs/buggyCode.png" style="width: 300px;"/></center>
 
-
 Corrected code:
-
 
 ~~~~~
 int a = (int)random(6);

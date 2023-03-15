@@ -39,12 +39,15 @@ Steps to download the book:
 <center><img src="assets/images/learningProcessing.png" style="width: 400px;"/></center>
 </div>
 
+
 # Install Processing
 
 [Processing is available for most desktop operating systems](https://processing.org/download/). You can't run it on an iPad or a Chromebook however.
 
 <div class="task" markdown="1">
 [Download and install](https://processing.org/download/) the processing environment on your own computer. Install the latest stable version (ask on forums if unsure).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YZnnzmkWXD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Processing Coordinates
 
@@ -57,6 +60,8 @@ By default, Processing display window is of size 100 by 100, which means it's 10
 - and so on
 - The pixel below the origin is at (0, 1).
 - The pixel below (0, 1) is at (0, 2).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7Kxqu26Yqpg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Exercise:
 
@@ -143,6 +148,12 @@ Here is a short video we recorded to demonstrate downloading and installing Proc
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FAPel-Dds9k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Z0iGu6p5fL8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JAIO4xp9M_Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3gU78z4O_ig" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 # How Processing Works
 
 Programmers need to know how the machine they are programming actually work.  This is one of your primary tasks early on.  You can copy-and-paste some programs, and even make small changes to them, without understanding the underlying machine but you will run out of runway very quickly.
@@ -227,7 +238,9 @@ _The compiler_ will convert text to a runnable program.  _Processing_ will work 
 </details>
 </div>
 
-# Integer Division
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WSagqI5_eqo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<!--# Integer Division
 
 Processing insists that if you divide one integer by another, you should get an integer back as the result.  This is simple enough for `4/2` which is `2` but what answer should you get from `4/3`?  Processing will do integer division as a _quotient_ and _remainder_ just like you did in primary school.  `/` gets you the quotient and the new operation `%` gets you the remainder:
 
@@ -264,7 +277,7 @@ Compute the following expressions according to rules of Processing:
   - `12.0/5.0`= `2.4`
 </details>
 </div>
-
+-->
 ## Commenting
 
 Anything you type after `//` and before a new line is not a part of the compiled code.
@@ -309,12 +322,13 @@ float ySpeed = xSpeed * (height - y) / (width - x);
 
 ## Practice programs 
 
-These are programs to help you start with simple sketches are work your way up to more complex animation. Very helpful for incremental learning and assignments.
+These are programs to help you start with simple sketches are work your way up to more complex animation (over the course of the session). Very helpful for incremental learning and assignments.
 
 [COMP1000PracticePrograms.zip](./assets/COMP1000PracticePrograms.zip)
 
-## ADVANCED (HD-level for now) Test-driven development programs 
+<!--## ADVANCED (HD-level for now) Test-driven development programs 
 
 These are programs to help you get acquainted with test-driven development and help you with module exams (and also major work). Instructions file inside the package explains what needs to be done.
 
 [COMP1000TestDrivenDevelopment.zip](./assets/COMP1000TestDrivenDevelopment.zip)
+-->
