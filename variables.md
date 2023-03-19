@@ -666,6 +666,30 @@ This time the first output (inside setup) will be 1729, while the draw, in the a
 
 *Advanced: Do you think the values will increase indefinitely?*
 
+## So, declare globally or locally?
+
+The decision on whether a variable should be declared globally or locally depends on whether you need to,
+
+1. Update its value inside `draw()` and retain the updated value from one iteration of `draw()` to the next, or,
+2. Use the same variable (as in share it) across multiple functions like `setup()` and `draw()`. Typically, the value is assigned in `setup()` and used in `draw()`.
+
+As a guideline, if either of the above two are true, the variable should be declared globally. There might be more scenarios in which a variable might warrant global declaration.
+
+On the other hand, a variable should be declared locally if its value is needed only during execution of that specific function's current instance. If the variable is no longer required once the function's current instance terminates, then it is a good candidate to be declared locally. Examples are temporary variables, used to improve readability.
+
+For example, while calculating the length of a line between points `(x1, y1)` and `(x2, y2)`, we'll do something like:
+
+```processing
+float diffX = (x2 - x1);
+float diffY = (y2 - y1);
+float D = diffX * diffX + diffY * diffY;
+float hypotenuse = sqrt(D);
+```
+
+Thus, variables `diffX, diffY, D` should be declared locally. The variable `hypotenuse` if not required across functions, should also be declared locally, otherwise globally.
+
+
+
 ### Late initialization of global variables
 
 Sometimes you don't have sufficient information to assign a value to a global variable when you declare it. 
@@ -740,10 +764,9 @@ void draw() {
 
 
 <div class="task" markdown="1"><a name="timed_animated_blue_circle"></a>
-_Difficult:_ Write a processing program that moves a blue circle from the top of the window to the bottom of the window in exactly 200 frames of time, no matter what the size of the window is.  If you have forgotten how to put animate blue circle on the screen, you should review this [previous exercise](./variables#animated_blue_circle).
+_Advanced:_ Write a processing program that moves a blue circle from the top of the window to the bottom of the window in exactly 200 frames of time, no matter what the size of the window is.  If you have forgotten how to put animate blue circle on the screen, you should review this [previous exercise](./variables#animated_blue_circle).
 <details class="solution" markdown="1"><summary>solution</summary>
 Here we need to use one variable (the `height` variable) to determine the value in another variable.  Another way to consider the problem statement (as a Processing programmer) is "write a program where a blue circle is drawn on the screen and every time it is drawn it moves downwards a little.  The amount it moves downward each time is 1/200th of the height of the window."
-
 
 Compared to the solution to the [previous exercise](./variables.html#animated_blue_circle), we need to start using a variable to control the speed of the circle.  That variable must be a `float` because we will be dividing the size of the screen by 200 and we have no idea what the size of the screen might be.  This means we also need to move to a `float` for the position on the screen.  NB: `circle` will happily accept an `int` or a `float`, so we have no further changes to make there.
 
