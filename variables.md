@@ -818,6 +818,48 @@ Experiment with _this_ program.  It works this time!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/57M73QzpPpQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+## Commenting
+
+Anything you type after `//` and before a new line is not a part of the compiled code.
+
+Similarly, anything you type between `/*` and `*/` is not a part of the compiled code.
+
+Extra whitespaces and newlines are also ignored during compilation.
+
+The following program,
+
+```processing
+size(300, 200); //300 pixels wide and 200 pixels high
+
+int x = 150;
+int y = 100;
+
+float xSpeed = random(5); //anything from 0.0 to 4.99999 (excludes 5)
+
+/*
+We calculate ySpeed proportional to xSpeed 
+so that the ball exits the screen exactly
+at the bottom right corner
+*/
+float ySpeed = xSpeed * (height - y) / (width - x);
+```
+
+is compiled to,
+
+```processing
+size(300, 200); 
+int x = 150;
+int y = 100;
+float xSpeed = random(5); 
+float ySpeed = xSpeed * (height - y) / (width - x);
+```
+
+&nbsp;
+
+<div>
+<center><img src="assets/images/comments.png" style="width: 400px;"/></center>
+</div>
+
 # Furthering your understanding
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uEbiuMOu2TM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
