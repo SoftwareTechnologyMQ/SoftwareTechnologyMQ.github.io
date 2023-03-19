@@ -683,10 +683,10 @@ For example, while calculating the length of a line between points `(x1, y1)` an
 float diffX = (x2 - x1);
 float diffY = (y2 - y1);
 float D = diffX * diffX + diffY * diffY;
-float hypotenuse = sqrt(D);
+float length = sqrt(D);
 ```
 
-Thus, variables `diffX, diffY, D` should be declared locally. The variable `hypotenuse` if not required across functions, should also be declared locally, otherwise globally.
+Thus, variables `diffX, diffY, D` should be declared locally. The variable `length` if not required across functions, should also be declared locally, otherwise globally.
 
 
 
