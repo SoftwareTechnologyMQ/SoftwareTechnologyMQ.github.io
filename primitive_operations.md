@@ -191,6 +191,8 @@ The arithmetic operators we discussed earlier have the following order of preced
 2. Multiplicative operators `*, /, %`. In the order of occurrence in the expression.
 3. Additive operators `+, -`. In the order of occurrence in the expression.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/p-UTK7QZlOM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Examples:
 
 - `5 + 20 / 3` 

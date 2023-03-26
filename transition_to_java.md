@@ -41,6 +41,7 @@ We have cut our teeth with Processing, but now it is time to graduate to the sam
   	* [Visual Studio Code](https://code.visualstudio.com/), or,
   	* [IntelliJ](https://www.jetbrains.com/idea/)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VAd5qs46z8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # How do programs run in Java (compared to Processing)
 
@@ -135,9 +136,15 @@ Install the following software **in the order below**. You will be asked to choo
 
 1. [**Java Standard Edition (Java SE)**](http://www.oracle.com/technetwork/java/javase/downloads/index.html), previously known as Java Standard Development Kit (Java SDK). Current version (on the date of writing this document): `18.0.1.1`. You'll be fine as long as you have version 8 or above.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KaoWRGy8iTo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 2. [**Eclipse IDE for Java developers**](https://eclipse.org/downloads/). Current version (on the date of writing this document): `2022-06`.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/44Gk6yWsHt0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 **NOTE:** You are free to use any other IDE besides Eclipse (such as Visual Studio Code or NetBeans or IntelliJ) if you want. However, we shall be doing all screencasts and video tutorials using Eclipse.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/44Gk6yWsHt0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## First java program
 
@@ -180,6 +187,8 @@ If there are no run-time errors, you will get the following output on the consol
 ~~~output
 Hello world!
 ~~~
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VAd5qs46z8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Atxj7fwu5Uk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
@@ -385,4 +394,8 @@ Define a method that when passed an integer array, returns the sum of all negati
 <details class="solution" markdown="1"><summary>solution</summary>
 <script src="https://gist.github.com/gaurav1780/671b713a16b53872f45a36c1659464ea.js"></script>
 </details>
-</div>
+</div>	
+
+# Some practice functions
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_Yw65zyjRnw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

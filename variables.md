@@ -62,6 +62,45 @@ The most common data types in Processing are:
 
 When it comes to numerical values, we suggest you store in `float` unless absolutely sure that the value will definitely be a whole number. 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7RtDfqObZFo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Declaring a variable
+
+A variable is declared as,
+
+```
+<type> <variableName>;
+```
+
+Examples,
+
+```processing
+int x;
+float y;
+boolean flag;
+char ch;
+```
+
+Before you use a variable, you need to assign it a value. You can do it during declaration (also called *initialization*), or later. 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QkE_sSlOC-E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+Examples,
+
+```processing
+int x = 1729;
+float y = 3.14;
+boolean flag = true;
+char ch = '*';
+int val;
+//...assign later, but before first use
+val = 6174; //remember, dont declare again
+```
+
+## Variable assignment is a 2-step process!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tMm-mdW3uT0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## int, float and char relationship
 
 Take an analogy where dogs are a special type of animal. If Fluffy is a dog, Fluffy is definitely an animal too. However, if Sparky is an animal, it's not necessary that Sparky is a dog. Sparky can be a cat, cow, snake, or any other animal type.
@@ -549,12 +588,185 @@ int diceRoll = (int)r;
 //diceRoll can be 1,2,3,4,5,6 all with (almost) the same probability
 ```
 
+## Global and local variables
+
+We will cover more on this topic under "Scope" but a preliminary explanation is provided here.
+
+### Local variables
+
+Local variables are declared inside a function (like `setup()` or `draw()` and as soon as that iteration of function terminates, the variable is deleted from the memory.
+
+```
+void setup() {
+	size(500, 200);
+}
+
+void draw() {
+	int x = (int)random(width);
+	int y = (int)random(height);
+	circle(x, y, 20);
+}
+```
+
+During each iteration of `draw()`, variables `x` and `y` are declared, initialized, and used, and soon as that iteration finishes, the variables are deleted, only for the whole cycle to repeat in the next iteration. Local variables are generally used for fleeting values, only needed temporarily.	
+
+### Global variables
+
+Global variables are declared, typically, at the top of the program, **before** any function definition (such as `setup` or `draw`). Typically, a variable is declared as *global* if we need it for the entire program, and we need to keep track of its state. In the case of processing, across several iterations of `draw()`, and perhaps also in other functions.
+
+These variables, if uninitialized, will be assigned the default value of their data type, by `setup`. Global variables can be accessed inside any function and only one shared copy of a global variable exists. If one section of your code modifies the variable, it is modified for all other parts of the program.
+
+```processing
+int x = 1729;
+
+void setup() {
+	print("x inside setup: "+x);
+}
+
+void draw() {
+	print("x inside draw: "+x);
+	exit(); //exit after first iteration
+}
+```
+
+Both print statements will display the same value (1729).
+
+```processing
+int x = 1729;
+
+void setup() {
+	print("x inside setup: "+x);
+	x = x + 1;
+}
+
+void draw() {
+	print("x inside draw: "+x);
+	exit(); //exit after first iteration
+}
+```
+
+Now, the values output in the statement inside setup will be 1729 while the one in the statement inside draw will be 1730.
+
+
+```processing
+int x = 1729;
+
+void setup() {
+	print("x inside setup: "+x);
+	x = x + 1;
+}
+
+void draw() {
+	print("x inside draw: "+x);
+	x = x + 1;
+}
+```
+
+This time the first output (inside setup) will be 1729, while the draw, in the absence of `exit()` and the increment statement will product outputs of 1730, 1731, 1732, ...
+
+*Advanced: Do you think the values will increase indefinitely?*
+
+## So, declare globally or locally?
+
+The decision on whether a variable should be declared globally or locally depends on whether you need to,
+
+1. Update its value inside `draw()` and retain the updated value from one iteration of `draw()` to the next, or,
+2. Use the same variable (as in share it) across multiple functions like `setup()` and `draw()`. Typically, the value is assigned in `setup()` and used in `draw()`.
+
+As a guideline, if either of the above two are true, the variable should be declared globally. There might be more scenarios in which a variable might warrant global declaration.
+
+On the other hand, a variable should be declared locally if its value is needed only during execution of that specific function's current instance. If the variable is no longer required once the function's current instance terminates, then it is a good candidate to be declared locally. Examples are temporary variables, used to improve readability.
+
+For example, while calculating the length of a line between points `(x1, y1)` and `(x2, y2)`, we'll do something like:
+
+```processing
+float diffX = (x2 - x1);
+float diffY = (y2 - y1);
+float D = diffX * diffX + diffY * diffY;
+float length = sqrt(D);
+```
+
+Thus, variables `diffX, diffY, D` should be declared locally. The variable `length` if not required across functions, should also be declared locally, otherwise globally.
+
+
+
+### Late initialization of global variables
+
+Sometimes you don't have sufficient information to assign a value to a global variable when you declare it. 
+
+For example, I would then like to draw a circle of diameter 50 centred at the centre of a display window, and then move the circle in random direction along each axis. 
+
+#### Version 1 (buggy)
+
+```processing
+//BUGGY!
+int x = width/2;
+int y = height/2;
+
+void setup() {
+	size(200, 500);
+	background(255);
+}
+
+void draw() {
+	circle(x, y, 50);
+	x = x + (int)random(-1, 2);
+	y = y + (int)random(-1, 2);
+}
+```
+
+You will notice the circle first appears centred at the top-left corner. That is because the default values of `width` and `height` variables are 0.
+
+#### Version 2 (buggy)
+
+```processing
+//BUGGY!
+
+void setup() {
+	size(200, 500);
+	int x = width/2;
+	int y = height/2;
+	background(255);
+}
+
+void draw() {
+	circle(x, y, 50);
+	x = x + (int)random(-1, 2);
+	y = y + (int)random(-1, 2);
+}
+```
+
+This version will not compile at all, because the variables `x` and `y` are declared (see the keyword `int`?) inside `setup()`, so they cannot be used outside that function.
+
+What we CAN do is to declare them globally but initialize after we have the required information.
+
+#### Version 3
+
+```processing
+int x, y; //global declaration
+
+void setup() {
+	size(200, 500);
+
+	//local initialization
+	
+	x = width/2; 
+	y = height/2;
+	background(255);
+}
+
+void draw() {
+	circle(x, y, 50);
+	x = x + (int)random(-1, 2);
+	y = y + (int)random(-1, 2);
+}
+```
+
 
 <div class="task" markdown="1"><a name="timed_animated_blue_circle"></a>
-_Difficult:_ Write a processing program that moves a blue circle from the top of the window to the bottom of the window in exactly 200 frames of time, no matter what the size of the window is.  If you have forgotten how to put animate blue circle on the screen, you should review this [previous exercise](./variables#animated_blue_circle).
+_Advanced:_ Write a processing program that moves a blue circle from the top of the window to the bottom of the window in exactly 200 frames of time, no matter what the size of the window is.  If you have forgotten how to put animate blue circle on the screen, you should review this [previous exercise](./variables#animated_blue_circle).
 <details class="solution" markdown="1"><summary>solution</summary>
 Here we need to use one variable (the `height` variable) to determine the value in another variable.  Another way to consider the problem statement (as a Processing programmer) is "write a program where a blue circle is drawn on the screen and every time it is drawn it moves downwards a little.  The amount it moves downward each time is 1/200th of the height of the window."
-
 
 Compared to the solution to the [previous exercise](./variables.html#animated_blue_circle), we need to start using a variable to control the speed of the circle.  That variable must be a `float` because we will be dividing the size of the screen by 200 and we have no idea what the size of the screen might be.  This means we also need to move to a `float` for the position on the screen.  NB: `circle` will happily accept an `int` or a `float`, so we have no further changes to make there.
 
@@ -603,6 +815,50 @@ void draw(){
 
 Experiment with _this_ program.  It works this time!
 </details></div>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/57M73QzpPpQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Commenting
+
+Anything you type after `//` and before a new line is not a part of the compiled code.
+
+Similarly, anything you type between `/*` and `*/` is not a part of the compiled code.
+
+Extra whitespaces and newlines are also ignored during compilation.
+
+The following program,
+
+```processing
+size(300, 200); //300 pixels wide and 200 pixels high
+
+int x = 150;
+int y = 100;
+
+float xSpeed = random(5); //anything from 0.0 to 4.99999 (excludes 5)
+
+/*
+We calculate ySpeed proportional to xSpeed 
+so that the ball exits the screen exactly
+at the bottom right corner
+*/
+float ySpeed = xSpeed * (height - y) / (width - x);
+```
+
+is compiled to,
+
+```processing
+size(300, 200); 
+int x = 150;
+int y = 100;
+float xSpeed = random(5); 
+float ySpeed = xSpeed * (height - y) / (width - x);
+```
+
+&nbsp;
+
+<div>
+<center><img src="assets/images/comments.png" style="width: 400px;"/></center>
+</div>
 
 # Furthering your understanding
 

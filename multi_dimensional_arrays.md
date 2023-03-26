@@ -203,7 +203,7 @@ So… why did I say that you shouldn’t think of 2-d arrays in terms of rows an
 ![](./assets/images/two_dimensional_array_to_function_modifying.png)
 
 
-## Challenging question 1
+## Advanced question 1
 
 What is the state of the array `arr` inside `setup()` after `reset1` is called?
 
@@ -221,13 +221,13 @@ What is the state of the array `arr` inside `setup()` after `reset1` is called?
 		int result = 0;
 		for(int i=0; i < data.length; i++) {
 			for(k=0; k < data[i].length; k++) {
-				data[i][k] = new int[4];
+				data[i][k] = 0;
 			}
 		}
 	}
 ```
 
-## Challenging question 2
+## Advanced question 2
 
 What is the state of the array `arr` inside `setup()` after `reset2` is called?
 
@@ -242,7 +242,29 @@ What is the state of the array `arr` inside `setup()` after `reset2` is called?
 	}
 	
 	void reset2(int[][] data) {
-		data = { {1, 2}, {3, 4} };
+		int result = 0;
+		for(int i=0; i < data.length; i++) {
+			data[i] = new int[3];
+		}
+	}
+```
+
+## Advanced question 3
+
+What is the state of the array `arr` inside `setup()` after `reset3` is called?
+
+```processing
+	void setup() {
+		int[] a = {10, 70, 20, 90};
+		int[] b = {};
+		int[] c = {30, 80};
+		int[][] arr = {a, b, c};
+		reset3(arr);
+		//what are the contents of arr here?
+	}
+	
+	void reset3(int[][] data) {
+		data = { {0, 0}, {0, 0} };
 	}
 ```
 

@@ -202,7 +202,6 @@ println(result);
 
 <center><img src="loopsFigs/whileExample.png" style="width: 300px;"/></center>
 
-
 The above code executes the loop 6 times (for `a` = 6,5,4,3,2,1 but not for 0) each time multiplying the current value of `a` into `result` and the final value of `result` is 6\*5\*4\*3\*2\*1 = 720.
 
 There is an even better way of tracing loops known as logic table construction. The logic table for the above example is given below.
@@ -219,6 +218,8 @@ There is an even better way of tracing loops known as logic table construction. 
 | 0 	| false 	|             	|
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VbGDp1FaDzc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cBRE7XEYz_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Guidelines for constructing a logic table
 

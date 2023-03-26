@@ -492,3 +492,9 @@ Some variations of `sum` function are provided to help you understand recursion 
 	```
 
 Note that this method uses `getReversed` as a *helper*, which, in turn, is recursive.
+
+# Relevant MQ Videos
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CtFSt9wUj2k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DP3wNjB6Hug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

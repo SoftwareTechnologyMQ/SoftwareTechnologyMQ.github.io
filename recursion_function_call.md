@@ -136,3 +136,7 @@ Entry for `main` is taken off the stack. Call stack is now empty. Program has no
 
 ![](./fig/04-recursion/controlFlow.png)
 <!--<iframe src="https://giphy.com/embed/Az1CJ2MEjmsp2" width="480" height="221" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/bare-barren-Az1CJ2MEjmsp2">via GIPHY</a></p>-->
+
+# Relevant MQ Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8ob2ha_sFXM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
