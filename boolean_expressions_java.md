@@ -61,7 +61,7 @@ The following are the six relational operators we will use:
 |`<`|Lesser than|`5 < 3.6` = `false` while `3 < 5.1` = `true`|
 |`>=`|Greater than or equal to|`5 >= 5` = `true` while `3 >= 5` = `false`|
 |`<=`|Lesser than or equal to|`5 <= 3` = `false` while `5 <= 5` = `true`|
-|`==`|Equal to|`5.2 == 5.8` = `true` while `6.4 == 6.5` = `false`|
+|`==`|Equal to|`5.2 == 5.2` = `true` while `6.4 == 6.5` = `false`|
 |`!=`|Not equal to|`5 != 3.9` = `true` while `5 != 5` = `false`|
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FCM54REaY58" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
