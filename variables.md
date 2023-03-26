@@ -83,7 +83,7 @@ char ch;
 
 Before you use a variable, you need to assign it a value. You can do it during declaration (also called *initialization*), or later. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QkE_sSlOC-E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R6cy1onKjGE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Examples,
 
@@ -99,7 +99,7 @@ val = 6174; //remember, dont declare again
 
 ## Variable assignment is a 2-step process!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tMm-mdW3uT0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hUtgqIMKnLo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## int, float and char relationship
 
