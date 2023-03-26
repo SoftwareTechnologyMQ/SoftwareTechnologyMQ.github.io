@@ -191,7 +191,7 @@ The arithmetic operators we discussed earlier have the following order of preced
 2. Multiplicative operators `*, /, %`. In the order of occurrence in the expression.
 3. Additive operators `+, -`. In the order of occurrence in the expression.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/p-UTK7QZlOM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0r5cIBOVH2Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Examples:
 
@@ -249,7 +249,7 @@ e--; //decreases e by 1
 
 # Furthering your Understanding
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7FM0zvbHKnQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/7FM0zvbHKnQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p>
 
