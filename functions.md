@@ -52,7 +52,7 @@ A function is a *named* piece of code with zero or more inputs that optionally r
 
 <center><img src="functionsFigs/functionMemoryDiagrams-figure0.png" style="width: 300px;"/></center>
 
-For example, we may have a function that determines the higher of two integers. We can call it by passing it two integers. If we pass the values 2 and 5, it should return 5.
+<!--For example, we may have a function that determines the higher of two integers. We can call it by passing it two integers. If we pass the values 2 and 5, it should return 5.
 
 <center><img src="functionsFigs/functionMemoryDiagrams-figure1.png" style="width: 300px;"/></center>
 
@@ -67,7 +67,7 @@ Similarly, you cannot pass it more than 2 values.
 Even if you pass two values, you must ensure they are of the right type. For example, we cannot pass a `boolean` instead of an integer.
 
 <center><img src="functionsFigs/functionMemoryDiagrams-figure4.png" style="width: 300px;"/></center>
-
+-->
 ## Designing a function
 
 While designing a function, you must think of three aspects carefully:
@@ -127,38 +127,49 @@ returnType function(<parameters>) {
 
 Once this exists, you can have _many_ function calls - the place that the code asks the function to run.  Syntax of a function _call_ is:
 
-```java
+```processing
 functionName (<parameters>);
 ```
 
 For example, the following function _definition_
 
-```java
+```processing
 int foo(int a, int b){
-    return a + b;
+    int result = a + b;
+    return result;
 }
 ```
 
-can be run by any of these function _calls_
-```java
-int t = foo(1,3);
-int y = foo(12, 13);
-int z = foo(foo(1,3), 8)
+can be called by anywhere in the program. For example,
+
+```processing
+void setup() {
+	int y = foo(12, 5);
+}
 ```
 
-Note the feature in the above example, anywhere an `int` is expected, you can put a calls to `foo` because it returns an `int`.
+During the call `foo(12, 5)`, 
+
+- Function `foo` expects two integers
+- The values passed are 12 and 5 (2 integers). So it's all good
+- 12 is copied into the local variable `a` 
+- 5 is copied into the local variable `b`
+- Control is transferred to the function
+- `result` becomes 17.
+- This value 17 is returned by the function and replaces the call `foo(12, 5)`.
+- Control transfers back to the calling statement.
+- The statement becomes `int y = 17;` since the call is replaced by the value it returns.
 
 ## Formal and Actual parameters
 
 Since we have both function definitions and function calls, and parameters appear in each, it is useful to be able to distinguish the two uses.
-  * Parameters appearing in the top line (signature) of a function definition are called _formal parameters_ and are defined in the same way as any other variable declaration
-  * Parameters appearing in a function call are called _actual paramters_ and work like any other value in Processing.
+  * Parameters appearing in the top line (signature) of a function definition are called _formal parameters_ and are defined in the same way as any other variable declaration. In the example above, `a` and `b` are the *formal parameters*.
+  * Parameters appearing in a function call are called _actual paramters_ and work like any other value in Processing. In the example above, 12 and 5 are the *actual parameters*.
 
 When the function is executed, the actual paramters are copied into the formal paramter slots and the function is run.
 
-
 <div class="task" markdown="1">
-Suppose we have a function that accepts a real number (`double`) and returns its square.
+Suppose we have a function that accepts a real number (`float`) and returns its square.
 
 Draw a block diagram for the interaction when a caller calls the function with the value 2.5. Assume the name of the formal parameter is `val`, and the value returned by the function is copied into a variable `sqr`.
 
@@ -222,6 +233,71 @@ float average(int a, int b){
 ```
 </details>
 </div>
+
+## void functions
+
+Functions that perform some action (like drawing something or displaying some text) but don't return a value have a return type of void. They can still have a `return;` statement, that transfers control back to the caller.
+
+For example,
+
+```processing
+void drawShip() {
+	//IMPORTANT: should draw the ship ONLY if mouse is in the right half
+	
+	if(mouseX < width/2) { //no need to draw
+		return; //transfer control back to the caller
+	}
+	
+	line(mouseX+50, mouseY-20, mouseX+50, mouseY+10);
+	triangle(mouseX, mouseY, mouseX+100, mouseY, mouseX+50, mouseY+20);
+	
+	//control automatically transferred once you reach the end
+	///so no need to have return statement
+}
+```
+
+and the call,
+
+```processing
+void draw() {
+	background(255);
+	drawShip();
+}
+```
+
+## Effectively unconditional return
+
+A function that promises to return a value, must do so *effectively* unconditionally.
+
+Take the following example,
+
+```processing
+boolean isEven(int n) {
+	if(n%2 == 0) {
+		return true;
+	}
+	if(n%2 != 0) {
+		return false;
+	}
+}
+```
+
+While mathematically, one of the two boolean expressions (`n%2 == 0` and `n%2 != 0`) WILL be `true`, the programming language doesn't make that optimization. For JavaProcessing, the two return statements are in conditional blocks. Hence, you will get a compilation error - `method must return a value of type boolean`.
+
+To fix this, you should use,
+
+```processing
+boolean isEven(int n) {
+	if(n%2 == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+``` 
+
+Now, in terms of programming, either the `if` block, or the `else` block are guaranteed to execute, thereby returning a value unconditionally.
 
 ## Statements or Expressions?
 
