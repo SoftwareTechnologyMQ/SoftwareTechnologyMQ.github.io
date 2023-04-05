@@ -28,6 +28,17 @@ A function is a named piece of code that can be supplied with some inputs (known
 {: .readings}
 Chapter 7 of [Learning Processing](https://learningprocessing.com) by Danel Shiffman.
 
+## Macquarie University Videos
+
+### Function Design
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1taENRdghmQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+### Function Defintion and Call
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CowX0cMCg1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Videos by Daniel Shiffman
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zBo2D3Myo6Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -35,9 +46,9 @@ Chapter 7 of [Learning Processing](https://learningprocessing.com) by Danel Shif
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b9AYvekwKIg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# Details
+# Discussion
 
-Let's be precise about functions.
+A function is a *named* piece of code with zero or more inputs that optionally returns a value back to the caller.
 
 <center><img src="functionsFigs/functionMemoryDiagrams-figure0.png" style="width: 300px;"/></center>
 
@@ -56,6 +67,48 @@ Similarly, you cannot pass it more than 2 values.
 Even if you pass two values, you must ensure they are of the right type. For example, we cannot pass a `boolean` instead of an integer.
 
 <center><img src="functionsFigs/functionMemoryDiagrams-figure4.png" style="width: 300px;"/></center>
+
+## Designing a function
+
+While designing a function, you must think of three aspects carefully:
+
+1. Input(s)
+2. Purpose (decides the name of the function)
+3. Return value (Type of answer)
+
+### Example 1
+
+```
+Alice -> Bob: Is 5 an even number?
+Bob --> Alice: No.
+Charles -> Bob: Is -18 an even number?
+Bob --> Charles: Yes.
+```
+
+Here, *"Bob"* is the function that expects an integer value to be supplied to them, and gives the answer *"Yes"/"No"* back to the client (caller).
+
+1. Input: `int`
+2. Purpose: `isEven`
+3. Return value: boolean
+
+### Example 2
+
+```
+Alice -> Bob: What is 12.8 rounded-off to the nearest integer?
+Bob --> Alice: 13.
+Charles -> Bob: What is -3.01 rounded-off to the nearest integer?
+Bob --> Charles: -3.
+Diane -> Bob: What is "Super Nintendo Chalmers" rounded-off to the nearest integer?
+Bob --> Diane: GO AWAY!
+Elise -> Bob: What are 1.5 and -2.7 rounded-off to the nearest integer?
+Bob --> Elise: One number at a time, please.
+```
+
+Here, we have intentionally made invalid calls from Diane (and Elise) to Bob. This shows that Bob expects one (and only one) `float` to be provided.
+
+1. Input: `float`
+2. Purpose: `roundedOff`
+3. Return value: `int`
 
 ## Defining a function
 
