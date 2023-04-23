@@ -275,21 +275,30 @@ int f = data.lastIndexOf(80); //e is -1 (80 not found)
 ### Example 5 - remove(int), remove(Object)
 
 ```java
-//note data = [60, 10, 70, 20, 90, 60] already
+//assumption: data = [60, 10, 70, 20, 90, 60] already
+data.remove(0); 					//data = [10, 70, 20, 90, 60]
+data.remove(data.size()-1); 		//data = [10, 70, 20, 90]
+data.remove(2); 					//data = [10, 70, 90]
+```
+
+```java
+//assumption: data = [60, 10, 70, 20, 90, 60] already
 data.remove(10);
 //IndexOutOfBoundsException since 10 is treated as int, and hence remove(int) is called
+```
+
+```java
+//assumption: data = [60, 10, 70, 20, 90, 60] already
 data.remove((Integer)10); //data = [60, 70, 20, 90, 60]
 data.remove((Integer)60); //data = [70, 20, 90, 60]
 data.remove((Integer)60); //data = [70, 20, 90]
+```
 
+```java
 //removing all occurrences of a specific item -
-
-for(int i=0; i < 5; i++) {
-	data.add(80);
-}
-//data = [70, 20, 90, 80, 80, 80, 80, 80]
+//assumption: data = [70, 20, 90, 80, 80, 80, 80, 80]
 while(data.contains(80)) {
-	data.remove(80);
+	data.remove((Integer)80); //remember, data.remove(80) will try to remove item at index 80
 }
 //data = [70, 20, 90]
 ```
