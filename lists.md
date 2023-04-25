@@ -276,15 +276,16 @@ int f = data.lastIndexOf(80); //e is -1 (80 not found)
 
 ```java
 //assumption: data = [60, 10, 70, 20, 90, 60] already
-data.remove(0); 					//data = [10, 70, 20, 90, 60]
-data.remove(data.size()-1); 		//data = [10, 70, 20, 90]
-data.remove(2); 					//data = [10, 70, 90]
+data.remove(0); 		//data = [10, 70, 20, 90, 60]
+data.remove(data.size()-1); 	//data = [10, 70, 20, 90]
+data.remove(2); 		//data = [10, 70, 90]
 ```
 
 ```java
 //assumption: data = [60, 10, 70, 20, 90, 60] already
 data.remove(10);
-//IndexOutOfBoundsException since 10 is treated as int, and hence remove(int) is called
+//IndexOutOfBoundsException since 10 is treated as int, 
+//and hence remove(int) is called
 ```
 
 ```java
@@ -298,7 +299,9 @@ data.remove((Integer)60); //data = [70, 20, 90]
 //removing all occurrences of a specific item -
 //assumption: data = [70, 20, 90, 80, 80, 80, 80, 80]
 while(data.contains(80)) {
-	data.remove((Integer)80); //remember, data.remove(80) will try to remove item at index 80
+	data.remove((Integer)80); 
+	//remember, data.remove(80) will 
+	//try to remove item at index 80
 }
 //data = [70, 20, 90]
 ```
@@ -326,9 +329,9 @@ public class ListToFunctionClient {
 		data.add(70);
 		data.add(20);
 		data.add(90);
-		int total = sum(data); //total = 190
-		increment(data); //data = [11, 71, 21, 91]
-		System.out.println(total+" "+data); //190 [11, 71, 21, 91]
+		System.out.println(sum(data)); //190
+		increment(data); //data becomes [11, 71, 21, 91]
+		System.out.println(sum(data)); //194
 	}
 
 	public static int sum(ArrayList<Integer> list) {
