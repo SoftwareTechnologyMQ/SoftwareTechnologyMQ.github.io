@@ -33,7 +33,7 @@ To begin COMP1010, you need to know the following things:
 
 See the following basic example where we trace the flow of control of the following Processing program.
 
-```processing
+```java
 int mystery(int n) {
 	if(n%2 == 0) {
 		return n+1;
@@ -75,7 +75,7 @@ Also, note our program doesn't have a `draw()` function, which is also fine.
 
 Based on our walkthrough, trace the flow of the following program and summarize with the sequence of lines that are executed.
 
-```processing
+```java
 int square(int n) {
    int result = n*n;
    return result;
