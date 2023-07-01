@@ -31,7 +31,71 @@ To begin COMP1010, you need to know the following things:
 
 # 1. Tracing control flow
 
-See the following basic example where we trace the flow of control of the following Processing program.
+## Example 1
+
+See the following example where we trace the flow of control of the following Processing program.
+
+```java
+void setup() {
+	int a = 20, b = 5;
+	if(a % b == 0) {
+	   println("divisible");
+	}
+	else {
+	   println("not divisible");
+	}
+	println("Ciao!");
+}
+```
+
+First function to execute (and in this case the only function) is `setup()`. 
+
+1. Line 2 is the first statement inside that function.
+2. Next statement is on line 3. The boolean expression here evaluates to `true`. So it goes into the if-block.
+3. The only statement inside the if-block is on line 4.
+4. Exits the if-block and executes statement on line 9.
+
+Thus, the lines executed are:
+
+```
+2 -> 3 -> 4 -> 9
+```
+
+Note that function headers, lines with JUST curly brackets (opening or closing), and empty lines are not considered while tracing.
+
+Also, note our program doesn't have a `draw()` function, which is also fine.
+
+## Activity 1.1
+
+Based on our walkthrough, trace the flow of the following program and summarize with the sequence of lines that are executed.
+
+```java
+void setup() {
+	int a = -7;
+	if(a > 0) {
+	   	println("Positive");
+	}
+	else {
+		if(a == 0) {
+			println("Zero (Non-positive, non-negative)");
+		}
+		else {
+			println("Negative");
+		}
+	}
+	println("Ciao!");
+}
+```
+
+<details class="prereq" markdown="1"><summary>Solution</summary>
+```
+Lines 2 -> 3 -> 7 -> 11 -> 14
+```
+</details>
+
+## Example 2
+
+See the following example where we trace the flow of control of the following Processing program.
 
 ```java
 int mystery(int n) {
@@ -67,15 +131,13 @@ If we summarize the above trace, the lines executed are:
 11 -> 12 -> 2 -> 6 -> 12 -> 13
 ```
 
-Note that function headers, lines with JUST curly brackets (opening or closing), and empty lines are not considered while tracing.
+Wow! That's a very few lines actually being executed for a relatively large piece of code. And that is absolutely true of any code that has lots of conditions.
 
-Also, note our program doesn't have a `draw()` function, which is also fine.
-
-# Now, you do it - 1
+## Activity 1.2
 
 Based on our walkthrough, trace the flow of the following program and summarize with the sequence of lines that are executed.
 
-```java
+```java	
 int square(int n) {
    int result = n*n;
    return result;
@@ -98,3 +160,12 @@ void setup() {
 Lines 12 -> 13 -> 7 -> 8 -> 13 -> 14 -> 2 -> 3 -> 14 -> 15
 </details>
 
+## Example 3
+
+```java
+void setup() {
+	int a = 1729;
+	int b = mystery(a);
+	println(b);
+}
+```
