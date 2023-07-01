@@ -164,8 +164,51 @@ Lines 12 -> 13 -> 7 -> 8 -> 13 -> 14 -> 2 -> 3 -> 14 -> 15
 
 ```java
 void setup() {
-	int a = 1729;
-	int b = mystery(a);
-	println(b);
+	int n = 4;
+	int result = 0;
+	for(int i=1; i<=n; i++) {
+		result+=i;
+	}
+	println(result);
 }
 ```
+   
+1. Line 2
+2. Line 3
+3. Line 4 - loop encountered, `i` initialized, loop expression checked. Is `true`.
+4. Line 5
+5. Line 4 - loop variable updated, loop expression checked again. Is `true`.
+6. Line 5
+7. Line 4 - loop variable updated, loop expression checked again. Is `true`.
+8. Line 5
+9. Line 4 - loop variable updated, loop expression checked again. Is `true`.
+10. Line 5
+11. Line 4 - loop variable updated, loop expression checked again. Is `false`.
+12. Line 7
+
+```
+2 -> 3 -> 4 -> 5 -> 4 -> 5 -> 4 -> 5 -> 4 -> 5 -> 4 -> 7
+```
+
+A code that has a lot of loops will **often** have many more statements executed than lines in the program.
+
+## Activity 1.3
+
+Based on our walkthrough, trace the flow of the following program and summarize with the sequence of lines that are executed.
+
+```java
+void setup() {
+	int a = 42;
+	int b = 12;
+	while(b != 0) {
+		int temp = a%b;
+		a = b;
+		b = temp;
+	}
+	println(a);
+}
+```
+
+<details class="prereq" markdown="1"><summary>Solution</summary>
+Lines 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 4 -> 5 -> 6 -> 7 -> 4 -> 9 (loop executes twice)
+</details>
