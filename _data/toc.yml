@@ -51,6 +51,8 @@ nav:
     subnav:
       - title: COMP1000 REVISION
         url: https://github.com/comp1010mq/comp1000_to_comp1010_transition_workshops
+      - title: Foundation for COMP1010
+        url: /foundation_for_comp1010
       - title: Transition to Java
         url: /transition_to_java
       - title: Debugging in Java

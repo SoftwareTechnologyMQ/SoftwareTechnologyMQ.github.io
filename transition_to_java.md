@@ -49,10 +49,8 @@ We have cut our teeth with Processing, but now it is time to graduate to the sam
 
 In Java, you must perform _two_ steps yourself to get your program to run:
 
-  1. Compile.  The `javac` compiler will look for errors and convert your code to a runnable form (called bytecode).  `javac` will put this form into a `.class` file for you.
-  2. Run.  The `java` program will run the `.class` file for you.
-
-You should have become familiar with both steps already, but they were both done for you when hitting "play" in Processing.  Now you have to do each yourself (mostly).
+  1. `javac`: Compiles the source code (.java) into bytecode (.class).
+  2. `java`: Execute the bytecode.
 
 ![](./transition_to_javaFigs/javaCompileExecute.png)
 
@@ -61,19 +59,35 @@ You should have become familiar with both steps already, but they were both done
 All Java programs have the following structure,
 
 ~~~~~java
-public class Main {
+public class HelloWorld { 
   public static void main(String[] args){
     // CODE GOES HERE
   }
 }
 ~~~~~
 
+The name of the file containing this code MUST be `HelloWorld.java` (not `helloWorld.java` or `Hello.java` or `MarcoPolo.java`).
 
-When you began writing Processing code you didn't really understand `setup` and `draw`, you just used them, the same is true of this "`Main` class" and "`main` function".  For now, just put all your code in `main`, it will run once when the program runs (just like code in `setup` used to) and the full story will become clear later.
+The golden rule is: The name of the file must be exactly the same as the name of the `public class` it contains (we'll see soon that a file can contain several classes, but only one `public class`). 
 
-Note:  You can't change the name of the `main` function, but you can change the name of the `Main` class, just make sure the file-name you are using ("`Main.java`") matches the class name exactly.
 
-# Compiling and running java programs from command prompt or terminal
+# Software to install and first program
+
+Install Eclipse IDE for Java Developers. Go to the drop-in centre (4RPD G02) with any technical issues and one of the staff will troubleshoot for you.
+
+1. [**Java Standard Edition (Java SE)**](http://www.oracle.com/technetwork/java/javase/downloads/index.html), previously known as Java Standard Development Kit (Java SDK). Current version (on the date of writing this document): `18.0.1.1`. You'll be fine as long as you have version 8 or above.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KaoWRGy8iTo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+2. [**Eclipse IDE for Java developers**](https://eclipse.org/downloads/). Current version (on the date of writing this document): `2022-06`.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/44Gk6yWsHt0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+**NOTE:** You are free to use any other IDE besides Eclipse (such as Visual Studio Code or NetBeans or IntelliJ) if you want. However, we shall be doing all screencasts and video tutorials using Eclipse.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/44Gk6yWsHt0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+# Behind the scenes: Compiling and running java programs from command prompt or terminal
 
 After installing Java SDK, you can write a code in a basic text editor (like notepad, atom, sublime) and then compile and run Java programs from command prompt or terminal.
 
@@ -130,21 +144,6 @@ public class HelloWorld {
 	}
 }
 ```
-# Software to install and first program
-
-Install the following software **in the order below**. You will be asked to choose your operating system for each software, and whether it's 32-bits or 64-bits. If not sure, use this [link](http://www.computerhope.com/issues/ch001121.htm) to determine the same.
-
-1. [**Java Standard Edition (Java SE)**](http://www.oracle.com/technetwork/java/javase/downloads/index.html), previously known as Java Standard Development Kit (Java SDK). Current version (on the date of writing this document): `18.0.1.1`. You'll be fine as long as you have version 8 or above.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KaoWRGy8iTo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-2. [**Eclipse IDE for Java developers**](https://eclipse.org/downloads/). Current version (on the date of writing this document): `2022-06`.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/44Gk6yWsHt0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-**NOTE:** You are free to use any other IDE besides Eclipse (such as Visual Studio Code or NetBeans or IntelliJ) if you want. However, we shall be doing all screencasts and video tutorials using Eclipse.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/44Gk6yWsHt0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## First java program
 
@@ -286,8 +285,8 @@ public class Worker {
 
 In Processing, you added extra functions at the bottom of the file, or in other tabs.  Where should they go in Java?  Everything in Java needs to be inside a class, so you have to put it inbetween the first and last curly-braces, but keep them separate from the `main` function:
 
-~~~~~java
-public class Main {
+```java
+public class Client {
   public static void main(String[] args){
     // something
   }
@@ -295,7 +294,7 @@ public class Main {
   // OTHER FUNCTIONS GO IN HERE
 
 }
-~~~~~
+```
 
 You will notice that the `main` function is labelled `static` by Java. Your program will not run if you remove this keyword. A function being `static` means that the only data it operates on (if any) are the parameters passed.
 
@@ -314,7 +313,29 @@ The `public` keyword is for consistency and will be used for all functions unles
 
 Warning: make sure you are comfortable using functions before you move on to these examples.  [Refresh your memory](./functions.html) if you need to.
 
-## Problem 1: Write code that determines if a given number is prime.
+
+## Problem 1: Calculating the total of all items of an integer array
+
+This is an `accumulation` algorithm. We go through each item of the array, and add it to a variable that stores the total.
+
+<script src="https://gist.github.com/gaurav1780/990f005dee2573083528b3d0e6283a3f.js"></script>
+
+Once we know how to do this, we can apply this to other problems such as,
+
+<div class="task" markdown="1">
+Define a method that when passed an array, returns the sum of all even numbers in the array
+<details class="solution" markdown="1"><summary>solution</summary> <script src="https://gist.github.com/gaurav1780/b1abbb1a3bab1ef55c1c0cf4815482b9.js"></script>
+</details>
+</div>
+
+<div class="task" markdown="1">
+Define a method that when passed an integer array, returns the sum of all negative numbers in the first half of the array. For example, if array is `{-6, -8, -1, -2, 9}`, return `-14`, and if array is `{-6, -5, -8, -12, -1, 9}`, return `-19`.
+<details class="solution" markdown="1"><summary>solution</summary>
+<script src="https://gist.github.com/gaurav1780/671b713a16b53872f45a36c1659464ea.js"></script>
+</details>
+</div>	
+
+## Problem 2: Write code that determines if a given number is prime.
 
 What is a prime number?_A number more than 1 that is divisible only by 1 and itself._
 
@@ -368,33 +389,12 @@ The way we can call this function from another function (say `main`) is as follo
 
 <script src="https://gist.github.com/gaurav1780/2f84e7676a8fc2009b9c7df8b3bad1a6.js"></script>
 
-## Problem 2: Determining if a String contains any space
+## Problem 3: Determining if a String contains any space
 
 As opposed to the prime checking example, this is a `validation` algorithm, where we look for a validation, and as soon as one is found, we can return `true`. If there is no validation found, then, at the end, we can return `false`.
 
 <script src="https://gist.github.com/gaurav1780/a70018542384418de6724f5c5b9acd45.js"></script>
 
-
-## Problem 3: Calculating the total of all items of an integer array
-
-This is an `accumulation` algorithm. We go through each item of the array, and add it to a variable that stores the total.
-
-<script src="https://gist.github.com/gaurav1780/990f005dee2573083528b3d0e6283a3f.js"></script>
-
-Once we know how to do this, we can apply this to other problems such as,
-
-<div class="task" markdown="1">
-Define a method that when passed an array, returns the sum of all even numbers in the array
-<details class="solution" markdown="1"><summary>solution</summary> <script src="https://gist.github.com/gaurav1780/b1abbb1a3bab1ef55c1c0cf4815482b9.js"></script>
-</details>
-</div>
-
-<div class="task" markdown="1">
-Define a method that when passed an integer array, returns the sum of all negative numbers in the first half of the array. For example, if array is `{-6, -8, -1, -2, 9}`, return `-14`, and if array is `{-6, -5, -8, -12, -1, 9}`, return `-19`.
-<details class="solution" markdown="1"><summary>solution</summary>
-<script src="https://gist.github.com/gaurav1780/671b713a16b53872f45a36c1659464ea.js"></script>
-</details>
-</div>	
 
 # Some practice functions
 
