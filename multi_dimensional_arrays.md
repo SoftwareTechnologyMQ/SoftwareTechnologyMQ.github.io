@@ -22,7 +22,7 @@ within: programming
 <img width = 400 src = "./assets/images/nonono.gif" alt="Nope">
 </p>
 
-Stay with me for a bit and see why should you let go of the *rows* and *columns* approach and adapt to *sets* approach.
+Stay with me for a bit and see why should you let go of the *rows* and *columns* approach and instead use the *sets* approach.
 
 Lets go through basic arrays and build up to 2-dimensional arrays.
 
@@ -34,8 +34,6 @@ Lets go through basic arrays and build up to 2-dimensional arrays.
 	```
 
 	![](./assets/images/arrayRefCopy.png)  
-
-	(Above example is from the lecture notes, btw)  
 	
 	In the following code, there are three references, each referring to its own instance.
 
@@ -152,6 +150,8 @@ So… why did I say that you shouldn’t think of 2-d arrays in terms of rows an
 	int[][][] mega = { data, { {50}, {30, 60} } };
 ```
 
+If anyone still insists on thinking of 2-dimensional arrays as rows and columns, ask them to explain a 4-dimensional array to you, without both your heads exploding.
+
 ## Example of passing multi-dimensional array to a function
 
 ```processing
@@ -267,4 +267,3 @@ What is the state of the array `arr` inside `setup()` after `reset3` is called?
 		data = { {0, 0}, {0, 0} };
 	}
 ```
-

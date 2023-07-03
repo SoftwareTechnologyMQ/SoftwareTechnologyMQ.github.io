@@ -212,3 +212,43 @@ void setup() {
 <details class="prereq" markdown="1"><summary>Solution</summary>
 Lines 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 4 -> 5 -> 6 -> 7 -> 4 -> 9 (loop executes twice)
 </details>
+
+## Activity 1.4
+
+Now, all (conditions, functions, loops together)
+
+```java
+int sum(int n) {
+	int result = 0;
+	while(n > 0) {
+		result+=n;
+		n--;
+	}
+	return result;
+}
+
+int product(int n) {
+	int result = 1;
+	while(n > 1) {
+		result*=n;
+		n--;
+	}
+	return result;
+}
+
+void setup() {
+	int x = 5;
+	int a = 0;
+	if(x%5 == 0) {
+		a = sum(x);
+	}
+	else {
+		a = product(x);
+	}
+	println(a);
+}
+```
+
+<details class="prereq" markdown="1"><summary>Solution</summary>
+Lines 20 -> 21 -> 26 -> 11 -> 12 -> 13 > 14 -> 12 -> 13 > 14 -> 12 -> 13 > 14 -> 12 -> 13 > 14 -> 12 -> 26 -> 28
+</details>
