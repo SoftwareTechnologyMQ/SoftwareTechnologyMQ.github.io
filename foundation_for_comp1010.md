@@ -25,8 +25,8 @@ within: programming
 
 To begin COMP1010, you need to know the following things:
 
-1. How to [trace control flow](#1.-tracing-control-flow) when there are variables conditions, loops, arrays and functions in your program.
-2. Be able to [define a basic to intermediate function](#2.-define-functions). We assume that if you can define a function, you also know how to call it, which in some cases might not be true, but easily fixable.
+1. How to [trace control flow](#1-tracing-control-flow) when there are variables conditions, loops, arrays and functions in your program.
+2. Be able to [define a basic to intermediate function](#2-define-functions). We assume that if you can define a function, you also know how to call it, which in some cases might not be true, but easily fixable.
 3. Be able to perform basic operations on an array (Examples below).
 
 # 1. Tracing control flow
