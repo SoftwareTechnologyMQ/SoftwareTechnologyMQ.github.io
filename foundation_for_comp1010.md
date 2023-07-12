@@ -557,7 +557,7 @@ int highest(int[] data) {
 
 ## Activity 3.2
 
-Define a function that when passed an array, returns `true` if all items are positive, `false` otherwise. Return `true` if the array is empty (known as *vacuous truth*)
+Define a function that when passed an array, returns `true` if all items are positive, `false` otherwise. Return `true` if the array is empty (a ceoncept known as *vacuous truth*)
 		
 <details class="prereq" markdown="1"><summary>Solution</summary>
 The logic is to find a single violation (an item that is NOT positive), and return `false` immediately. If no violations (that is, AFTER the loop), return `true`.
