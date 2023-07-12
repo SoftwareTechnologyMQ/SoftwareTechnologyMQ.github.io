@@ -25,8 +25,8 @@ within: programming
 
 To begin COMP1010, you need to know the following things:
 
-1. How to trace control flow when there are variables conditions, loops, arrays and functions in your program.
-2. Be able to define a basic to intermediate function (Examples below). We assume that if you can define a function, you also know how to call it, which in some cases might not be true, but easily fixable.
+1. How to [trace control flow](#1.-tracing-control-flow) when there are variables conditions, loops, arrays and functions in your program.
+2. Be able to [define a basic to intermediate function](#2.-define-functions). We assume that if you can define a function, you also know how to call it, which in some cases might not be true, but easily fixable.
 3. Be able to perform basic operations on an array (Examples below).
 
 # 1. Tracing control flow
@@ -251,4 +251,75 @@ void setup() {
 
 <details class="prereq" markdown="1"><summary>Solution</summary>
 Lines 20 -> 21 -> 22 -> 26 -> 11 -> 12 -> 13 > 14 -> 12 -> 13 > 14 -> 12 -> 13 > 14 -> 12 -> 13 > 14 -> 12 -> 26 -> 28
+</details>
+
+# 2. Define functions
+
+A function is a contract. If it receives the type of values it expects, it promises to give you an answer (return value). There are two things to identify in a function:
+
+1. Parameters (type of values a function expects)
+2. Return type (type of the answer it will give)
+
+## Example 2.1
+
+Define a function that when passed an integer, returns its last digit.
+
+The key skill you need to have to solve this problem is to know the `%` operator. It gives you the remainder. So `a%10` gives remainder when `a` is divided by 10, which is the last digit.
+
+### Attempt 2.1.1
+
+```java
+int lastDigit(int n) {
+	int result = n%10; 
+	return result;
+}
+```
+
+Here, the function will return the correct value if `n = 1729` but if `n = -1729`, it will return `-9` which is not really the last digit. This is because `negative % 10` is `negative`.
+
+### Attempt 2.1.2
+
+```java
+int lastDigit(int n) {
+	if(n < 0) {
+		n = -n;
+	}
+	return n%10;
+}
+```
+
+We just made sure `n` is non-negative before applying the `%` operator.
+
+### Variation of attempt 2.1.2
+
+Following is an equivalent version - just different style. We are performing the "moderation" on the result, rather than the input.
+
+```java
+int lastDigit(int n) {
+	int result = n%10;
+	if(result < 0) {
+		return -result;
+	}
+	else {
+		return result;
+	}
+}
+```
+
+## Activity 2.1
+
+Based on the above example, define a function which when passed an integer, returns `true` if it is positive (think about whether you really know what defines a positive number), `false` otherwise.
+
+<details class="prereq" markdown="1"><summary>Solution</summary>
+```java
+boolean isPositive(int n) {
+	if(n > 0) { //not n >= 0
+		return true;
+	}
+	else {
+		return false;
+	}
+	//also valid: return n > 0; //as the outcome of n > 0 is what you are returning
+}
+```
 </details>
