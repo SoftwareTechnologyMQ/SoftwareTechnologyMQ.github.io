@@ -23,7 +23,11 @@ within: programming
 
 # What do you need to know to begin COMP1010?
 
-To begin COMP1010, you need to know the following things:
+First of all, don't skim over this page. Read the whole thing. I promise you, the hour it takes for you to go through it will be worth it by the end of the session.
+
+![](./assets/images/important.gif)
+
+To begin COMP1010, the three most important skills are:
 
 1. How to [trace control flow](#1-tracing-control-flow) when there are variables conditions, loops, arrays and functions in your program.
 2. Be able to [define a basic to intermediate function](#2-define-functions). We assume that if you can define a function, you also know how to call it, which in some cases might not be true, but easily fixable.
