@@ -29,7 +29,7 @@ The easiest way to learn this is to think about real-life tasks such as:
   * personal tasks like getting dressed
   * mechanical tasks like washing clothes
   * computer tasks like working out the fastest route somewhere
-  * etc.
+  * and more...
 
 A task should have a simple purpose, it might need some resources and carrying out the task might effect other things.  
 
