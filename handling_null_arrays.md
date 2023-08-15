@@ -17,7 +17,7 @@ within: programming
 
 # Author: Gaurav Gupta
 
-The first thing one must understand is that the "contents" of an array is the memory where the items are stored. The *name* of the array is the *reference* while the actual collection of items is the *instance*.
+The first thing one must understand is that the "contents" of an array is a reference to the memory location where the items are stored. The *name* of the array is the *reference* while the actual collection of items is the *instance*.
 
 This has been emphasized under [Compound Data](https://softwaretechnologymq.github.io/compound_data).
 
