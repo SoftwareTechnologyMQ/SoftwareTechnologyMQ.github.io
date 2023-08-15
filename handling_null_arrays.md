@@ -95,7 +95,7 @@ Some of the examples for which the above code will generate run-time errors are:
 
 ```java
 int[] taxi = null;
-int[] cab = {{10, 70}, null, {20, 90}};
+int[] cab = { {10, 70}, null, {20, 90} };
 ```
 
 
@@ -120,8 +120,8 @@ This code will work for all possible two-dimensional sub-arrays such as:
 ```java
 int[] data = {10, 70, 20, 90};
 int[] taxi = null;
-int[] cab = {{10, 70}, null, {20, 90}};
-int[] mixedBag = {{10, 70, 20}, null, {90}, null, {}};
+int[] cab = { {10, 70}, null, {20, 90} };
+int[] mixedBag = { {10, 70, 20}, null, {90}, null, {} };
 ```
 
 # Moral of the story: 
