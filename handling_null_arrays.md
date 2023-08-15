@@ -12,7 +12,7 @@ within: programming
 </details>
 <details class="outcomes" markdown="1"><summary>Learning Outcomes</summary>
 
-  * Understand how to perform null checks on arrays.
+  * Understand why and how to perform `null` checks on arrays.
 </details>
 
 # Author: Gaurav Gupta
@@ -127,4 +127,4 @@ int[] mixedBag = {{10, 70, 20}, null, {90}, null, {}};
 # Moral of the story: 
 
 1. Always check an array is NOT null before accessing its length, and, 
-2. Always check the index is within bounds before accessing an item at that index
+2. Always check the index is within bounds before accessing an item at that index (our loop expressions are doing that in the above examples).
