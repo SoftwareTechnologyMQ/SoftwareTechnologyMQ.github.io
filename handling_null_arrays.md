@@ -21,7 +21,11 @@ The first thing one must understand is that the "contents" of an array is the me
 
 This has been emphasized under [Compound Data](https://softwaretechnologymq.github.io/compound_data).
 
-What will happen when you declare an integer variable and print it?
+Second - things will be much much easier if you draw memory diagrams (as shown in [Compound Data](https://softwaretechnologymq.github.io/compound_data).
+
+Let's dig in!
+
+What happens when you declare an integer variable and print it?
 
 ```java
 int a;
@@ -87,6 +91,13 @@ for(int i=0; i < twoDimArray.length; i++) {
 }
 ```
 
+Some of the examples for which the above code will generate run-time errors are:
+
+```java
+int[] taxi = null;
+int[] cab = {{10, 70}, null, {20, 90}};
+```
+
 
 ## Version 2 (Safe)
 
@@ -101,6 +112,16 @@ if(twoDimArray != null) {
 		}
 	}
 }
+```
+
+This code will work for all possible two-dimensional sub-arrays such as:
+
+
+```java
+int[] data = {10, 70, 20, 90};
+int[] taxi = null;
+int[] cab = {{10, 70}, null, {20, 90}};
+int[] mixedBag = {{10, 70, 20}, null, {90}, null, {}};
 ```
 
 # Moral of the story: 
