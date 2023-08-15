@@ -23,9 +23,9 @@ within: programming
 
 # What do you need to know to begin COMP1010?
 
-First of all, don't skim over this page. Read the whole thing. I promise you, the hour it takes for you to go through it will be worth it by the end of the session.
-
 ![](./assets/images/important.gif)
+
+First of all, **study** this chapter instead of *skimming over*. I promise you, the hour or so it takes for you to go through it will be worth it by the end of the session.
 
 To begin COMP1010, the three most important skills are:
 
