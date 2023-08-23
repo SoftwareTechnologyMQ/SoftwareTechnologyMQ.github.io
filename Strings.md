@@ -20,6 +20,14 @@ within: programming
 
 Strings are nothing but a character array (`char[]`) inside a parcel known as *class*. It has built-in functions operating **on** *variables* (actually *objects*) of the String type (actually *class*).
 
+# Practice problems
+
+The problems at codingbat are very helpful in understanding and applying the concepts as you go!
+
+- [https://codingbat.com/java/String-1](https://codingbat.com/java/String-1)
+- [https://codingbat.com/java/String-2](https://codingbat.com/java/String-2)
+
+So, keep those open in a second tab and solve them as you go through the following.
 
 ### Declaration and initialization
 
