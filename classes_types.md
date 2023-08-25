@@ -183,8 +183,13 @@ In the following example, `new Rectangle()` creates an instance (the green block
 r = new Rectangle(); //example
 ```
 
-![](./fig/03-classes-and-objects/classesObjects1-figure3.png)
+Here's (a somewhat) acurate memory diagram and the simplified representation we will use from this point onwards.
 
+![](./assets/images/memoryDiagramBasic.png)
+
+
+<!--![](./fig/03-classes-and-objects/classesObjects1-figure3.png)
+-->
 ### Combining declaration and instantiation
 
 ```java
