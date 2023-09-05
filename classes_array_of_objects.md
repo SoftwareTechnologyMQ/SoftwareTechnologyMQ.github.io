@@ -71,11 +71,23 @@ null
 null
 ```
 
-Each item of the array is a `Rectangle` reference, and initialised to the default value (which, for objects, is `null`).
-
 The memory diagram for the current state of the array is
 
 ![](./fig/03-classes-and-objects/array-of-objects-figure0.png)
+
+Each item of the array is a `Rectangle` reference, and initialised to the default value (which, for objects, is `null`).
+
+At this point, none of the items of the array refer to an instance of type Rectangle. This is checked using `instanceof` operation. So the following would display `Does not refer to Rectangle instance`.
+
+
+```java
+if(blocks[0] instanceof Rectangle) {
+	System.out.println("Refers to Rectangle instance");
+}
+else {
+	System.out.println("Does not refer to Rectangle instance");
+}
+```
 
 Any attempt to access an instance variable or instance method on any of the items of the array will throw a `NullPointerException`.
 
