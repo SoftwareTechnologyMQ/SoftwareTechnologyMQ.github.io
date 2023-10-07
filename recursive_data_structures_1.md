@@ -615,9 +615,9 @@ Node c = new Node(7, b);
 Node d = new Node(1, c);
 a.next = d;
 a.data = 	1000*d.data +
-		    100*d.next.data +
-		    10*d.next.next.data +
-		    1*d.next.next.next.data;
+		100*d.next.data +
+		10*d.next.next.data +
+		1*d.next.next.next.data;
 ```
 
 ### Task 9
