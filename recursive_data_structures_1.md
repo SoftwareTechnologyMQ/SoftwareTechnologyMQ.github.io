@@ -156,8 +156,8 @@ So, if I had a function:
 public static int sum(Node start) {
   int total = 0;
   while(start != null) {
-  total = total + start.data;
-  start = start.next;
+    total = total + start.data;
+    start = start.next;
   }
   return total;
 }
@@ -175,10 +175,10 @@ To calculate the sum of all nodes starting at a node `start`,
 ```java
 public static int sum(Node start) {
   if(start == null) {
-  return 0;
+    return 0;
   }
   else {
-  return start.data + sum(start.next);
+    return start.data + sum(start.next);
   }
 }
 ```
@@ -193,10 +193,10 @@ What is the bug in the following code?
 public static int sumPositives(Node start) {
   int total = 0;
   while(start != null) {
-  if(start.data > 0) {
-    total = total + start.data;
-    start = start.next;
-  }
+    if(start.data > 0) {
+      total = total + start.data;
+      start = start.next;
+    }
   }
   return total;
 }
@@ -211,10 +211,10 @@ Correct code:
 public static int sumPositives(Node start) {
   int total = 0;
   while(start != null) {
-  if(start.data > 0) {
-    total = total + start.data;
-  }
-  start = start.next;
+    if(start.data > 0) {
+      total = total + start.data;
+    }
+    start = start.next;
   }
   return total;
 }
@@ -226,9 +226,9 @@ Some people prefer a `for-loop` for this very reason:
 public static int sumPositives(Node start) {
   int total = 0;
   for(; start != null; start = start.next) {
-  if(start.data > 0) {
-    total = total + start.data;
-  }
+    if(start.data > 0) {
+      total = total + start.data;
+    }
   }
   return total;
 }
@@ -239,13 +239,13 @@ Recursive version:
 ```java
 public static int sumPositives(Node start) {
   if(start == null) {
-  return 0;
+    return 0;
   }
   if(start.data > 0) {
-  return start.data + sumPositives(start.next);
+    return start.data + sumPositives(start.next);
   }
   else {
-  return sumPositives(start.next);
+    return sumPositives(start.next);
   }
 }
 ```
@@ -256,10 +256,11 @@ If, for any reason, you need to hold on to the original reference of `start`, yo
 //this is the classic handshake algorithm
 public static boolean allUnique(Node start) {
   for(Node nodeA = start; nodeA != null; nodeA = nodeA.next) { //for all nodes
-  //check against all other nodes AFTER it
-  for(Node nodeB = nodeA.next; nodeB != null; nodeB = nodeB.next) { 
-    if(nodeA.data == nodeB.data) {
-    return false;
+    //check against all other nodes AFTER it
+    for(Node nodeB = nodeA.next; nodeB != null; nodeB = nodeB.next) { 
+      if(nodeA.data == nodeB.data) {
+        return false;
+      }
     }
   }
   return true;
@@ -271,14 +272,14 @@ Recursive version:
 ```java
 public static boolean allUnique(Node start) {
   if(start == null) {
-  return true; //vacuous truth
+    return true; //vacuous truth
   }
   return !contains(start.next, start.data) && allUnique(start.next);
 }
 
 public static boolean contains(Node start, int target) {
   if(start == null) {
-  return false;
+    return false;
   }
   return start.data == target || contains(start.next, target);
 }
@@ -322,7 +323,7 @@ Consider the following function that attempts to check if a specific rectangle e
 public static boolean contains(RNode start, Rectangle target) {
   for(Node current = start; current != null; current = current.next) { 
     if(current.data == target) {
-    return true;
+      return true;
     }
   }
   return false;
@@ -337,7 +338,7 @@ The right version is:
 public static boolean contains(RNode start, Rectangle target) {
   for(Node current = start; current != null; current = current.next) { 
     if(current.data.equals(target)) {
-    return true;
+      return true;
     }
   }
   return false;
@@ -351,10 +352,10 @@ Recursive version:
 ```java
 public static boolean contains(RNode start, Rectangle target) {
   if(start == null) {
-  return false;
+    return false;
   }
   else {
-  return start.data.equals(target) || contains(start.next, target);
+    return start.data.equals(target) || contains(start.next, target);
   }
 }
 ```
@@ -369,8 +370,8 @@ For example, a function that reverses a list and returns the reference to the st
 public static Node reversed(Node n) {
   Node temp = null;
   while(n != null) {
-  temp = new Node(n.data, temp);
-  n = n.next;
+    temp = new Node(n.data, temp);
+    n = n.next;
   }
   return temp;
 }
@@ -415,27 +416,27 @@ Instead, an *in-place* algorithm (HD example) modifies the existing list, so no 
 ```java
 public static void reverse(Node n) {
   for(int i=0; i < count(n)/2; i++) {
-  Node a = get(n, i);
-  Node b = get(n, count(n) - i - 1);
-  int temp = a.data;
-  a.data = b.data;
-  b.data = temp;
+    Node a = get(n, i);
+    Node b = get(n, count(n) - i - 1);
+    int temp = a.data;
+    a.data = b.data;
+    b.data = temp;
   }
 }
 
 public static int count(Node start) {
   if(start == null) {
-  return 0;
+    return 0;
   }
   return 1 + count(start.next);
 }
 
 public static Node get(Node start, int idx) {
   if(idx < 0 || idx >= count(start)) {
-  return null;
+    return null;
   }
   if(idx == 0) {
-  return start;
+    return start;
   }
   return get(start.next, idx-1);
 }
@@ -594,10 +595,10 @@ int result = 0;
 Node current = d;
 while(current != null) {
   if(current.data >= 20) {
-  result = result * 10 + 1;
+    result = result * 10 + 1;
   }
   else {
-  result = result * 10;
+    result = result * 10;
   }
   current = current.next;
 }
@@ -613,10 +614,10 @@ Node b = new Node(2, a);
 Node c = new Node(7, b);
 Node d = new Node(1, c);
 a.next = d;
-a.data =   1000*d.data +
-    100*d.next.data +
-    10*d.next.next.data +
-    1*d.next.next.next.data;
+a.data = 	1000*d.data +
+		    100*d.next.data +
+		    10*d.next.next.data +
+		    1*d.next.next.next.data;
 ```
 
 ### Task 9
@@ -628,9 +629,9 @@ public class TreeNode {
   public int data;
   public TreeNode left, right;
   public TreeNode(int d, TreeNode l, TreeNode r) {
-  data = d;
-  left = l;
-  right = r;
+    data = d;
+    left = l;
+    right = r;
   }
 }
 ```
@@ -645,6 +646,17 @@ TreeNode t3 = new TreeNode(70, t1, t2);
 
 ### Task 10
 
+Complete the following function that when passed the starting Node of a list of Node objects, returns the sum of all even numbers in the list.
+
+```java
+public static int sumEvens(Node start) {
+	//to be completed
+}
+```
+
+
+### Task 11
+
 Complete the following function that when passed the starting Node of a list of Node objects, returns `true` if all items in the list are in the range [0, 100].
 
 ```java
@@ -653,7 +665,7 @@ public static boolean allMarksValid(Node start) {
 }
 ```
 
-### Task 11
+### Task 12
 
 Complete the following function that when passed the starting Node of a list of Node objects, returns the number of items that are greater than the first item.
 
@@ -663,47 +675,66 @@ public static int countGreaterThanFirst(Node start) {
 }
 ```
 
-### Task 12
-
-Complete the following function that when passed the starting Nodes of two lists of Node objects, returns `true` if they are identical, and `false` otherwise.
-
-```java
-public static boolean identical(Node start1, Node start2) {
-	//to be completed
-}
-```
-
 ### Task 13
 
-Complete the following function that when passed the starting Node of a list of Node objects, remove all negative nodes from the list.
+Complete the following function that when passed the starting Node of a list of Node objects, returns a reference to the first Node that holds a positive value, `null` if none of the nodes do.
 
 ```java
-public static void removeNegatives(Node start) {
+public static Node firstEven(Node start) {
 	//to be completed
 }
 ```
 
 ### Task 14
 
-Complete the following function that when passed the starting Nodes of two lists of Node objects, returns the starting Node of the two merged together such that all items of the first list are in the resulting list before all the items of the second list (and in the original order). Neither of the original lists should be modified.
+Complete the following function that when passed the starting Node of a list of Node objects, returns a reference to the last Node that holds a positive value, `null` if none of the nodes do.
 
 ```java
-public static Node merge(Node start1, Node start2) {
+public static Node lastEven(Node start) {
 	//to be completed
 }
 ```
 
 ### Task 15
 
-Complete the following function that when passed the starting Node of a list of Node objects, returns the reference of the Node that begins the longest ascending sequence within the original list. Return the Node that occurs first in case of a tie. The original list should not be modified.
+Complete the following function that when passed the starting Node of a list of Node objects, returns `true` if it is in ascending order, `false` otherwise.
 
 ```java
-public static Node longestAscendingSequence(Node start) {
+public static boolean isAscending(Node start) {
 	//to be completed
 }
 ```
 
 ### Task 16
+
+Complete the following function that when passed the starting Node of a list of Node objects, returns `true` if it contains three of the same values next to each other, `false` otherwise.
+
+```java
+public static boolean threeInARow(Node start) {
+	//to be completed
+}
+```
+
+### Task 17
+
+Define a function named `identical` that when passed the starting Nodes of two lists of Node objects, returns `true` if they are identical, and `false` otherwise.
+
+
+### Task 18
+
+Define a function named `removeNegatives` that when passed the starting Node of a list of Node objects, remove all negative nodes from the list.
+
+
+### Task 19
+
+Define a function named `merge` that when passed the starting Nodes of two lists of Node objects, returns the starting Node of the two merged together such that all items of the first list are in the resulting list before all the items of the second list (and in the original order). Neither of the original lists should be modified.
+
+
+### Task 20
+
+Define a function named `longestAscendingSequence` that when passed the starting Node of a list of Node objects, returns the reference of the Node that begins the longest ascending sequence within the original list. Return the Node that occurs first in case of a tie. The original list should not be modified.
+
+### Task 21
 
 Define `Date`, `Time`, and `DateTime` classes (think about what they will contain), and create a class `NodeDateTime` that holds one `DateTime` object and one `NodeDateTime` object.
 
