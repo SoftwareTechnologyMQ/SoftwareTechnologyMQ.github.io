@@ -30,7 +30,9 @@ There are two common approaches to solving algorthmic problems:
 
 ## Iterative solution
 
-The distinctive property of *iterative* solutions is that they do not reduce a problem to a simpler form of itself.
+The distinctive property of *recursive* solutions is that they reduce a problem to a simpler form of itself.
+
+One example (shared by one of the students on MACS Discord) is if you are standing at the back of a very long queue, and you want to know how many people are in that queue, so you ask the person in front of you, *'how many people are in front of you?'*, and that person asks the person in front of them, *'how many people are in front of you?'*, and this keeps going down the queue until there is first person in the queue (base case), and that person will say *'there is one person in the queue - me'*. Then people will pass that information PLUS ONE (for themselves) to the person who asked them (the person behind them), until you get back to the person who originally asked the question, and then they have the answer. 
 
 ### EXAMPLE
 
