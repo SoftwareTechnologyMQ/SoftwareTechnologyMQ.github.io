@@ -363,7 +363,7 @@ public static boolean contains(RNode start, Rectangle target) {
 
 Anything you can do with loops, you can do recursively... sometimes, with the use of helper functions.
 
-For example, a function that reverses a list and returns the reference to the starting Node, such that if `n -> 10 -> 70 -> 20 -> 90 -> null`, it returns reference to a Node (say, k) such that `k -> 90 -> 20 -> 70 -> 10 -> null`.
+For example, a function that reverses a list and returns the reference to the starting Node, such that if `n -> 10 -> 70 -> 20 -> 90 -> null`, it returns a reference to a Node (say, k) such that `k -> 90 -> 20 -> 70 -> 10 -> null`.
 
 ```java
 public static Node reversed(Node n) {
@@ -499,7 +499,7 @@ public static Node reverse(Node node) {
 }
 ```
 
-# Homework - 2
+# Activities
 
 ### Task 1
 
@@ -550,7 +550,7 @@ a.next = d.next.next;
 
 ### Task 5
 
-For the class [Node](./Node.java), the following code attempts to store the sum of all items in the chain of nodes into a varaible `total`. However, it has a a bug. Briefly explain what is the problem with the code, and correct it.
+For the class [Node](./Node.java), the following code attempts to store the sum of all items in the chain of nodes into a variable `total`. However, it has a bug. Briefly explain what is the problem with the code, and correct it.
 
 ```java
 Node a = new Node(20, null);
@@ -567,7 +567,7 @@ while(current != null) {
 
 ### Task 6
 
-For the class [Node](./Node.java), the following code attempts to store the number of nodes in the chain into a variable `size`. However, it has a a bug. Briefly explain what is the problem with the code, and correct it.
+For the class [Node](./Node.java), the following code attempts to store the number of nodes in the chain into a variable `size`. However, it has a bug. Briefly explain what is the problem with the code, and correct it.
 
 ```java
 Node a = new Node(20, null);
@@ -642,3 +642,69 @@ TreeNode t1 = new TreeNode(20, null, null);
 TreeNode t2 = new TreeNode(-10, null, null);
 TreeNode t3 = new TreeNode(70, t1, t2);
 ```
+
+### Task 10
+
+Complete the following function that when passed the starting Node of a list of Node objects, returns `true` if all items in the list are in the range [0, 100].
+
+```java
+public static boolean allMarksValid(Node start) {
+	//to be completed
+}
+```
+
+### Task 11
+
+Complete the following function that when passed the starting Node of a list of Node objects, returns the number of items that are greater than the first item.
+
+```java
+public static int countGreaterThanFirst(Node start) {
+	//to be completed
+}
+```
+
+### Task 12
+
+Complete the following function that when passed the starting Nodes of two lists of Node objects, returns `true` if they are identical, and `false` otherwise.
+
+```java
+public static boolean identical(Node start1, Node start2) {
+	//to be completed
+}
+```
+
+### Task 13
+
+Complete the following function that when passed the starting Node of a list of Node objects, remove all negative nodes from the list.
+
+```java
+public static void removeNegatives(Node start) {
+	//to be completed
+}
+```
+
+### Task 14
+
+Complete the following function that when passed the starting Nodes of two lists of Node objects, returns the starting Node of the two merged together such that all items of the first list are in the resulting list before all the items of the second list (and in the original order). Neither of the original lists should be modified.
+
+```java
+public static Node merge(Node start1, Node start2) {
+	//to be completed
+}
+```
+
+### Task 15
+
+Complete the following function that when passed the starting Node of a list of Node objects, returns the reference of the Node that begins the longest ascending sequence within the original list. Return the Node that occurs first in case of a tie. The original list should not be modified.
+
+```java
+public static Node longestAscendingSequence(Node start) {
+	//to be completed
+}
+```
+
+### Task 16
+
+Define `Date`, `Time`, and `DateTime` classes (think about what they will contain), and create a class `NodeDateTime` that holds one `DateTime` object and one `NodeDateTime` object.
+
+Define a function that when passed the starting node of a list of `NodeDateTime` objects and an integer (say, n), returns `true` if the list contains at least `n` identical objects.
