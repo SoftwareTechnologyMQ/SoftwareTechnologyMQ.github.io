@@ -32,16 +32,6 @@ There are two common approaches to solving algorthmic problems:
 
 The distinctive property of *recursive* solutions is that they reduce a problem to a simpler form of itself.
 
-One example (shared by one of the students on MACS Discord) is if you are standing at the back of a very long queue, and you want to know how many people are in that queue.
-
-- You ask the person in front of you, *'how many people are in front of you?'*,
-- That person asks the person in front of them, *'how many people are in front of you?'*,
-- and this keeps going down the queue,
-- until ...
-- it reaches the first person in the queue (base case), and that person will say *'there is one person in the queue - me'*.
-- Then people will pass that information **PLUS ONE** (for themselves) to the person who asked them (the person behind them),
-- until you get back to the person who originally asked the question, and then they have the answer. 
-
 ### EXAMPLE
 
 Add all integers between `low` and `high` (inclusive on both sides, and assuming `low` <= `high`), I can go through each integer and add it to an accumulating variable, say `total`.
@@ -60,9 +50,19 @@ public static int sum(int low, int high) {
 
 The distinctive property of *recursive* solutions is that they reduce a problem to a simpler form of itself.
 
+One example (shared by one of the students on MACS Discord) is if you are standing at the back of a very long queue, and you want to know how many people are in that queue.
+
+- You ask the person in front of you, *'how many people are in front of you?'*,
+- That person asks the person in front of them, *'how many people are in front of you?'*,
+- and this keeps going down the queue,
+- until ...
+- it reaches the first person in the queue (base case), and that person will say *'there is one person in the queue - me'*.
+- Then people will pass that information **PLUS ONE** (for themselves) to the person who asked them (the person behind them),
+- until you get back to the person who originally asked the question, and then they have the answer.
+
 ### EXAMPLE
 
-For the same problem statement used for iterative solutions, we can say that the sum of all integers from `low` to `high` is:
+For the same problem statement (sum of all numbers from low to high) used for iterative solutions, we can say that the sum of all integers from `low` to `high` is:
 
 ```
 if low > high:
