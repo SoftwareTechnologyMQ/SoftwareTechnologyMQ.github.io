@@ -23,12 +23,9 @@ within: programming
 
 # What is recursion?
 
-There are two common approaches to solving algorthmic problems:
+There are two common approaches to solving algorithmic problems - _iterative_ and _recursive_.
 
-1. Iterative
-2. Recursive
-
-## Iterative solution
+## 1. Iterative solution
 
 The distinctive property of *recursive* solutions is that they reduce a problem to a simpler form of itself.
 
@@ -46,47 +43,56 @@ public static int sum(int low, int high) {
 }
 ```
 
-## Recursive solution
+## 2. Recursive solution
 
 The distinctive property of *recursive* solutions is that they reduce a problem to a simpler form of itself.
 
 One example (shared by one of the students on MACS Discord) is if you are standing at the back of a very long queue, and you want to know how many people are in that queue.
 
-- You ask the person in front of you, *'how many people are in front of you?'*,
-- That person asks the person in front of them, *'how many people are in front of you?'*,
+<p align="center">
+	<img src="./assets/images/queue.png" alt="drawing" style="width:400px;"/>
+</p>
+
+- You ask the person in front of you, *"How many people are in front of you?"*,
+- The person in front of you asks the person in front of them, *"How many people are in front of you?"*,
+- That person asks the person in front of them, *"How many people are in front of you?"*,
+- That person asks the person in front of them, *"How many people are in front of you?"*,
+- That person asks the person in front of them, *"How many people are in front of you?"*,
 - and this keeps going down the queue,
 - until ...
-- it reaches the first person in the queue (base case), and that person will say *'there is one person in the queue - me'*.
-- Then people will pass that information **PLUS ONE** (for themselves) to the person who asked them (the person behind them),
+- it reaches the first person in the queue (base case), and that person will say *"There is ONE person in the queue - me!"*.
+- the second person in the queue gets that answer (ONE), adds one to it (for themselves), and says "TWO" to the person behind them.
+- the third person in the queue gets that answer (TWO), adds one to it (for themselves), and says "THREE" to the person behind them.
+- So each person adds one to the answer they get and that's the answer they give the person behind them.
 - until you get back to the person who originally asked the question, and then they have the answer.
 
-### EXAMPLE
+### EXAMPLE 2
 
-For the same problem statement (sum of all numbers from low to high) used for iterative solutions, we can say that the sum of all integers from `low` to `high` is:
+Now, for the same problem statement used for iterative solutions, we can say that the sum of all integers from `low` to `high` is:
 
 ```
 if low > high:
-	return 0
-else
-	sub = sum of all integers from (low+1) to high
-	return (low + sub)
+    return 0
+else:
+    sub = sum of all integers from (low+1) to high
+    return (low + sub)
 ```
 
 Focus on the part,
 
->```
->sum of all integers from `low+1` to `high`
->```
+```
+sum of all integers from (low+1) to high
+```
 
-It is the same problem as the original problem, except there is one less number to handle, and thus is *simpler*.
+This is analogous to the same question we ask the person in front of us in the queue example.
+
+And our contribution to the answer is adding *low* to the answer we get.
 
 <iframe width="560"` height="315"` src="https://www.youtube.com/embed/KEEKn7Me-ms"` frameborder="0"` allow="autoplay; encrypted-media"` allowfullscreen></iframe>
-
 
 ## Equivalence
 
 It has been proven that there is a recursive solution for every iterative solution and vice versa. We will soon look at some of the aspects to consider while deciding on which approach to take.
-
 
 ## Advantages
 
