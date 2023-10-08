@@ -50,7 +50,7 @@ The distinctive property of *recursive* solutions is that they reduce a problem 
 One example (shared by one of the students on MACS Discord) is if you are standing at the back of a very long queue, and you want to know how many people are in that queue.
 
 <p align="center">
-	<img src="./assets/images/queue.png" alt="drawing" style="width:400px;"/>
+	<img src="./assets/images/queue.png" alt="drawing" style="width:600px;"/>
 </p>
 
 - You ask the person in front of you, *"How many people are in front of you?"*,
@@ -88,7 +88,7 @@ This is analogous to the same question we ask the person in front of us in the q
 
 And our contribution to the answer is adding *low* to the answer we get.
 
-<iframe width="560"` height="315"` src="https://www.youtube.com/embed/KEEKn7Me-ms"` frameborder="0"` allow="autoplay; encrypted-media"` allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KEEKn7Me-ms" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Equivalence
 
