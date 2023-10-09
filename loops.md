@@ -378,7 +378,7 @@ IMPORTANT: Anything you can do with `break` and `continue`, you can do without t
 
 ## break
 
-The `break` statements exists the **innermost** loop (to the statement immediately after it). It is useufl when you don't explicitly know the terminating value (as in example 1 below).
+The `break` statements exits the **innermost** loop (to the statement immediately after it). It is useful when you don't explicitly know the terminating value (as in example 1 below).
 
 ### Example 1
 
@@ -525,7 +525,7 @@ Control structures are literally like lego blocks, you can arrange them as you w
 
 Let's take some examples of a situation where such nesting is required.
 
-### Nesting scenario 1
+### Nesting Scenario 1
 
 (Thanks to Filip Zurawski for most of this explanation)
 
@@ -586,7 +586,7 @@ for (int i = 1; i <= 5; i++) { //i++ is the same as i=i+1 or i+=1
 }
 ```
 
-### Nesting scenario 2
+### Nesting Scenario 2
 
 
 Let's say this is the pattern we want to display in the console.
@@ -613,7 +613,7 @@ Let's look at our horizontal change (change within a line) now - we know it chan
 
 We also know our starting value in each row, which is `i`.
 
-The change is -1 for the first line, -2 for the second line and so on. We can have a second variable for that, `dec`. 
+The change is -1 for the first line, -2 for the second line, and so on. We can have a second variable for that, `dec`. 
 
 The inner loop runs 7 times and we start from 0 to make our calculations easier. 
 
@@ -628,9 +628,9 @@ for (int i = 5, dec=1; i <= 20; i+=5, dec++) {
 }
 ```
 
-### Nesting scenario 3
+### Nesting Scenario 3
 
-We would like to generate a pattern based on input integer `N > 0`
+We would like to generate a pattern based on the input integer `N > 0`
 
 
 `N=4`
@@ -930,13 +930,13 @@ Consider a party where there are 4 people. Call them Alice, Bob, Charles and Dia
 - Bob (already shook hands with Alice) with
 	1. Charles
 	2. Diane
-- Chales (already shook hands with Alice and Bob) with
+- Charles (already shook hands with Alice and Bob) with
 	1. Diane
 - Diane (already shook hands with everyone)
 
 Thus, there are 3+2+1 = 6 handshakes for 4 people.
 
-If a fifth person (Eddie) joins the party, he shakes hands with all others.
+If a fifth person (Eddie) joins the party, he shakes hands with all the others.
 
 Thus, there are **`4`**+`3`+`2`+`1` = `10` handshakes for 5 people.
 
