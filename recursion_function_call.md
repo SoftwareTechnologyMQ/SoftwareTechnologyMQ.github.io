@@ -21,6 +21,34 @@ within: programming
 
 ## Author: Gaurav Gupta
 
+# Why this page is important?
+
+Many times, we struggle to understand a concept, but do not realiZe that the actual issue is in one of the prerequisite concepts. This is especially true for recursion. An satisfactory understanding of how functions work is essential for a satisfactory understanding of recursion.
+
+Take this example (contributed by Daniel Sutantyo), and determine the output of the program (the value displayed):
+
+```java
+public class Client {
+  public static void main(String[] args) {
+    int n = 17;
+    update(n);
+    System.out.println(n);
+  }
+
+  int update(int n){
+    return n+12;
+  }
+}
+```
+
+<details class="solution" markdown="1"><summary>Explanation</summary>
+Congratulations if your answer is 17. 
+
+If your answer was 29, read on. Note the `n` inside the `main` method and the `n` inside the `update` method are physically different variables in memory. The value returned by the `update` method is ignored by the `main` method, and the `n` inside `main` remains unchanged.
+</details>
+
+The point of the above exercise is not to make you feel bad, but rather to emphasize that before you jump into recursion, you will greatly benefit from having a strong foundation, which you can, if you study this page sincerely.
+
 # Formal parameters vs. actual parameters
 
 - *Formal parameter* is the name used for the variable in the function definition.
