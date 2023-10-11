@@ -216,7 +216,7 @@ Stacks – **Undo**.
 
 - To check whether parentheses are balanced in an expression (or program) - Reading through the expression left-to-right
 - When I see an open parenthesis (`(` or `{` or `[`), I push it to the stack
-- When I see a close parenthesis (`)` or `}` or `]`), I ensure it matches wit the last open bracket and if so, I pop the stack.
+- When I see a close parenthesis (`)` or `}` or `]`), I ensure it matches with the last open bracket and if so, I pop the stack.
 - At the end, the stack should be empty.
 
 ### Example 1
