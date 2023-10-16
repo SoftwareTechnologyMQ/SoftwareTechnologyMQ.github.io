@@ -115,7 +115,7 @@ There is a mathematical equivalence where any iterative algorithm can be convert
 
 Try and write an iterative version of the above *back-tracking* algorithm. Only if you cannot solve it after a sincere effort, you should see the following solution, and more importantly, try to understand what it does. Note that this is purely to demonstrate the efficacy and beauty of recursive algorithms and a real-life scenario where one would prefer recursion over iteration - because it's the intuitive approach.
 
-<details class="Iterative version" markdown="1"><summary>solution</summary>
+<details class="solution" markdown="1"><summary>Iterative version</summary>
 ```java
 public static boolean addsUpTo(int[] data, int target) {
    int n = data.length;
