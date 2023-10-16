@@ -110,3 +110,42 @@ public static boolean addsUpTo(int[] data, int start, int target) {
 	return addsUpTo(data, start+1, target); //right (red path) - whatever it returns
 }
 ```
+
+There is a mathematical equivalence where any iterative algorithm can be converted to recursive and vice-versa.
+
+Try and write an iterative version of the above *back-tracking* algorithm. Only if you cannot solve it after a sincere effort, you should see the following solution, and more importantly, try to understand what it does. Note that this is purely to demonstrate the efficacy and beauty of recursive algorithms and a real-life scenario where one would prefer recursion over iteration - because it's the intuitive approach.
+
+<details class="Iterative version" markdown="1"><summary>solution</summary>
+```java
+public static boolean addsUpTo(int[] data, int target) {
+   int n = data.length;
+   int[] indexStack = new int[n + 1];
+   int[] sumStack = new int[n + 1];
+   indexStack[0] = 0;
+   sumStack[0] = 0;
+   int stackPointer = 1;
+
+   while (stackPointer > 0) {
+      int currentIndex = indexStack[stackPointer - 1];
+      int currentSum = sumStack[stackPointer - 1];
+      stackPointer--;
+      if (currentIndex >= n) {
+         if (currentSum == target) {
+            return true;
+         }
+         continue;
+      }
+      // Include the current element in the sum
+      indexStack[stackPointer] = currentIndex + 1;
+      sumStack[stackPointer] = currentSum + data[currentIndex];
+      stackPointer++;
+      // Exclude the current element from the sum
+      indexStack[stackPointer] = currentIndex + 1;
+      sumStack[stackPointer] = currentSum;
+      stackPointer++;
+   }
+
+   return false;
+}
+```
+</details>
