@@ -216,7 +216,7 @@ Stacks – **Undo**.
 
 - To check whether parentheses are balanced in an expression (or program) - Reading through the expression left-to-right
 - When I see an open parenthesis (`(` or `{` or `[`), I push it to the stack
-- When I see a close parenthesis (`)` or `}` or `]`), I ensure it matches wit the last open bracket and if so, I pop the stack.
+- When I see a close parenthesis (`)` or `}` or `]`), I ensure it matches with the last open bracket and if so, I pop the stack.
 - At the end, the stack should be empty.
 
 ### Example 1
@@ -319,16 +319,16 @@ The process to evaluate a valid RPN stored in a String is very simple. We assume
 ### Example 2:
 
 ```
-2 4 + 7 2 - /
+5 2 / 6 3 - *
 ```
 
-1. Item = 2, Stack = `2.0`
-2. Item = 5, Stack = `4.0 2.0`
-3. Item = +, Stack = `6.0`
-4. Item = 7, Stack = `7.0 6.0`
-5. Item = 2, Stack = `2.0 7.0 6.0`
-6. Item = -, Stack = `5.0 6.0`
-7. Item = /, Stack = `1.2`
+1. Item = 5, Stack = `5.0`
+2. Item = 2, Stack = `2.0 5.0`
+3. Item = /, Stack = `2.5`
+4. Item = 6, Stack = `6.0 2.5`
+5. Item = 3, Stack = `3.0 6.0 2.5`
+6. Item = -, Stack = `3.0 2.5`
+7. Item = *, Stack = `7.5`
 
 ## Code for evaluating RPN
 
