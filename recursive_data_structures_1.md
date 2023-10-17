@@ -680,7 +680,7 @@ public static int countGreaterThanFirst(Node start) {
 Complete the following function that when passed the starting Node of a list of Node objects, returns a reference to the first Node that holds a positive value, `null` if none of the nodes do.
 
 ```java
-public static Node firstEven(Node start) {
+public static Node firstPositive(Node start) {
 	//to be completed
 }
 ```
@@ -690,7 +690,7 @@ public static Node firstEven(Node start) {
 Complete the following function that when passed the starting Node of a list of Node objects, returns a reference to the last Node that holds a positive value, `null` if none of the nodes do.
 
 ```java
-public static Node lastEven(Node start) {
+public static Node lastPositive(Node start) {
 	//to be completed
 }
 ```
