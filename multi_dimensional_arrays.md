@@ -11,7 +11,7 @@ within: programming
 
 <details class="outcomes" markdown="1"><summary>Learning Outcomes</summary>
 
-  * Understand how to create a and operate on multi-dimensional arrays.
+  * Understand how to create, and operate on, multi-dimensional arrays.
 </details>
 
 # Author: Gaurav Gupta
@@ -24,9 +24,9 @@ within: programming
 
 Stay with me for a bit and see why should you let go of the *rows* and *columns* approach and instead use the *sets* approach.
 
-Lets go through basic arrays and build up to 2-dimensional arrays.
+Let us go through basic arrays and build up to 2-dimensional arrays.
 
-1.  It’s critical to understand the concept of `reference` and `instance`. In the following code, `src` and `dest` are two references that refer to the same instance that is the collection of values 10, 70, 20, 90 (and the length attribute is also tucked away somewhere).
+1.  It’s critical to understand the concept of `reference` and `instance`. In the following code, `src` and `dest` are two references that refer to the same instance that is the collection of values 10, 70, 20, and 90 (and the length attribute is also tucked away somewhere).
 
 	```processing
 	    int[] src = {10, 70, 20, 90};
@@ -64,19 +64,19 @@ Lets go through basic arrays and build up to 2-dimensional arrays.
 
 *   `data` has 3 items, each of type `int[]` inside it.
 *   First item of data (`data[0]`) is of type `int[]` and has 2 items (10 and 70), each of type `int` inside it.
-*   Second item of data (`data[1]`) is of type `int[]` and has 3 items (20, 90 and 30), each of type `int` inside it.
+*   Second item of data (`data[1]`) is of type `int[]` and has 3 items (20, 90, and 30), each of type `int` inside it.
 *   Third item of data (`data[2]`) is of type `int[]` and has 1 item (80), each of type `int` inside it.
 
 Now, we can go through each item in `data` using:
 
-```processing
+```java
     for(int i=0; i < data.length; i++) {
        //access to data[i] which is of type int[]
 ```
 
 If it helps you understand better, you can copy the current array into a local variable.
 
-```processing
+```java
     for(int i=0; i < data.length; i++) {
         int[] current = data[i]; //current is a reference copy of data[i]
     }
@@ -84,7 +84,7 @@ If it helps you understand better, you can copy the current array into a local v
 
 Then we can go through each item of current as well!
 
-```processing
+```java
     for(int i=0; i < data.length; i++) {
         int[] current = data[i]; //current is a reference copy of data[i]
         for(int k=0; k < current.length; k++) { //I (as in Gaurav, not int i) like to use k instead of j
@@ -104,7 +104,7 @@ The above will output:
 
 Now, if we back substitute `current` with `data[i]`, we get,
 
-```processing
+```java
     for(int i=0; i < data.length; i++) {
         for(int k=0; k < data[i].length; k++) { 
             print(data[i][k]+" ");
@@ -115,7 +115,7 @@ Now, if we back substitute `current` with `data[i]`, we get,
 
 *   If we need to find the total of all the items:
 
-```processing
+```java
     int total = 0;
     for(int i=0; i < data.length; i++) {
         for(int k=0; k < data[i].length; k++) { 
@@ -126,7 +126,7 @@ Now, if we back substitute `current` with `data[i]`, we get,
 
 *   If we need to find the highest value:
 
-```processing
+```java
     int highest = Integer.MIN_VALUE; //to override if and only if required
     for(int i=0; i < data.length; i++) {
         for(int k=0; k < data[i].length; k++) { 
@@ -139,13 +139,13 @@ Now, if we back substitute `current` with `data[i]`, we get,
 
 Note, you can also create the same array as:
 
-```processing
+```java
     int[][] data = { {10, 70}, {20, 90, 30}, {80}} ;
 ```
 
 So… why did I say that you shouldn’t think of 2-d arrays in terms of rows and columns? Because, as you see, not each sub-array needs to have the same number of items. Even if you ignore that (which you shouldn’t), while the above is easily to visual, the following is not:
 
-```processing
+```java
 	// assuming data is a two-dimensional array (int[][])
 	int[][][] mega = { data, { {50}, {30, 60} } };
 ```
@@ -154,7 +154,7 @@ If anyone still insists on thinking of 2-dimensional arrays as rows and columns,
 
 ## Example of passing multi-dimensional array to a function
 
-```processing
+```java
 	void setup() {
 		int[] a = {10, 70, 20, 90};
 		int[] b = {};
@@ -180,7 +180,7 @@ If anyone still insists on thinking of 2-dimensional arrays as rows and columns,
 
 ## Example of modiying contents of a multi-dimensional array in a function
 
-```processing
+```java
 	void setup() {
 		int[] a = {10, 70, 20, 90};
 		int[] b = {};
@@ -207,7 +207,7 @@ If anyone still insists on thinking of 2-dimensional arrays as rows and columns,
 
 What is the state of the array `arr` inside `setup()` after `reset1` is called?
 
-```processing
+```java
 	void setup() {
 		int[] a = {10, 70, 20, 90};
 		int[] b = {};
@@ -231,7 +231,7 @@ What is the state of the array `arr` inside `setup()` after `reset1` is called?
 
 What is the state of the array `arr` inside `setup()` after `reset2` is called?
 
-```processing
+```java
 	void setup() {
 		int[] a = {10, 70, 20, 90};
 		int[] b = {};
@@ -253,7 +253,7 @@ What is the state of the array `arr` inside `setup()` after `reset2` is called?
 
 What is the state of the array `arr` inside `setup()` after `reset3` is called?
 
-```processing
+```java
 	void setup() {
 		int[] a = {10, 70, 20, 90};
 		int[] b = {};
@@ -264,6 +264,6 @@ What is the state of the array `arr` inside `setup()` after `reset3` is called?
 	}
 	
 	void reset3(int[][] data) {
-		data = { {0, 0}, {0, 0} };
+		data = new int[][]{ {0, 0}, {0, 0} };
 	}
 ```
