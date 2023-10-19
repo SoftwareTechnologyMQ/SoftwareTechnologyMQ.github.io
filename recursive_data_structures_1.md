@@ -146,6 +146,114 @@ So, if you try to do anything using `n1` again, well ... good luck!
 
 Hence, we should always make a reference copy of the starting node before operating on it.
 
+## Some examples of traversing a recursive data structure
+
+We will assume the reference to the first node in the chain is in `head`.
+
+### 1. Count the number of items in the list
+
+```java
+Node temp = head;
+int count = 0;
+while(temp != null) {
+   count++;
+   temp = temp.next;
+}
+```
+
+### 2. Add up all odd numbers in the list
+
+```java
+Node temp = head;
+int countOdds = 0;
+while(temp != null) {
+   if(temp.data%2 != 0) {
+      countOdds++;
+   }
+   temp = temp.next;
+}
+```
+
+We can also use a for-loop to do the same:
+
+```java
+int countOdds = 0;
+for(Node temp = head; temp != null; temp = temp.next) {
+   if(temp.data%2 != 0) {
+      countOdds++;
+   }
+}
+```
+
+### 3. Checking if all items in the list are positive
+
+```java
+boolean allPositives = true;
+for(Node temp = head; temp != null && allPositives; temp = temp.next) {
+   if(temp.data%2 <= 0) { //any violation?
+      allPositives = false;
+   }
+}
+```
+
+Note how we updated the loop expression to `temp != null && allPositives` so as soon as the first non-positive item is found, we can exit the loop (without break, because ... *Ew!*)
+
+### 4. Remove the last item in the list
+
+```java
+if(head != null) { //there is at least one node in the list
+   if(head.next == null) { //there is only one node in the list
+      head = head.next;
+   }
+   else { //there are at least two nodes in the list
+      Node temp = head;
+      while(temp!=null && temp.next!=null) { 
+         temp = temp.next;
+      }
+      //temp is guaranteed to be hold a reference to the SECOND-LAST node in the list
+      temp.next = null; //de-reference temp.next so it doesn't refer to currently last node
+   }
+}
+```
+
+### 5. Remove the first zero in the list, if any,
+
+```java
+if(head!=null) {
+   if(head.data == 0) {
+      head = head.next;
+   }
+   else {
+      boolean found = false;
+      for(Node temp = head; temp.next!=null && !found; temp = temp.next) {
+         if(temp.next.data == 0) {
+            temp.next = temp.next.next; //make temp.next refer to the node after the next node
+            found = true;
+         }
+      }
+   }
+}
+```
+
+### 6. Removing ALL even numbers from the list
+
+```java
+//first remove all even nodes at the front
+while(head!=null && head.data%2 == 0) {
+   head = head.next;
+}
+//now remove all even nodes AFTER head, if any
+Node cur = head; 
+while(cur != null) { //cur, if not null, definitely contains an odd number
+   if(cur.next.data%2 == 0) {
+      cur.next = cur.next.next;
+   }
+   else {
+      cur = cur.next;
+   }
+}
+```
+
 ## Passing a node to a function
 
 Thankfully, that is exactly how objects are passed to functions - as reference copies of the actual parameter.
