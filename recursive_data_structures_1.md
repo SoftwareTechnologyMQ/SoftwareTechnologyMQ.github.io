@@ -392,7 +392,55 @@ public static boolean contains(Node start, int target) {
   return start.data == target || contains(start.next, target);
 }
 ```  
-  
+
+### You should be careful about your loop expression
+
+Consider an example where you want to check if a list contains the same item twice in a row (at reference x as well as x.next). Note: I am modifying the reference `start` here. This does not modify the *actual parameter* in the client.
+
+```java
+//BUGGY!!!
+public static boolean twoInARow(Node start) {
+	while(start != null) { //BUG!
+		if(start.data == start.next.data) { 
+			return true;
+		}
+		start = start.next;
+	}
+	return false;
+}
+```
+
+We are checking for the `data` value inside `start` as well as `start.next` but we have only ensured that `start` is not `null`. We need to check that `start.next` is not `null` either.
+
+If we simply check `while(start.next != null)`, that would cause a problem if `start` itself is `null`. Hence, the loop expression should be `while(start != null && start.next != null)`.
+
+```java
+//CORRECT
+public static boolean twoInARow(Node start) {
+	while(start != null && start.next != null) {
+		if(start.data == start.next.data) { 
+			return true;
+		}
+		start = start.next;
+	}
+	return false;
+}
+```
+
+Recursive version:
+
+```java
+//CORRECT
+public static boolean twoInARow(Node start) {
+	if (start != null || start.next != null) {
+		return false;
+	}
+	if(start.data == start.next.data) { 
+		return true;
+	}
+	return twoInARow(start.next);
+}
+```
 
 ## Nodes can hold other objects too
 
