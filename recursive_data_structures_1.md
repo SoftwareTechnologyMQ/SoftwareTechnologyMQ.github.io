@@ -430,9 +430,8 @@ public static boolean twoInARow(Node start) {
 Recursive version:
 
 ```java
-//CORRECT
 public static boolean twoInARow(Node start) {
-	if (start != null || start.next != null) {
+	if (start == null || start.next == null) {
 		return false;
 	}
 	if(start.data == start.next.data) { 
