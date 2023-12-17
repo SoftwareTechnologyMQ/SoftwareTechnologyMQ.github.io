@@ -339,7 +339,7 @@ Based on that, you'd like to determine how many trays are needed.
 
 The slight twist is that it's possible that not all trays will be full. For example, if you have 45 mangoes, with each tray holding 10 mangoes, you need 5 trays.
 
-Given this scenariom, define a function which when given the required information (think what that is), returns the number of trays required.
+Given this scenario, define a function which when given the required information (think about what that is), returns the number of trays required.
 
 <details class="prereq" markdown="1"><summary>Solution</summary>
 ```java
@@ -356,7 +356,7 @@ int nTrays(int nFruits, int traySize) {
 ```
 </details>
 
-Note that in the above solution, we have deliberately "spread" the solution out. We *could* have made it more compact. This is the trade-off between,
+Note that in the above solution, we have deliberately "spread" the solution out. We *could* have made it more compact. This is the trade-off between:
 
 1. Spread-out code: Easier to read/explain/debug, but long.
 2. Compact code: Short, but harder to read/explain/debug.
@@ -369,7 +369,7 @@ int nTrays(int nFruits, int traySize) {
 }
 ```
 
-Yes, it will work, and is clever, but explaining to someone or debugging is a pain.
+Yes, it will work, and is clever, but explaining it to someone or debugging it is a pain.
 
 Sometimes, the simplest solution is the best solution.
 
