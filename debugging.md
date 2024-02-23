@@ -44,7 +44,7 @@ Now, it's possible that the actual outputs you get from your code are as follows
 | -888       | 4      |
 {: .table}
 
-We need to find out why do some inputs have incorrect outputs. So we go through our design and implementation looking for possible bugs. A logical way to do this is to trace every variable at every stage and see where does the program deviate from the expected.
+We need to find out why do some inputs have incorrect outputs. So we go through our design and implementation looking for possible bugs. A logical way to do this is to trace every variable at every stage and see where the program deviates from the expected.
 
 ## Example 1
 
@@ -72,13 +72,13 @@ If you trace the program, you'll see that the loop executes when `i=1` and `resu
 | 4 |  false | |
 {: .table}
 
-Thus, the first bug is `result` should be initalized to 1 and not 0.
+Thus, the first bug is that `result` should be initalized to 1 and not 0.
 
 Our partially fixed code:
 
 <script src="https://gist.github.com/gaurav1780/526b68d197c7c3a705780af2fcef93c1.js"></script>
 
-The new input-output mappings are -
+The new input-output mappings are,
 
 | Input      | Expected Output | Actual Output |
 |------------|--|---|
@@ -122,11 +122,11 @@ Debug the following method for which the expected input-output mappings are prov
 </details>
 </div>
 
-## Performing debugging in Eclipse
+## Performing debugging in VS Code
 
 Most of the modern Integrated Development Environments (IDEs) have a comprehensive debugging feature that let's you trace the variables as your program executes.
 
-In the IDE we are using (Eclipse), the debugger relies of placing `breakpoints` that are like pitstops in car race. The program runs till the next breakpoint where you can see the values of all the variables and when you hit `resume`, it goes to the next breakpoint.
+In the IDE we are using (VS Code), the debugger relies of placing `breakpoints` that are like pitstops in car race. The program runs till the next breakpoint where you can see the values of all the variables and when you hit `continue`, it goes to the next breakpoint.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NQTQVYhmsL0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
@@ -201,6 +201,8 @@ Explanation -
 </div>
 
 # Relevant MQ Videos
+
+Note: the videos below include JUnit testing in Eclipse as well as VS Code. It is recommended you watch both, as the Eclipse video provides foundational information on using JUnit. Also, it's good to get familiar with some of the differences of working with different IDEs.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/iFJwFq_KmXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
