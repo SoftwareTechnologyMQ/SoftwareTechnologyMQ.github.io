@@ -243,7 +243,7 @@ int product(int n) {
 void setup() {
 	int x = 5;
 	int a = 0;
-	if(x%5 == 0) {
+	if(x/5 == 0) {
 		a = sum(x);
 	}
 	else {
