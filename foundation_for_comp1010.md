@@ -254,7 +254,7 @@ void setup() {
 ```
 
 <details class="prereq" markdown="1"><summary>Solution</summary>
-Lines 20 -> 21 -> 22 -> 26 -> 11 -> 12 -> 13 > 14 -> 12 -> 13 > 14 -> 12 -> 13 > 14 -> 12 -> 13 > 14 -> 12 -> 26 -> 28
+Lines 20 -> 21 -> 22 -> 26 -> 11 -> 12 -> 13 > 14 -> 12 -> 13 > 14 -> 12 -> 13 > 14 -> 12 -> 13 > 14 -> 12 -> 16 -> 26 -> 28
 </details>
 
 # 2. Define functions
