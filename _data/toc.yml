@@ -28,8 +28,10 @@ nav:
         url: /function_call_dissection
       - title: Scope
         url: /scope
-      - title: Compound Data
-        url: /compound_data
+      - title: Arrays
+        url: /arrays
+      - title: Arrays and Functions
+        url: /arrays_and_functions
       - title: Reference Semantics
         url: /reference_semantics
       - title: Multi-dimensional Arrays
