@@ -24,6 +24,7 @@ Strings are nothing but a character array (`char[]`) inside a parcel known as *c
 
 The problems at codingbat are very helpful in understanding and applying the concepts as you go!
 
+- [https://codingbat.com/home/gaurav.gupta@mq.edu.au/strings](https://codingbat.com/home/gaurav.gupta@mq.edu.au/strings)
 - [https://codingbat.com/java/String-1](https://codingbat.com/java/String-1)
 - [https://codingbat.com/java/String-2](https://codingbat.com/java/String-2)
 
