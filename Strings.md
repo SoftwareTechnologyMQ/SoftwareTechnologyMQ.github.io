@@ -176,7 +176,7 @@ String v = flag+""; //"false"
 
 ## Examples
 
-##### Example 1: Count number of spaces
+##### Example 1: Count the number of spaces
 
 ```java
 int count = 0;
@@ -187,7 +187,7 @@ for(int i=0; i < str.length(); i++) {
 }
 ```
 
-##### Example 2: Count number of digits
+##### Example 2: Count the number of digits
 
 ```java
 int count = 0;
@@ -229,6 +229,18 @@ for(int i=0; i < str.length() && stillPossible; i++) {
 	}
 }
 boolean isAlpha = stillPossible;
+```
+
+We can make the above function much more efficient by checking the uppercase (or lowercase) version of our String to be alphabetic! **This is a very useful strategy for String operations!** Modified code:
+
+```java
+String upper = str.toUpperCase();
+boolean isAlpha = true; //stores the final result
+for(int i=0; i < upper.length() && isAlpha; i++) {
+	if(str.charAt(i) < 'A' || str.charAt(i) > 'Z') {
+		isAlpha = false;
+	}
+}
 ```
 
 ## Useful functions
