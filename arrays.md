@@ -144,9 +144,13 @@ So you can have,
 - an array of 400 arrays
 - and so on...
 
-## Perhaps the most important concept to understand in arrays is the difference between a *reference* and an *instance*.
+## <s>Perhaps</s> The most important concept to understand in arrays is the difference between a *reference* and an *instance*.
+
+<br>
 
 ![](https://media.giphy.com/media/WV2tRAlb4Qc741GHVn/giphy.gif)
+
+<br>
 
 ### ***Reference*** - the variable name by which you know the array
 
