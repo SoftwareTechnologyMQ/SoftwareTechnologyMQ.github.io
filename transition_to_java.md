@@ -37,8 +37,8 @@ We have cut our teeth with Processing, but now it is time to graduate to the sam
 
   * [Java](https://www.oracle.com/au/java/): One of the [most popular programming language on the planet](https://www.tiobe.com/tiobe-index/).  Processing is a simplified subset of Java that simplified our first steps.
   * IDE
-  	* [Eclipse](https://www.eclipse.org/) (Supported, use extensively in the lectures), or,
   	* [Visual Studio Code](https://code.visualstudio.com/), or,
+  	* [Eclipse](https://www.eclipse.org/), or,
   	* [IntelliJ](https://www.jetbrains.com/idea/)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VAd5qs46z8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -73,19 +73,15 @@ The golden rule is: The name of the file must be exactly the same as the name of
 
 # Software to install and first program
 
-Install Eclipse IDE for Java Developers. Go to the drop-in centre (4RPD G02) with any technical issues and one of the staff will troubleshoot for you.
+Install Java SE/ JDK and Visual Studio Code. Go to the Computing Drop-in Centre (4RPD G02) with any technical issues and one of the staff will troubleshoot for you.
 
-1. [**Java Standard Edition (Java SE)**](http://www.oracle.com/technetwork/java/javase/downloads/index.html), previously known as Java Standard Development Kit (Java SDK). Current version (on the date of writing this document): `18.0.1.1`. You'll be fine as long as you have version 8 or above.
+## Installing Java and Visual Studio Code on Windows
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KaoWRGy8iTo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XhshWGx-Rp8?si=_nmNO0qCdd8nPmos" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-2. [**Eclipse IDE for Java developers**](https://eclipse.org/downloads/). Current version (on the date of writing this document): `2022-06`.
+## Installing Java and Visual Studio Code on Mac
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/44Gk6yWsHt0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-**NOTE:** You are free to use any other IDE besides Eclipse (such as Visual Studio Code or NetBeans or IntelliJ) if you want. However, we shall be doing all screencasts and video tutorials using Eclipse.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/44Gk6yWsHt0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i3oxlGHWKaQ?si=99qr9YjNYxPAWifI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Behind the scenes: Compiling and running java programs from command prompt or terminal
 
