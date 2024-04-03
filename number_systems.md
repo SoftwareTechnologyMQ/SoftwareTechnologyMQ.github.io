@@ -72,7 +72,7 @@ $$E2F_{16}$$ is a base-16 or hexadecimal value.
 $$1603_6$$ is is an invalid number since base-6 can only have digits between 0 and (6-1 = 5).
 
 Hexadecimal numbers are often prefixed with `0x`. For example `0x17c9` represents the hexadecimal number `17c9`.
-Similarly, binary numbers are often prefixed with `0b`. For example `0x1101` represents the binary number `1101`.
+Similarly, binary numbers are often prefixed with `0b`. For example `0b1101` represents the binary number `1101`.
 
 ## 2.1 Positional number systems
 
