@@ -70,6 +70,8 @@ The name of the file containing this code MUST be `HelloWorld.java` (not `helloW
 
 The golden rule is: The name of the file must be exactly the same as the name of the `public class` it contains (we'll see soon that a file can contain several classes, but only one `public class`). 
 
+This is an important rule relevant to all assignment submissions. Unless the file is named correctly, it will NOT be marked by automarker, given it will not compile!
+
 
 # Software to install and first program
 
