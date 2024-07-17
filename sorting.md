@@ -20,6 +20,8 @@ within: programming
 
 ## Author: Gaurav Gupta
 
+![](./assets/images/margeSort.jpeg)
+
 ## Why perform sorting?
 
 Sorting is a fundamental operation that,

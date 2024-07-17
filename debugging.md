@@ -122,11 +122,17 @@ Debug the following method for which the expected input-output mappings are prov
 </details>
 </div>
 
-## Performing debugging in Eclipse
+## Performing Debugging in Popular IDEs
 
-Most of the modern Integrated Development Environments (IDEs) have a comprehensive debugging feature that let's you trace the variables as your program executes.
+Most of the modern Integrated Development Environments (IDEs) have a comprehensive debugging feature that lets you trace the variables as your program executes.
 
-In the IDE we are using (Eclipse), the debugger relies of placing `breakpoints` that are like pitstops in car race. The program runs till the next breakpoint where you can see the values of all the variables and when you hit `resume`, it goes to the next breakpoint.
+The debugger relies of placing `breakpoints` that are like pitstops in a car race. The program runs till the next breakpoint where you can see the values of all the variables and when you hit `resume`, it goes to the next breakpoint.
+
+## Visual Studio Code
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zZ8ofDJeizs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Eclipse
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NQTQVYhmsL0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 

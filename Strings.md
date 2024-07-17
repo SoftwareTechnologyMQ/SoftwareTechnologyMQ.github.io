@@ -24,6 +24,7 @@ Strings are nothing but a character array (`char[]`) inside a parcel known as *c
 
 The problems at codingbat are very helpful in understanding and applying the concepts as you go!
 
+- [https://codingbat.com/home/gaurav.gupta@mq.edu.au/strings](https://codingbat.com/home/gaurav.gupta@mq.edu.au/strings)
 - [https://codingbat.com/java/String-1](https://codingbat.com/java/String-1)
 - [https://codingbat.com/java/String-2](https://codingbat.com/java/String-2)
 
@@ -175,7 +176,7 @@ String v = flag+""; //"false"
 
 ## Examples
 
-##### Example 1: Count number of spaces
+##### Example 1: Count the number of spaces
 
 ```java
 int count = 0;
@@ -186,7 +187,7 @@ for(int i=0; i < str.length(); i++) {
 }
 ```
 
-##### Example 2: Count number of digits
+##### Example 2: Count the number of digits
 
 ```java
 int count = 0;
@@ -230,12 +231,26 @@ for(int i=0; i < str.length() && stillPossible; i++) {
 boolean isAlpha = stillPossible;
 ```
 
+We can make the above function much more efficient by checking the uppercase (or lowercase) version of our String to be alphabetic! **This is a very useful strategy for String operations!** Modified code:
+
+```java
+String upper = str.toUpperCase();
+boolean isAlpha = true; //stores the final result
+for(int i=0; i < upper.length() && isAlpha; i++) {
+	if(str.charAt(i) < 'A' || str.charAt(i) > 'Z') {
+		isAlpha = false;
+	}
+}
+```
+
 ## Useful functions
 
 Some useful functions, and examples are:
 
 | Function                         | Comment                                                                              | Example                                                                                               | Outcome                                                                                        |
 |----------------------------------|--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| `charAt(int)`           | returns character at given index. Raises Exception if index invalid | 1. `"Super".charAt(3)` 2. `"Fine! I'll go!".charAt(30)`          | 1. `'e'` 2. Exception (invalid index)       |   
+| `length()`           | returns number of characters in the String | 1. `"Super".length()` 2. `"".length()`          | 1. `5` 2. `0`       |   
 | `indexOf(another String)`           | returns first index at which passed String is found, -1 if not found | 1. `"its a cool tool".indexOf("ool")` 2. `"its a cool tool".indexOf("OOL")`          | 1. `7` 2. `-1`       |      
 | `indexOf(char)`           | returns first index at which char is found, -1 if not found | 1. `"tipper".indexOf('p')` 2. `"tipper".indexOf('c')`     | 1. `2` 2. `-1`                     |
 | `substring(start)`               |                                                                                      | `"superman".substring(2)`                                                                               | `"perman"`                                                                                       |

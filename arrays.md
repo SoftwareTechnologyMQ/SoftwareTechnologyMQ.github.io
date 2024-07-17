@@ -1,22 +1,25 @@
 ---
 layout: page
-title: Compound Data
+title: Arrays
 within: programming
 ---
 
 <details class="prereq" markdown="1"><summary>Assumed Knowledge</summary>
 
   * <a href="variables">Variables</a>
+  * <a href="conditions">Conditions</a>
+  * <a href="loops">Loops</a>
 </details>
 
 <details class="outcomes" markdown="1"><summary>Learning Outcomes</summary>
 
-  * Understand how larger chunks of data are stored in a program
+  * Understand how to create, populate and operate on arrays
+  <!--* how larger chunks of data are stored in a program
   * Understand how to access these larger chunks of data
-  * Understand the most common data chunks, arrays
+  * Understand the most common data chunks, arrays-->
 </details>
 
-So far we have been working only with _atomic_ data.  That is data that is "just one thing" and can't be broken up.  This is getting unwieldy.  Everytime we have something to draw, we need to have an x-position and a y-position and so we need two variables for something we probably think of as just one thing (the position on the screen).
+<!--So far we have been working only with _atomic_ data.  That is data that is "just one thing" and can't be broken up.  This is getting unwieldy.  Every time we have something to draw, we need to have an x-position and a y-position and so we need two variables for something we probably think of as just one thing (the position on the screen).
 
 Wouldn't it be nice to have just one variable for both?  Yes, yes it would.  
 
@@ -44,7 +47,7 @@ So, compound data is _bigger_, so much so, that it can't fit into a single memor
 
 For compound data, a variable will point to one memory location that then tells you _where the larger chunk of memory is_.
 <aside markdown="1">
-Note that the reasons for this way of doing things are myriad.  In the end, it is the right way but we don't need to know all the reasons, we only need to know that it is so and know how to work with it.  Atomic data (`int`, `float`, `char`) is stored directly in their memory slot but compound data stored a "reference" to another location where the compound data is really stored.
+Note that the reasons for this way of doing things are myriad.  In the end, it is the right way but we don't need to know all the reasons, we only need to know that it is so and know how to work with it.  Atomic data (`int`, `float`, `char`) is stored directly in their memory slot but compound data reference is stored as a "reference" to another location where the compound data instance is stored.
 </aside>
 
 <div class="row">
@@ -118,14 +121,17 @@ Note:  objects are often taught with a related concept - classes - however, we w
 Note that the two different versions of compound data come with two different syntaxes for dereferences - for objects is it `.name` and for arrays it is `[number]`.  See below for details.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XavYru3jotQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+-->
 
 # Arrays
 
+<!--
 To understand how to use compound data, we will look at the most common compound data type, arrays.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NptnmWvkbTw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/47JBVxCWXJA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+-->
 
 An array is a fixed-sized collection of items, each item of the same type.
 
@@ -138,9 +144,13 @@ So you can have,
 - an array of 400 arrays
 - and so on...
 
-## Perhaps the most important concept to understand in arrays is the difference between a *reference* and an *instance*.
+## <s>Perhaps</s> The most important concept to understand in arrays is the difference between a *reference* and an *instance*.
+
+<br>
 
 ![](https://media.giphy.com/media/WV2tRAlb4Qc741GHVn/giphy.gif)
+
+<br>
 
 ### ***Reference*** - the variable name by which you know the array
 
@@ -154,7 +164,7 @@ There are a few ways to create an array.
 
 The most common way to create an array is by specifying the type and size of the array.
 
-```processing
+```java
 type[] arrayName = new type[size];
 ```
 
@@ -162,7 +172,7 @@ type[] arrayName = new type[size];
 
 #### Example - integer array
 
-```processing
+```java
 int[] arr = new int[5]; //an array that holds 5 integers
 ```
 
@@ -176,7 +186,7 @@ int[] arr = new int[5]; //an array that holds 5 integers
 
 #### Example - boolean array
 
-```processing
+```java
 boolean[] flags = new boolean[4]; //an array that holds 4 booleans
 ```
 
@@ -192,13 +202,13 @@ boolean[] flags = new boolean[4]; //an array that holds 4 booleans
 
 When you know the values that need to be stored in the array beforehand, you can create an array as,
 
-```processing
+```java
 type[] arrayName = {item1, item2, ....};
 ```
 
 #### Examples
 
-```processing
+```java
 int[] taxicab = {10, 70, 20, 90};
 ```
 
@@ -210,7 +220,7 @@ int[] taxicab = {10, 70, 20, 90};
 
 -----------------
 
-```processing
+```java
 int[] cutoffs = {50, 65, 75, 85};
 char[] punctuations = {'.', '!', '?', ',', ';', ':'};
 double[] significantNumbers = {3.141, 1.618, 2.718, 57.295, 1.202, 1.414};
@@ -227,7 +237,7 @@ Note that, given what we said above this means `.length` should be read as "foll
 
 For example,
 
-```processing
+```java
 int[] data = new int[20];
 println(data.length); //displays 20
 ```
@@ -241,7 +251,7 @@ println(data.length); //displays 20
 
 Thus you can traverse an array using a loop from `0` to `arr.length - 1` as,
 
-```processing
+```java
 for(int i=0; i < arr.length; i++) {
 	//do what you want with arr[i]
 }
@@ -253,7 +263,7 @@ Create an array that holds the outcome of 20 dice rolls.
 
 Each dice roll is a random integer between 1 and 6.
 
-```processing
+```java
 int[] outcomes = new int[20];
 for(int i=0; i < outcomes.length; i++) {
 	outcomes[i] = (int)random(1, 7); //remember 7 is not included
@@ -262,7 +272,7 @@ for(int i=0; i < outcomes.length; i++) {
 
 Then we can find out the average outcome as,
 
-```processing
+```java
 int total  = 0;
 for(int i=0; i < outcomes.length; i++) {
 	total += outcomes[i];
@@ -275,13 +285,13 @@ double average = (total * 1.0)/outcomes.length;
 
 Remember how we noted that the following only works when the array is FIRST created?
 	
-```processing
+```java
 int[] taxi = {10, 70, 20, 90};
 ```
 
 If we split this statement, it would be:
 
-```processing
+```java
 int[] taxi; //declaration - creates the reference
 
 // following ATTEMPTS to link the reference to the instance. 
@@ -292,24 +302,24 @@ taxi = {90, 20, 70, 10}; //INCORRECT
 
 Once an array reference is created, to re-reference it to a new instance, you have to use the following syntax:
 
-```processing
+```java
 arrayName = new Type[size];
 ```
 
 or 
 
-```processing
+```java
 arrayName = new Type[]{item1, item2, ...};
 ```
 
 For example,
 
-```processing
+```java
 taxicab = {90, 20, 70, 10}; 			//INCORRECT
 taxicab = new int[]{90, 20, 70, 10}; 	//CORRECT
 ```
 
-```processing
+```java
 boolean[] switches;
 
 switches = {true, false, true}; 				//INCORRECT
@@ -323,7 +333,7 @@ You can also re-reference an array to another instance already created (and refe
 When an array, say `src`, is copied into another array, say `dest`, both references - `src` and `dest` - refer to the instance to which `src` was originally referring.
 
 
-```processing
+```java
 int[] src = {10, 70, 20, 90};
 int[] dest = src;
 ```
@@ -334,14 +344,14 @@ We call this a ***reference copy***.
 
 **NOTE:** The type of arrays must be the same. You cannot copy an `int` array into a `float` array. The following will not work:
 
-```processing
+```java
 int[] taxi = {10, 70, 20, 90};
 float[] cab = taxi; //Compilation error!
 ```
 
 ### Another example
 
-```processing
+```java
 int[] a = {70, 80, 60};
 int[] b = {10, 70, 20, 90};
 int[] c = a;
@@ -364,162 +374,11 @@ a = b;
 
 ![](./assets/images/refCopyStep4.png)
 
-# Passing an array to a function
-
-When you pass an array to a function, a reference copy of the actual parameter is made into the formal parameter. Thus, the array inside the function refers to the same array that was passed.
-
-```processing
-void setup() {
-	int[] data = {10, 70, 20, 90};
-	int sum = total(data); //outputs 190
-}
-
-int total(int[] arr) {
-	int result = 0;
-	for(int i=0; i < arr.length; i++) {
-		result+=arr[i];
-	}
-	return result;
-}
-```
-
-Here, `arr` is a reference copy of `data`.
-
-![](./assets/images/passingArrayToFunction.png)
-
-
-Another example:
-
-![](./assets/images/passingArrayToFunction.drawio.png)
-
-
-## Modifying array contents inside a function
-
-When you modify the **contents of** an array inside a function, the **contents of** the passed array are also modified, because we are operating on the reference copy (see previous diagram).
-
-```processing
-void setup() {
-	int[] data = {10, 70, 20, 90};
-	negate(data);
-	for(int i=0; i < data.length; i++) {
-		print(data[i]+" ");
-	} //outputs -10 -70 -20 -90
-}
-
-void negate(int[] arr) {
-	int result = 0;
-	for(int i=0; i < arr.length; i++) {
-		arr[i]*=-1;
-	}
-}
-```
-
-![](./assets/images/modifyingArrayContentsInsideFunction.png)
-
-
-## Modifying an array itself inside a function
-
-When you modify (re-reference) the array itself inside a function, the passed array is NOT modified, because we re-referenced the reference copy.
-
-```processing
-void setup() {
-	int[] data = {10, 70, 20, 90};
-	expand(data);
-	for(int i=0; i < data.length; i++) {
-		print(data[i]+" ");
-	} //outputs 10 70 20 90
-}
-
-void expand(int[] arr) {
-	arr = new int[10];
-}
-```
-
-![](./assets/images/modifyingArrayInsideFunction.png)
-
-## Returning an array from a function
-
-You can always create an array and return it from a function
-
-### Example 1 (with memory diagram)
-
-![](./assets/images/functionReturningArray.drawio.png)
-
-### Example 2
-
-```processing
-void setup() {
-	int[] data = {10, 70, -20, -90, 30, 80, 60, 0, -50};
-	
-	int[] sub = getFirst(data, 4);
-	
-	for(int i=0; i < sub.length; i++) {
-		print(sub[i]+" ");
-	} //outputs 10 70 -20 -90
-	
-	int[] bar = getFirst(data, 2);
-	for(int i=0; i < bar.length; i++) {
-		print(bar[i]+" ");
-	} //outputs 10 70
-	
-	
-	for(int i=0; i < data.length; i++) {
-		print(data[i]+" ");
-	} //outputs 10 70 -20 -90 30 80 60 0 -50
-}
-
-int[] getFirst(int[] arr, int n) { //we assume n>=0, n<arr.length
-	int[] result = new int[n];
-	for(int i=0; i < n; i++) {
-		result[i] = arr[i];
-	}
-	return result;
-}
-```
-
-### Example 3
-
-```processing
-void setup() {
-	int[] data = {10, 70, -20, -90, 30, 80, 60, 0, -50};
-	
-	int[] negs = getNegativeItems(data);
-	
-	for(int i=0; i < negs.length; i++) {
-		print(negs[i]+" ");
-	} //outputs -20 -90 -50
-	
-	for(int i=0; i < data.length; i++) {
-		print(data[i]+" ");
-	} //outputs 10 70 -20 -90 30 80 60 0 -50
-}
-
-int[] getNegativeItems(int[] arr) {
-	int count = 0;
-	for(int i=0; i < arr.length; i++) {
-		if(arr[i] < 0) { //negative
-			count++;
-		}
-	}
-	
-	int[] result = new int[count]; 
-	
-	int destIndex = 0;
-	for(int i=0; i < arr.length; i++) {
-		if(arr[i] < 0) { //negative
-			result[destIndex] = arr[i];
-			destIndex++;
-		}
-	}
-	return result;
-}
-```
-
 # Instance copy of an array
 
 When you want to *duplicate* or *clone* an array, you can create an array of the same size as the original array, and copy all items over. This is known as *instance copy*.
 
-```processing
+```java
 int[] source = {10, 70, 20, 90};
 
 //creating an instance copy of source into destination -
@@ -556,7 +415,7 @@ Create the following arrays:
 
 Draw the memory diagram for the following code,
 
-```processing
+```java
 int[] data = new int[]{50, 90, 30, 20, 60};
 ```
 
@@ -564,7 +423,7 @@ int[] data = new int[]{50, 90, 30, 20, 60};
 
 Draw the memory diagram for the following code,
 
-```processing
+```java
 int[] data = new int[6];
 for(int i=0; i < data.length; i++) {
 	if(i%2 == 0) {
@@ -580,7 +439,7 @@ for(int i=0; i < data.length; i++) {
 
 List the references and instance created in the following code.
 
-```processing
+```java
 int[] a = {10, 70, 20, 90};
 int[] b = a;
 char[] c = {'h', 'e', 'y', '!'};
@@ -592,7 +451,7 @@ boolean b = new boolean[10];
 
 Explain why the following code will not compile.
 
-```processing
+```java
 int[] a = {10, 70, 20, 90};
 int[] b = new int[10];
 b[2] = a;
@@ -614,7 +473,7 @@ Write a piece of code that creates the arrays represented in the following diagr
 
 Draw the memory diagram for the following code,
 
-```processing
+```java
 int[] a = {4,8,15,16,23,42};
 int[] b = a;
 b[2] = 100;
@@ -631,7 +490,7 @@ For example, if the first few items of the array are `{20, 5, 8, 4, 4, ...}`, 20
 
 Consider the following piece of code.
 
-```processing
+```java
 int[] items = new int[10];
 items[0] = 1;
 for(int i=1; i < items.length; i++) {
@@ -640,34 +499,6 @@ for(int i=1; i < items.length; i++) {
 ```
 
 What are the contents of the array `items`?
-
-## Exercise 13
-
-Complete the following function defintiion. The name of the function clearly indicates what is expected from the function.
-
-```processing
-int countPositiveItems(float[] data) {
-	return 0; //to be completed
-}
-```
-
-## Exercise 14
-
-Define a function that when passed an integer array, returns the number of odd numbers in the array.
-
-## Exercise 15
-
-Define a function that when passed two boolean arrays, returns `true` if they contain the same number of items, `false` otherwise. 
-
-## Exercise 16
-
-Define a function that when passed two floating-point arrays that are guaranteed to be of the same lengths, returns an array where each item is the product of the corresponding items in the passed arrays.
-
-For example, if the arrays passed are `{1.2, 1.5, 1.3}` and `{1.8, 1.6, 1.9}`, the array returned should be `{1.2*1.8, 1.5*1.6, 1.4*1.9}`.
-
-## Exercise 17
-
-Define a function that when passed a `char` array, returns the reverse of the array. The array passed should NOT be modified.
 
 # Furthering your understanding
 
@@ -679,7 +510,7 @@ Define a function that when passed a `char` array, returns the reverse of the ar
 The ages of 20 people is stored in an array `ageList`. Write a piece of code that determines the range of the distribution. That is, the age difference between the oldest and the youngest person.
 
 <details markdown="1"><summary>Solution</summary>
-```processing
+```java
 //assuming ageList is a boolean array containing 20 items
 
 int min = ageList[0];
@@ -705,7 +536,7 @@ int range = max - min;
 The state of 25 electrical switches is held in an array `smartSwitches`. The states can be "On" (true) or "Off" (false). Write a piece of code that toggles all switches. That is, all switches that are currently "On" should turn "Off", and all switches that are currently "Off" should turn "On".
 
 <details markdown="1"><summary>Solution</summary>
-```processing
+```java
 //assuming smartSwitches is a boolean array containing 25 items
 
 for(int i=0; i < smartSwitches.length; i++) {
@@ -729,7 +560,7 @@ Assume that we are encoding birthdays as integers where:
 The birthdays of 1000 people is stored in an array `bdays`. Write a piece of code that displays the most frequent date of birth. For the basic version, you may display an integer between 0 and 365. For the advanced version, display the actual data in `DD/MM` format.
 
 <details markdown="1"><summary>Solution</summary>
-```processing
+```java
 //assuming bdays is an array containing 1000 items
 //such that each item is in range [0...365]
 
@@ -774,7 +605,7 @@ I keep track of the time taken (in minutes) to run each kilometer over a 100km r
 Write a piece of code that determines my fastest lap (for example, display "Kilometer 0-1" if the first kilometer was the fastest, and "Kilometer 63-64" if the 64th kilometer was the fastest.)
 
 <details markdown="1"><summary>Solution</summary>
-```processing
+```java
 //assuming lapTimes is a float array containing 100 items
 int fastestLap = 0;
 for(int i=1; i < lapTimes.length; i++) {
