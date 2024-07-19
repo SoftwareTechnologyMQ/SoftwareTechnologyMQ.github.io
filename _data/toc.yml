@@ -63,6 +63,10 @@ nav:
         url: /debugging
       - title: Unit Testing
         url: /unit_testing
+      - title: Lists
+        url: /lists
+      - title: Iteration
+        url: /iteration
       - title: Classes - Writing your own Types
         url: /classes_types
       - title: Classes - Copying objects
@@ -85,10 +89,6 @@ nav:
         url: /recursion-tail
       - title: Recursion with arrays
         url: /recursion-arrays
-      - title: Lists
-        url: /lists
-      - title: Iteration
-        url: /iteration
       - title: List of Lists
         url: /listOfLists
       - title: Sorting Algorithms
