@@ -168,11 +168,14 @@ Order of operations is,
 
 ## Short-circuiting `&&`
 
-If the first of the two boolean values is `false`, Processing or java doesn't bother evaluating the second boolean value.
+If the first of the two values separated by `&&` is `false`, the expression is evaluated to `false` without evaluating the second value. That is,
 
+```java
+false && b = false //irrespective of the value of b
+```
 For example:
 
-```processing
+```java
 int a = 3;
 boolean b = a>=10 && a<=20;
 ```
@@ -185,7 +188,7 @@ Here,
 
 Hence, the expression becomes:
 
-```processing
+```java
 false && a<=20
 ```
 
@@ -194,8 +197,11 @@ So, no need to evaluate the second sub-expression.
 
 ## Short-circuiting `||`
 
-If the first of the two sub-expressions (`a`) is `true`, `a || b` becomes true.
+If the first of the two values separated by `||` is `true`, the expression is evaluated to `true` without evaluating the second value. That is,
 
+```java
+true || b = true //irrespective of the value of b
+```
 |Short-circuit logic summary|
 |---|
 |<code>false && anything = false</code>|
