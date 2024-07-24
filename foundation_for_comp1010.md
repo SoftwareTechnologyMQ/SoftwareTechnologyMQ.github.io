@@ -561,19 +561,22 @@ int highest(int[] data) {
 
 ## Activity 3.2
 
-Define a function that when passed an array, returns `true` if all items are positive, `false` otherwise. Return `true` if the array is empty (a ceoncept known as *vacuous truth*)
+Define a function that when passed an array, returns `true` if all items are positive, `false` otherwise. Return `true` if the array is empty (a concept known as *vacuous truth*)
 		
 <details class="prereq" markdown="1"><summary>Solution</summary>
 The logic is to find a single violation (an item that is NOT positive), and return `false` immediately. If no violations (that is, AFTER the loop), return `true`.
 
 ```java
 boolean allPositives(int[] data) {
-	for(int i=0; i < data.length; i++) {
-		if(data[i] <= 0) { //a single violation
-			return false;l
+	if (data != null) {
+		for(int i=0; i < data.length; i++) {
+			if(data[i] <= 0) { //a single violation
+				return false;
+			}
 		}
 	}
 	return true;
 }
 ```
+One point you'll notice is that if the data set is null, we are still returning true. The logic behind this is the same as the array being empty - we are trying to deduce if a *violation* has occured. With a null array, there is no violation of our rule. We may seek a different response if we were instead adopting a *validation* approach. And yes, computer scientists have had big arguments about this!
 </details> 
