@@ -160,14 +160,19 @@ The syntax to create an ArrayList object is:
 
 ```java
 ArrayList<Object> name = new ArrayList<Object>();
+
+//or
+
+ArrayList<Object> name = new ArrayList<>();
 ```
 
 Some examples:
 
 ```java
-ArrayList<Integer> list1 = new ArrayList<Integer>(); //list of integers
-ArrayList<String> list2 = new ArrayList<String>(); //list of String objects
-ArrayList<Rectangle> list3 = new ArrayList<Rectangle>(); //list of our beloved user-defined Rectangle objects
+ArrayList<Integer> list1 = new ArrayList<Integer>(); //list of Integer objects (int values)
+ArrayList<String> list2 = new ArrayList<>(); //list of String objects
+ArrayList<Character> list3 = new ArrayList<>(); //list of Character objects (char values)
+ArrayList<Rectangle> list4 = new ArrayList<Rectangle>(); //list of our beloved user-defined Rectangle objects
 ```
 
 # List of selected methods in ArrayList class
