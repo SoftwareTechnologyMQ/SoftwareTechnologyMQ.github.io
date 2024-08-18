@@ -37,7 +37,7 @@ If we hold this information in an array, it's rather primitive and lacks context
 
 ```java
 public class TVData {
-	public int[] minutes;
+  public int[] minutes;
 }
 ```
 
@@ -55,19 +55,19 @@ Next, we add a constructor with an array passed that will be **reference-copied*
 
 ```java
 public class TVData {
-	public int[] minutes;
+  public int[] minutes;
 
-	public TVData(int[] source) {
-		minutes = source; //reference copy made into array
-	}
+  public TVData(int[] source) {
+    minutes = source; //reference copy made into array
+  }
 
-	public int totalViewingTime() {
-		int result = 0;
-		for(int i=0; i < minutes.length; i++) {
-			result+=minutes[i];
-		}
-		return result;
-	}
+  public int totalViewingTime() {
+    int result = 0;
+    for(int i=0; i < minutes.length; i++) {
+      result+=minutes[i];
+    }
+    return result;
+  }
 }
 ```
 
@@ -75,12 +75,12 @@ The following client gives an example of how the object will be created and used
 
 ```java
 public class GoodClient {
-	public static void main(String[] args) {
-		int[] src = {120, 90, 180};
-		TVData record = new TVData(src); //populate with array src
-		int total = record.totalViewingTime();
-		System.out.println(total+" minutes viewed");
-	}
+  public static void main(String[] args) {
+    int[] src = {120, 90, 180};
+    TVData record = new TVData(src); //populate with array src
+    int total = record.totalViewingTime();
+    System.out.println(total+" minutes viewed");
+  }
 }
 ```
 ![](fig/03-classes-and-objects/classHoldingArrayReferenceCopy.png)
@@ -97,17 +97,17 @@ What happens when we change the contents of the source data AFTER populating our
 
 ```java
 public class BadClient {
-	public static void main(String[] args) {
-		int[] src = {120, 90, 180};
-		TVData record = new TVData(src); //populate with array src
+  public static void main(String[] args) {
+    int[] src = {120, 90, 180};
+    TVData record = new TVData(src); //populate with array src
 
-		//so far, so good
+    //so far, so good
 
-		src[0] = -400; //nothing stops us from doing so
+    src[0] = -400; //nothing stops us from doing so
 
-		int total = record.totalViewingTime();
-		System.out.println(total+" minutes viewed");
-	}
+    int total = record.totalViewingTime();
+    System.out.println(total+" minutes viewed");
+  }
 }
 ```
 
@@ -123,15 +123,15 @@ Everything else remains the same, but we change the constructor as follows,
 
 ```java
 public TVData(int[] source) {
-	if(source == null) {
-		minutes = new int[0]; //empty array
-	}
-	else {
-		minutes = new int[source.length];
-		for(int i=0; i < source.length; i++) {
-			minutes[i] = Math.max(0, source[i]); //some more validation
-		}
-	}
+  if(source == null) {
+    minutes = new int[0]; //empty array
+  }
+  else {
+    minutes = new int[source.length];
+    for(int i=0; i < source.length; i++) {
+      minutes[i] = Math.max(0, source[i]); //some more validation
+    }
+  }
 }
 ```
 
@@ -155,19 +155,19 @@ Say we want to create a "connect-the-dots" game where multiple points are presen
 
 ```java
 public class ConnectTheDots {
-	public Point[] points;
+  public Point[] points;
 
-	public ConnectTheDots(Point[] source) {
-		if(source == null) {
-			points = new Point[0];
-		}
-		else {
-			points = new Point[source.length];
-			for(int i=0; i < points.length; i++) {
-				points[i] = source[i];
-			}
-		}
-	}
+  public ConnectTheDots(Point[] source) {
+    if(source == null) {
+      points = new Point[0];
+    }
+    else {
+      points = new Point[source.length];
+      for(int i=0; i < points.length; i++) {
+        points[i] = source[i];
+      }
+    }
+  }
 }
 ```
 
@@ -182,19 +182,19 @@ There is one logical mistake in the above code.
 
 ```java
 public class ConnectTheDots {
-	public Point[] points;
+  public Point[] points;
 
-	public ConnectTheDots(Point[] source) {
-		if(source == null) {
-			points = new Point[0];
-		}
-		else {
-			points = new Point[source.length];
-			for(int i=0; i < points.length; i++) {
-				points[i] = new Point(source[i]);
-			}
-		}
-	}
+  public ConnectTheDots(Point[] source) {
+    if(source == null) {
+      points = new Point[0];
+    }
+    else {
+      points = new Point[source.length];
+      for(int i=0; i < points.length; i++) {
+        points[i] = new Point(source[i]);
+      }
+    }
+  }
 }
 ```
 
@@ -209,32 +209,32 @@ Still one issue :(
 
 ```java
 public class ConnectTheDots {
-	public Point[] points;
+  public Point[] points;
 
-	public ConnectTheDots(Point[] source) {
-		if(source == null) {
-			points = new Point[0];
-		}
-		else {
-			int nonNullPoints = 0;
+  public ConnectTheDots(Point[] source) {
+    if(source == null) {
+      points = new Point[0];
+    }
+    else {
+      int nonNullPoints = 0;
 
-			for(int i=0; i < source.length; i++) {
-				if(source[i] != null) {
-					nonNullPoints++;
-				}
-			}
+      for(int i=0; i < source.length; i++) {
+        if(source[i] != null) {
+          nonNullPoints++;
+        }
+      }
 
-			points = new Point[nonNullPoints];
+      points = new Point[nonNullPoints];
 
-			int k = 0; //destination index
-			for(int i=0; i < source.length; i++) {
-				if(source[i] != null) {
-					points[k] = new Point(source[i]);
-					k++;
-				}
-			}
-		}
-	}
+      int k = 0; //destination index
+      for(int i=0; i < source.length; i++) {
+        if(source[i] != null) {
+          points[k] = new Point(source[i]);
+          k++;
+        }
+      }
+    }
+  }
 }
 ```
 
@@ -247,16 +247,16 @@ Let's just write a client to finish this off!
 import java.util.Arrays;
 
 public class ArtGallery {
-	public static void main(String[] args) {
-		Point a = new Point(30, 10);
-		Point b = new Point(50, 30);
-		Point c = null; //BOO!!!!!!!
-		Point d = new Point(30, 50);
-		Point e = new Point(10, 30);
-		Point[] src = {a, b, c, d, e};
-		ConnectTheDots canvas = new ConnectTheDots(src);
-		System.out.println(Arrays.toString(canvas.points));
-	}
+  public static void main(String[] args) {
+    Point a = new Point(30, 10);
+    Point b = new Point(50, 30);
+    Point c = null; //BOO!!!!!!!
+    Point d = new Point(30, 50);
+    Point e = new Point(10, 30);
+    Point[] src = {a, b, c, d, e};
+    ConnectTheDots canvas = new ConnectTheDots(src);
+    System.out.println(Arrays.toString(canvas.points));
+  }
 }
 ```
 
@@ -284,33 +284,33 @@ So, we'll take the same examples, just instead of an array, we'll use ArrayLists
 
 ```java
 public class TVData {
-	public ArrayList<Integer> minutes; //this can be manipulated much more easily
+  public ArrayList<Integer> minutes; //this can be manipulated much more easily
 
-	public TVData(ArrayList<Integer> source) {
-		//we are creating an instance copy to begin with
-		minutes = new ArrayList<Integer>();
-		for(int item: source) {
-			minutes.add(item);
- 		} 
-	}
+  public TVData(ArrayList<Integer> source) {
+    //we are creating an instance copy to begin with
+    minutes = new ArrayList<Integer>();
+    for(int item: source) {
+      minutes.add(item);
+     } 
+  }
 
-	public void add(int min) { //say we forget to add an item during the construction
-		minutes.add(min); //easy-as!
-	}
+  public void add(int min) { //say we forget to add an item during the construction
+    minutes.add(min); //easy-as!
+  }
 
-	public void remove(int idx) { //removing value at an index? Easy!
-		if(idx >= 0 && idx < minutes.size()) {
-			minutes.remove(idx);
-		}
-	}
+  public void remove(int idx) { //removing value at an index? Easy!
+    if(idx >= 0 && idx < minutes.size()) {
+      minutes.remove(idx);
+    }
+  }
 
-	public int totalViewingTime() {
-		int result = 0;
-		for(int i=0; i < minutes.size(); i++) {
-			result+=minutes.get(i);
-		}
-		return result;
-	}
+  public int totalViewingTime() {
+    int result = 0;
+    for(int i=0; i < minutes.size(); i++) {
+      result+=minutes.get(i);
+    }
+    return result;
+  }
 }
 ```
 
@@ -320,28 +320,28 @@ Again, we will be using this [Point](./assets/Point.java) class definition.
 
 ```java
 public class ConnectTheDots {
-	public ArrayList<Point> points;
+  public ArrayList<Point> points;
 
-	public ConnectTheDots(ArrayList<Point> source) {
-		points = new ArrayList<Point>();
-		if(source == null) {
-			return;
-		}
-		for(Point p: source) {
-			if(p != null) {
-				points.add(new Point(p));
-			}
-		}
-	}
+  public ConnectTheDots(ArrayList<Point> source) {
+    points = new ArrayList<Point>();
+    if(source == null) {
+      return;
+    }
+    for(Point p: source) {
+      if(p != null) {
+        points.add(new Point(p));
+      }
+    }
+  }
 
-	public void add(Point p) {
-		points.add(p);
-	}
+  public void add(Point p) {
+    points.add(p);
+  }
 
-	public void remove(int idx) {
-		if(idx >= 0 && idx < points.size()) {
-			points.remove(idx);
-		}
-	}
+  public void remove(int idx) {
+    if(idx >= 0 && idx < points.size()) {
+      points.remove(idx);
+    }
+  }
 }
 ```
