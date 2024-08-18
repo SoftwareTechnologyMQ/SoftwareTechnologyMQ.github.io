@@ -172,7 +172,7 @@ Some examples:
 ArrayList<Integer> list1 = new ArrayList<Integer>(); //list of Integer objects (int values)
 ArrayList<String> list2 = new ArrayList<>(); //list of String objects
 ArrayList<Character> list3 = new ArrayList<>(); //list of Character objects (char values)
-ArrayList<Rectangle> list4 = new ArrayList<Rectangle>(); //list of our beloved user-defined Rectangle objects
+ArrayList<Boolean> list4 = new ArrayList<>(); //list of Boolean objects (boolean values)
 ```
 
 # List of selected methods in ArrayList class
@@ -205,30 +205,6 @@ ArrayList<Rectangle> list4 = new ArrayList<Rectangle>(); //list of our beloved u
 | --- | --- |
 
 ## Use of methods in examples
-
-These examples assume the existence of the following Rectangle class:
-
-```java
-class Rectangle {
-	public int length, breadth;
-	public Rectangle(int len, int bre) {
-		length = len;
-		breadth = bre;
-	}
-
-	public String toString() {
-		return length + " by " + breadth;
-	}
-
-	public int area() {
-		return length * breadth;
-	}
-
-	public boolean isSquare() {
-		return length == breadth;
-	}
-}
-```
 
 Each example builds on top of the previous example.
 
@@ -398,9 +374,39 @@ for(int item: data) {
 
 Here, the value of the Integer object is copied into `item` during each iteration.
 
-## So, are we going to use the Rectangle class at all?
+## Creating and using lists of user-defined classes
 
-Yes, we will :)
+IMPORTANT: If ArrayLists are covered before Classes and Objects, this part will be covered during the second or third lecture on Classes and Objects.
+
+So, the idea is to cover:
+
+1. ArrayLists of built-in classes like `Integer`, `Boolean`, ...
+2. Cover design and implementation of classes (user-defined classes).
+3. Revisit ArrayLists to now create lists of user-defined classes.
+
+These examples assume the existence of the following `Rectangle` class:
+
+```java
+class Rectangle {
+	public int length, breadth;
+	public Rectangle(int len, int bre) {
+		length = len;
+		breadth = bre;
+	}
+
+	public String toString() {
+		return length + " by " + breadth;
+	}
+
+	public int area() {
+		return length * breadth;
+	}
+
+	public boolean isSquare() {
+		return length == breadth;
+	}
+}
+```
 
 Take the following example -
 
