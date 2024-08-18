@@ -22,7 +22,81 @@ within: programming
 
 ## Author: Gaurav Gupta
 
+# Class holding ArrayList(s)
+
+Why ArrayLists over arrays? Because resizing an array is a massive pain in the backside :(
+
+So we'll use ArrayLists, and add methods that add or remove items from the lists easily. Later, we'll see some examples with arrays too for deeper understanding.
+
+## Example 1
+
+```java
+public class TVData {
+  public ArrayList<Integer> minutes;
+
+  public TVData(ArrayList<Integer> source) {
+    //we are creating an instance copy to begin with
+    minutes = new ArrayList<Integer>();
+    for(int item: source) {
+      minutes.add(item);
+     } 
+  }
+
+  public void add(int min) { //say we forget to add an item during the construction
+    minutes.add(min); //easy-as!
+  }
+
+  public void remove(int idx) { //removing value at an index? Easy!
+    if(idx >= 0 && idx < minutes.size()) {
+      minutes.remove(idx);
+    }
+  }
+
+  public int totalViewingTime() {
+    int result = 0;
+    for(int i=0; i < minutes.size(); i++) {
+      result+=minutes.get(i);
+    }
+    return result;
+  }
+}
+```
+
+## Example 2
+
+We will be using this [Point](./assets/Point.java) class definition.
+
+```java
+public class ConnectTheDots {
+  public ArrayList<Point> points;
+
+  public ConnectTheDots(ArrayList<Point> source) {
+    points = new ArrayList<Point>();
+    if(source == null) {
+      return;
+    }
+    for(Point p: source) {
+      if(p != null) {
+        points.add(new Point(p));
+      }
+    }
+  }
+
+  public void add(Point p) {
+    points.add(p);
+  }
+
+  public void remove(int idx) {
+    if(idx >= 0 && idx < points.size()) {
+      points.remove(idx);
+    }
+  }
+}
+```
+
 # Class holding array(s)
+
+This part provides a "deep dive" and is highly advised if you would like to learn more (and then, automatically, achieve a higher grade). This includes a closer look at design and incremental implementations.
 
 Say, we want to keep track of the total time spent daily watching television.
 
@@ -271,77 +345,3 @@ Complete code is provided in [ArtGallery.java](./codes/ArtGallery.java)
 # Relevant MQ Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/N7zaCnhB1E4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-# Class holding ArrayList(s)
-
-Why?
-
-Because resizing an array is a massive pain in the backside :(
-
-So, we'll take the same examples, just instead of an array, we'll use ArrayLists, and add methods that add or remove items from the lists easily.
-
-## Example 1
-
-```java
-public class TVData {
-  public ArrayList<Integer> minutes; //this can be manipulated much more easily
-
-  public TVData(ArrayList<Integer> source) {
-    //we are creating an instance copy to begin with
-    minutes = new ArrayList<Integer>();
-    for(int item: source) {
-      minutes.add(item);
-     } 
-  }
-
-  public void add(int min) { //say we forget to add an item during the construction
-    minutes.add(min); //easy-as!
-  }
-
-  public void remove(int idx) { //removing value at an index? Easy!
-    if(idx >= 0 && idx < minutes.size()) {
-      minutes.remove(idx);
-    }
-  }
-
-  public int totalViewingTime() {
-    int result = 0;
-    for(int i=0; i < minutes.size(); i++) {
-      result+=minutes.get(i);
-    }
-    return result;
-  }
-}
-```
-
-## Example 2
-
-Again, we will be using this [Point](./assets/Point.java) class definition.
-
-```java
-public class ConnectTheDots {
-  public ArrayList<Point> points;
-
-  public ConnectTheDots(ArrayList<Point> source) {
-    points = new ArrayList<Point>();
-    if(source == null) {
-      return;
-    }
-    for(Point p: source) {
-      if(p != null) {
-        points.add(new Point(p));
-      }
-    }
-  }
-
-  public void add(Point p) {
-    points.add(p);
-  }
-
-  public void remove(int idx) {
-    if(idx >= 0 && idx < points.size()) {
-      points.remove(idx);
-    }
-  }
-}
-```
