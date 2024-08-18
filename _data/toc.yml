@@ -79,8 +79,8 @@ nav:
         url: /classes_composition
       - title: Classes - Array of objects
         url: /classes_array_of_objects
-      - title: Classes - Class holding array(s)
-        url: /classes_class_holding_array
+      - title: Classes - Class holding collections
+        url: /classes_class_holding_collections
       - title: Recursion - What goes on during a function call
         url: /recursion_function_call
       - title: Recursion
