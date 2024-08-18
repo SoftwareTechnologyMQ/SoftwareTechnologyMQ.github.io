@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Class holding array(s)
+title: Class holding collections
 within: programming
 ---
 
@@ -10,11 +10,12 @@ within: programming
   * [Copying objects](./classes_copies)
   * [Instance methods](./classes_methods)
   * [Composition](./classes_composition)
+  * [ArrayLists](./lists)
 </details>
 
 <details class="outcomes" markdown="1"><summary>Learning Outcomes:</summary>
 
-  * Defining a class holding array(s).
+  * Defining a class holding collections (arrays/arraylists/...).
   * Creating and populating objects of such classes.
 
 </details>
@@ -23,7 +24,7 @@ within: programming
 
 # Class holding array(s)
 
-Say, we want to keep a track of the total time spent daily watching television.
+Say, we want to keep track of the total time spent daily watching television.
 
 The dataset would be something like:
 
@@ -135,7 +136,6 @@ public TVData(int[] source) {
 ```
 
 ![](fig/03-classes-and-objects/classHoldingArrayInstanceCopy.png)
-
 
 Now, both `GoodClient` and `BadClient` will give the same, logically correct, output:
 
@@ -291,3 +291,75 @@ Complete code is provided in [ArtGallery.java](./codes/ArtGallery.java)
 # Relevant MQ Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/N7zaCnhB1E4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+# Class holding ArrayList(s)
+
+Why?
+
+Because resizing an array is a massive pain in the backside :(
+
+So, we'll take the same examples, just instead of an array, we'll use ArrayLists, and add methods that add or remove items from the lists easily.
+
+## Example 1
+
+```java
+public class TVData {
+	public ArrayList<Integer> minutes; //this can be manipulated much more easily
+
+	public TVData(ArrayList<Integer> source) {
+		//we are creating an instance copy to begin with
+		minutes = new ArrayList<Integer>();
+		for(int item: source) {
+			minutes.add(item);
+ 		} 
+	}
+
+	public void add(int min) { //say we forget to add an item during the construction
+		minutes.add(min); //easy-as!
+	}
+
+	public void remove(int idx) { //removing value at an index? Easy!
+		if(idx >= 0 && idx < minutes.size()) {
+			minutes.remove(idx);
+		}
+	}
+
+	public int totalViewingTime() {
+		int result = 0;
+		for(int i=0; i < minutes.size(); i++) {
+			result+=minutes.get(i);
+		}
+		return result;
+	}
+}
+```
+
+## Example 2
+
+```java
+public class ConnectTheDots {
+	public ArrayList<Point> points;
+
+	public ConnectTheDots(ArrayList<Point> source) {
+		points = new ArrayList<Point>();
+		if(source == null) {
+			return;
+		}
+		for(Point p: source) {
+			if(p != null) {
+				points.add(new Point(p));
+			}
+		}
+	}
+
+	public void add(Point p) {
+		points.add(p);
+	}
+
+	public void remove(int idx) {
+		if(idx >= 0 && idx < points.size()) {
+			points.remove(idx);
+		}
+	}
+}
+```
