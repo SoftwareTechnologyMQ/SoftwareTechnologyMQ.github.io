@@ -65,6 +65,8 @@ nav:
         url: /unit_testing
       - title: Lists
         url: /lists
+      - title: List of Lists
+        url: /listOfLists
       - title: Iteration
         url: /iteration
       - title: Classes - Writing your own Types
@@ -89,8 +91,6 @@ nav:
         url: /recursion-tail
       - title: Recursion with arrays
         url: /recursion-arrays
-      - title: List of Lists
-        url: /listOfLists
       - title: Sorting Algorithms
         url: sorting
       - title: Stacks and Queues
