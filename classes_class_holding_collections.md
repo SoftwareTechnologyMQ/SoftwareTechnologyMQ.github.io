@@ -147,27 +147,7 @@ Now, both `GoodClient` and `BadClient` will give the same, logically correct, ou
 
 This section assumes you are familiar with [Composition](./classes_composition).
 
-For the sake of clarity, we'll use the same `Point` class definition used in that topic.
-
-```java
-public class Point {
-	public int x, y;
-
-	public Point(int x, int y) {
-		this.x = x; //"this" distinguishes instance variable from formal paramter
-		this.y = y;
-	}
-
-	public Point(Point p) {
-		x = p.x;
-		y = p.y;
-	}
-
-	public String toString() {
-		return "("+x+","+y+")";
-	}
-}
-```
+We will be using this [Point](./assets/Point.java) class definition.
 
 Say we want to create a "connect-the-dots" game where multiple points are present on a canvas and adjacent points need to be connected to reveal the art.
 
@@ -335,6 +315,8 @@ public class TVData {
 ```
 
 ## Example 2
+
+Again, we will be using this [Point](./assets/Point.java) class definition.
 
 ```java
 public class ConnectTheDots {
