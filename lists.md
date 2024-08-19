@@ -24,10 +24,6 @@ within: programming
 
 Lists are data structures, much like arrays. The differences being,
 
-### 1. Lists must hold objects
-
-Arrays can hold a collection of primitive data types or a collection of objects, while lists can hold a collection of objects, **not** primitive data types.
-
 ### 2. Lists grow as required
 
 The size of array needs to be specified at the time of creating an array. The size of a list need not be specified. You can add as many items as you want to a list (permitting system memory).
@@ -53,7 +49,7 @@ As an example, if
 
 `dest` should be `{-40, -10, -50}`
 
-In order to do this, we need to,
+To do this, we need to,
 
 1. Count the number of required (negative) values in the array `src`
 2. Create an array `dest` of that size
@@ -126,6 +122,7 @@ for(int i=0; i < src.length; i++) {
 A solution to the same problem when `src` and `dest` are lists instead of arrays is,
 
 ```java
+//"Integer" is just a wrapper for "int" - we'll see more about this soon
 ArrayList<Integer> dest = new ArrayList<Integer>();
 for(int item: src) {
 	if(item < 0) {
@@ -148,7 +145,7 @@ Luna Lovegood
 Lionel Messi
 ```
 
-In order to store the names in an array, we need to do one of two things,
+To store the names in an array, we need to do one of two things,
 
 1. Create a String array so big that it will definitely be big enough to hold all items from the file.
 2. Traverse the file once to count the number of names, then create an array of that size, and then traverse the file again, adding the items in the array.
@@ -159,12 +156,20 @@ In order to store the names in an array, we need to do one of two things,
 The syntax to create an ArrayList object is:
 
 ```java
-ArrayList<Object> name = new ArrayList<Object>();
+ArrayList<E> name = new ArrayList<E>();
 
 //or
 
-ArrayList<Object> name = new ArrayList<>();
+ArrayList<E> name = new ArrayList<>();
 ```
+
+Here, `E` refers to the type of items it can store. Just one thing (until we cover Classes and Objects), this (`E`) cannot be a primitive data type, and needs to be a *class* (more on that when we cover `Classes and Objects`). 
+
+- Instead of `int`, we use `Integer`.
+- Instead of `double`, we use `Double`.
+- Instead of `char`, we use `Character`.
+- Instead of `boolean`, we use `Boolean`.
+- We can use `String` as it's already a *class*.
 
 Some examples:
 
