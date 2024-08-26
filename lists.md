@@ -52,16 +52,16 @@ public static boolean occursExactlyOnce(int[] data, int key) {
    int count = 0;
    boolean found = false;
    for(int i=0; i < data.length; i++) {
-      if(data[i] == key) {
-         if(!found) {
-            return false;
+      if(data[i] == key) { //if found
+         if(found) { //if found before
+            return false; //this is the second time
          }
-         else {
-            found = true;
+         else { //if not found before 
+            found = true; //now it's found
          }
       }
    }
-   return found == true;
+   return found == true; //ensure found once
 }
 ```
 
@@ -71,12 +71,12 @@ IMPORTANT - Right now, you don't need to understand the following code, just app
 
 ```java
 public static boolean occursExactlyOnce(ArrayList<Integer> list, int key) {
-   if((list.indexOf(key) >= 0) && (list.indexOf(key) == list.lastIndexOf(key)) {
+   if(list.indexOf(key) >= 0)) { //if found
+      if(list.indexOf(key) == list.lastIndexOf(key) { //if first and last occurrence is the same
 	return true;
+      }
    }
-   else {
-      return false;
-   }
+   return false; //in ALL other cases
 }
 ```
 
