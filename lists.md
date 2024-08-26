@@ -36,6 +36,51 @@ With arrays (assuming array name is `arr`), the only operators you have to work 
 - `size()` //similar to arr.length
 - `add(Object)`	//add item at the end of the list
 
+# Why use ArrayList instead of arrays?
+
+Two reasons:
+
+1. Dynamic (grows as you insert items, resizes when you remove).
+2. Plenty of helpful methods (functions) for common tasks.
+
+Comparison of solution with arrays with ArrayLists (Just to illustrate ArrayLists make life easier)
+
+## With arrays
+
+```java
+public static boolean occursExactlyOnce(int[] data, int key) {
+   int count = 0;
+   boolean found = false;
+   for(int i=0; i < data.length; i++) {
+      if(data[i] == key) {
+         if(!found) {
+            return false;
+         }
+         else {
+            found = true;
+         }
+      }
+   }
+   return found == true;
+}
+```
+
+## With ArrayLists 
+
+IMPORTANT - Right now, you don't need to understand the following code, just appreciate how much easier, compared to arrays, it is
+
+```java
+public static boolean occursExactlyOnce(ArrayList<Integer> list, int key) {
+   if((list.indexOf(key) >= 0) && (list.indexOf(key) == list.lastIndexOf(key)) {
+	return true;
+   }
+   else {
+      return false;
+   }
+}
+```
+
+<!--
 # Why are arrays not good enough?
 
 ## Example - copying over a subset
@@ -130,6 +175,7 @@ for(int item: src) {
 	}
 }
 ```
+-->
 
 <!--## Example 2 - reading student names outcomes from a file
 
