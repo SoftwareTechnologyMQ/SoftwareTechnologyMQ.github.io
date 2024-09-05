@@ -48,7 +48,7 @@ We need to find out why do some inputs have incorrect outputs. So we go through 
 
 ## Example 1
 
-Consider the following code that is supposed to return the product of all integers from 1 to `n` (n >= 1).
+Consider the following code that is supposed to return the product of all integers from 1 to `n` (`n` >= 1).
 
 <script src="https://gist.github.com/gaurav1780/71d8008cd4cc632dc6119b1594dcfe88.js"></script>
 
@@ -113,15 +113,13 @@ To confirm, we trace once more for `i=4`.
 | 5 |  false | |
 {: .table}
 
-<div class="task" markdown="1">
+QUESTION:
 Debug the following method for which the expected input-output mappings are provided in the javadoc (comment above the method).
-<script src="https://gist.github.com/gaurav1780/111f98632dbb6068d4056df295341cf3.js"></script>
-**CRITICAL STEP!!!** Write down the actual input-output mappings after every iteration of debugging
-<details class="solution" markdown="1"><summary>solution</summary>
-<script src="https://gist.github.com/gaurav1780/7556eea66978a974423447f544150841.js"></script>
-</details>
-</div>
 
+SOLUTION:
+**CRITICAL STEP!!!** Write down the actual input-output mappings after every iteration of debugging
+<script src="https://gist.github.com/gaurav1780/7556eea66978a974423447f544150841.js"></script>
+ 
 ## Performing Debugging in Popular IDEs
 
 Most of the modern Integrated Development Environments (IDEs) have a comprehensive debugging feature that lets you trace the variables as your program executes.
@@ -138,16 +136,17 @@ The debugger relies of placing `breakpoints` that are like pitstops in a car rac
 
 # Pen and paper methodology
 
-At this point, it becomes tempting to throw away your notebook, you have everything you need in the programming environment right?
+At this point, it becomes tempting to throw away your notebook, you have everything you need in the programming environment, right?
 
-No.
+No!
 
 Debugging is still mostly done in your head or on paper, so it is worth revisiting our programming tracing skills.  What follows is a set of exercises for you to get familiar with tracing Java code.  You should do all these exercises with just a pen/pencil and paper as the skill you are training is to be able to trace a program _without_ the aid of a computer.
 
-<div class="task" markdown="1">
+QUESTION:
 Trace the flow of the following program and determine the value of `result` at the end of it.
 <script src="https://gist.github.com/gaurav1780/767824769b5456ddb080e63d84124d70.js"></script>
-<details class="solution" markdown="1"><summary>solution</summary>
+
+SOLUTION:
 `a < b` is `true`
 
 `b % a == 0` is `true`
@@ -158,27 +157,26 @@ The expression becomes `true && true && false`
 
 This is `false`
 
-Hence, the `else` block executes and `result` becomes `b (10)`.
-</details>
-</div>
+Hence, the `else` block executes, and `result` becomes `b (10)`.
 
-<div class="task" markdown="1">
+
+QUESTION:
 Trace the flow of the following program and determine the value of `result` at the end of it.
 <script src="https://gist.github.com/gaurav1780/0f335474bbbf8fcf488150b7b411c33a.js"></script>
-<details class="solution" markdown="1"><summary>solution</summary>
-a == b` is `false`,
+
+SOLUTION:
+`a == b` is `false`,
 `else` executes
 
 `b` decreases by 5, becomes 5
 `a == b` is `true`.
 `if` block executes and `result` becomes `b (5)`.
-</details>
-</div>
 
-<div class="task" markdown="1">
+QUESTION:
 Trace the flow of the following program and determine the value of `result` at the end of it.
 <script src="https://gist.github.com/gaurav1780/0302ce7e20a43b1807584b4ca7f49ce7.js"></script>
-<details class="solution" markdown="1"><summary>solution</summary>
+
+SOLUTION:
 | i | i&lt;=7 | i%2 | i%2==1 | result |
 | --- | --- | --- | --- | --- |
 | 1 | true | 1 | true | -3+1 = -2 |
@@ -191,20 +189,16 @@ Trace the flow of the following program and determine the value of `result` at t
 | 8 | false | | | |
 {: .table}
 
-</details>
-</div>
 
-<div class="task" markdown="1">
+QUESTION:
 Trace the flow of the following code -
 <script src="https://gist.github.com/gaurav1780/0b8969cabc916cff8ed88cfcde631560.js"></script>
-<details class="solution" markdown="1"><summary>solution</summary>
-## Solution
+
+SOLUTION:
 At the end of the code,
 `a = 5`, `b = 10`, `c = 2`, `d = false`, `result = 10`.
 Explanation -
 <script src="https://gist.github.com/gaurav1780/7edd01a8e4ae3182e3ddd7f6166a0e53.js"></script>
-</details>
-</div>
 
 # Relevant MQ Videos
 
