@@ -177,17 +177,72 @@ Trace the flow of the following program and determine the value of `result` at t
 <script src="https://gist.github.com/gaurav1780/0302ce7e20a43b1807584b4ca7f49ce7.js"></script>
 
 SOLUTION:
-| i | i <= 7 | i%2 | i%2==1 | result |
-| --- | --- | --- | --- | --- |
-| 1 | true | 1 | true | -3+1 = -2 |
-| 2 | true | 0 | false | |
-| 3 | true | 1 | true | -2+3 = 1 |
-| 4 | true | 0 | false | |
-| 5 | true | 1 | true | 1+5 = 6 |
-| 6 | true | 0 | false | |
-| 7 | true | 1 | true | 6+7 = 13 |
-| 8 | false | | | |
-{: .table}
+
+<table>
+    <tr>
+        <td>i</td>
+        <td>i &lt;= 7</td>
+        <td>i%2</td>
+        <td>i%2==1</td>
+        <td>result</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>true</td>
+        <td>1</td>
+        <td>true</td>
+        <td>-3+1 = -2</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>true</td>
+        <td>0</td>
+        <td>false</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>true</td>
+        <td>1</td>
+        <td>true</td>
+        <td>-2+3 = 1</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>true</td>
+        <td>0</td>
+        <td>false</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>true</td>
+        <td>1</td>
+        <td>true</td>
+        <td>1+5 = 6</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>true</td>
+        <td>0</td>
+        <td>false</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>true</td>
+        <td>1</td>
+        <td>true</td>
+        <td>6+7 = 13</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>false</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
 
 QUESTION:
 Trace the flow of the following code -
