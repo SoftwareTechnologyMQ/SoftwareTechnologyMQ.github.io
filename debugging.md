@@ -177,7 +177,7 @@ Trace the flow of the following program and determine the value of `result` at t
 <script src="https://gist.github.com/gaurav1780/0302ce7e20a43b1807584b4ca7f49ce7.js"></script>
 
 SOLUTION:
-| i | i&lt;=7 | i%2 | i%2==1 | result |
+| i | i <= 7 | i%2 | i%2==1 | result |
 | --- | --- | --- | --- | --- |
 | 1 | true | 1 | true | -3+1 = -2 |
 | 2 | true | 0 | false | |
@@ -188,7 +188,6 @@ SOLUTION:
 | 7 | true | 1 | true | 6+7 = 13 |
 | 8 | false | | | |
 {: .table}
-
 
 QUESTION:
 Trace the flow of the following code -
