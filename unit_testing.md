@@ -66,6 +66,7 @@ Write a set of input-output mappings for a function that when passed an integer,
  | -2486 | true |
  | -9486 | false |
  | 0 | true |
+ 
 </details>
 </div>
 
