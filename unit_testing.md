@@ -54,7 +54,9 @@ A more comprehensive set of mappings is provided below.
 
 <div class="task" markdown="1">
 Write a set of input-output mappings for a function that when passed an integer, returns `true` if all the digits in the integer are even (0/2/4/6/8), and `false` otherwise.
+
 <details class="solution" markdown="1"><summary>solution</summary>
+
  | Input      | Output |
  |------------|--------|
  | 284666604    | true      |
