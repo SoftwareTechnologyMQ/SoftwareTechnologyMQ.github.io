@@ -24,10 +24,6 @@ within: programming
 
 Lists are data structures, much like arrays. The differences being,
 
-### 1. Lists must hold objects
-
-Arrays can hold a collection of primitive data types or a collection of objects, while lists can hold a collection of objects, **not** primitive data types.
-
 ### 2. Lists grow as required
 
 The size of array needs to be specified at the time of creating an array. The size of a list need not be specified. You can add as many items as you want to a list (permitting system memory).
@@ -40,6 +36,51 @@ With arrays (assuming array name is `arr`), the only operators you have to work 
 - `size()` //similar to arr.length
 - `add(Object)`	//add item at the end of the list
 
+# Why use ArrayList instead of arrays?
+
+Two reasons:
+
+1. Dynamic (grows as you insert items, resizes when you remove).
+2. Plenty of helpful methods (functions) for common tasks.
+
+Comparison of solution with arrays with ArrayLists (Just to illustrate ArrayLists make life easier)
+
+## With arrays
+
+```java
+public static boolean occursExactlyOnce(int[] data, int key) {
+   int count = 0;
+   boolean found = false;
+   for(int i=0; i < data.length; i++) {
+      if(data[i] == key) { //if found
+         if(found) { //if found before
+            return false; //this is the second time
+         }
+         else { //if not found before 
+            found = true; //now it's found
+         }
+      }
+   }
+   return found == true; //ensure found once
+}
+```
+
+## With ArrayLists 
+
+IMPORTANT - Right now, you don't need to understand the following code, just appreciate how much easier, compared to arrays, it is
+
+```java
+public static boolean occursExactlyOnce(ArrayList<Integer> list, int key) {
+   if(list.indexOf(key) >= 0)) { //if found
+      if(list.indexOf(key) == list.lastIndexOf(key) { //if first and last occurrence is the same
+	return true;
+      }
+   }
+   return false; //in ALL other cases
+}
+```
+
+<!--
 # Why are arrays not good enough?
 
 ## Example - copying over a subset
@@ -53,7 +94,7 @@ As an example, if
 
 `dest` should be `{-40, -10, -50}`
 
-In order to do this, we need to,
+To do this, we need to,
 
 1. Count the number of required (negative) values in the array `src`
 2. Create an array `dest` of that size
@@ -126,6 +167,7 @@ for(int i=0; i < src.length; i++) {
 A solution to the same problem when `src` and `dest` are lists instead of arrays is,
 
 ```java
+//"Integer" is just a wrapper for "int" - we'll see more about this soon
 ArrayList<Integer> dest = new ArrayList<Integer>();
 for(int item: src) {
 	if(item < 0) {
@@ -133,6 +175,7 @@ for(int item: src) {
 	}
 }
 ```
+-->
 
 <!--## Example 2 - reading student names outcomes from a file
 
@@ -148,7 +191,7 @@ Luna Lovegood
 Lionel Messi
 ```
 
-In order to store the names in an array, we need to do one of two things,
+To store the names in an array, we need to do one of two things,
 
 1. Create a String array so big that it will definitely be big enough to hold all items from the file.
 2. Traverse the file once to count the number of names, then create an array of that size, and then traverse the file again, adding the items in the array.
@@ -159,15 +202,28 @@ In order to store the names in an array, we need to do one of two things,
 The syntax to create an ArrayList object is:
 
 ```java
-ArrayList<Object> name = new ArrayList<Object>();
+ArrayList<E> name = new ArrayList<E>();
+
+//or
+
+ArrayList<E> name = new ArrayList<>();
 ```
+
+Here, `E` refers to the type of items it can store. Just one thing (until we cover Classes and Objects), this (`E`) cannot be a primitive data type, and needs to be a *class* (more on that when we cover `Classes and Objects`). 
+
+- Instead of `int`, we use `Integer`.
+- Instead of `double`, we use `Double`.
+- Instead of `char`, we use `Character`.
+- Instead of `boolean`, we use `Boolean`.
+- We can use `String` as it's already a *class*.
 
 Some examples:
 
 ```java
-ArrayList<Integer> list1 = new ArrayList<Integer>(); //list of integers
-ArrayList<String> list2 = new ArrayList<String>(); //list of String objects
-ArrayList<Rectangle> list3 = new ArrayList<Rectangle>(); //list of our beloved user-defined Rectangle objects
+ArrayList<Integer> list1 = new ArrayList<Integer>(); //list of Integer objects (int values)
+ArrayList<String> list2 = new ArrayList<>(); //list of String objects
+ArrayList<Character> list3 = new ArrayList<>(); //list of Character objects (char values)
+ArrayList<Boolean> list4 = new ArrayList<>(); //list of Boolean objects (boolean values)
 ```
 
 # List of selected methods in ArrayList class
@@ -200,30 +256,6 @@ ArrayList<Rectangle> list3 = new ArrayList<Rectangle>(); //list of our beloved u
 | --- | --- |
 
 ## Use of methods in examples
-
-These examples assume the existence of the following Rectangle class:
-
-```java
-class Rectangle {
-	public int length, breadth;
-	public Rectangle(int len, int bre) {
-		length = len;
-		breadth = bre;
-	}
-
-	public String toString() {
-		return length + " by " + breadth;
-	}
-
-	public int area() {
-		return length * breadth;
-	}
-
-	public boolean isSquare() {
-		return length == breadth;
-	}
-}
-```
 
 Each example builds on top of the previous example.
 
@@ -393,9 +425,39 @@ for(int item: data) {
 
 Here, the value of the Integer object is copied into `item` during each iteration.
 
-## So, are we going to use the Rectangle class at all?
+## Creating and using lists of user-defined classes
 
-Yes, we will :)
+IMPORTANT: If ArrayLists are covered before Classes and Objects, this part will be covered during the second or third lecture on Classes and Objects.
+
+So, the idea is to cover:
+
+1. ArrayLists of built-in classes like `Integer`, `Boolean`, ...
+2. Cover design and implementation of classes (user-defined classes).
+3. Revisit ArrayLists to now create lists of user-defined classes.
+
+These examples assume the existence of the following `Rectangle` class:
+
+```java
+class Rectangle {
+	public int length, breadth;
+	public Rectangle(int len, int bre) {
+		length = len;
+		breadth = bre;
+	}
+
+	public String toString() {
+		return length + " by " + breadth;
+	}
+
+	public int area() {
+		return length * breadth;
+	}
+
+	public boolean isSquare() {
+		return length == breadth;
+	}
+}
+```
 
 Take the following example -
 

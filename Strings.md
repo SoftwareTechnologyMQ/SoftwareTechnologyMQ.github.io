@@ -261,3 +261,11 @@ Some useful functions, and examples are:
 | `equals(another String)`           | 1. You SHOULDN'T compare Strings using == as it checks if the two String objects being compared refer to the same instance 2. `equals` performs case-sensitive comparison | 1. `"done".equals("done")` 2. `"done".equals("Done")` 3. `"ab"==new String("ab")`                                                     | 1. `true` 2. `false` 3, `false`                                                                              |
 | `equalsIgnoreCase(another String)` | `equalsIgnoreCase` performs case-**IN**sensitive comparison                          | 1. `"done".equals("done")` 2. `"done".equals("Done")` 3. `"done".equals("doe")`                             | 1. `true` 2. `true` 3. `false`                                                                       |
 | `compareTo(another String)`        | performs lexicographic (as in dictionary) comparison                                 | 1. `"Hi".compareTo("hi")` 2. `"hi".compareTo("Hi")` 3. `"what".compareTo("why?")` 4. `"why".compareTo("why")` | 1. negative  (exact value  is irrelevant for now) 2. positive 3. negative (3rd character) 4. 0 |
+
+## Extra resources
+
+- CodingBat questions: https://codingbat.com/home/gaurav.gupta@mq.edu.au/strings
+- YouTube videos:  
+	- [https://www.youtube.com/watch?v=3xuJIaP3C4g](https://www.youtube.com/watch?v=3xuJIaP3C4g)
+	- [https://www.youtube.com/watch?v=vbZ85D8Hvh0](https://www.youtube.com/watch?v=vbZ85D8Hvh0)
+	- [https://www.youtube.com/watch?v=P9hEmbfdiuc](https://www.youtube.com/watch?v=P9hEmbfdiuc)

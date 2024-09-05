@@ -12,7 +12,8 @@ within: programming
   * [Loops](./loops)
   * [Functions](./functions)
   * [Scope](./scope)
-  * [Compound Data](./compound_data)
+  * [Arrays](./arrays)
+  * [Arrays and Functions](./arrays_and_functions)
   * [Reference Semantics](./reference_semantics)
 </details>
 
