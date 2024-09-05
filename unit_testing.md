@@ -66,6 +66,7 @@ Write a set of input-output mappings for a function that when passed an integer,
  | -2486 | true |
  | -9486 | false |
  | 0 | true |
+ {: .table}
 </details>
 </div>
 
@@ -82,6 +83,7 @@ Write a set of input-output mappings for a function that when passed an integer 
  | null | not well-defined |
  | {5, 8, 12, 11} | false |
  | {6, 4, 4, 8} | false |
+ {: .table}
 </details>
 </div>
 
@@ -98,6 +100,7 @@ Write a set of input-output mappings for a function that when passed an integer 
 | null | false |
 | {2, 7, 1, 9, 3, -5, -5} | false |
 | {2, -5, 7, 1, 9, 3, -5} | false |
+{: .table}
 </details>
 </div>
 
