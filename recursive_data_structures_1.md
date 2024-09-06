@@ -5,8 +5,7 @@ within: programming
 ---
 
 <details class="prereq" markdown="1"><summary>Assumed Knowledge</summary>
-
-  * <a href="./recursion">Recursion</a>
+  * <a href="./classes_composition">Class composition</a>
   * <a href="./lists">Lists</a>
 </details>
 
