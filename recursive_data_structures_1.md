@@ -18,12 +18,11 @@ within: programming
 
 ## Author: Gaurav Gupta
 
+# Pre-requisite knowledge
+
+Make sure you read the lecture notes on [class composition](https://softwaretechnologymq.github.io/classes_composition) before you begin studying these notes.
+
 # The Node class
-
-<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/fDU7AtmQBjA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-<p>&nbsp;</p>
--->
 
 Consider the following class:
 
@@ -72,9 +71,11 @@ Here, we created an *anonymous* `Node` object - `new Node(10, null)` - and passe
 
 ## Linking nodes
 
+<!--
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Jqu9IpulHvU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 <p>&nbsp;</p>
+-->
 
 We can link any number of nodes as we want.
 
@@ -88,11 +89,11 @@ Node n1 = new Node(30, n2);
 
 ![](./fig/06-lists/linkedlists/linkedlists-figure4.png)
 
-Simplified representaton:
+Simplified representation:
 
 ![](./fig/06-lists/linkedlists/linkedlists-figure5.png)
 
-We can get all the values just using `n1` :)
+We can get all the values using the "first" node, in this case, `n1` :)
 
 ```java
 System.out.println(n1.data); //30
@@ -101,6 +102,8 @@ System.out.println(n1.next.next.data); //10
 System.out.println(n1.next.next.next.data); //70
 System.out.println(n1.next.next.next.next.data); //20
 ```
+
+One useful thing to remember (in this example), is that any time you access the `next` attribute or instance variable on an object, it refers to the next object in line. If you access the `data` attribute or instance variable, that gives you the information stored in that particular node.
 
 If we create a `Node` reference `temp` initialized to `n1`, we can re-reference it to the `Node` after it using `temp = temp.next`. Thereby, repeating the operation over and over.
 
