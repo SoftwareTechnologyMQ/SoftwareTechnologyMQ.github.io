@@ -534,110 +534,59 @@ public static Node reversed(Node n) {
 }
 ```
 
-The above version is called *out-of-place* algorithm and will create a second list of the same size as the original list, which can be pretty costly. A recursive *out-of-place* version is provided below:}
+The above version is called *out-of-place* algorithm and will create a second list of the same size as the original list, which can be pretty costly. A recursive *out-of-place* version is provided below. 
+
+
+Thanks to Xingyu (Ara) Kai for providing the following three elegant solutions! Well done, Ara :)
+
+![](./assets/images/morganFreemanClapping.gif)
 
 ```java
-public static Node reversed(Node n) {
-  return reversed(n, size(n));
+public static Node reverseOutPlaceRecursive(Node start) {
+	return reverseOutPlaceRecursive(start, null);
 }
 
-public static Node reversed(Node n, int size) {
-  if(size == 1) {
-    return n;
-  }
-  int first = n.data;
-  Node result = reversed(n.next, size-1);
-  addToEnd(result, first);
-  return result;
+public static Node reverseOutPlaceRecursive(Node start, Node previous){
+	if (start == null) {
+		return previous;
+	}
+	previous = new Node(start.data, previous);
+	return reverseOutPlaceRecursive(start.next, previous);
 }
-
-public static int size(Node start) {
-  if(start == null) {
-    return 0;
-  }
-  return 1 + size(start.next);
-}
-
-public static void addToEnd(Node n, int data) {
-  if(n.next == null) {
-    n.next = new Node(data, null);
-  }
-  else {
-    addToEnd(n.next, data);
-  }
-} 
 ```
 
 Instead, an *in-place* algorithm (HD example) modifies the existing list, so no new instances are created. Here's an in-place version (Note: `reverse` vs. `reversed`):
 
 ```java
-public static void reverse(Node n) {
-  for(int i=0; i < count(n)/2; i++) {
-    Node a = get(n, i);
-    Node b = get(n, count(n) - i - 1);
-    int temp = a.data;
-    a.data = b.data;
-    b.data = temp;
-  }
-}
-
-public static int count(Node start) {
-  if(start == null) {
-    return 0;
-  }
-  return 1 + count(start.next);
-}
-
-public static Node get(Node start, int idx) {
-  if(idx < 0 || idx >= count(start)) {
-    return null;
-  }
-  if(idx == 0) {
-    return start;
-  }
-  return get(start.next, idx-1);
+public static void reverseInPlace(Node start){
+	Node previous = null;
+	while (start != null) {
+		Node next = start.next;
+		start.next = previous;
+		previous = start;
+		start = next;
+	}
 }
 ```
 
-A completely *recursive in-place* version (High end of HD example) is:
+A completely *recursive in-place* version is:
 
 ```java
-public static void reverse(Node n) {
-  reverse(n, size(n));
-}
-  
-public static void reverse(Node n, int size) {
-  if(size <= 1) {
-    return;
-  }
-  swap(n, 0, size-1);
-  reverse(n.next, size-2);
+public static void reverseInPlaceRecursive(Node start) {
+	return reverseInPlaceRecursive(start, null);
 }
 
-public static void swap(Node n, int idx1, int idx2) { //assuming idx1, idx2 are valid
-  Node a = get(n, idx1);
-  Node b = get(n, idx2);
-  int temp = a.data;
-  a.data = b.data;
-  b.data = temp;
-}
-  
-public static int size(Node start) {
-  if(start == null) {
-    return 0;
-  }
-  return 1 + size(start.next);
-}
-  
-public static Node get(Node start, int idx) { //assuming idx is valid 
-  if(idx == 0) {
-    return start;
-  }
-  return get(start.next, idx-1);
+public static void reverseInPlaceRecursive(Node start, Node previous){
+	if (start != null) {
+		Node next = start.next;
+		start.next = previous;
+		reverseInPlaceRecursive(next, start);
+	}
 }
 ```
 
-A vastly different approach (*recursive in-place* as well) which requires you to copy the returned value back:
+<!--
+A vastly different approach (*recursive, in-place* as well) which requires you to copy the returned value back:
 
 ```java
 public static Node reverse(Node node) {
@@ -656,6 +605,7 @@ public static Node reverse(Node node) {
   return reverseRest; //return the first node of the reversed list
 }
 ```
+-->
 
 # Activities
 
