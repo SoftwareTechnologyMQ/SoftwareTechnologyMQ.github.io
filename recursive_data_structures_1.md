@@ -537,7 +537,7 @@ public static Node reversed(Node n) {
 The above version is called *out-of-place* algorithm and will create a second list of the same size as the original list, which can be pretty costly. A recursive *out-of-place* version is provided below. 
 
 
-Thanks to Xingyu (Ara) Kai for providing the following three elegant solutions! Well done, Ara :)
+Thanks to Xingyu (Ara) Cai for providing the following three elegant solutions! Well done, Ara :)
 
 ![](./assets/images/morganFreemanClapping.gif)
 
