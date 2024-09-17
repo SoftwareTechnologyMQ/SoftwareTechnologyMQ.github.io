@@ -18,6 +18,7 @@ katex: True
   
 </details>
 
+## Author: Gaurav Gupta
 <!--# Table of contents
 
 - [1. Representing Information](#1-representing-information)
