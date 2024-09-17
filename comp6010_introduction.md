@@ -46,5 +46,5 @@ within: programming
 
 Python is not named after the non-venomous snakes, but after the acclaimed British comedy show *Monty Python*.
 
-Developed by Guido van Rossum, 
+Developed by Guido van Rossum, Python is an interpreted language, and the most widely-used programming language according to TIOBE, as of 18th September, 2024.
 
