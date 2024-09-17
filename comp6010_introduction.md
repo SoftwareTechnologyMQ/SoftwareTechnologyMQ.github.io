@@ -19,7 +19,7 @@ within: programming
   
 </details>
 
-## Author: 
+## Author: Gaurav Gupta
 
 # Installation
 
