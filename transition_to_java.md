@@ -26,9 +26,9 @@ within: programming
 </details>
 
 {: .keypoint}
-Processing was a restricted version of Java all-along.
+Coding, like cooking or swimming or soccer, is all about practice.
 
-![](./fig/01-transition-to-java/processingJava.jpg)
+![](./assets/images/practice.jpg)
 
 ## Author: Gaurav Gupta
 
