@@ -1,0 +1,29 @@
+name: Build Sorting Slides
+
+on:
+  push:
+    paths:
+      - sorting.md
+      - .github/workflows/sorting-slides.yml
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install pandoc and LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
+      - name: Build PDF (Beamer)
+        run: pandoc sorting.md -t beamer -o sorting.pdf
+      - name: Build PPTX
+        run: pandoc sorting.md -o sorting.pptx
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sorting-slides
+          path: |
+            sorting.pdf
+            sorting.pptx
