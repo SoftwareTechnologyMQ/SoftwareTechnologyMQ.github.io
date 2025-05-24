@@ -18,3 +18,14 @@ If you want to make a change, follow the below steps!
   7. Add a constructive message briefly explaining the changes made.
   8. Click on `Create Pull Request`
   9. Done!
+
+## Slide generation
+Pandoc can be used to build slides from the lesson Markdown files. To generate slides for `sorting.md` manually run:
+
+```bash
+./codex-setup.sh            # installs pandoc and LaTeX packages
+pandoc sorting.md -t beamer -o sorting.pdf
+pandoc sorting.md -o sorting.pptx
+```
+
+An example GitHub Actions workflow for `sorting.md` lives in `.github/workflows/sorting-slides.yml`. Duplicate this file and replace `sorting.md` with another lesson file to generate slides for other topics.
