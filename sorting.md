@@ -20,7 +20,7 @@ within: programming
 
 ## Author: Gaurav Gupta
 
-![](./assets/images/margeSort.jpeg)
+<img src="./assets/images/margeSort.jpeg" width="400">
 
 ## Why perform sorting?
 
@@ -29,13 +29,13 @@ Sorting is a fundamental operation that,
 1. improves the efficiency of several tasks, and, 
 2. makes several other non-trivial tasks, well, trivial.
 
-### Example 1: Finding the k-highest item in a collection
+## Example 1: Finding the k-highest item in a collection
 
 For an unsorted collection, you have to go through each item of the collection in order to get the first highest value, then again for second highest, etc.
 
 For a sorted collection, the highest value will either be the first value or the last value. The <i>k</i>-highest is at the <i>k</i><sup>th</sup> position. Thus, it reduces to a single-operation task.
 
-### Example 2: Finding the number of unique items in a collection
+## Example 2: Finding the number of unique items in a collection
 
 Consider the array `{10,70,20,20,20,90,10,90,20,70}`. The four unique items are 10, 70, 20 and 90.
 
@@ -135,6 +135,9 @@ Now that we've had an intuitive idea of what needs to be done, let's formalize o
 
 <img src = "./assets/images/insertionSortAscendingLeft.png" width = 500>
 
+See [InsertionSort.java](./assets/codes/sorting/InsertionSort.java) for a simple
+implementation.
+
 Note that we can have variations of the same algorithm. For instance, the following version of insertion sort sorts in ascending order, starting the sorting process from right to left.
 
 <img src = "./assets/images/insertionSortAscendingRight.png" width = 500>
@@ -143,6 +146,9 @@ Note that we can have variations of the same algorithm. For instance, the follow
 
 <img src = "./assets/images/selectionSort.png" width = 500>
 
+The code in [SelectionSort.java](./assets/codes/sorting/SelectionSort.java)
+implements this approach.
+
 Note that we can have variations of the same algorithm. For instance, the following version of selection sort sorts in ascending order, starting the sorting process from right to left.
 
 <img src = "./assets/images/selectionSortAscendingRight.png" width = 500>
@@ -150,4 +156,44 @@ Note that we can have variations of the same algorithm. For instance, the follow
 Yes another version of selection sort sorts in descending order, starting the sorting process from right to left.
 
 <img src = "./assets/images/selectionSortDescendingRight.png" width = 500>
+
+## Quick Sort
+
+Quick sort works by choosing a pivot, placing smaller values before the pivot and
+larger values after it, and then recursively sorting the two partitions.  A
+simple implementation is provided in
+[QuickSort.java](./assets/codes/sorting/QuickSort.java).
+
+## Timsort
+
+Timsort is a hybrid of merge sort and insertion sort.  It is designed to take
+advantage of ordered subsequences in real data and is used by default when Java
+sorts objects.
+
+## Radix Sort
+
+Radix sort processes the digits of numbers one position at a time, allowing
+integers to be sorted in linear time when the number of digits is limited.
+
+## Quantum acceleration?
+
+It remains an open research question whether quantum computers can achieve more
+than a constant factor speed-up for sorting.
+
+## Sorting in the Java standard library
+
+Java provides `Arrays.sort()` to sort arrays and `Collections.sort()` for lists.
+Arrays of primitives use a tuned quicksort while object arrays and lists are
+sorted with Timsort.  Example usage:
+
+```java
+int[] data = {40, 70, 20};
+Arrays.sort(data); // in-place
+
+List<Integer> list = new ArrayList<>(List.of(40, 70, 20));
+Collections.sort(list);
+```
+
+You can explore visualisations of these algorithms at
+[Visualgo](https://visualgo.net/en/sorting).
 
