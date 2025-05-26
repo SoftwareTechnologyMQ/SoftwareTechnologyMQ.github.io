@@ -28,6 +28,7 @@ Sorting is a fundamental operation that,
 
 1. improves the efficiency of several tasks, and, 
 2. makes several other non-trivial tasks, well, trivial.
+3. is often tested during job interviews
 
 ## Example 1: Finding the k-highest item in a collection
 
