@@ -72,23 +72,9 @@ fantastic way to waste time and highlights why we care about algorithmic
 complexity.  A short implementation is given in
 [BogoSort.java](./assets/codes/sorting/BogoSort.java).
 
-### Cost of sorting
-
-Of course, we haven't considered the cost involved in sorting a collection. If the collection changes frequently, we need to maintain the sorting order. This can be done either by,
-
-1. adding the item that has to be added at the appropriate place (Which more or less requires one iteration through the collection) - pretty good!
-2. adding the item at the end and sorting the collection again - not so good.
-
-What one must remember is that sorting is not free and has a cost associated with it.
-
-Tree sort in particular stores every value in a node of a binary search tree.
-That extra memory can be significant and, if the data arrives already
-sorted, the tree degenerates into a linked list.  In that worst case the
-insertions each scan most of the existing nodes giving an overall cost of
-
-$O(n^2)$.
-
 ### Tree sort
+
+But we learned how to sort when we created tree structures!
 
 Tree sort inserts every element into a binary search tree and then reads the
 values back by traversing the tree in order.
@@ -103,6 +89,23 @@ values back by traversing the tree in order.
 
 The implementation can be found in
 [TreeSort.java](./assets/codes/sorting/TreeSort.java).
+
+### Cost of sorting
+
+Of course, we haven't considered the cost involved in sorting a collection. If the collection changes frequently, we need to maintain the sorting order. This can be done either by,
+
+1. adding the item that has to be added at the appropriate place (Which more or less requires one iteration through the collection) - pretty good!
+2. adding the item at the end and sorting the collection again - not so good.
+
+What one must remember is that sorting is not free and has a cost associated with it.
+
+Tree sort in particular stores every value in a node of a binary search tree.
+That extra memory can be significant and, if the data arrives already
+sorted, the tree degenerates into a linked list.  In that worst case the
+insertions each scan most of the existing nodes giving an overall cost of
+$O(n^2)$.
+
+
 
 ### Approaches to sorting
 
@@ -259,11 +262,49 @@ A simplified run of Timsort on the same numbers identifies runs and merges them:
 >
 > 20, 20, 30, 40, 70, 80, 90
 
-## Exotic sort algorithms
+
+## What's the best we can do?
 
 Comparison-based sorting algorithms can't beat $O(n \log n)$ in the general
-case because each comparison yields limited information.  To sort faster we need
-to look for more unusual approaches.
+case because each comparison yields limited information.  
+
+A comparison-based sorting algorithm only relies on comparing pairs of elements. Any such algorithm can be represented as a decision tree, where:
+
+- Each internal node represents a comparison between two elements.
+
+- Each branch corresponds to one of two outcomes ($\le$ or $>$).
+
+- Each leaf node represents one possible permutation (sorted order).
+
+### Step-by-step reasoning
+
+1.	**Number of permutations:**
+Sorting n distinct items could yield $n!$ possible outcomes.
+
+2.	**Binary decision tree:**
+A binary tree with height h has at most $2^h$ leaves.
+
+3.	**Lower bound on height:**
+Since you need at least as many leaves as possible outcomes, you must have:
+$2^h \ge n!$
+
+4.	**Use Stirling’s Approximation:**
+
+For large n, Stirling’s approximation tells us:
+
+$n! \approx \sqrt{2\pi n} \left(\frac{n}{e}\right)^n$
+
+Taking logarithms (base 2) of both sides:
+
+$h \ge \log_2(n!) \approx \log_2\left(\sqrt{2\pi n}\left(\frac{n}{e}\right)^n\right)$
+
+This simplifies to:
+$h \approx n \log_2 n - n \log_2 e + O(\log n) \quad\Rightarrow\quad h = \Omega(n \log n)$
+
+## Exotic sort algorithms
+
+To sort faster we need
+to look for more unusual approaches where we don't compare numbers.
 
 ### Sleep sort
 
@@ -277,6 +318,9 @@ shows how it works.
 This method lets beads fall under gravity so that more beads collect on pegs for
 larger values.  It only works for positive integers and illustrates how physical
 processes can be used to sort.
+
+[https://bead-sort.arithmetic.guru](https://bead-sort.arithmetic.guru)
+
 
 ## Radix Sort
 
@@ -302,10 +346,11 @@ significant:
 It remains an open research question whether quantum computers can achieve more
 than a constant factor speed-up for sorting.
 
+
 ## Sorting in the Java standard library
 
 Java provides `Arrays.sort()` to sort arrays and `Collections.sort()` for lists.
-Arrays of primitives use a tuned quicksort while object arrays and lists are
+Arrays of primitives use a tuned Quicksort while object arrays and lists are
 sorted with Timsort.  Example usage:
 
 ```java
