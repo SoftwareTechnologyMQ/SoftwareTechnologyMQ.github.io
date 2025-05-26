@@ -24,8 +24,8 @@ Pandoc can be used to build slides from the lesson Markdown files. To generate s
 
 ```bash
 ./codex-setup.sh            # installs pandoc and LaTeX packages
-pandoc sorting.md -t beamer -o sorting.pdf
-pandoc sorting.md -o sorting.pptx
+pandoc sorting.md --slide-level=4 -t beamer -o sorting.pdf
+pandoc sorting.md --slide-level=4 -o sorting.pptx
 ```
 
 An example GitHub Actions workflow for `sorting.md` lives in `.github/workflows/sorting-slides.yml`. Duplicate this file and replace `sorting.md` with another lesson file to generate slides for other topics.
