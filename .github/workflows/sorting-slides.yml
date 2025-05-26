@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - sorting.md
+      - assets/codes/sorting/*.java
       - .github/workflows/sorting-slides.yml
   workflow_dispatch:
 
@@ -20,6 +21,9 @@ jobs:
         run: pandoc sorting.md --slide-level=4 -t beamer -o sorting.pdf
       - name: Build PPTX
         run: pandoc sorting.md --slide-level=4 -o sorting.pptx
+      - name: Create ZIP
+        run: |
+          zip -j sorting-lecture.zip sorting.pdf sorting.pptx assets/codes/sorting/*.java
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -27,3 +31,4 @@ jobs:
           path: |
             sorting.pdf
             sorting.pptx
+            sorting-lecture.zip
