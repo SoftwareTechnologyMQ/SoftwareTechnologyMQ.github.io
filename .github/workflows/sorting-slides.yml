@@ -17,9 +17,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y pandoc texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
       - name: Build PDF (Beamer)
-        run: pandoc sorting.md -t beamer -o sorting.pdf
+        run: pandoc sorting.md --slide-level=4 -t beamer -o sorting.pdf
       - name: Build PPTX
-        run: pandoc sorting.md -o sorting.pptx
+        run: pandoc sorting.md --slide-level=4 -o sorting.pptx
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
