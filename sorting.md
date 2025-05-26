@@ -59,6 +59,8 @@ For an sorted collection, every time an item is not the same as the next item, y
 
 The second approach is signficantly easier than the first.
 
+## Sorting is good
+
 Bottomline - It makes things MUCH easier!
 
 ### Cost of sorting
@@ -94,7 +96,7 @@ Another option to put 20 in the right place is to simply swap it with whatever i
 
 Just like the first sub-option, we can totally forget about the first item once this is done, and carry on with the same process starting at the second item.
 
-## Full trace using "shifting" approach
+### Full trace using "shifting" approach
 
 Sorted part and unsorted part put in their own *compartments*.
 
@@ -116,7 +118,7 @@ Sorted part and unsorted part put in their own *compartments*.
 > 
 
 
-## Full trace using "swapping" approach
+### Full trace using "swapping" approach
 
 Sorted part and unsorted part put in their own *compartments*.
 
@@ -136,7 +138,6 @@ Sorted part and unsorted part put in their own *compartments*.
 >
 > 20, 20, 30, 40, 70, 80, 90 | 
 > 
-
 
 ## Bring it in!
 
@@ -225,6 +226,7 @@ significant:
 > (ones) 70, 41, 21, 21, 26, 78, 79
 >
 > (tens) 21, 21, 26, 41, 70, 78, 79
+
 
 ## Quantum acceleration?
 
