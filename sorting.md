@@ -146,6 +146,12 @@ Now that we've had an intuitive idea of what needs to be done, let's formalize o
 - The shifting approach is what is known as *insertion sort*.
 - The swapping approach is what is known as *selection sort*.
 
+## Visualising different algorithms
+
+https://sortvisualizer.fenilsonani.com/
+
+[Visualgo](https://visualgo.net/en/sorting).
+
 ## Insertion Sort
 
 <img src = "./assets/images/insertionSortAscendingLeft.png" width = 500>
@@ -201,6 +207,8 @@ A worked trace on the numbers `40, 70, 20, 90, 30, 80, 20`:
 
 ## Timsort
 
+[https://sorting-visualizer.researchdatapod.com/](https://sorting-visualizer.researchdatapod.com/)
+
 Timsort is a hybrid of merge sort and insertion sort.  It is designed to take
 advantage of ordered subsequences in real data and is used by default when Java
 sorts objects.
@@ -214,6 +222,8 @@ A simplified run of Timsort on the same numbers identifies runs and merges them:
 > 20, 20, 30, 40, 70, 80, 90
 
 ## Radix Sort
+
+[https://www.sortvisualizer.com/radixsort/]([https://www.sortvisualizer.com/radixsort/])
 
 Radix sort processes the digits of numbers one position at a time, allowing
 integers to be sorted in linear time when the number of digits is limited.
@@ -247,6 +257,5 @@ List<Integer> list = new ArrayList<>(List.of(40, 70, 20));
 Collections.sort(list);
 ```
 
-You can explore visualisations of these algorithms at
-[Visualgo](https://visualgo.net/en/sorting).
+
 
