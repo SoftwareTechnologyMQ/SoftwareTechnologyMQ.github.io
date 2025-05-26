@@ -62,7 +62,15 @@ The second approach is signficantly easier than the first.
 
 ## Sorting is good
 
+
 Bottomline - It makes things MUCH easier!
+
+### Bogosort
+
+Bogosort repeatedly shuffles the data until it happens to be in order.  It is a
+fantastic way to waste time and highlights why we care about algorithmic
+complexity.  A short implementation is given in
+[BogoSort.java](./assets/codes/sorting/BogoSort.java).
 
 ### Cost of sorting
 
@@ -72,6 +80,29 @@ Of course, we haven't considered the cost involved in sorting a collection. If t
 2. adding the item at the end and sorting the collection again - not so good.
 
 What one must remember is that sorting is not free and has a cost associated with it.
+
+Tree sort in particular stores every value in a node of a binary search tree.
+That extra memory can be significant and, if the data arrives already
+sorted, the tree degenerates into a linked list.  In that worst case the
+insertions each scan most of the existing nodes giving an overall cost of
+
+$O(n^2)$.
+
+### Tree sort
+
+Tree sort inserts every element into a binary search tree and then reads the
+values back by traversing the tree in order.
+
+```
+        40
+       /  \
+     20    70
+       \   / \
+       30 60  90
+```
+
+The implementation can be found in
+[TreeSort.java](./assets/codes/sorting/TreeSort.java).
 
 ### Approaches to sorting
 
@@ -179,6 +210,12 @@ Yes another version of selection sort sorts in descending order, starting the so
 
 <img src = "./assets/images/selectionSortDescendingRight.png" width = 500>
 
+## Bubble Sort
+
+Bubble sort repeatedly swaps out-of-order adjacent items.  While simple to
+understand, it is generally slower than insertion or selection sort.  See
+[BubbleSort.java](./assets/codes/sorting/BubbleSort.java) for a demonstration.
+
 ## Quick Sort
 
 Quick sort works by choosing a pivot, placing smaller values before the pivot and
@@ -222,12 +259,33 @@ A simplified run of Timsort on the same numbers identifies runs and merges them:
 >
 > 20, 20, 30, 40, 70, 80, 90
 
+## Exotic sort algorithms
+
+Comparison-based sorting algorithms can't beat $O(n \log n)$ in the general
+case because each comparison yields limited information.  To sort faster we need
+to look for more unusual approaches.
+
+### Sleep sort
+
+Sleep sort launches a thread for each value and relies on the operating system's
+timing to print numbers in order.  It's more of a curiosity than a practical
+algorithm.  The code in [SleepSort.java](./assets/codes/sorting/SleepSort.java)
+shows how it works.
+
+### Bead sort / Gravity sort
+
+This method lets beads fall under gravity so that more beads collect on pegs for
+larger values.  It only works for positive integers and illustrates how physical
+processes can be used to sort.
+
 ## Radix Sort
 
 [https://www.sortvisualizer.com/radixsort/]([https://www.sortvisualizer.com/radixsort/])
 
 Radix sort processes the digits of numbers one position at a time, allowing
-integers to be sorted in linear time when the number of digits is limited.
+integers to be sorted in linear time when the number of digits is limited.  A
+full implementation appears in
+[RadixSort.java](./assets/codes/sorting/RadixSort.java).
 
 A quick demonstration treats the digits from least significant to most
 significant:
