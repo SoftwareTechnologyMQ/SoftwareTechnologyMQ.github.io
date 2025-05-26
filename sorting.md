@@ -164,16 +164,53 @@ larger values after it, and then recursively sorting the two partitions.  A
 simple implementation is provided in
 [QuickSort.java](./assets/codes/sorting/QuickSort.java).
 
+A worked trace on the numbers `40, 70, 20, 90, 30, 80, 20`:
+
+> | 40, 70, 20, 90, 30, 80, 20
+>
+> 20 | 40, 70, 90, 30, 80, 20
+>
+> 20, 20 | 40, 70, 90, 30, 80
+>
+> 20, 20 | 30, 40 | 70, 90, 80
+>
+> 20, 20, 30, 40 | 70, 90, 80
+>
+> 20, 20, 30, 40 | 70 | 90, 80
+>
+> 20, 20, 30, 40, 70 | 80, 90
+>
+> 20, 20, 30, 40, 70, 80 | 90
+>
+> 20, 20, 30, 40, 70, 80, 90 |
+
 ## Timsort
 
 Timsort is a hybrid of merge sort and insertion sort.  It is designed to take
 advantage of ordered subsequences in real data and is used by default when Java
 sorts objects.
 
+A simplified run of Timsort on the same numbers identifies runs and merges them:
+
+> [40, 70], [20, 90], [30, 80], [20]
+>
+> [20, 40, 70, 90], [20, 30, 80]
+>
+> 20, 20, 30, 40, 70, 80, 90
+
 ## Radix Sort
 
 Radix sort processes the digits of numbers one position at a time, allowing
 integers to be sorted in linear time when the number of digits is limited.
+
+A quick demonstration treats the digits from least significant to most
+significant:
+
+> 41, 70, 21, 79, 26, 78, 21
+>
+> (ones) 70, 41, 21, 21, 26, 78, 79
+>
+> (tens) 21, 21, 26, 41, 70, 78, 79
 
 ## Quantum acceleration?
 
