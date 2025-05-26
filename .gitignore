@@ -3,5 +3,6 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
-.DS_Storesorting.pdf
+.DS_Store
+sorting.pdf
 sorting.pptx
