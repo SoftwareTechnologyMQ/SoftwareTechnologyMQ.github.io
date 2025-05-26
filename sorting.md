@@ -18,7 +18,7 @@ within: programming
   * Understand how data can be sorted
 </details>
 
-## Author: Gaurav Gupta
+## Author: Gaurav Gupta and Greg Baker
 
 <img src="./assets/images/margeSort.jpeg" width="400">
 
@@ -35,7 +35,21 @@ For an unsorted collection, you have to go through each item of the collection i
 
 For a sorted collection, the highest value will either be the first value or the last value. The <i>k</i>-highest is at the <i>k</i><sup>th</sup> position. Thus, it reduces to a single-operation task.
 
-## Example 2: Finding the number of unique items in a collection
+
+## Example 2: Search
+
+Instead of starting at the beginning and checking every element in a
+array, if it is sorted, you can jump into the middle of the array and
+ask whether the element you are looking for is bigger or smaller. That
+tells you you only need to search half as many elements.
+
+Then you can jump into the half way point of the ones you need to search
+and repeat the process.
+
+(Bonus: instead of jumping half way, you can estimate how far you need to
+jump.)
+
+## Example 3: Finding the number of unique items in a collection
 
 Consider the array `{10,70,20,20,20,90,10,90,20,70}`. The four unique items are 10, 70, 20 and 90.
 
