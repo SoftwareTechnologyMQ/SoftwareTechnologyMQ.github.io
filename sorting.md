@@ -250,6 +250,11 @@ A worked trace on the numbers `40, 70, 20, 90, 30, 80, 20`:
 
 Dual-pivot quick sort extends the basic algorithm by selecting two pivots. Values less than the first pivot are placed on the left, those between the pivots stay in the middle and those greater than the second pivot move to the right.  This reduces comparisons and is the approach used by `Arrays.sort()` for primitive arrays in Java.
 
+A straightforward implementation can be found in
+[DoublePivotQuickSort.java](./assets/codes/sorting/DoublePivotQuickSort.java).
+The source file contains extensive inline comments explaining each step of the
+algorithm.
+
 A simplified run on the same numbers with pivots 20 and 70:
 
 > | 40, 70, 20, 90, 30, 80, 20
