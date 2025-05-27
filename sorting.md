@@ -421,3 +421,50 @@ Arrays.sort(personArray, (a, b) -> a.name.compareTo(b.name));
 Primitive arrays still use `<` and `>` directly with an optimised quicksort.
 
 In short, objects must be comparable—either naturally or via a comparator—otherwise sorting fails at runtime.
+
+### Sorting Unicode strings
+
+Java sorts Unicode strings using **lexicographic order based on UTF-16 code units**. Methods like `Arrays.sort(String[])` or `Collections.sort(List<String>)` rely on `String.compareTo(String)`.
+
+```java
+Arrays.sort(strings);
+Collections.sort(stringList);
+```
+
+`String.compareTo` compares characters one by one using their UTF-16 values. This works but ignores language conventions:
+
+```java
+"apple".compareTo("banana");  // negative -> "apple" < "banana"
+"\u00E4".compareTo("z");      // negative -> "ä" < "z"
+```
+
+In German, `ä` would typically appear near `a`, so the default order may seem strange.
+
+#### Locale-sensitive sorting
+
+Use `Collator` for proper Unicode-aware ordering:
+
+```java
+import java.text.Collator;
+import java.util.*;
+
+Collator collator = Collator.getInstance(Locale.GERMANY);
+List<String> words = Arrays.asList("äpfel", "apfel", "zebra");
+words.sort(collator);
+```
+
+A `Collator` handles accents, case differences and language-specific rules. Its strength can be tuned:
+
+```java
+collator.setStrength(Collator.PRIMARY);  // ignores accents and case
+```
+
+#### Summary
+
+| Approach             | How it sorts                           | Use case                          |
+| -------------------- | -------------------------------------- | --------------------------------- |
+| `String.compareTo()` | Lexicographic by UTF-16 code unit       | Fast, binary-safe sort            |
+| `Collator`           | Locale-aware Unicode sorting            | Human-friendly alphabetical order |
+
+If you rely on `compareTo()`, strings are ordered by raw Unicode values. Use `Collator` when you need natural alphabetical sorting.
+
