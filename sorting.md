@@ -361,5 +361,51 @@ List<Integer> list = new ArrayList<>(List.of(40, 70, 20));
 Collections.sort(list);
 ```
 
+### Comparable and Comparator
 
+`List.sort()` and `Arrays.sort()` rely on comparison logic rather than the `<` or `>` operators. If an object does not provide a natural order, Java offers two ways to supply one.
 
+#### Comparable
+
+Implement `Comparable<T>` to define how instances compare:
+
+```java
+public class Person implements Comparable<Person> {
+    String name;
+    int age;
+
+    @Override
+    public int compareTo(Person other) {
+        return Integer.compare(this.age, other.age);
+    }
+}
+```
+
+Instances can then be sorted without extra arguments:
+
+```java
+List<Person> people = ...;
+Collections.sort(people);  // uses compareTo
+people.sort(null);         // also uses compareTo
+Arrays.sort(personArray);  // also uses compareTo
+```
+
+#### Comparator
+
+If the class does not implement `Comparable` or a different order is required, supply a `Comparator<T>`:
+
+```java
+people.sort(Comparator.comparing(p -> p.name));
+Arrays.sort(personArray, (a, b) -> a.name.compareTo(b.name));
+```
+
+#### Under the hood
+
+- A `Comparable` or `Comparator` must be available.
+- The sort methods call comparison functions instead of `<` or `>`.
+- Object sorting uses dual-pivot quicksort for `Arrays.sort()` and TimSort for `List.sort()`.
+- Without a comparison strategy, a `ClassCastException` occurs.
+
+Primitive arrays still use `<` and `>` directly with an optimised quicksort.
+
+In short, objects must be comparable—either naturally or via a comparator—otherwise sorting fails at runtime.
