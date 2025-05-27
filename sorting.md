@@ -246,6 +246,18 @@ A worked trace on the numbers `40, 70, 20, 90, 30, 80, 20`:
 >
 > 20, 20, 30, 40, 70, 80, 90 |
 
+## Dual-Pivot Quick Sort
+
+Dual-pivot quick sort extends the basic algorithm by selecting two pivots. Values less than the first pivot are placed on the left, those between the pivots stay in the middle and those greater than the second pivot move to the right.  This reduces comparisons and is the approach used by `Arrays.sort()` for primitive arrays in Java.
+
+A simplified run on the same numbers with pivots 20 and 70:
+
+> | 40, 70, 20, 90, 30, 80, 20
+> 20 | 40, 30 | 70, 90, 80, 20
+> 20, 20 | 30, 40 | 70, 80, 90
+> 20, 20, 30, 40 | 70 | 80, 90
+> 20, 20, 30, 40, 70, 80, 90 |
+
 ## Timsort
 
 [https://sorting-visualizer.researchdatapod.com/](https://sorting-visualizer.researchdatapod.com/)
