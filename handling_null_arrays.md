@@ -19,7 +19,7 @@ within: programming
 
 The first thing one must understand is that the "contents" of an array is a reference to the memory location where the items are stored. The *name* of the array is the *reference* while the actual collection of items is the *instance*.
 
-This has been emphasized under [Compound Data](https://softwaretechnologymq.github.io/compound_data).
+This has been emphasized under [Arrays](https://softwaretechnologymq.github.io/arrays).
 
 Second - things will be much much easier if you draw memory diagrams (as shown in [Compound Data](https://softwaretechnologymq.github.io/compound_data).
 
