@@ -271,6 +271,17 @@ data.add(90); //data becomes [10, 70, 20, 90]
 int b = data.size(); //b will be 4
 ```
 
+The memory diagram for list `data` is given below:
+
+<p>&nbsp;</p>
+
+![](./assets/images/ArrayList.png)
+
+<p>&nbsp;</p>
+
+Inside each ArrayList object, sits an array named `elements` of the type of objects the list contains, in this case, `Integer`.
+Now, `Integer` is a _wrapper_ class, which contains an `int` variable named `value` inside it. We will learn about classes and objects very soon.
+
 ### Example 2 - add(int, Object)
 ```java
 //note data = [10, 70, 20, 90] already
