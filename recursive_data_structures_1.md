@@ -536,7 +536,6 @@ public static Node reversed(Node n) {
 
 The above version is called *out-of-place* algorithm and will create a second list of the same size as the original list, which can be pretty costly. A recursive *out-of-place* version is provided below. 
 
-
 Thanks to Xingyu (Ara) Cai for providing the following three elegant solutions! Well done, Ara :)
 
 ![](./assets/images/morganFreemanClapping.gif)
@@ -569,7 +568,21 @@ public static void reverseInPlace(Node start){
 }
 ```
 
-A completely *recursive in-place* version is:
+A completely *recursive in-place* version (credit to Aarav Vishnoi) is:
+
+```java
+public static Node reverseInPlaceRecursive(Node start) {
+    if(start == null || start.next == null) {
+        return start;
+    }
+    Node result = reverseInPlaceRecursive(start.next);
+    start.next.next = start;
+    start.next = null;
+    return result;
+}
+```
+
+Another recursive in-place solution:
 
 ```java
 public static void reverseInPlaceRecursive(Node start) {
