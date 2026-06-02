@@ -67,6 +67,47 @@ Here, we created an *anonymous* `Node` object - `new Node(10, null)` - and passe
 >
 > ![](./fig/06-lists/node/node-figure3.png)
 
+## Don't get fixated
+
+Don't get fixated over the `Node` class structure. All of the following are equally correct classes.
+
+```java
+public class Node {
+  public String name;
+  public Node connection;
+
+  public Node(int name, Node c) {
+    this.name = name;
+    connection = c;
+  }
+}
+```
+
+```java
+public class RNode {
+  public Rectangle payload; //assuming Rectangle class exists
+  public RNode link;
+
+  public RNode(int p, Node l) {
+    payload = p;
+    link = l;
+  }
+}
+```
+
+```java
+public class CalendarNode {
+  public Date date; //assuming Date class exists
+  public Time time; //assuming Time class exists
+  public CalendarNode next;
+
+  public CalendarNode(Date d, Time t, CalendarNode next) {
+    date = d;
+	time = t;
+    this.next = next;
+  }
+}
+```
 
 ## Linking nodes
 
