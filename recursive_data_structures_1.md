@@ -128,7 +128,7 @@ while(temp != null) {
 
 ![](./fig/06-lists/linkedlists/linkedlists-figure12.png)
 
-## Careful to not lose the reference to the starting node
+## Careful not to lose the reference to the starting node
 
 What would happen if we write the following code?
 
