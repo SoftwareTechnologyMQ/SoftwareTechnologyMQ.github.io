@@ -1,0 +1,33 @@
+<!-- The button component -->
+<button onclick="scrollToTop()"  id="back-to-top-button" class="btn btn-purple">
+↑ Back to top
+</button>
+
+<style>
+  /* Styling for the button itself is already provided by the btn-purple class */
+
+  #back-to-top-button {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: none; /* hidden until scroll */
+    z-index: 1000;
+  }
+</style>
+
+<script>
+  // Show button when scrolling down
+  window.onscroll = function() {
+    let btn = document.getElementById("back-to-top-button");
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  // Smooth scroll to top
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>

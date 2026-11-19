@@ -1,0 +1,44 @@
+---
+title: Getting Your Work Incorporated
+parent: For Java/Mini-Console
+grand_parent: Research Skills
+permalink: /research/java-minicon/incorporating-code
+nav_order: 6
+---
+
+- TOC
+{:toc}
+
+At the moment, all your work is sitting on your forked repository. To incorporate your progress with the main repository, you will need to create a **Pull Request**. Before you do that, you will want to make sure your repository and changes are in a complete and finished state that will not introduce bugs or unnecessary code into the main repository.
+
+## Pull Requests.
+
+![Remote Origins Diagram]({{ site.baseurl  }}/assets/imgs/research-mini-console/incorporating-code/remote-origins.jpg)
+
+As shown in the above diagram, pull requests are the link from your forked repository back to the original/main repository. It is easiest to do this through the Bitbucket website.
+
+1. Go to your forked repository on Bitbucket
+2. Select "Pull requests" on the left side bar
+![Bitbucket screenshot 1]({{ site.baseurl  }}/assets/imgs/research-mini-console/incorporating-code//PR-1.png)
+
+3. Select "Create pull request" in the rop right of the screen
+![Bitbucket screenshot 2]({{ site.baseurl  }}/assets/imgs/research-mini-console/incorporating-code//PR-2.png)
+
+4. Your pull request description should be automatically populated with some of your commit descriptions. Feel free to unpack them a little more if you feel some more context might be necessary. Give the request a meaningful title
+![Bitbucket screenshot 3]({{ site.baseurl  }}/assets/imgs/research-mini-console/incorporating-code//PR-3.png)
+
+5. Create the pull request.
+
+
+### What happens now?
+
+Creators of the mini console will review your changes and approve or deny them. Keep any eye out for comments that may be made on how to improve your pull request.
+
+For an insight into what the repository owner see's when you make a pull request, have a look at this video.
+
+{% include youtube.html id="O-wH8Yp11hs" %}
+
+{: .note}
+There are lots of open-source projects out there. If you were keen on continuing to work on projects similar to this in your spare time, you can find some of them listed at [THIS](https://www.firsttimersonly.com/) website. You can clone, make changes and create pull requests for these projects within a friendly and supportive online community. Authors will also sometimes tag issues for beginners to help them get started on projects.
+
+
