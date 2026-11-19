@@ -12,18 +12,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - name: Install pandoc and LaTeX
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
       - name: Build PDF (Beamer)
-        run: pandoc docs/comp1010/sorting.mdsorting.md --slide-level=4 -t beamer -o sorting.pdf
+        run: pandoc docs/comp1010/sorting.md --slide-level=4 -t beamer -o sorting.pdf
       - name: Build PPTX
-        run: pandoc docs/comp1010/sorting.mdsorting.md --slide-level=4 -o sorting.pptx
+        run: pandoc docs/comp1010/sorting.md --slide-level=4 -o sorting.pptx
       - name: Create ZIP
         run: |
-          zip -j sorting-lecture.zip sorting.pdf sorting.pptx assets/codes/sorting/*.java
+          zip -j sorting-lecture.zip sorting.pdf sorting.pptx assets/codes/comp1010/sorting/*.java
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:

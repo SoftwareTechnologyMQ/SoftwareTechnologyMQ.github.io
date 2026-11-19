@@ -67,6 +67,7 @@ Make sure you have Ruby, Bundler, and Git installed on your system.
     chmod +x codex-setup.sh
     ./codex-setup.sh
     ```
+    > **Note:** Pandoc is a legacy tool from the previous version of this project and is not needed to build or run the site. See [Legacy Pandoc Slide Tooling](#legacy-pandoc-slide-tooling) under Known Issues.
 
 ### Running Locally
 To launch the Jekyll development server, run:
@@ -98,7 +99,8 @@ Here is a guide to the key folders in this project:
 ├── assets/                   # Images, diagrams, favicons, and custom D3 scripts
 ├── _config.yml               # Jekyll configuration (Remote theme, search, callouts, and plugin settings)
 ├── Gemfile                   # Ruby gem dependencies
-└── codex-setup.sh            # Installs LaTeX/Pandoc dependencies
+├── .github/workflows/        # Legacy Pandoc slide-build workflow (see Known Issues)
+└── codex-setup.sh            # Installs LaTeX/Pandoc dependencies (legacy)
 ```
 
 ---
@@ -269,6 +271,10 @@ If you are a developer looking to contribute to the codebase or improve the plat
 ### Potential & Known Issues
 *   **Exercise Block TOC Exclusion:** 
     *   Because exercise blocks (`{% include exercise.html ... %}`) are rendered dynamically via Jekyll includes after the markdown parser builds the in-page Table of Contents (TOC), their titles (e.g., `### Exercise Title`) are not included in the auto-generated TOC block.
+*   **Legacy Pandoc Slide Tooling:** <a id="legacy-pandoc-slide-tooling"></a>
+    *   The Pandoc/LaTeX tooling (`codex-setup.sh` and the `.github/workflows/sorting-slides.yml` workflow, which builds Beamer PDF/PPTX slides from `docs/comp1010/sorting.md`) comes from the previous version of this project. It has been kept because the repository owner (Gaurav Gupta) may still want it, but it has **not** been updated for the Just the Docs migration and may not work with the current version.
+    *   Pandoc does not understand Jekyll/Liquid or Just the Docs syntax (e.g., `{% include %}`, `{% capture %}`, `{: .note}`), so this markup may show up as raw text in generated slides, or the build may fail.
+    *   The workflow runs automatically when `docs/comp1010/sorting.md` or the sorting code files change. A failure there does **not** affect the GitHub Pages site build.
 
 ---
 
