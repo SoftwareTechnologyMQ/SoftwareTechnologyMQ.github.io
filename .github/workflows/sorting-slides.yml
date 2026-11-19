@@ -25,7 +25,7 @@ jobs:
         run: |
           zip -j sorting-lecture.zip sorting.pdf sorting.pptx assets/codes/comp1010/sorting/*.java
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: sorting-slides
           path: |

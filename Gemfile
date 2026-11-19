@@ -32,4 +32,4 @@ gem "wdm", "~> 0.1", :platforms => [:mingw, :x64_mingw, :mswin]
 # do not have a Java counterpart.
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
-gem "just-the-docs", "~> 0.10.1"
+# just-the-docs is loaded via `remote_theme` in _config.yml, so no gem is needed here.

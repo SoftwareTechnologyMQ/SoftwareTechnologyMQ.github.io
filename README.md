@@ -1,14 +1,14 @@
-# Software Tech Demo — Project Overview
+# Software Technology MQ — Project Overview
 
-Welcome to the **Software Tech Demo** repository! This project is a **redesign mockup** of the original Software Technology stream lecture notes portal, which can be found at [softwaretechnologymq.github.io](https://softwaretechnologymq.github.io/). 
+Welcome to the **Software Technology MQ** repository! Here you will find the source files for the [Software Technology MQ website](https://softwaretechnologymq.github.io/).
 
-The live mockup site is hosted at [ccheung96.github.io/software-tech-demo/](https://ccheung96.github.io/software-tech-demo/).
+This redesign was developed in [ccheung96/software-tech-demo](https://github.com/CCheung96/software-tech-demo), which restructured the original repository content, and has now been merged back here.
 
 ---
 
 ## 🚀 What the Project is About
 
-This site is a modernized renovation attempt of the original MQ Software Technology learning portal. It aims to provide first-year and introductory computer science students (enrolled in COMP1000, COMP1010, COMP2160, COMP6010, and related units at Macquarie University) with a clean, highly readable, responsive, and visual study resource. 
+This site is a modernized redesign of the original MQ Software Technology learning portal. It aims to provide first-year and introductory computer science students (enrolled in COMP1000, COMP1010, COMP2160, COMP6010, and related units at Macquarie University) with a clean, highly readable, responsive, and visual study resource. 
 
 The site is built with:
 *   **Highly structured learning modules** containing assumed knowledge and clear learning outcomes.
@@ -55,8 +55,8 @@ Make sure you have Ruby, Bundler, and Git installed on your system.
 ### Installation
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/CCheung96/software-tech-demo.git
-    cd software-tech-demo
+    git clone https://github.com/SoftwareTechnologyMQ/SoftwareTechnologyMQ.github.io.git
+    cd SoftwareTechnologyMQ.github.io
     ```
 2.  **Install Ruby dependencies:**
     ```bash
@@ -75,7 +75,7 @@ To launch the Jekyll development server, run:
 bundle exec jekyll serve
 ```
 After building, the site will be available locally at:
-👉 **[http://localhost:4000/software-tech-demo](http://localhost:4000/software-tech-demo)**
+👉 **[http://localhost:4000](http://localhost:4000)**
 
 *(Note: Jekyll will watch files and automatically rebuild the site as you make edits to your markdown files).*
 
@@ -286,3 +286,6 @@ If you are a developer looking to contribute to the codebase or improve the plat
 5.  Open a **Pull Request** explaining your changes!
 
 For any direct suggestions or course inquiries, please contact **Gaurav Gupta** at `gaurav.gupta@mq.edu.au`.
+
+---
+*This Documentation was drafted with Claude (Anthropic) and reviewed by the maintainers.*

@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Software Tech Demo
+title: Software Technology MQ
 # logo: "assets/lorem_ipsum.avif"  # for putting a logo in place of the website title
 favicon_ico: "assets/MQ_logo.png" # for adding a favicon
 # email: crystal.yuen.ki.chueng@gmail.com
@@ -27,8 +27,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   # line in _config.yml. It will appear in your document head meta (for
   # Google search results) and in your feed.xml site description.
 
-baseurl: "/software-tech-demo" # the subpath of your site, e.g. /blog
-url: "https://ccheung96.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://softwaretechnologymq.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username:
 github_username:  CCheung96
 
@@ -62,7 +62,7 @@ nav_enabled: true
 # External navigation links
 nav_external_links:
   - title: Edit (README for details)
-    url: https://github.com/CCheung96/software-tech-demo
+    url: https://github.com/SoftwareTechnologyMQ/SoftwareTechnologyMQ.github.io
     hide_icon: false # set to true to hide the external link icon - defaults to false
     opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
 
