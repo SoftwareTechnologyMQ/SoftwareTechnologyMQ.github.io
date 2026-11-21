@@ -109,8 +109,8 @@ Here is a guide to the key folders in this project:
 
 The project includes two hidden utility pages that are excluded from the main sidebar navigation (`nav_exclude: true`). They are incredibly useful for course developers to reference and test layout features:
 
-*   **Demonstration Page (`/demo`):** Located at [docs/demo.md](file:///wsl.localhost/Ubuntu-24.04/home/crystal/softwareTechDemo/docs/demo.md). It showcases rendered examples of all standard components—headings, styled callouts, exercise blocks, YouTube videos, KaTeX equations, and D3.js visual scripts—so developers can see how elements look when published.
-*   **Test Page (`/test`):** Located at [docs/test.md](file:///wsl.localhost/Ubuntu-24.04/home/crystal/softwareTechDemo/docs/test.md). It serves as a staging/sandbox area for developers to test grid structures, embed scripts, layout rendering, and Mermaid.js diagrams before pushing changes live.
+*   **Demonstration Page (`/demo`):** Located at [docs/demo.md](docs/demo.md). It showcases rendered examples of all standard components—headings, styled callouts, exercise blocks, YouTube videos, KaTeX equations, and D3.js visual scripts—so developers can see how elements look when published.
+*   **Test Page (`/test`):** Located at [docs/test.md](docs/test.md). It serves as a staging/sandbox area for developers to test grid structures, embed scripts, layout rendering, and Mermaid.js diagrams before pushing changes live.
 
 ---
 
