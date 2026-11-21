@@ -1,0 +1,56 @@
+<!-- The standardised HTML structure for Exercise/Example/Scenario blocks with hidden solutions. It is styled with CSS. -->
+<div class="exercise-container">
+    <h3 id="{{ include.id | default: include.title | slugify }}">
+        {{ include.title }}
+    </h3>
+    <div class="exercise-description">
+        {{ include.problem | markdownify }}
+    </div>
+    {% if include.solution %}
+    <div class="exercise-solution">
+        <details>
+            <summary>Solution</summary>
+            {{ include.solution | markdownify }}
+        </details>
+    </div>
+    {% endif %}
+    {% if include.solution2 %}
+    <div class="exercise-solution">
+        <details>
+            <summary>Solution 2</summary>
+            {{ include.solution2 | markdownify }}
+        </details>
+    </div>
+    {% endif %}
+</div>
+
+
+<style>
+  .exercise-container {
+    border-left: 5px solid #8ad6af;
+    background-color: #f2fcf7;
+    padding: 1.5em 1.5em 2em 1.5em;
+    margin: 2em 0;
+    border-radius: 0.5em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+  .exercise-container h3 {
+      margin-top: 0 !important;
+      text-align: center;
+  }
+
+  .exercise-description {
+      margin-bottom: 1em;
+  }
+
+  .exercise-solution {
+      background-color: #c8fce1;
+      padding: 20px;
+      margin-bottom: 2px;
+  }
+
+  .exercise-solution summary {
+      font-weight: bold;
+  }
+</style>

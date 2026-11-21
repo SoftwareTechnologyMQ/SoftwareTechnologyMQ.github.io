@@ -8,7 +8,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 #
-# If you need help with YAML syntax, here are some quick references for you: 
+# If you need help with YAML syntax, here are some quick references for you:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 #
@@ -18,31 +18,100 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Software Technology Teaching Material, Macquarie University
-# email: gaurav.gupta@mq.edu.au
-description: >- # this means to ignore newlines until "baseurl:"
+title: Software Technology MQ
+# logo: "assets/lorem_ipsum.avif"  # for putting a logo in place of the website title
+favicon_ico: "assets/MQ_logo.png" # for adding a favicon
+# email: crystal.yuen.ki.chueng@gmail.com
+# Shown in the browser tab and in search-engine results.
+description: Lecture notes and learning resources for the Software Technology stream at Macquarie University.
+
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-# twitter_username: bluephonebox
-# github_username:  gaurav1780
+url: "https://softwaretechnologymq.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# twitter_username:
+github_username:  CCheung96
 
 # Build settings
+remote_theme: just-the-docs/just-the-docs
+# theme: minima (original theme)
+color_scheme: custom # Referring to _sass/color_schemes/custom.scss
+
 markdown: kramdown
 kramdown:
-  syntax_highlighter: rouge
-  math_engine: katex      # ← enable KaTeX processing
-  math_engine_opts: {}    # optional KaTeX options
+  input: GFM
+  math_engine: null
+  syntax_highlighter: rouge # Stylises code blocks
   syntax_highlighter_opts:
-    default_lang: java
-    css_class: 'highlight'
-    span:
-      line_numbers: false
+    default_lang: text
     block:
       line_numbers: true
 
-theme: minima
 plugins:
-  - jekyll-feed
+  # - jekyll-feed   # if a feed for posts is needed
+  - jekyll-remote-theme   # to run Just the Docs as a remote theme
+
+# Enable or disable the site search
+# Supports true (default) or false
+search_enabled: true
+
+# Enable or disable the side/mobile menu globally
+# Nav menu can also be selectively enabled or disabled using page variables or the minimal layout
+nav_enabled: true
+
+# External navigation links
+nav_external_links:
+  - title: Edit (README for details)
+    url: https://github.com/SoftwareTechnologyMQ/SoftwareTechnologyMQ.github.io
+    hide_icon: false # set to true to hide the external link icon - defaults to false
+    opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
+
+
+defaults:
+  -
+    scope:
+      path: ""    # all files
+    values:
+      layout: "custom-page"
+
+
+back_to_top: true
+back_to_top_text: "Back to top"
+
+# Turning off HTML compression is needed to prevent the incorrect rendering of Syntax Highlighting and Line Numbers
+compress_html:
+  ignore:
+    envs: all
+
+exclude:
+  - archive
+
+# library to add mermaid diagrams
+mermaid:
+  version: "11.6.0"
+
+# enable copy button for code blocks
+enable_copy_code_button: true
+
+callouts:
+  # A callout is defined like so:
+
+  # callouts_opacity: 0.3 # Optional: The global opaciity for all callouts. By default, it is 0.2.
+  warning: # Requied: The name used to generate the callout. In the page, use {: .warning}
+    title: Warning  # Optional: A title that is displayed inside the callout
+    color: red      # Required: The primary colour scheme of the callout
+    opacity: 0.5    # Optional: An override of the default opacity
+  highlight:
+    color: yellow
+  note:
+    title: Note
+    color: purple
+  keynote:
+    title: Key Note
+    color: green
+  readings:
+    title: "Reading(s):"
+    color: blue
+
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -63,10 +132,3 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-
-# Tipue search settings
-tipue_search:
-  include:
-    pages: true
-  exclude:
-    files: [search.html]

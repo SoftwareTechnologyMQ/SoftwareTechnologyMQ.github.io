@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<!--
+To display a title at the top of the page.
+This can be customised to be different from the title that appears in the sidebar.
+-->
+{% assign display_title = page.custom-title | default: page.title | default: "Untitled Page" %}
+<h1>{{ display_title }}</h1>
+
+<!--
+To display an author name.
+Unless specified, this defaults to "by Gaurav Gupta".
+-->
+{% assign author = page.author | default: "Gaurav Gupta" %}
+<h6>by {{ author }}</h6>
+
+<!-- To display the page content -->
+{{ content }}
+
+<!-- Back to Top Button -->
+{% include back_to_top_button.html %}
+
+<!-- For the inclusion of KaTeX in individual pages -->
+{% if page.use_katex %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+      onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},       // For inline KaTeX
+          {left: '$', right: '$', display: false},        // For block KaTeX
+          { left: '\\[', right: '\\]', display: true },   // For KaTeX delimiters
+          { left: '\\(', right: '\\)', display: false }
+        ],
+        throwOnError: false
+      });"></script>
+{% endif %}

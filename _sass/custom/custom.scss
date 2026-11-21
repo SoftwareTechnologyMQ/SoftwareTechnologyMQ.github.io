@@ -1,0 +1,140 @@
+/*
+  For custom overrides and custom styles
+  The following is a list of variables commonly used by Just the Docs:
+  https://github.com/just-the-docs/just-the-docs/blob/main/_sass/support/_variables.scss
+*/
+
+/* Increases the font sizes of headings compared to Just the Docs */
+.main-content {
+  @media (max-width: 31.25rem) {
+    h2 { font-size: $font-size-8 !important; }
+    h3 { font-size: 1.9rem !important; }
+    h4 {
+      font-size: $font-size-6 !important;
+      font-weight: 500;
+      text-transform: none;
+    }
+    h5 { font-size: $font-size-5 !important; }
+    h6 { font-size: $font-size-4 !important; }
+  }
+
+  @media (min-width: 31.25rem) {
+    h2 { font-size: $font-size-9 !important; }
+    h3 {
+      font-size: $font-size-8 !important;
+      font-weight: 400 !important;
+    }
+    h4 {
+      font-size: $font-size-7 !important;
+      font-weight: 500;
+      text-transform: none;
+    }
+    h5 { font-size: $font-size-6 !important; }
+    h6 { font-size: $font-size-5 !important; }
+  }
+}
+
+/* Media wrapping constraints */
+.main-content-wrap {
+  img, svg, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* For styling two-way chats */
+.chat {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  max-width: 60%;
+
+  &.left {
+    text-align: left;
+    background-color: #f1f1f1;
+  }
+
+  &.right {
+    text-align: right;
+    background-color: #dbeafe;
+    margin-left: auto;
+  }
+
+  &.user {
+    font-weight: bold;
+    color: #1e3a8a;
+  }
+
+  &.compiler {
+    font-style: italic;
+    color: #6b7280;
+  }
+
+  &.processing {
+    color: #07966d;
+  }
+
+  &.computer {
+    color: #7c3aed;
+  }
+}
+
+/* For styling exercises that haven't yet been converted into an exercise */
+.task {
+  border-left: 5px solid #8ad6af;
+  background-color: #f2fcf7;
+  padding: 20px;
+  margin: 2em 0;
+  border-radius: 0.5em;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* For centring images */
+.centred-img {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+/* For disabling line numbers for code blocks with .nolineno */
+div.highlighter-rouge.nolineno {
+  .rouge-gutter {
+    display: none; /* hides the line number column */
+  }
+
+  .rouge-code {
+    width: 100%; /* let code expand full width */
+    display: block;
+  }
+}
+
+.responsive-svg {
+  display: block;
+  max-width: 100%;  /* shrink to container */
+  height: auto;     /* maintain aspect ratio */
+  margin: 1rem;
+}
+
+/* Block equations (display math) */
+.katex-display {
+  display: block;
+  overflow-x: auto;     /* Enable horizontal scroll if equation is too wide */
+  overflow-y: hidden;
+  max-width: 100%;      /* Prevent overflow beyond container */
+  padding: 0.5rem 0;    /* Add some breathing space */
+}
+
+/* Inline equations */
+.katex {
+  white-space: normal;  /* Allow wrapping for long inline math */
+}
+
+/* Desktop-only sticky search bar */
+@media (min-width: 50rem) {
+  .main-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+}
