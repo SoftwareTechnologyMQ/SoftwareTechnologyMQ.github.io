@@ -9,464 +9,346 @@ nav_order: 3
 - TOC
 {:toc}
 
+## Repeating work
 
+A **loop** runs a block of code repeatedly, as long as a boolean expression stays `true`. Loops let a short program do a large amount of work, such as adding up a million numbers or checking every item in an [array]({{ site.baseurl }}/comp1010/comp1000-revision/arrays).
 
-Loops are similar to conditions except that after every iteration of the loop, the expression is checked again.
-
-## A `while` loop
-
+## `while` loops
 
 ```java
-while(boolean expression) {
-	code inside loop
+while (booleanExpression) {
+    // loop body
 }
-rest of the code
+// rest of the code
 ```
 
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/loops/images/whileLoop.png" style="width: 300px;"/></center>
-
-Example:
-
-```java
-int a = 6;
-int result = 1;
-while(a > 0) {
-	result = result * a;
-	a = a - 1;
-}
-println(result);
+```mermaid
+flowchart TD
+    A{"booleanExpression?"} -->|true| B["loop body"]
+    B --> A
+    A -->|false| C["rest of the code"]
 ```
 
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/loops/images/whileExample.png" style="width: 300px;"/></center>
+The expression is checked **before each repetition** (each *iteration*). If it is `true`, the body runs and Java goes back to check again. As soon as it is `false`, the loop ends. If it is `false` the very first time, the body never runs at all.
 
-
-The above code executes the loop 6 times (for `a` = 6,5,4,3,2,1 but not for 0) each time multiplying the current value of `a` into `result` and the final value of `result` is 6\*5\*4\*3\*2\*1 = 720. 
-
-There is a better way of tracing loops known as logic table construction. The logic table for the above example is given below.
-
-| a 	| a > 0 	| result      	|
-|---	|-------	|-------------	|
-| 6 	| true  	| 1\*6 = 6     	|
-| 5 	| true  	| 6\*5 = 30    	|
-| 4 	| true  	| 30\*4 = 120  	|
-| 3 	| true  	| 120\*3 = 360 	|
-| 2 	| true  	| 360\*2 = 720 	|
-| 1 	| true  	| 720\*1 = 720 	|
-| 0 	| false 	|             	|
-
-## Guidelines for constructing a logic table
-
-While constructing a logic table, one is strongly encouraged to follow the following steps:
-
-1. Identify all variables involved in the boolean expression in the loop header.
-2. Create columns for each of the variables identified in step 1.
-3. Create a column for the loop expression. Create multiple columns to simplify reaching the expression if complex. For example, if expression is `x==y && !z`, the variables involved are `x`, `y`, and `z` and the sub-expressions are `x==y` and `!z`.
-4. Create columns for each variable (**unless column for the variable already present**) modified in the loop (in the order they are modified). Don't create columns v
-
-### Example for constructing a logic table
+Example: add up the integers from 1 to 5.
 
 ```java
-int a = 10, b = 2, c = 100;
-int result = 0;
-while(a > b && c > a) {
-	result = result + 1;
-	a = a - 1;
-	c = c / 2;
+int total = 0;
+int i = 1;
+while (i <= 5) {
+    total = total + i;
+    i++;
 }
+System.out.println(total);   // 15
 ```
 
-| a  	| b 	| c   	| a > b 	| c > a 	| a > b && c > a 	| result  	|
-|----	|---	|-----	|-------	|-------	|----------------	|---------	|
-| 10 	| 2 	| 100 	| true  	| true  	| true           	| 0+1 = 1 	|
-| 9  	|   	| 50  	| true  	| true  	| true           	| 1+1 = 2 	|
-| 8  	|   	| 25  	| true  	| true  	| true           	| 2+1 = 3 	|
-| 7  	|   	| 12  	| true  	| true  	| true           	| 3+1 = 4 	|
-| 6  	|   	| 6   	| true  	| false 	| false          	|         	|
+## Tracing a loop
 
-Note that we don't have columns for `a` and `c` again even though they are modified inside the loop because columns for those variables are already present in the table by virtue of step 2.
+The most reliable way to understand a loop, or to find a bug in one, is to **trace** it: write down the values of the variables each time the condition is checked.
 
-## for-loop
+| Check # | `i` | `total` | `i <= 5`? | Action                        |
+|---------|-----|---------|-----------|-------------------------------|
+| 1       | 1   | 0       | `true`    | `total = 0 + 1`, `i` becomes 2  |
+| 2       | 2   | 1       | `true`    | `total = 1 + 2`, `i` becomes 3  |
+| 3       | 3   | 3       | `true`    | `total = 3 + 3`, `i` becomes 4  |
+| 4       | 4   | 6       | `true`    | `total = 6 + 4`, `i` becomes 5  |
+| 5       | 5   | 10      | `true`    | `total = 10 + 5`, `i` becomes 6 |
+| 6       | 6   | 15      | `false`   | loop ends                     |
 
-A for-loop is more compact than the while loop and *usually* more common in real-life applications.
+Notice that:
 
-```java
-for(initializations; boolean expression; update(s)) {
-  code inside loop;
-}
-rest of the code;
-```
+- the condition is checked **6** times, but the body runs only **5** times,
+- after the loop, `i` is `6`, the first value that made the condition `false`.
 
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/loops/images/forLoop.png" style="width: 300px;"/></center>
+Each line of the body is an ordinary [two-step assignment]({{ site.baseurl }}/comp1010/comp1000-revision/variables-and-operators#assignment-is-a-two-step-operation). In `total = total + i`, the RHS uses the values of `total` and `i` from *before* the statement runs.
 
-Example:
+## The three parts of a counting loop
 
-```java
-int result = 0;
-for(int i=1; i <= 16; i*=2) {
-  result = result + i;
-}
-println(result);
-```
+Almost every counting loop has three parts:
 
-Trace (logic table):
+1. **Initialisation**: set up the loop variable (`int i = 1;`)
+2. **Condition**: decide whether to keep going (`i <= 5`)
+3. **Update**: move towards the end (`i++`)
 
-| i  	| i<=16 	| result     	|
-|----	|-------	|------------	|
-| 1  	| true  	| 0+1 = 1    	|
-| 2  	| true  	| 1+2 = 3    	|
-| 4  	| true  	| 3+4 = 7    	|
-| 8  	| true  	| 7+8 = 15   	|
-| 16 	| true  	| 15+16 = 31 	|
-| 32 	| false 	|            	|
-
-## Nesting of control structures
-
-Control structures are literally like lego blocks, you can arrange them as you want, depending on the situation. So you can put loops/conditions inside other loops/conditions (and then more loops/conditions inside that and so on).
+If you forget the update, the condition never changes and the loop runs forever (an **infinite loop**):
 
 ```java
-for(int i=1; i < 13; i+=3) {
-	// SOMETHING
+int i = 1;
+while (i <= 5) {
+    total = total + i;
+    // forgot i++ - i stays 1 forever
 }
 ```
 
-How many times does the control reach the line containing `// SOMETHING`?
+## `for` loops
 
-<details>
-<summary>Answer</summary>
-
-  In the above code, the line containing `// SOMETHING` is reached four times (for `i = 1, 4, 7, 10` but not `13` since loop expression is `i < 13` and not `i <= 13`)
-</details>
-
-Now, what if that `//SOMETHING` is a loop itself?
+A `for` loop puts all three parts on one line, so it is harder to forget any of them:
 
 ```java
-for(int i=1; i < 13; i+=3) {
-	for(int k=4; k > 1; k--) { 
-		//SOMETHING
-	} 
-	println("Inner loop finished");
-}
-println("Outer loop finished");
-```
-
-We know control reaches line 2 four times. Each time, it sees that there is a loop. Each of the four times, how many times does the inner loop, controlled by variable `k` execute?
-
-<details>
-<summary>Answer</summary>
-
-- Each time, variable `k` in declared and initialized to 4 	- The inner loop executes three times (for `k = 4, 3, 2`). 
-- When `k` becomes 1, inner loop exits, reaching `println("Inner loop finished");
-</details>
-
-So if we were to add a *tracking variable* and increment it, we get,
-
-```java
-int tracker = 0;
-for(int i=1; i < 13; i+=3) {
-	for(int k=4; k > 1; k--) { 
-		tracker++;
-	} 
+for (initialisation; condition; update) {
+    // loop body
 }
 ```
 
-<details>
-<summary>Answer</summary>
+The order of execution is:
 
-- Outer loop executes 4 times.
-- For each time outer loop executes, inner loop executes 3 times. 
-- Hence, `tracker++` executes 12 times.
-- Final value of `tracker = 12`.
-</details>
+1. initialisation (once only)
+2. check the condition. If `false`, the loop ends.
+3. run the body
+4. run the update, then go back to step 2
 
-Similar problems for you -
-
-1.
+The sum from 1 to 5 as a `for` loop:
 
 ```java
-int boom = 20;
-for(int i=1; i <= 5; i+=2) {
-	for(int k=3; k <=10; k*=2) { 
-		boom--;
-	} 
+int total = 0;
+for (int i = 1; i <= 5; i++) {
+    total = total + i;
 }
 ```
 
-<details> <summary>Answer</summary>
-  	Final value of <code>`boom`</code>: 14
-</details>
+This does exactly the same as the `while` version. One difference: a variable declared in the initialisation (`int i`) only exists inside the loop. Using `i` after the loop is a compilation error.
 
-2.
+{: .note}
+> **`for` or `while`?** Use a `for` loop when you know how many times to repeat (or can work it out), for example "for each index of an array". Use a `while` loop when you repeat *until something happens*, for example "until the number reaches 1".
+
+### Common loop headers
 
 ```java
-int ooft = 2;
-for(int i=1; i < 50; i*=4) {
-	for(int k=10; k>1; k-=5) { 
-		ooft+=3;
-	} 
+for (int i = 0; i < n; i++)      // 0, 1, 2, ..., n-1      (n iterations)
+for (int i = 1; i <= n; i++)     // 1, 2, 3, ..., n        (n iterations)
+for (int i = n; i >= 1; i--)     // n, n-1, ..., 1         (n iterations)
+for (int i = 0; i < n; i += 2)   // 0, 2, 4, ...           (every second value)
+```
+
+## Loop patterns
+
+Most loops you will write are one of a handful of patterns.
+
+### Accumulate (sum, product, count)
+
+Start a variable at a neutral value, then update it on each iteration.
+
+```java
+// sum of the squares of 1..n
+int sumSq = 0;
+for (int i = 1; i <= n; i++) {
+    sumSq = sumSq + i * i;
+}
+
+// count how many numbers in 1..n are divisible by 3 or 5
+int count = 0;
+for (int i = 1; i <= n; i++) {
+    if (i % 3 == 0 || i % 5 == 0) {
+        count++;
+    }
 }
 ```
 
-<details> <summary>Answer</summary>
-  	Final value of <code>ooft</code>: 20
-</details>
-
-3.
+### Repeat until a condition holds
 
 ```java
-int yeet = 2;
-for(int i=1; i < 50; i*=4) {
-	for(int k=10; k>i; k-=5) { //READ CAREFULLY
-		yeet--;
-	} 
+// number of digits in a positive integer n
+int digits = 0;
+while (n > 0) {
+    n = n / 10;     // integer division removes the last digit
+    digits++;
 }
 ```
 
-<details> <summary>Answer</summary>
-  	Final value of <code>`yeet`</code>: -2
-</details>
-
-Let's take some examples of a situation where such nesting is required.
-
-### Nesting scenario 1
-
-We would like to generate a pattern based on input integer `N > 0`
-
-
-`N=4`
-
-```
-^
-^ ^
-^ ^ ^
-^ ^ ^ ^ 
-```
-
-<p>&nbsp;</p>
-
-`N=6`
-
-```
-^
-^ ^
-^ ^ ^
-^ ^ ^ ^ 
-^ ^ ^ ^ ^ 
-^ ^ ^ ^ ^ ^ 
-```
-
-**STEP 1:** There are `N` lines.
-
-Outer loop - 
+### Search, and stop early
 
 ```java
-for(int i=1; i<=N; i++) {
-	display current line
-	change line using println(); 
+// is n a prime number? (assuming n >= 2)
+boolean isPrime = true;
+int d = 2;
+while (d < n && isPrime) {
+    if (n % d == 0) {
+        isPrime = false;
+    }
+    d++;
 }
 ```
 
-**STEP 2:** Line corresponding to a given value of `i` has `i` caps 
+The condition `d < n && isPrime` makes the loop stop as soon as a divisor is found.
 
-(when `i = 1`, there is 1 cap, when `i = 2` there are 2 caps, and so on ...).
+## Nested loops
 
-Inner loop - 
+The body of a loop can contain another loop. For each single iteration of the outer loop, the inner loop runs through **all** of its iterations.
 
 ```java
-for(int k=1; k<=i; k++) {
-	print("^");
+for (int row = 1; row <= 3; row++) {
+    for (int col = 1; col <= 4; col++) {
+        System.out.print(row * col + "\t");
+    }
+    System.out.println();
 }
 ```
 
+Output:
+
+```
+1	2	3	4
+2	4	6	8
+3	6	9	12
+```
+
+The inner body runs 3 × 4 = 12 times in total.
+
+The inner loop can depend on the outer loop variable:
+
+```java
+for (int row = 1; row <= 4; row++) {
+    for (int col = 1; col <= row; col++) {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+```
+
+```
+*
+**
+***
 ****
-
-<details>
-<summary><b>COMPLETE SOLUTION</b></summary>
-
-	```java
-	for(int i=1; i<=N; i++) {
-		for(int k=1; k<=i; k++) {
-			print("^");
-		}
-		println(); 
-	}
-	```
-</details>
-
-### Nesting scenario 2
-
-Change the code so that the symbols alternate between a cap (^) and a dash (-) between lines.
-
-`N=6`
-
-```
-^
-- -
-^ ^ ^
-- - - - 
-^ ^ ^ ^ ^
-- - - - - -
 ```
 
-The difference from scenario 1 is that if outer loop counter `i` is an odd number, it's a cap (`^`) while if the outer loop counter `i` is an even number, it's a dash (`-`).
+## Common mistakes
 
-So the earlier display statement
+### Off-by-one errors
 
+The loop runs one time too many or one time too few. Check the first and last values of the loop variable carefully. Does `<` or `<=` give you what you want?
+
+```java
+for (int i = 1; i < 10; i++)    // 1 to 9 - nine iterations
+for (int i = 1; i <= 10; i++)   // 1 to 10 - ten iterations
 ```
-print("^");
-```
 
-will change to,
+### A semicolon after the header
 
-```java 
-if(i%2 == 1) { // odd counter: cap
-	print("^");
-}
-else { // even counter: dash
-	print("-");
+```java
+for (int i = 0; i < 5; i++); {
+    System.out.println("hello");   // prints only once!
 }
 ```
 
-<details>
-<summary><b>COMPLETE SOLUTION</b></summary>
+As with `if`, the `;` gives the loop an empty body. The block afterwards runs once, after the loop finishes.
 
-	```java
-	for(int i=1; i<=N; i++) {
-		for(int k=1; k<=i; k++) {
-			if(i%2 == 1) { // odd counter: cap
-				print("^");
-			}
-			else { // even counter: dash
-				print("-");
-			}
-		}
-		println(); 
-	}
-	```
-</details>
-
-
-### Nesting scenario 3 (Exercise)
-
-Change the code so that the symbols alternate between ^ and - within a line.
-
-`N=6`
-
-```
-^
-^ -
-^ - ^
-^ - ^ -
-^ - ^ - ^
-^ - ^ - ^ -
-```
-
-### Nesting scenario 4 (Exercise)
-
-Change the code so that the symbols alternate between ^ and - within a line and also the first symbol on each line is different from the first symbol on the previous line
-
-`N=6`
-
-```
-^
-- ^
-^ - ^
-- ^ - ^
-^ - ^ - ^
-- ^ - ^ - ^
-```
-
-# Coding in the real world
-
-Just like in conditions, lets see some real-world scenarios where we need to use loops. 
-
-But there is a problem. Loops usually iterate over a *collection* (an array, list, hashmap, etc). Since we can't assume knowledge of the same in this document, we're in a bit of a pickle, aren't we? 
-
-So, instead we'll iterate over numbers generated via a random-number generator.
-
-## GROUNDWORK - Generating random numbers in Processing
-
-In processing, we can get a random real number between 0 and `n` (including 0 but **excluding** `n`) using,
+### Resetting a variable inside the loop
 
 ```java
-float r = random(n);
-``` 
-
-If we cast the result to an integer, that integer will be between 0 and `n` (including 0 but **excluding** `n`)
-
-```java
-int z = (int)r;
+for (int i = 1; i <= 5; i++) {
+    int total = 0;          // reset on EVERY iteration
+    total = total + i;
+}
 ```
 
-### EXAMPLE
+Variables that should keep their values across iterations, such as an accumulator, must be declared **before** the loop.
 
-To generate a number in multiples of 0.5 between 0 and 100 (inclusive on both sides), we first have to generate a random integer between 0 and 200 (inclusive on both sides).
+## Exercises
 
-```java
-int a = (int)random(0, 201); // remember, 201 is not included!
-```
-
-Next, we can divide the resulting integer by 0.5 to get our random and stepped real number.
+{% capture l_p1 %}
+Trace the following code. What is the output?
 
 ```java
-float b = a * 0.5;
+int a = 1;
+int b = 1;
+while (b < 20) {
+    int temp = a + b;
+    a = b;
+    b = temp;
+}
+System.out.println(a + " " + b);
 ```
+{% endcapture %}
+{% capture l_s1 %}
+| check | `a` | `b` | `b < 20`? |
+|-------|-----|-----|-----------|
+| 1     | 1   | 1   | true      |
+| 2     | 1   | 2   | true      |
+| 3     | 2   | 3   | true      |
+| 4     | 3   | 5   | true      |
+| 5     | 5   | 8   | true      |
+| 6     | 8   | 13  | true      |
+| 7     | 13  | 21  | false     |
 
-### Assumption for scenarios 1 to 3
+Output: `13 21`. These are consecutive Fibonacci numbers.
+{% endcapture %}
+{% include exercise.html title="Exercise 1: Trace it" problem=l_p1 solution=l_s1 %}
 
-For scenarios 1 to 3, you may assume that `n` is generated using the following statement:
+{% capture l_p2 %}
+How many times does each loop body run?
 
 ```java
-int x = 1 + (int)random(100); // x can be any integer from 1 to 100
-int n = 10*x; // n can be one of the values from [10, 20, ..., 1000]
+for (int i = 0; i < 10; i++) { ... }        // (a)
+for (int i = 10; i > 0; i -= 3) { ... }     // (b)
+for (int i = 1; i <= 100; i *= 2) { ... }   // (c)
+for (int i = 5; i < 5; i++) { ... }         // (d)
 ```
+{% endcapture %}
+{% capture l_s2 %}
+- (a) 10 times (`i` = 0 to 9)
+- (b) 4 times (`i` = 10, 7, 4, 1)
+- (c) 7 times (`i` = 1, 2, 4, 8, 16, 32, 64)
+- (d) 0 times. The condition is `false` the very first time it is checked.
+{% endcapture %}
+{% include exercise.html title="Exercise 2: Count the iterations" problem=l_p2 solution=l_s2 %}
 
+{% capture l_p3 %}
+Write a loop that computes the sum of the digits of a positive `int n`. For example, for `n = 4096` the sum is 4 + 0 + 9 + 6 = 19.
+{% endcapture %}
+{% capture l_s3 %}
+```java
+int sum = 0;
+while (n > 0) {
+    sum = sum + n % 10;   // last digit
+    n = n / 10;           // remove last digit
+}
+```
+{% endcapture %}
+{% include exercise.html title="Exercise 3: Sum of digits" problem=l_p3 solution=l_s3 %}
 
-## SCENARIO 1
-Write a piece of code that determines the number of times we get a 6 when a normal 6-faced die is rolled `n` times. 
-
-
-## SCENARIO 2
-Write a piece of code that determines the average outcome when a normal 6-faced dice is rolled `n` times.
-
-## SCENARIO 3
-Write a piece of code that determines the most frequent outcome when a normal 6-faced dice is rolled `n` times. If there is a tie, display all values. 
-
-## SCENARIO 4
-Consider a party where there are 4 people. Call them Alice, Bob, Charles and Diane. Assuming they are all friendly and logical people, the following handshakes will take place:
-
-- Alice with 
-	1. Bob
-	2. Charles
-	3. Diane
-- Bob (already shook hands with Alice) with
-	1. Charles
-	2. Diane
-- Charles (already shook hands with Alice and Bob) with
-	1. Diane 
-- Diane (already shook hands with everyone)
-
-Thus, there are 3+2+1 = 6 handshakes for 4 people.
-
-If a fifth person (Eddie) joins the party, he shakes hands with all others.
-
-Thus, there are **`4`**+3+2+1 = 10 handshakes for 5 people.
-
-A table summarizing this pattern is given below,
-
-| Number of people 	| Number of handshakes         	|
-|------------------	|------------------------------	|
-| 1                	| 0                            	|
-| 2                	| 1                            	|
-| 3                	| 2+1                          	|
-| 4                	| 3+2+1                        	|
-| 5                	| 4+3+2+1                      	|
-| ...              	|                              	|
-| n                	| (n-1) + (n-2) + .... + 2 + 1 	|
-
-There is actually a very elegant formula to get this value, but for the purpose of our exercise, we'd like you to compute the number of handshakes in a party of `n` people using a loop.
-
-You may assume that `n` is generated using the following statement:
+{% capture l_p4 %}
+The following code is meant to compute 1 × 2 × ... × `n` (n factorial). Find the bugs.
 
 ```java
-int n = (int)random(101); // n can be any integer from 0 to 100
+int product = 0;
+for (int i = 1; i < n; i++) {
+    product = product * i;
+}
 ```
+{% endcapture %}
+{% capture l_s4 %}
+1. `product` starts at `0`, so it stays `0` forever. The neutral value for multiplication is `1`.
+2. `i < n` stops before multiplying by `n`. It should be `i <= n`.
+
+```java
+int product = 1;
+for (int i = 1; i <= n; i++) {
+    product = product * i;
+}
+```
+{% endcapture %}
+{% include exercise.html title="Exercise 4: Debug factorial" problem=l_p4 solution=l_s4 %}
+
+{% capture l_p5 %}
+Using nested loops, print the following pattern for a given `n` (shown here for `n = 4`):
+
+```
+1
+12
+123
+1234
+```
+{% endcapture %}
+{% capture l_s5 %}
+```java
+for (int row = 1; row <= n; row++) {
+    for (int col = 1; col <= row; col++) {
+        System.out.print(col);
+    }
+    System.out.println();
+}
+```
+{% endcapture %}
+{% include exercise.html title="Exercise 5: Number triangle" problem=l_p5 solution=l_s5 %}

@@ -9,308 +9,330 @@ nav_order: 5
 - TOC
 {:toc}
 
+## Why arrays?
 
+Suppose you need to store the marks of 200 students. Declaring `mark1`, `mark2`, ..., `mark200` is clearly not workable, and you couldn't loop over them anyway.
 
-An array is a fixed-sized collection of items, each of the same data type.
+An **array** is a single variable that holds a fixed number of values, all of the same type. Each value is identified by its position, called its **index**.
 
-So you can have,
+## Creating an array
 
-- an array of 5 integers
-- an array of 20 booleans
-- an array of 2000 characters
-- an array of 50 Strings
-- an array of 400 arrays
-- and so on...
-
-
-## Syntax to create an array
-
-There are a few ways to create an array. 
-
-### Creating array - Option 1
-
-The most common way to create an array is by specifying the type and size of the array.
+### With a given size
 
 ```java
-type[] arrayName = new type[size];
+int[] marks = new int[5];
 ```
 
-#### Example
+- `int[]` is the type: "array of `int`".
+- `new int[5]` creates an array with room for 5 `int`s.
+- Every item starts at a **default value**: `0` for `int`, `0.0` for `double`, `false` for `boolean`, `null` for `String` and other objects.
+
+### With known values
 
 ```java
-int[] arr = new int[5]; //an array that holds 5 integers
+int[] marks = {72, 85, 64, 90, 58};
 ```
 
+The size (5) is worked out from the number of values listed.
+
+## Indexing
+
+Items are numbered from **0** up to **length - 1**:
+
+| index    | 0  | 1  | 2  | 3  | 4  |
+|----------|----|----|----|----|----|
+| `marks`  | 72 | 85 | 64 | 90 | 58 |
+
 ```java
-boolean[] flags = new boolean[8]; //an array that holds 8 booleans
+int first = marks[0];                  // 72
+int last = marks[marks.length - 1];    // 58
+marks[2] = 70;                         // replace 64 with 70
+marks[1] = marks[1] + 5;               // 85 becomes 90
 ```
 
-### Creating array - Option 2
-
-When you know the values that need to be stored in the array beforehand, you can create an array as,
+Each `marks[i]` behaves like an ordinary `int` variable. It can be read, and it can be the LHS of an assignment, which follows the usual [two-step rule]({{ site.baseurl }}/comp1010/comp1000-revision/variables-and-operators#assignment-is-a-two-step-operation):
 
 ```java
-type[] arrayName = {item1, item2, ...};
+double[] prices = new double[3];
+prices[0] = 5;        // OK: int 5 is copied into a double item as 5.0
+
+int[] counts = new int[3];
+counts[0] = 2.5;      // does NOT compile: a double cannot be copied into an int item
 ```
 
-#### Example
+`marks.length` gives the number of items (note: no brackets, unlike `String`'s `length()`). An array's length is fixed when it is created and can never change.
+
+{: .warning}
+> Accessing an index that doesn't exist, such as `marks[5]` or `marks[-1]` here, compiles fine but crashes when the program runs, with an `ArrayIndexOutOfBoundsException`.
+
+## Traversing an array
+
+To do something with every item, loop over every valid index:
 
 ```java
-int[] cutoffs = {50, 65, 75, 85};
-```
-
-```java
-char[] punctuations = {'.', '!', '?', ',', ';', ':'};
-```
-
-The problem with this approach is that once an array is created, this method can not be used to re-reference it later (more about referencing soon).
-
-### Creating array - Option 3
-
-The third approach is similar to the second except you *can* re-reference an existing array using this way (you cannot do so using option 2).
-
-```java
-type[] arrayName = new type[]{item1, item2, ....};
-```
-
-#### Example
-
-```java
-int[] cutoffs = new int[]{50, 65, 75, 85};
-```
-
-```java
-char[] punctuations = new char[]{'.', '!', '?', ',', ';', ':'};
-```
-
-
-# Size of an array
-
-The number of items in an array `arr` is given by `arr.length`.
-
-For example,
-
-```java
-int[] data = new int[20];
-println(data.length); // displays 20
-```
-
-# Accessing items of an array
-
-- The first item of an array `arr` is at index 0.
-- The second item of an array `arr` is at index 1.
-- ...
-- The last item of an array `arr` is at index `arr.length - 1`.
-
-Thus you can traverse an array using a loop from `0` to `arr.length - 1` as,
-
-```java
-for(int i=0; i < arr.length; i++) {
-	// do what you want with arr[i]
+for (int i = 0; i < marks.length; i++) {
+    System.out.println("Item at index " + i + " is " + marks[i]);
 }
 ```
 
-#### Example
+Use `i < marks.length`, **not** `i <= marks.length`. The last valid index is `length - 1`.
 
-Create an array that holds the outcome of 20 dice rolls.
+## Common array algorithms
 
-Each dice roll is a random integer between 1 and 6.
+These patterns combine a [loop]({{ site.baseurl }}/comp1010/comp1000-revision/loops#loop-patterns) with an array. They come up constantly in COMP1010.
+
+### Sum and average
 
 ```java
-int[] outcomes = new int[20];
-for(int i=0; i < outcomes.length; i++) {
-	outcomes[i] = (int)random(1, 7); // remember 7 is not included
+int total = 0;
+for (int i = 0; i < marks.length; i++) {
+    total = total + marks[i];
+}
+double average = (double) total / marks.length;   // cast, to avoid integer division!
+```
+
+### Count items that satisfy a condition
+
+```java
+int passCount = 0;
+for (int i = 0; i < marks.length; i++) {
+    if (marks[i] >= 50) {
+        passCount++;
+    }
 }
 ```
 
-Then we can find out the average outcome as,
+### Find the largest item
+
+Start with the first item as "the largest so far", then compare each remaining item against it:
 
 ```java
-int total  = 0;
-for(int i=0; i < outcomes.length; i++) {
-	total += outcomes[i];
+int max = marks[0];
+for (int i = 1; i < marks.length; i++) {
+    if (marks[i] > max) {
+        max = marks[i];
+    }
 }
-double average = (total * 1.0)/outcomes.length; 
-// multiplication with 1.0 to convert int to double
 ```
 
+{: .note}
+> Don't start `max` at `0`. If every item is negative, `0` would be wrong. Starting from an actual item always works (as long as the array is not empty).
 
-# Storage of an array and representation
-
-For the next example, note that an integer takes up 4 bytes of memory.
-
-The array items are held together in a block. 
-
-Consider the following array,
+### Search for an item
 
 ```java
-int[] arr = new int[4];
+int target = 90;
+int foundAt = -1;           // -1 means "not found"
+for (int i = 0; i < marks.length && foundAt == -1; i++) {
+    if (marks[i] == target) {
+        foundAt = i;
+    }
+}
 ```
 
-If the first item is at memory address 200-203, the second item will be at 204-207, the third item will be at 208-211 and the last item from 212-215.
+## Array variables hold references
 
-The array itself holds the starting address, in this case 200. 
-That's why we say that an array is a *reference*.
+This is where arrays differ from `int`, `double` and `boolean` variables.
 
-We represent this as,
-
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/arrays/images/arrays-figure0.png" width=300px></center>
-
-or a more simplified way of adding the array label above the items.
-
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/arrays/images/arrays-figure1.png" width=100px></center>
-
-#### Example
+An array variable does **not** hold the items themselves. It holds a **reference** to (the address of) the array, which lives elsewhere in memory.
 
 ```java
-boolean[] flags = {true, false, false, true, false};
-```
-
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/arrays/images/arrays-figure2.png" width=100px></center>
-
-
-# Reference copy
-
-Copying an array (source) into another array (destination) using the `=` operator makes the destination refer to the same collection of items as the source.
-
-#### Example
-
-```java
-int[] a = {10, 70, 20, 90};
+int[] a = {10, 20, 30};
 int[] b = a;
-b[2] = -30; //a[2] is also -30 now
+b[0] = 99;
+System.out.println(a[0]);   // 99 !
 ```
 
-The outcome is represented by the following memory diagrams,
+Apply the two-step rule to `int[] b = a;`:
 
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/arrays/images/arrays-figure3.png" width=250px></center>
+1. Evaluate the RHS: `a` evaluates to its value, which is a **reference** to the array.
+2. Copy that value into `b`.
 
-or the more compact diagram,
+So `a` and `b` now hold the *same reference*. There is only one array, with two names for it. Changing it through `b` changes what you see through `a`.
 
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/arrays/images/arrays-figure4.png" width=130px></center>
+```mermaid
+flowchart LR
+    a["a"] --> arr["99, 20, 30"]
+    b["b"] --> arr
+```
 
-
-# Instance copy
-
-An *instance copy* is when you create an array of the same size as the source array and then copy each item one by one.
-
-#### Example
+To get an independent copy, create a new array and copy the items across:
 
 ```java
-int[] a = {10, 70, 20, 90};
 int[] c = new int[a.length];
-for(int i=0; i < a.length; i++) {
-	c[i] = a[i];
+for (int i = 0; i < a.length; i++) {
+    c[i] = a[i];
 }
-c[2] = -30; // a[2] won't change
+c[0] = 1;                    // a is unaffected
 ```
 
-The outcome is represented by the following memory diagrams,
+For the same reason, `a == c` compares **references**: it is `true` only if both refer to the very same array, even if two different arrays hold the same items.
 
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/arrays/images/arrays-figure5.png" width=400px></center>
+## Arrays and functions
 
-or the more compact diagram,
-
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/arrays/images/arrays-figure6.png" width=300px></center>
-
-
-# Exercises
-
-## Exercise 1 
-
-Draw the memory diagram for the following code,
+Passing an array to a function copies the **reference**, just as `int[] b = a;` does. The parameter and the caller's variable then refer to the same array, so the function **can** change the caller's array:
 
 ```java
-int[] data = new int[]{50, 90, 30, 20, 60};
-```
-
-## Exercise 2
-
-Draw the memory diagram for the following code,
-
-```java
-int[] data = new int[6];
-for(int i=0; i < data.length; i++) {
-	if(i%2 == 0) {
-		data[i] = 2*i+1;
-	}
-	else {
-		data[i] = -3*i;
-	}
+public static void doubleAll(int[] data) {
+    for (int i = 0; i < data.length; i++) {
+        data[i] = data[i] * 2;
+    }
 }
+
+int[] values = {1, 2, 3};
+doubleAll(values);
+// values is now {2, 4, 6}
 ```
 
-## Exercise 3
+Compare this with passing an `int`, where the function only gets a copy of the value and [cannot change the caller's variable]({{ site.baseurl }}/comp1010/comp1000-revision/functions#parameters-are-copies).
 
-Write a piece of code that creates the arrays represented in the following diagram.
-
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/arrays/images/arrays-figure7.png" width=300px></center>
-
-
-## Exercise 4
-
-Draw the memory diagram for the following code,
+Functions can also return arrays:
 
 ```java
-int[] a = {4,8,15,16,23,42};
-int[] b = a;
-b[2] = 100;
-b = new int[]{104,101,108,108,111};
+public static int[] firstN(int n) {
+    int[] result = new int[n];
+    for (int i = 0; i < n; i++) {
+        result[i] = i + 1;
+    }
+    return result;
+}
+
+int[] nums = firstN(4);   // {1, 2, 3, 4}
 ```
 
-## Exercise 5
+### Handling `null`
 
-Write a piece of code that creates an array with 100 integers, each between 1 and 20. Count the number of items that are divisible by the item after them.
-
-For example, if the first few items of the array are `{20, 5, 8, 4, 4, ...}`, 20 is divisible by 5, 8 is divisible by 4, and 4 is divisible by 4, so we have 3 such items so far.
-
-## Exercise 6
-
-Consider the following piece of code.
+An array variable can hold the special value `null`, meaning "no array at all". Reading `.length` or any item of a `null` array crashes with a `NullPointerException`. A robust function checks for it first:
 
 ```java
-int[] items = new int[10];
-items[0] = 1;
-for(int i=1; i < items.length; i++) {
-	items[i] = 2 * items[i-1];
+public static int sum(int[] data) {
+    if (data == null) {
+        return 0;
+    }
+    int total = 0;
+    for (int i = 0; i < data.length; i++) {
+        total = total + data[i];
+    }
+    return total;
 }
 ```
 
-What are the contents of the array `items`?
+## Exercises
 
+{% capture a_p1 %}
+What is the output?
 
-# Coding in the real life
+```java
+int[] x = new int[4];
+x[1] = 7;
+x[3] = x[1] * 2;
+x[0] = x[3] - x[2];
+for (int i = 0; i < x.length; i++) {
+    System.out.print(x[i] + " ");
+}
+```
+{% endcapture %}
+{% capture a_s1 %}
+`x` starts as `{0, 0, 0, 0}`.
 
+- `x[1] = 7` → `{0, 7, 0, 0}`
+- `x[3] = 14` → `{0, 7, 0, 14}`
+- `x[0] = 14 - 0` → `{14, 7, 0, 14}`
 
-## SCENARIO 1
-The ages of 20 people is stored in an array `ageList`. Write a piece of code that determines the range of the distribution. That is, the age difference between the oldest and the youngest person.
+Output: `14 7 0 14 `
+{% endcapture %}
+{% include exercise.html title="Exercise 1: Trace it" problem=a_p1 solution=a_s1 %}
 
-## SCENARIO 2
-The state of 25 electrical switches is held in an array `smartSwitches`. The states can be "On" (true) or "Off" (false). Write a piece of code that toggles all switches. That is, all switches that are currently "On" should turn "Off", and all switches that are currently "Off" should turn "On".
+{% capture a_p2 %}
+What is the output?
 
-## SCENARIO 3
-Assume that we are encoding birthdays as integers where 1st january is 1, 2nd january is 2, and so on till 31st december is 366 (remember that 29th february will also be given an integer mapping).
+```java
+int[] p = {1, 2, 3};
+int[] q = p;
+int[] r = {1, 2, 3};
+q[2] = 10;
+System.out.println(p[2] + " " + r[2]);
+System.out.println((p == q) + " " + (p == r));
+```
+{% endcapture %}
+{% capture a_s2 %}
+```
+10 3
+true false
+```
 
-The birthdays of 1000 people is stored in an array `bdays`. Write a piece of code that displays the most frequent date of birth. For the basic version, you may display an integer between 1 and 366. For the advanced version, display the actual data in `DD/MM` format.
+`q` holds the same reference as `p`, so changing `q[2]` changes `p[2]`. `r` is a separate array that happens to hold the same values, so `p == r` is `false`.
+{% endcapture %}
+{% include exercise.html title="Exercise 2: References" problem=a_p2 solution=a_s2 %}
 
-## SCENARIO 4
-I keep track of the time taken (in minutes) to run each kilometer over a 100km race (let me dream!). These times are stored in an array `lapTimes`. For example, if `lapTimes[0]` is 6.23, it means I ran the first kilometer in 6 minutes 13.8 seconds. 
+{% capture a_p3 %}
+Write a function `countEven` that returns how many items of an `int` array are even. Return `0` if the array is `null`.
+{% endcapture %}
+{% capture a_s3 %}
+```java
+public static int countEven(int[] data) {
+    if (data == null) {
+        return 0;
+    }
+    int count = 0;
+    for (int i = 0; i < data.length; i++) {
+        if (data[i] % 2 == 0) {
+            count++;
+        }
+    }
+    return count;
+}
+```
+{% endcapture %}
+{% include exercise.html title="Exercise 3: Count even items" problem=a_p3 solution=a_s3 %}
 
-Write a piece of code that determines my fastest lap (for example, display "Kilometer 0-1" if the first kilometer was the fastest, and "Kilometer 63-64" if the 64th kilometer was the fastest.)
+{% capture a_p4 %}
+Write a function `reverse` that **returns a new array** containing the items of the given array in reverse order. The original array must not change.
 
-## SCENARIO 5
+For example, if `data` is `{4, 8, 15, 16}`, the function returns `{16, 15, 8, 4}`.
+{% endcapture %}
+{% capture a_s4 %}
+```java
+public static int[] reverse(int[] data) {
+    int[] result = new int[data.length];
+    for (int i = 0; i < data.length; i++) {
+        result[i] = data[data.length - 1 - i];
+    }
+    return result;
+}
+```
+{% endcapture %}
+{% include exercise.html title="Exercise 4: Reverse into a new array" problem=a_p4 solution=a_s4 %}
 
-For the same scenario of the 100km run, find the fastest stretch of 10 kms (for example, display "Kilometer 13-23" if the stretch starting at 13 kilometers and ending at 23 kilometers was the fastest.)
+{% capture a_p5 %}
+This function is meant to return the index of the smallest item in a non-empty array. Find the two bugs.
 
+```java
+public static int indexOfMin(int[] data) {
+    int minIndex = 0;
+    for (int i = 1; i <= data.length; i++) {
+        if (data[i] < minIndex) {
+            minIndex = i;
+        }
+    }
+    return minIndex;
+}
+```
+{% endcapture %}
+{% capture a_s5 %}
+1. `i <= data.length` goes one past the last valid index, which causes an `ArrayIndexOutOfBoundsException`. It should be `i < data.length`.
+2. `data[i] < minIndex` compares an item with an *index*. It should compare with the smallest item so far: `data[i] < data[minIndex]`.
 
-## SCENARIO 6
-
-For the same scenario of the 100km run, find the fastest stretch of `N` kms where `N` can be any value between 1 and 100 (inclusive on both sides).
-
-## SCENARIO 7 (Advanced)
-
-Implement scenario 6 again, but this time only use a single loop in your solution (If you were already only using one loop, well done!)
-
-<!--
-better for arrays and functions
-Create an array that holds the first 1000 prime numbers (a number is *prime* if it is more than or equal to 2 and is divisible by only 1 and itself).-->
+```java
+public static int indexOfMin(int[] data) {
+    int minIndex = 0;
+    for (int i = 1; i < data.length; i++) {
+        if (data[i] < data[minIndex]) {
+            minIndex = i;
+        }
+    }
+    return minIndex;
+}
+```
+{% endcapture %}
+{% include exercise.html title="Exercise 5: Debug" problem=a_p5 solution=a_s5 %}

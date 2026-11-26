@@ -9,264 +9,364 @@ nav_order: 2
 - TOC
 {:toc}
 
+## Making decisions
 
+So far, every statement in a program runs exactly once, top to bottom. A **condition** lets the program choose which statements to run, based on a `boolean` value.
 
-Conditions are based on *boolean expressions* and the program takes a specific course based on whether these expressions evaluate to `true` or `false`.
+Every condition is controlled by a **boolean expression**: an expression whose value is `true` or `false`. If you need a refresher on `==`, `<`, `&&`, `||` and `!`, see [Variables and Operators]({{ site.baseurl }}/comp1010/comp1000-revision/variables-and-operators#relational-operators).
 
-## An `if` condition
-An `if` condition executes the conditional code only if the expression is evaluated to `true` and then the rest of the code. If the expression is evaluated to `false`, it executes the rest of the code directly.
+## `if`
 
 ```java
-if(boolean expression) {
-	conditional code
+if (booleanExpression) {
+    // runs only when booleanExpression is true
 }
-rest of the code
+// always runs
 ```
-<div>
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/conditions/images/ifCondition.png" style="width: 200px;"/></center>
-</div>
 
-<!-- comment -->
+```mermaid
+flowchart TD
+    A{"booleanExpression?"} -->|true| B["if-block"]
+    A -->|false| C["rest of the code"]
+    B --> C
+```
 
 Example:
 
 ```java
-int x = 10;
-int result = 5;
-if(x > 8) {
-	result = result + 1;
+int temperature = 34;
+String advice = "Enjoy your day";
+if (temperature > 30) {
+    advice = "Stay hydrated";
 }
-print(result);
+System.out.println(advice);   // Stay hydrated
 ```
 
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/conditions/images/ifExample.png" style="width: 300px;"/></center>
+If `temperature` were `20`, the if-block would be skipped and the output would be `Enjoy your day`.
 
+## `if-else`
 
-The above code executes the conditional code, increasing `result` by 1 and displaying the value 6.
-
-## An `if-else` condition
-An `if-else` condition executes the if-block if the expression is evaluated to `true` and the else-block if the expression is evaluated to `false`. The rest of code is executes after either case.
+Exactly one of the two blocks runs, never both and never neither.
 
 ```java
-if(boolean expression) {
-	if-block statements
+if (booleanExpression) {
+    // runs when booleanExpression is true
 }
 else {
-	else-block statements
+    // runs when booleanExpression is false
 }
-rest of the code
 ```
 
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/conditions/images/ifElseCondition.png" style="width: 300px;"/></center>
+```mermaid
+flowchart TD
+    A{"booleanExpression?"} -->|true| B["if-block"]
+    A -->|false| C["else-block"]
+    B --> D["rest of the code"]
+    C --> D
+```
 
 Example:
 
 ```java
-int x = 13;
-boolean isEven;
-if(x % 2 == 0) {
-  isEven = true;
+int n = 13;
+String parity;
+if (n % 2 == 0) {
+    parity = "even";
 }
 else {
-  isEven = false;
+    parity = "odd";
 }
-println(isEven);
 ```
 
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/conditions/images/ifElseExample.png" style="width: 250px;"/></center>
+{: .note}
+> When an `if-else` only chooses between two values for a `boolean` variable, you can usually assign the boolean expression directly:
+>
+> ```java
+> boolean isEven = n % 2 == 0;
+> ```
 
-The else-block is executed in the above code, `isEven` becomes `false`, and is displayed on the console.
+## `if-else if-else` chains
 
+When there are more than two outcomes, chain the conditions. Java checks them **from top to bottom** and runs the block of the **first** condition that is `true`. The remaining conditions are not even checked. The final `else` (optional) runs if none of the conditions is `true`.
 
-## Exercises for conditions
-
-### EXERCISE 1
-
-Draw a flowchart for the following code and determine the values of `a, b, c` after the code executes.
- 
 ```java
-int a = 5, b = 2, c = 10;
-if(a < b) {
-	if(c == a) {
-		c = c + 1;
-	}
+int mark = 72;
+String grade;
+if (mark >= 85) {
+    grade = "HD";
+}
+else if (mark >= 75) {
+    grade = "D";
+}
+else if (mark >= 65) {
+    grade = "Cr";
+}
+else if (mark >= 50) {
+    grade = "P";
 }
 else {
-	if(b < c) {
-		b = c - a;
-	}
-	else {
-		a = 0;
-	}
+    grade = "F";
 }
+// grade is "Cr"
 ```
 
-### EXERCISE 2
+When Java reaches `else if (mark >= 75)`, it already knows `mark >= 85` was `false`. So each branch only has to check the lower bound.
 
-Write a piece of code for the following flowchart and determine the values of `a, b, c` after the code executes.
+### Order matters
 
-
-### EXERCISE 3
-
-What is wrong with the following code? Draw a flowchart to illustrate the problem. Write the corrected code.
+What happens if we write the same chain in a different order?
 
 ```java
-int a = (int)random(6);
-int b = (int)random(6);
-int max;
-if(a > b) {
-	max = a;
+if (mark >= 50) {
+    grade = "P";
 }
-if(b >= a) {
-	max = b;
+else if (mark >= 65) {
+    grade = "Cr";
 }
-println(max);
-```
-
-Solution:
-
-Both assignment operators are conditional and it is possible, in terms of control flow, that neither of the assignment operators are executed (although mathematically it's not possible in this case). You will get a *Variable max may not have been initialized* error. Diagram of the buggy code:
-
-<center><img src="{{ site.baseurl }}/assets/comp1010/comp1000-revision/conditions/images/buggyCode.png" style="width: 300px;"/></center>
-
-
-Corrected code:
-
-
-```java
-int a = (int)random(6);
-int b = (int)random(6);
-int max;
-if(a > b) {
-	max = a;
+else if (mark >= 75) {
+    grade = "D";
+}
+else if (mark >= 85) {
+    grade = "HD";
 }
 else {
-	max = b;
+    grade = "F";
 }
-println(max);
 ```
 
-## Coding to a truth table
+Every passing mark matches `mark >= 50` first, so everyone who passes gets `"P"`, even with a mark of 99. The other branches can never run. In a chain, put the most specific (most restrictive) conditions first.
 
-A truth table is one that gives us the required output for some given inputs. For example, in the following table, for inputs `x` and `y`, the desired values for `exp` are provided.
+### A chain is not the same as separate `if`s
 
-| x     | y     | exp   |
-|-------|-------|-------|
-| false | false | false |
-| false | true  | true  |
-| true  | false | true  |
-| true  | true  | false |
+```java
+// Version A: chain
+if (x > 0) {
+    count = count + 1;
+}
+else if (x > 10) {
+    count = count + 10;
+}
 
-It can be seen that `exp` is `true` when,
-
-- `x = true` and `y = false`, or,
-- `x = false` and `y = true`
-
-We can write this as,
-
-```
-exp = (x && !y) || (!x && y)
-```
-
-However, you can see that `exp` is `true` only when `x` and `y` hold different values. So we can also write a simpler expression as,
-
-```
-exp = (x!=y);
+// Version B: separate if statements
+if (x > 0) {
+    count = count + 1;
+}
+if (x > 10) {
+    count = count + 10;
+}
 ```
 
-Consider the following scenario: we are given three boolean inputs `a, b, c`. We want an output value `d` based on the following truth table:
+For `x = 20`, version A adds 1 (only the first matching branch runs), while version B adds 11 (each `if` is checked independently). Use a chain when the outcomes are **mutually exclusive**. Use separate `if`s when each check is an **independent** decision.
 
-| a     | b     | c     | exp   |
-|-------|-------|-------|-------|
-| false | false | false | true  |
-| false | false | true  | true  |
-| false | true  | false | false |
-| false | true  | true  | false |
-| true  | false | false | false |
-| true  | false | true  | false |
-| true  | true  | false | false |
-| true  | true  | true  | true  |
+## Nested conditions
 
-When is `exp = true`? In the following cases:
+The block of a condition can contain any statements, including other conditions:
 
-- `a = false, b = false, c = false`
-- `a = false, b = false, c = true `
-- `a = true, b = true, c = true `
-
-The first and third conditions can be combined as
-
-```
-a == b && b == c
+```java
+if (age >= 18) {
+    if (hasTicket) {
+        status = "Enter";
+    }
+    else {
+        status = "Buy a ticket first";
+    }
+}
+else {
+    status = "Too young";
+}
 ```
 
-The second condition is
+A nested `if` with no `else` can often be flattened using `&&`:
 
+```java
+if (age >= 18) {
+    if (hasTicket) {
+        status = "Enter";
+    }
+}
+// is equivalent to
+if (age >= 18 && hasTicket) {
+    status = "Enter";
+}
 ```
-!a && !b && c
+
+## Common mistakes
+
+### A semicolon after the condition
+
+```java
+if (x > 100); {
+    System.out.println("big");
+}
 ```
 
-Thereby our overall expression is,
+The `;` ends the `if` statement with an empty body. The block `{ ... }` that follows is just an ordinary block, so it **always** runs. Never put a semicolon after `if (...)`.
 
+### Missing braces
+
+```java
+if (x > 100)
+    System.out.println("big");
+    System.out.println("really big");   // NOT part of the if!
 ```
-exp = (a==b &&b==c) || (!a && !b && c)
+
+Without braces, only the first statement belongs to the `if`. The indentation is misleading: the second line always runs. Always use braces, even for a single statement.
+
+### `=` instead of `==`
+
+```java
+if (x = 5) { ... }    // does not compile in Java
 ```
 
-Of course, there are better ways to optimize expression building, but for our purpose, this is sufficient.
+`x = 5` is an assignment, and its value is the `int` `5`. A condition needs a `boolean`, so Java reports `incompatible types: int cannot be converted to boolean`. Compare with `==`.
 
-## Coding in the real world
+### Comparing with `== true`
 
-When will the requirements be as clearly stated as a truth table? *Almost never!*
+```java
+if (isValid == true) { ... }   // works, but redundant
+if (isValid) { ... }           // preferred
 
-We need to code to vague/abstract/hazy requirements and in this section, we'll take a look as such scenarios.
+if (isValid == false) { ... }  // works, but redundant
+if (!isValid) { ... }          // preferred
+```
 
-## SCENARIO 1
+### Comparing `String`s with `==`
 
-There are students enrolled in degrees and can graduate if they are enrolled in a non-honors undergraduate course and have completed 72 credit points or more, or enrolled in an honors course and have completed 96 credit points or more, or if they are enrolled in a postgraduate program and have completed 48 credit points or more. Write a piece of code that determines if a specific student is eligible to graduate or not. You may assume that the following inputs are available:
+For `String`s, `==` checks whether two variables refer to the *same object* in memory, not whether they contain the same text. Use `.equals`:
 
-1. Course in which student is enrolled: `String`. Can be either `"UG"`/ `"UG (Hons)"`/ `"PG"`
-2. Number of credit points completed: `int`.
+```java
+if (name.equals("Alice")) { ... }
+```
 
-Note: you can check if a `String s` equals another `String t` using `s.equals(t)` and NOT  `s == t`. Reasons why will be discussed in `COMP1010`. 
-Case insensitive comparison is performed using `s.equalsIgnoreCase(t)`.
+## Coding from a truth table
 
-## SCENARIO 2
+Sometimes the requirement is given as a table of inputs and outputs. For example, a function that decides whether an alarm sounds:
 
-A website offers discounts based on item categories and quantities. There are four categories - A, B, C, and D. For all categories except D, the following rules exist,
+| `doorOpen` | `armed` | alarm? |
+|------------|---------|--------|
+| `false`    | `false` | no     |
+| `false`    | `true`  | no     |
+| `true`     | `false` | no     |
+| `true`     | `true`  | yes    |
 
-- Less than 2 items: no discount
-- Between 2 and 5 items: 15% discount
-- Between 6 and 10 items: 25% discount
-- More than 10 items: 30% discount
+The alarm sounds in exactly one row, where both are `true`:
 
+```java
+boolean alarm = doorOpen && armed;
+```
 
-For category D, there is a 1% discount for every item purchased, up to a maximum of 50 items (and hence a maximum of 50% discount).
+A useful approach: look at the rows that produce `true`, write an `&&` expression for each row, and join the rows with `||`. Then simplify if you can.
 
-Write a piece of code that outputs the percentage discount for a given category (stored in `char cateogry` that can be either `'A'`, `'B'`, `'C'`, or `'D'`) and quantity (stored in `int quantity`).
+## Exercises
 
-## SCENARIO 3
+{% capture c_p1 %}
+What is the value of `result` after this code executes, for `x = 4`, `x = 7` and `x = 12`?
 
-The shopping mall charges for parking based on the following rules:
+```java
+int result = 0;
+if (x > 5) {
+    result = result + 10;
+}
+if (x > 10) {
+    result = result + 100;
+}
+else {
+    result = result + 1;
+}
+```
+{% endcapture %}
+{% capture c_s1 %}
+The first `if` and the `if-else` are separate statements, so both are checked.
 
-- under 3 hours: Free
-- 3 hours to 3 hours 29 minutes: $4
-- 3 hours 30 minutes to 3 hours 59 minutes: $7
-- 4 hours to 4 hours 29 minutes: $11
-- 4 hours 30 minutes to 4 hours 59 minutes: $16
-- 5 hours to 5 hours 29 minutes: $22
-- 5 hours 30 minutes to 5 hours 59 minutes: $30
-- 6 hours or over: $40
+- `x = 4`: first `if` is false. Then `x > 10` is false, so +1. `result` is `1`.
+- `x = 7`: +10, then +1. `result` is `11`.
+- `x = 12`: +10, then +100. `result` is `110`.
+{% endcapture %}
+{% include exercise.html title="Exercise 1: Trace it" problem=c_p1 solution=c_s1 %}
 
-Given the number of hours and minutes in two variables, write a piece of code that stores the parking cost in a variable `parkingFee`.
+{% capture c_p2 %}
+Given `int`s `a`, `b` and `c`, write code that stores the largest of the three in a variable `max`.
+{% endcapture %}
+{% capture c_s2 %}
+```java
+int max = a;
+if (b > max) {
+    max = b;
+}
+if (c > max) {
+    max = c;
+}
+```
 
-## SCENARIO 4
+Starting with "the answer so far" and updating it is a pattern you will use again with [loops]({{ site.baseurl }}/comp1010/comp1000-revision/loops) and [arrays]({{ site.baseurl }}/comp1010/comp1000-revision/arrays).
+{% endcapture %}
+{% include exercise.html title="Exercise 2: Largest of three" problem=c_p2 solution=c_s2 %}
 
-Write a piece of code to address the same problem as in scenario 3, but an additional rule. Weekend (Sat, Sun) parking incurs a flat rate of $4 per 30 minutes. That is,
+{% capture c_p3 %}
+The following code is supposed to print `"teen"` for ages 13 to 19 (inclusive), `"child"` for ages below 13, and `"adult"` otherwise. Find the bug.
 
-- 0 to 29 minutes: $4
-- 30 to 59 minutes: $8
-- 60 to 89 minutes: $12
-- and so on...
+```java
+if (age < 13) {
+    System.out.println("child");
+}
+if (age <= 19) {
+    System.out.println("teen");
+}
+else {
+    System.out.println("adult");
+}
+```
+{% endcapture %}
+{% capture c_s3 %}
+The two `if`s are independent, so an age such as 8 prints **both** `"child"` and `"teen"`. Make it a single chain:
 
-An additional variable `dayOfWeek` is available and is 0 for Monday, 1 for Tuesday and so on.
+```java
+if (age < 13) {
+    System.out.println("child");
+}
+else if (age <= 19) {
+    System.out.println("teen");
+}
+else {
+    System.out.println("adult");
+}
+```
+{% endcapture %}
+{% include exercise.html title="Exercise 3: Debug" problem=c_p3 solution=c_s3 %}
 
+{% capture c_p4 %}
+A shop gives free shipping if the order total is at least $100, **or** if the customer is a member and the total is at least $50. Write a boolean expression `freeShipping` using `double total` and `boolean isMember`.
+{% endcapture %}
+{% capture c_s4 %}
+```java
+boolean freeShipping = total >= 100 || (isMember && total >= 50);
+```
+{% endcapture %}
+{% include exercise.html title="Exercise 4: Free shipping" problem=c_p4 solution=c_s4 %}
 
+{% capture c_p5 %}
+Write code that sets `int` variable `quadrant` to 1, 2, 3 or 4 depending on which quadrant the point (`x`, `y`) lies in, or to 0 if it lies on either axis.
+
+Quadrant 1 is `x > 0, y > 0`; 2 is `x < 0, y > 0`; 3 is `x < 0, y < 0`; 4 is `x > 0, y < 0`.
+{% endcapture %}
+{% capture c_s5 %}
+```java
+int quadrant;
+if (x == 0 || y == 0) {
+    quadrant = 0;
+}
+else if (x > 0 && y > 0) {
+    quadrant = 1;
+}
+else if (x < 0 && y > 0) {
+    quadrant = 2;
+}
+else if (x < 0) {   // y must be < 0 here
+    quadrant = 3;
+}
+else {
+    quadrant = 4;
+}
+```
+{% endcapture %}
+{% include exercise.html title="Exercise 5: Quadrants" problem=c_p5 solution=c_s5 %}
